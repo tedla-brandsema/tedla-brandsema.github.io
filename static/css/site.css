@@ -1,0 +1,91 @@
+/* Base document styling */
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #111;
+    line-height: 1.6;
+}
+
+/* Page layout */
+.page {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+}
+
+/* Navigation */
+nav {
+    font-size: 0.95rem;
+}
+
+nav h2 {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0.4rem 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #111;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation visual separation */
+.nav-divider {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    color: #444;
+    border-top: 1px solid #dadce0;
+}
+
+.nav-divider a {
+    color: #444;
+}
+
+/* Main content */
+main {
+    max-width: 800px;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.25;
+}
+
+/* Content separation (hr replacement) */
+.divider {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #dadce0;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .page {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        margin-bottom: 2rem;
+    }
+}
