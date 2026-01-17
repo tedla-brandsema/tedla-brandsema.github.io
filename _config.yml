@@ -1,0 +1,11 @@
+title: tedla.dev
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: none
+exclude:
+  - README.md
+  - vendor
+  - vendor/bundle
+  - Gemfile
+  - Gemfile.lock

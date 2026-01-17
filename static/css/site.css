@@ -7,6 +7,20 @@ body {
     line-height: 1.6;
 }
 
+/* Code blocks */
+pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+
 /* Page layout */
 .page {
     max-width: 1100px;

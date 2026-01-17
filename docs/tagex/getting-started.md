@@ -1,0 +1,206 @@
+---
+layout: default
+title: Tagex — Getting started
+---
+
+<nav>
+  <h2>Tagex</h2>
+  <ul>
+    <li><a href="index.html">Overview</a></li>
+    <li><strong>Getting started</strong></li>
+    <li><a href="guides/">Guides</a></li>
+  </ul>
+
+  <div class="nav-divider">
+    <ul>
+      <li><a href="https://github.com/tedla-brandsema/tagex">GitHub</a></li>
+      <li><a href="https://pkg.go.dev/github.com/tedla-brandsema/tagex">GoDoc</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <h1>Getting started</h1>
+
+  <p>
+    Tagex is a Go library for executing <strong>typed logic</strong> based on
+    <strong>struct tags</strong>.
+  </p>
+
+  <p>
+    You define <em>directives</em> — small, focused pieces of Go code —
+    register them under a tag key, and then apply them to struct fields
+    using standard Go struct tags.
+  </p>
+
+  <section class="divider">
+    <h2>The mental model</h2>
+
+    <p>
+      Tagex has four core concepts:
+    </p>
+
+    <ul>
+      <li><strong>Tag</strong> — a processing context, identified by a struct tag key</li>
+      <li><strong>Directive</strong> — typed logic applied to a field</li>
+      <li><strong>Parameters</strong> — values mapped into the directive</li>
+      <li><strong>Processing</strong> — walking a struct and executing directives</li>
+    </ul>
+
+    <p>
+      Nothing is implicit: every directive is registered explicitly,
+      parameters are mapped explicitly, and execution order is deterministic.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>1. Define a directive</h2>
+
+    <p>
+      A directive is a struct that implements <code>tagex.Directive[T]</code>,
+      where <code>T</code> is the field type it operates on.
+    </p>
+
+<pre><code class="language-go">
+type RangeDirective struct {
+    Min int `param:"min"`
+    Max int `param:"max"`
+}
+
+func (d *RangeDirective) Name() string {
+    return "range"
+}
+
+func (d *RangeDirective) Mode() tagex.DirectiveMode {
+    return tagex.EvalMode
+}
+
+func (d *RangeDirective) Handle(val int) (int, error) {
+    if val < d.Min || val > d.Max {
+        return val, fmt.Errorf("value %d out of range", val)
+    }
+    return val, nil
+}
+</code></pre>
+
+    <p>
+      The <code>param</code> tags tell Tagex which directive fields should
+      receive values from the struct tag.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>2. Create a tag context</h2>
+
+    <p>
+      A <code>Tag</code> represents a processing environment for a single
+      struct tag key.
+    </p>
+
+<pre><code class="language-go">
+checkTag := tagex.NewTag("check")
+tagex.RegisterDirective(&checkTag, &RangeDirective{})
+</code></pre>
+
+    <p>
+      Directives are registered by name and are looked up when processing
+      struct fields.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>3. Annotate a struct</h2>
+
+<pre><code class="language-go">
+type Car struct {
+    Doors int `check:"range, min=2, max=4"`
+}
+</code></pre>
+
+    <p>
+      The tag format is:
+    </p>
+
+<blockquote>
+  <code>key:"directive, param=value, ..."</code>
+</blockquote>
+
+    <ul>
+      <li>The first element selects the directive</li>
+      <li>Remaining elements are <code>key=value</code> parameters</li>
+    </ul>
+  </section>
+
+  <section class="divider">
+    <h2>4. Process the struct</h2>
+
+<pre><code class="language-go">
+car := Car{Doors: 5}
+ok, err := checkTag.ProcessStruct(&car)
+</code></pre>
+
+    <p>
+      Processing performs the following steps:
+    </p>
+
+    <ol>
+      <li>Optional <code>Before()</code> hook</li>
+      <li>Directive execution for each tagged field</li>
+      <li>Optional <code>After()</code> hook</li>
+    </ol>
+
+    <p>
+      Evaluation is short-circuiting: the first error stops processing.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Evaluation vs mutation</h2>
+
+    <p>
+      Directives can either:
+    </p>
+
+    <ul>
+      <li><strong>Evaluate</strong> a field (<code>EvalMode</code>)</li>
+      <li><strong>Mutate</strong> a field (<code>MutMode</code>)</li>
+    </ul>
+
+    <p>
+      In mutation mode, the value returned from <code>Handle</code> is written
+      back to the struct field.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Pre and post processing</h2>
+
+    <p>
+      If the target struct implements:
+    </p>
+
+    <ul>
+      <li><code>Before() error</code></li>
+      <li><code>After() error</code></li>
+    </ul>
+
+    <p>
+      These hooks are invoked automatically around directive execution.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Next steps</h2>
+
+    <ul>
+      <li>Writing mutating directives</li>
+      <li>Custom parameter converters</li>
+      <li>Error handling and composition</li>
+      <li>Designing reusable directive libraries</li>
+    </ul>
+
+    <p>
+      These topics are covered in the <a href="guides/">Guides</a> section.
+    </p>
+  </section>
+</main>
