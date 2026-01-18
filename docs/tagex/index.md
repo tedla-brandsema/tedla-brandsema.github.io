@@ -3,21 +3,7 @@ layout: default
 title: Tagex — Overview
 ---
 
-<nav>
-  <h2>Tagex</h2>
-  <ul>
-    <li><strong>Overview</strong></li>
-    <li><a href="getting-started.html">Getting started</a></li>
-    <li><a href="guides/">Guides</a></li>
-  </ul>
-
-  <div class="nav-divider">
-    <ul>
-      <li><a href="https://github.com/tedla-brandsema/tagex">GitHub</a></li>
-      <li><a href="https://pkg.go.dev/github.com/tedla-brandsema/tagex">GoDoc</a></li>
-    </ul>
-  </div>
-</nav>
+ {% include nav-tagex.html %}
 
 <main>
   <h1>Tagex</h1>

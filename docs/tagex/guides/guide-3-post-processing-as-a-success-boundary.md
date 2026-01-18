@@ -1,0 +1,231 @@
+---
+layout: default
+title: Tagex Guide 3 — PostProcessing as a success boundary
+---
+
+ {% include nav-tagex.html %}
+
+<main>
+  <h1>PostProcessing as a success boundary</h1>
+
+  <p>
+    In the previous guides, we used tags to apply behavior
+    and to select semantics based on capability.
+  </p>
+
+  <p>
+    In this guide, we introduce Tagex’s most powerful abstraction:
+    <strong>PostProcessing as a guaranteed success path</strong>.
+  </p>
+
+  <section class="divider">
+    <h2>The missing abstraction in most code</h2>
+
+    <p>
+      In typical Go code, success is implicit.
+      You know something worked because nothing failed.
+    </p>
+
+    <p>
+      This leads to patterns like:
+    </p>
+
+<pre><code class="language-go">
+if err := normalize(row); err != nil { return err }
+if err := applyLimits(row); err != nil { return err }
+if err := persist(row); err != nil { return err }
+</code></pre>
+
+    <p>
+      The problem is not correctness — it is <em>structure</em>:
+    </p>
+
+    <ul>
+      <li>Success is inferred, not explicit</li>
+      <li>Logic is scattered</li>
+      <li>Boilerplate grows linearly</li>
+      <li>Data and consequence are disconnected</li>
+    </ul>
+  </section>
+
+  <section class="divider">
+    <h2>Tagex’s guarantee</h2>
+
+    <p>
+      Tagex introduces a strong invariant:
+    </p>
+
+    <blockquote>
+      <strong>If <code>After()</code> runs, all tagged semantics have succeeded.</strong>
+    </blockquote>
+
+    <p>
+      This is not a convention.
+      It is enforced by the execution model.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Declaring the success path</h2>
+
+    <p>
+      Consider an import pipeline where data must be:
+    </p>
+
+    <ul>
+      <li>Normalized</li>
+      <li>Capability-adjusted</li>
+      <li>Only then persisted</li>
+    </ul>
+
+<pre><code class="language-go">
+type ImportRow struct {
+    SKU   string `norm:"upper"`
+    Price string `norm:"currency, locale=nl_NL"`
+    Stock int    `cap:"nonnegative"`
+
+    repo *Repository
+}
+</code></pre>
+
+    <p>
+      The struct declares all required semantics.
+      No action is taken yet.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Attaching the consequence</h2>
+
+<pre><code class="language-go">
+func (r *ImportRow) After() error {
+    return r.repo.UpsertItem(
+        r.SKU,
+        r.Price,
+        r.Stock,
+    )
+}
+</code></pre>
+
+    <p>
+      This method expresses a single idea:
+    </p>
+
+    <blockquote>
+      Persist this row <em>only if everything succeeded</em>.
+    </blockquote>
+
+    <p>
+      No flags.
+      No checks.
+      No duplicated logic.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Execution flow</h2>
+
+    <p>
+      When <code>ProcessStruct</code> is called:
+    </p>
+
+    <ol>
+      <li>All tagged directives are executed</li>
+      <li>Any error aborts processing</li>
+      <li><code>After()</code> runs only if no errors occurred</li>
+    </ol>
+
+    <p>
+      The success boundary is explicit and reliable.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Why this is powerful</h2>
+
+    <ul>
+      <li>The struct owns its success path</li>
+      <li>Data and consequence are colocated</li>
+      <li>No caller needs to “remember” what to do next</li>
+      <li>Boilerplate error handling disappears</li>
+    </ul>
+
+    <p>
+      This turns a plain data structure into
+      a <strong>semantic transaction</strong>.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Reusability and composition</h2>
+
+    <p>
+      Because semantics and consequences are attached to the struct:
+    </p>
+
+    <ul>
+      <li>The same struct can be used in batch jobs</li>
+      <li>In streaming pipelines</li>
+      <li>In tests</li>
+      <li>In one-off tools</li>
+    </ul>
+
+    <p>
+      The caller does not need to know what “success” means —
+      the struct defines it.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>PreProcessing (briefly)</h2>
+
+    <p>
+      While this guide focuses on PostProcessing,
+      it is worth noting the complementary role of PreProcessing.
+    </p>
+
+    <p>
+      <code>Before()</code> allows a struct to:
+    </p>
+
+    <ul>
+      <li>Prepare context</li>
+      <li>Initialize resources</li>
+      <li>Fail fast before any semantics run</li>
+    </ul>
+
+    <p>
+      Together, Pre- and PostProcessing form
+      a clean execution envelope.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>What this is (and is not)</h2>
+
+    <p>
+      PostProcessing is not a callback.
+      It is not an event hook.
+      It is not a side-channel.
+    </p>
+
+    <p>
+      It is a <strong>commit phase</strong>
+      that only exists if all declared semantics succeeded.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Looking ahead</h2>
+
+    <p>
+      In the next guide, we will step back and look at
+      validation as one specific use of this model —
+      evaluation without mutation or side effects.
+    </p>
+
+    <p>
+      Validation turns out to be a very small special case.
+    </p>
+  </section>
+</main>

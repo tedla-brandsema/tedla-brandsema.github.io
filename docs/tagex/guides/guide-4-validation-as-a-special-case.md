@@ -1,0 +1,220 @@
+---
+layout: default
+title: Tagex Guide 4 — Validation as a special case
+---
+
+ {% include nav-tagex.html %}
+
+<main>
+  <h1>Validation as a special case</h1>
+
+  <p>
+    By now, we have used Tagex to normalize data,
+    select behavior based on capability,
+    and define explicit success boundaries.
+  </p>
+
+  <p>
+    In this guide, we look at validation —
+    not as the primary goal of Tagex,
+    but as a <em>specific configuration</em> of its execution model.
+  </p>
+
+  <section class="divider">
+    <h2>What validation really is</h2>
+
+    <p>
+      Validation answers a narrow question:
+    </p>
+
+    <blockquote>
+      Can this value be accepted as-is?
+    </blockquote>
+
+    <p>
+      In Tagex terms, validation means:
+    </p>
+
+    <ul>
+      <li>The directive evaluates a value</li>
+      <li>The value is not mutated</li>
+      <li>Failure is expressed as an error</li>
+      <li>No side effects occur</li>
+    </ul>
+
+    <p>
+      This maps directly to <code>EvalMode</code>.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>A validation directive</h2>
+
+    <p>
+      Let’s define a simple range check.
+    </p>
+
+<pre><code class="language-go">
+type RangeDirective struct {
+    Min int `param:"min"`
+    Max int `param:"max"`
+}
+
+func (d *RangeDirective) Name() string {
+    return "range"
+}
+
+func (d *RangeDirective) Mode() tagex.DirectiveMode {
+    return tagex.EvalMode
+}
+
+func (d *RangeDirective) Handle(val int) (int, error) {
+    if val < d.Min || val > d.Max {
+        return val, fmt.Errorf(
+            "value %d out of range [%d, %d]",
+            val, d.Min, d.Max,
+        )
+    }
+    return val, nil
+}
+</code></pre>
+
+    <p>
+      This directive evaluates the field and leaves it unchanged.
+      Its only observable effect is success or failure.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Using validation declaratively</h2>
+
+<pre><code class="language-go">
+type Registration struct {
+    Age int `check:"range, min=18, max=130"`
+}
+</code></pre>
+
+    <p>
+      This looks like a traditional validation use case —
+      and it is.
+    </p>
+
+    <p>
+      The difference lies in what happens next.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Validation inside a success boundary</h2>
+
+    <p>
+      Validation becomes significantly more powerful
+      when combined with PostProcessing.
+    </p>
+
+<pre><code class="language-go">
+type Registration struct {
+    Age int `check:"range, min=18, max=130"`
+
+    repo *Repository
+}
+
+func (r *Registration) After() error {
+    return r.repo.CreateUser(r.Age)
+}
+</code></pre>
+
+    <p>
+      If <code>After()</code> runs,
+      validation has already succeeded.
+    </p>
+
+    <p>
+      There is no need to:
+    </p>
+
+    <ul>
+      <li>Check return values</li>
+      <li>Track validation state</li>
+      <li>Duplicate error handling</li>
+    </ul>
+  </section>
+
+  <section class="divider">
+    <h2>Why validation does not define Tagex</h2>
+
+    <p>
+      Validation libraries typically:
+    </p>
+
+    <ul>
+      <li>Focus exclusively on rejecting input</li>
+      <li>Accumulate error messages</li>
+      <li>Have no notion of success beyond “no errors”</li>
+    </ul>
+
+    <p>
+      Tagex, by contrast:
+    </p>
+
+    <ul>
+      <li>Executes arbitrary semantics</li>
+      <li>Supports mutation and adaptation</li>
+      <li>Defines an explicit success path</li>
+    </ul>
+
+    <p>
+      Validation fits naturally into this model,
+      but it does not drive it.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>When validation is the right tool</h2>
+
+    <p>
+      Validation works well when:
+    </p>
+
+    <ul>
+      <li>You want to reject invalid input early</li>
+      <li>Fields must remain unchanged</li>
+      <li>Failure has no side effects</li>
+    </ul>
+
+    <p>
+      Tagex supports this cleanly —
+      without committing you to validation-only thinking.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>The unifying idea</h2>
+
+    <p>
+      Normalization, capability selection, validation,
+      and post-processing all use the same mechanism:
+    </p>
+
+    <ul>
+      <li>Tags select directives</li>
+      <li>Directives define semantics</li>
+      <li>The execution model enforces guarantees</li>
+    </ul>
+
+    <p>
+      Validation is simply one point in this design space.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Next guide</h2>
+
+    <p>
+      In the next guide, we will look at
+      <em>custom converters</em> and semantic parsing,
+      and how overriding defaults lets you adapt Tagex
+      to domain-specific meaning.
+    </p>
+  </section>
+</main>

@@ -1,0 +1,198 @@
+---
+layout: default
+title: Tagex Guide 2 — Capability selection
+---
+
+ {% include nav-tagex.html %}
+
+<main>
+  <h1>Capability selection</h1>
+
+  <p>
+    In the first guide, we used tags to <em>apply behavior</em> to data.
+    In this guide, we take the next step:
+    <strong>tags can also select which behavior applies</strong>.
+  </p>
+
+  <p>
+    This is where Tagex starts to look less like data cleanup
+    and more like a semantic control mechanism.
+  </p>
+
+  <section class="divider">
+    <h2>The problem: the same data, different meaning</h2>
+
+    <p>
+      In real systems, the same struct often needs to behave differently
+      depending on context:
+    </p>
+
+    <ul>
+      <li>Free vs paid users</li>
+      <li>Development vs production</li>
+      <li>Internal vs external consumers</li>
+      <li>Different deployment tiers</li>
+    </ul>
+
+    <p>
+      This logic is usually implemented with conditionals scattered
+      across the codebase.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Declaring capabilities with tags</h2>
+
+    <p>
+      With Tagex, you can encode <em>capability-dependent semantics</em>
+      directly on fields.
+    </p>
+
+<pre><code class="language-go">
+type JobConfig struct {
+    MaxConcurrency int `cap:"limit, tier=premium"`
+}
+</code></pre>
+
+    <p>
+      This tag does not say “this value must be valid”.
+      It says:
+    </p>
+
+    <blockquote>
+      Apply the <code>limit</code> directive using the <code>premium</code> tier.
+    </blockquote>
+  </section>
+
+  <section class="divider">
+    <h2>Implementing a capability-aware directive</h2>
+
+    <p>
+      A directive is free to consult external context:
+      environment variables, configuration, licenses, or feature flags.
+    </p>
+
+<pre><code class="language-go">
+type LimitDirective struct {
+    Tier string `param:"tier"`
+}
+
+func (d *LimitDirective) Name() string {
+    return "limit"
+}
+
+func (d *LimitDirective) Mode() tagex.DirectiveMode {
+    return tagex.MutMode
+}
+
+func (d *LimitDirective) Handle(val int) (int, error) {
+    max := lookupLimitForTier(d.Tier)
+    if val > max {
+        return max, nil
+    }
+    return val, nil
+}
+</code></pre>
+
+    <p>
+      This directive does not reject values.
+      It <em>adapts</em> them to the declared capability.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Registering capability semantics</h2>
+
+<pre><code class="language-go">
+capTag := tagex.NewTag("cap")
+tagex.RegisterDirective(&capTag, &LimitDirective{})
+</code></pre>
+
+    <p>
+      The same struct can now express different behavior
+      without conditional logic in application code.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Context-sensitive processing</h2>
+
+<pre><code class="language-go">
+cfg := JobConfig{
+    MaxConcurrency: 32,
+}
+
+_, _ = capTag.ProcessStruct(&cfg)
+</code></pre>
+
+    <p>
+      Depending on the tier:
+    </p>
+
+    <ul>
+      <li>Free users might be capped at 4</li>
+      <li>Premium users might allow 16</li>
+      <li>Enterprise users might allow 64</li>
+    </ul>
+
+    <p>
+      The struct itself declares which semantics apply.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Why this is not validation</h2>
+
+    <p>
+      At no point did we ask:
+      “Is this value allowed?”
+    </p>
+
+    <p>
+      Instead, we asked:
+    </p>
+
+    <blockquote>
+      What does this value <em>mean</em> under this capability?
+    </blockquote>
+
+    <p>
+      The same input can legitimately result in different outcomes
+      depending on context.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>What capability selection buys you</h2>
+
+    <ul>
+      <li>No scattered <code>if tier == ...</code> logic</li>
+      <li>No duplicated policy enforcement</li>
+      <li>Semantics live with the data they affect</li>
+      <li>Behavior is explicit and inspectable</li>
+    </ul>
+
+    <p>
+      Tags become a declarative interface between data and policy.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Looking ahead</h2>
+
+    <p>
+      So far, directives have:
+    </p>
+
+    <ul>
+      <li>Normalized values</li>
+      <li>Selected behavior based on capabilities</li>
+    </ul>
+
+    <p>
+      In the next guide, we will look at what happens
+      <em>after all semantics have succeeded</em>,
+      and why Tagex’s post-processing model is such a powerful abstraction.
+    </p>
+  </section>
+</main>
