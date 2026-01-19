@@ -121,23 +121,7 @@ title: Tagex — Overview
 
     <p>
       There is no global state, no hidden lifecycle,
-      and no implicit ordering beyond what is declared.
-    </p>
-  </section>
-
-  <section class="divider">
-    <h2>What Tagex is not</h2>
-
-    <p>
-      Tagex is not a validation framework, although evaluation-only use cases
-      fit naturally.
-      It is not a rule engine, and it does not attempt to be a DSL.
-    </p>
-
-    <p>
-      Its goal is narrower and more deliberate:
-      to provide a small execution model that makes
-      struct-attached behavior explicit, reusable, and predictable.
+      and no implicit ordering beyond what is declared. In a nutshell: Tagex is a small execution model that makes struct-attached behavior explicit, reusable, and predictable.
     </p>
   </section>
 
