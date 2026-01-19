@@ -9,198 +9,232 @@ title: Tagex Guide 5 — Custom converters and semantic parsing
   <h1>Custom converters and semantic parsing</h1>
 
   <p>
-    Tagex includes default parameter converters for <code>string</code>,
-    <code>int</code>, <code>float64</code>, and <code>bool</code>.
-    These defaults are intentionally small and unsurprising.
+    So far, we have treated directive parameters as simple values:
+    numbers, strings, booleans.
   </p>
 
   <p>
-    But real tag languages often want <strong>domain literals</strong> instead of
-    programmer literals.
+    In this guide, we make an important shift:
+    <strong>parameters are not values — they are domain literals</strong>.
+  </p>
+
+  <p>
+    Tagex embraces this by letting each directive define
+    <em>how its own parameters are parsed</em>.
   </p>
 
   <section class="divider">
-    <h2>Why override converters?</h2>
+    <h2>The problem: one type, many meanings</h2>
 
     <p>
-      The default <code>int</code> converter uses <code>strconv.Atoi</code>.
-      That means tag parameters must look like this:
+      Consider the following struct:
     </p>
 
 <pre><code class="language-go">
-`net:"timeout_ms, value=250"`
-`net:"max_bytes, value=10485760"`
-</code></pre>
-
-    <p>
-      This is precise, but it is not readable.
-      Humans naturally write:
-    </p>
-
-<pre><code class="language-go">
-`net:"timeout, value=250ms"`
-`net:"max_bytes, value=10MiB"`
-</code></pre>
-
-    <p>
-      That’s the core motivation for custom converters:
-      <strong>make tags express meaning directly</strong>.
-    </p>
-  </section>
-
-  <section class="divider">
-    <h2>Example: durations as parameters</h2>
-
-    <p>
-      Let’s build a directive that configures a timeout.
-      The directive wants an <code>int</code> representing milliseconds.
-      Without a custom converter, you must encode milliseconds manually.
-    </p>
-
-<pre><code class="language-go">
-type TimeoutDirective struct {
-    // milliseconds
-    Value int `param:"value"`
-}
-
-func (d *TimeoutDirective) Name() string { return "timeout" }
-func (d *TimeoutDirective) Mode() tagex.DirectiveMode { return tagex.EvalMode }
-
-// This directive is intentionally trivial: it just demonstrates parameter meaning.
-func (d *TimeoutDirective) Handle(_ string) (string, error) {
-    return "", nil
+type Limits struct {
+    MaxSize   int64 `units:"bytes, max=10MiB"`
+    TimeoutMs int64 `units:"duration, value=250ms"`
 }
 </code></pre>
 
     <p>
-      We want tags like:
+      Both parameters:
     </p>
 
-<blockquote>
-  <code>`net:"timeout, value=250ms"`</code>
-</blockquote>
+    <ul>
+      <li>Start as raw strings (<code>"10MiB"</code>, <code>"250ms"</code>)</li>
+      <li>End up as <code>int64</code></li>
+    </ul>
 
     <p>
-      But <code>strconv.Atoi("250ms")</code> fails.
-      So we override the <code>int</code> converter for this tag.
+      But they clearly do <em>not</em> share a grammar.
+    </p>
+
+    <p>
+      Parsing these values with a shared, type-based converter
+      would require:
+    </p>
+
+    <ul>
+      <li>Guessing intent</li>
+      <li>Branching on directive names</li>
+      <li>Hidden coupling between unrelated semantics</li>
+    </ul>
+
+    <p>
+      Tagex avoids this entirely by making parsing
+      a responsibility of the directive itself.
     </p>
   </section>
 
   <section class="divider">
-    <h2>Implementing a duration-aware int converter</h2>
+    <h2>Directive-owned parameter parsing</h2>
+
+    <p>
+      A directive may implement custom parameter parsing
+      by providing a <code>ConvertParam</code> method.
+    </p>
+
+    <p>
+      This method receives:
+    </p>
+
+    <ul>
+      <li>The directive parameter field</li>
+      <li>The raw string from the tag</li>
+      <li>The destination value to populate</li>
+    </ul>
+
+    <p>
+      Nothing is inferred.
+      Nothing is shared.
+      Meaning stays local.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Example: parsing byte sizes</h2>
 
 <pre><code class="language-go">
-netTag := tagex.NewTag("net")
+type BytesDirective struct {
+    Max int64 `param:"max"`
+}
 
-// Override int parsing for THIS tag only.
-// Interpret integers as either:
-//   - plain numbers: "250" (milliseconds)
-//   - durations: "250ms", "2s", "1m"
-netTag.SetConverter(reflect.Int, func(v reflect.Value, raw string) error {
-    raw = strings.TrimSpace(raw)
+func (d *BytesDirective) Name() string { return "bytes" }
+func (d *BytesDirective) Mode() tagex.DirectiveMode { return tagex.EvalMode }
 
-    // Fast path: plain integer means milliseconds.
-    if isPlainInt(raw) {
-        n, err := strconv.Atoi(raw)
-        if err != nil {
-            return tagex.ConversionError{Msg: fmt.Sprintf("unable to convert value %q to int", raw)}
-        }
-        v.SetInt(int64(n))
+func (d *BytesDirective) ConvertParam(
+    field reflect.StructField,
+    v reflect.Value,
+    raw string,
+) error {
+    if field.Name != "Max" {
         return nil
     }
 
-    // Duration path: parse "250ms", "2s", "1m", etc.
-    d, err := time.ParseDuration(raw)
+    n, err := parseBytes(raw) // "10MiB", "512KiB"
     if err != nil {
-        return tagex.ConversionError{Msg: fmt.Sprintf("unable to convert value %q to duration", raw)}
+        return tagex.ConversionError{Msg: err.Error()}
     }
 
-    ms := int(d / time.Millisecond)
-    v.SetInt(int64(ms))
+    v.SetInt(n)
     return nil
-})
-
-tagex.RegisterDirective(&netTag, &TimeoutDirective{})
-</code></pre>
-
-    <p>
-      Helper used above:
-    </p>
-
-<pre><code class="language-go">
-func isPlainInt(s string) bool {
-    if s == "" {
-        return false
-    }
-    for _, r := range s {
-        if r &lt; '0' || r &gt; '9' {
-            return false
-        }
-    }
-    return true
-}
-</code></pre>
-  </section>
-
-  <section class="divider">
-    <h2>Using the improved tag language</h2>
-
-<pre><code class="language-go">
-type ClientConfig struct {
-    // We don't care about the field type in this example; we just want the directive to run.
-    Endpoint string `net:"timeout, value=250ms"`
 }
 </code></pre>
 
     <p>
-      When Tagex processes the struct:
-    </p>
-
-    <ul>
-      <li>The tag parser extracts <code>value=250ms</code></li>
-      <li>The custom int converter parses it as a duration</li>
-      <li><code>TimeoutDirective.Value</code> becomes <code>250</code> (milliseconds)</li>
-    </ul>
-
-    <p>
-      The directive implementation stays simple.
-      The semantic complexity lives in the conversion layer,
-      where it belongs.
+      The grammar (<code>MiB</code>, <code>KiB</code>, etc.)
+      is owned entirely by the <code>bytes</code> directive.
     </p>
   </section>
 
   <section class="divider">
-    <h2>Why this is a good use of converters</h2>
+    <h2>Example: parsing durations</h2>
+
+<pre><code class="language-go">
+type DurationDirective struct {
+    Value int64 `param:"value"`
+}
+
+func (d *DurationDirective) Name() string { return "duration" }
+func (d *DurationDirective) Mode() tagex.DirectiveMode { return tagex.EvalMode }
+
+func (d *DurationDirective) ConvertParam(
+    field reflect.StructField,
+    v reflect.Value,
+    raw string,
+) error {
+    if field.Name != "Value" {
+        return nil
+    }
+
+    dur, err := time.ParseDuration(raw)
+    if err != nil {
+        return tagex.ConversionError{Msg: err.Error()}
+    }
+
+    v.SetInt(int64(dur / time.Millisecond))
+    return nil
+}
+</code></pre>
 
     <p>
-      This pattern is valuable because:
+      This directive parses a completely different grammar,
+      even though it writes to the same Go type.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Why this design matters</h2>
+
+    <p>
+      By making directives responsible for parsing:
     </p>
 
     <ul>
-      <li><strong>Tags become readable</strong> (<code>250ms</code> is clearer than <code>250</code> with an implicit unit)</li>
-      <li><strong>Directives stay focused</strong> (they receive already-interpreted values)</li>
-      <li><strong>Meaning is tag-local</strong> (overrides apply only to <code>net</code>, not the rest of your program)</li>
-      <li><strong>No boilerplate at call sites</strong> (the parsing happens automatically when processing)</li>
+      <li>Each directive defines its own literal language</li>
+      <li>No global or tag-level logic needs to guess intent</li>
+      <li>Multiple directives can coexist safely</li>
+      <li>Documentation and code stay aligned</li>
+    </ul>
+
+    <p>
+      Parsing becomes part of semantics —
+      not infrastructure.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>Default behavior still exists</h2>
+
+    <p>
+      Directives that do not implement custom parsing
+      automatically fall back to Tagex’s default behavior
+      for primitive types.
+    </p>
+
+    <p>
+      You only pay for complexity when you need it.
+    </p>
+  </section>
+
+  <section class="divider">
+    <h2>The bigger picture</h2>
+
+    <p>
+      With directive-owned conversion, Tagex now supports:
+    </p>
+
+    <ul>
+      <li>Human-readable configuration</li>
+      <li>Domain-specific literals</li>
+      <li>Multiple grammars for the same Go type</li>
+      <li>Strict semantic locality</li>
+    </ul>
+
+    <p>
+      This completes the core model:
+    </p>
+
+    <ul>
+      <li>Tags select semantics</li>
+      <li>Directives define meaning</li>
+      <li>Parsing is part of that meaning</li>
     </ul>
   </section>
 
   <section class="divider">
-    <h2>Other realistic converter overrides</h2>
+    <h2>Where to go next</h2>
 
     <p>
-      The same approach works for other domain literals:
+      At this point, you have seen the full expressive range of Tagex:
+      behavior, capability, success boundaries, validation, and parsing.
     </p>
 
-    <ul>
-      <li><strong>Sizes:</strong> <code>10MiB</code>, <code>512KiB</code> → int bytes</li>
-      <li><strong>Percentages:</strong> <code>12.5%</code> → float64 fraction</li>
-      <li><strong>Environment indirection:</strong> <code>$TIMEOUT</code> → resolve and parse</li>
-      <li><strong>Lenient booleans:</strong> <code>yes/no</code>, <code>on/off</code> → bool</li>
-    </ul>
-
     <p>
-      The point is not “custom parsing”.
-      The point is: <strong>tags should be able to speak the language of your domain</strong>.
+      The remaining work is composition —
+      building your own directive libraries
+      and letting tags speak your domain’s language.
     </p>
   </section>
 </main>

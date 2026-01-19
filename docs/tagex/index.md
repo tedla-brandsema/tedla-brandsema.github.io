@@ -3,100 +3,141 @@ layout: default
 title: Tagex — Overview
 ---
 
- {% include nav-tagex.html %}
+{% include nav-tagex.html %}
 
 <main>
   <h1>Tagex</h1>
 
   <p>
-    Tagex is a small, focused Go library for <strong>tag-based expression matching</strong>.
-    It lets you describe conditions such as <em>“must have A, must not have B, and optionally C”</em>
-    and evaluate them efficiently against sets of tags.
+    Tagex is a Go library for executing behavior defined by struct tags.
+    It lets you attach <strong>evaluation</strong>, <strong>mutation</strong>,
+    and side effects directly to data structures in a controlled and reusable way.
   </p>
 
   <p>
-    The design goal of Tagex is clarity and correctness: expressions are explicit,
-    evaluation is deterministic, and the underlying model is simple enough to reason
-    about without surprises.
+    Instead of treating struct tags as passive metadata,
+    Tagex treats them as instructions:
+    tags select <em>what should run</em>,
+    directives define <em>what it does</em>,
+    and the struct defines <em>what success means</em>.
   </p>
 
   <section class="divider">
     <h2>What problem does Tagex solve?</h2>
 
     <p>
-      Many systems need to make decisions based on tags or labels:
+      In many Go codebases, structs represent more than just data.
+      They describe inputs, configuration, requests, and operational boundaries.
+    </p>
+
+    <p>
+      The logic associated with those structs is often scattered:
     </p>
 
     <ul>
-      <li>Feature flags and capability checks</li>
-      <li>Routing, filtering, or selection logic</li>
-      <li>Policy or permission evaluation</li>
-      <li>Build, deployment, or environment constraints</li>
+      <li>Fields are checked in one place</li>
+      <li>Values are modified in another</li>
+      <li>Side effects are triggered manually</li>
+      <li>Control flow is enforced with ad-hoc conditionals</li>
     </ul>
 
     <p>
-      These conditions are often encoded as ad-hoc boolean logic, which quickly becomes
-      hard to read, hard to test, and hard to extend.
-    </p>
-
-    <p>
-      Tagex provides a compact expression language and an evaluator that turns these
-      conditions into a first-class concept.
+      Tagex provides a way to bring this logic back to where it belongs:
+      <strong>next to the data it applies to</strong>,
+      without turning structs into active objects or introducing a framework.
     </p>
   </section>
 
   <section class="divider">
-    <h2>Core concepts</h2>
+    <h2>The core model</h2>
 
     <h3>Tags</h3>
     <p>
-      A <strong>tag</strong> is a simple identifier — usually a string — representing
-      a property, capability, or classification. Tagex treats tags as atomic values;
-      there is no hierarchy or implicit meaning.
+      A <strong>tag</strong> defines an execution context.
+      It groups related directives and determines when they apply.
     </p>
 
-    <h3>Expressions</h3>
     <p>
-      An <strong>expression</strong> describes a condition over tags. At a minimum,
-      an expression can:
+      Tags are reusable across structs and intentionally lightweight.
+      They do not define behavior on their own.
+    </p>
+
+    <h3>Directives</h3>
+    <p>
+      A <strong>directive</strong> is a unit of behavior.
+      It may evaluate a field, mutate it, or interpret parameters attached to it.
+    </p>
+
+    <p>
+      Directives are reusable, composable, and explicitly scoped.
+      They define their own semantics, including how their parameters are parsed.
+    </p>
+
+    <h3>Structs</h3>
+    <p>
+      The struct being processed defines intent.
+    </p>
+
+    <p>
+      By optionally implementing pre- and post-processing hooks,
+      a struct can define what must happen before execution
+      and what constitutes successful completion.
+    </p>
+
+    <p>
+      This allows the same tags and directives to be reused
+      while expressing different outcomes and side effects.
+    </p>
+
+    <figure class="diagram">
+      <img
+        src="/static/images/tagex-lifecycle.png"
+        alt="Tagex execution model showing struct-owned lifecycle with optional Before and After hooks around ProcessStruct"
+      />
+      <figcaption>
+        Tagex execution model: struct-owned lifecycle hooks surround directive execution
+        performed by <code>ProcessStruct</code>.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="divider">
+    <h2>Execution, not interpretation</h2>
+
+    <p>
+      Tagex does not build an abstract rule tree or expression graph.
+      It executes directives directly against struct fields.
+    </p>
+
+    <p>
+      Execution is:
     </p>
 
     <ul>
-      <li>Require the presence of one or more tags</li>
-      <li>Forbid the presence of specific tags</li>
-      <li>Combine conditions using clear logical rules</li>
+      <li>Explicit</li>
+      <li>Deterministic</li>
+      <li>Locally scoped</li>
     </ul>
 
     <p>
-      Expressions are parsed once and can then be evaluated repeatedly against
-      different tag sets.
-    </p>
-
-    <h3>Evaluation</h3>
-    <p>
-      Evaluating an expression answers a single question:
-      <em>does this set of tags satisfy the expression?</em>
-    </p>
-
-    <p>
-      Evaluation is side-effect free and does not depend on external state, which makes
-      it suitable for use in hot paths, tests, and deterministic systems.
+      There is no global state, no hidden lifecycle,
+      and no implicit ordering beyond what is declared.
     </p>
   </section>
 
   <section class="divider">
-    <h2>Design principles</h2>
-
-    <ul>
-      <li><strong>Explicit over implicit</strong> — no hidden rules or magic defaults</li>
-      <li><strong>Small surface area</strong> — easy to understand and audit</li>
-      <li><strong>Deterministic behavior</strong> — same input, same result</li>
-      <li><strong>Go-native</strong> — designed to feel natural in Go code</li>
-    </ul>
+    <h2>What Tagex is not</h2>
 
     <p>
-      Tagex is intentionally not a general rule engine. It focuses narrowly on
-      tag-based matching and does that one thing well.
+      Tagex is not a validation framework, although evaluation-only use cases
+      fit naturally.
+      It is not a rule engine, and it does not attempt to be a DSL.
+    </p>
+
+    <p>
+      Its goal is narrower and more deliberate:
+      to provide a small execution model that makes
+      struct-attached behavior explicit, reusable, and predictable.
     </p>
   </section>
 
@@ -104,14 +145,14 @@ title: Tagex — Overview
     <h2>Next steps</h2>
 
     <p>
-      If you want to try Tagex immediately, continue with the
+      To see Tagex in action, start with the
       <a href="getting-started.html">Getting started</a> guide.
-      It walks through defining your first expression and evaluating it in Go.
     </p>
 
     <p>
-      For deeper explanations and real-world usage patterns, see the
-      <a href="guides/">Guides</a> section.
+      The <a href="guides/">Guides</a> section explores the model in depth,
+      including evaluation, mutation,
+      pre- and post-processing, and directive-owned parsing.
     </p>
   </section>
 </main>
