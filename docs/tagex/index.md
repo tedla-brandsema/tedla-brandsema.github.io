@@ -49,81 +49,134 @@ title: Tagex — Overview
   </section>
 
   <section class="divider">
-    <h2>The core model</h2>
+  <h2>Core concepts</h2>
 
-    <h3>Tags</h3>
-    <p>
-      A <strong>tag</strong> defines an execution context.
-      It groups related directives and determines when they apply.
-    </p>
+  <h3>Tags</h3>
+  <p>
+    A <strong>tag</strong> defines an execution context.
+    It groups related directives and determines when they apply.
+  </p>
 
-    <p>
-      Tags are reusable across structs and intentionally lightweight.
-      They do not define behavior on their own.
-    </p>
+  <p>
+    Tags are reusable across structs and intentionally lightweight.
+    They do not define behavior on their own.
+  </p>
 
-    <h3>Directives</h3>
-    <p>
-      A <strong>directive</strong> is a unit of behavior.
-      It may evaluate a field, mutate it, or interpret parameters attached to it.
-    </p>
+  <h3>Directives</h3>
+  <p>
+    A <strong>directive</strong> is a unit of behavior.
+    It may evaluate a field, mutate it, or interpret parameters attached to it.
+  </p>
 
-    <p>
-      Directives are reusable, composable, and explicitly scoped.
-      They define their own semantics, including how their parameters are parsed.
-    </p>
+  <p>
+    Directives are reusable, composable, and explicitly scoped.
+    They define their own semantics, including how their parameters are parsed.
+  </p>
 
-    <h3>Structs</h3>
-    <p>
-      The struct being processed defines intent.
-    </p>
+  <h3>Structs</h3>
+  <p>
+    The struct being processed defines intent.
+  </p>
 
-    <p>
-      By optionally implementing pre- and post-processing hooks,
-      a struct can define what must happen before execution
-      and what constitutes successful completion.
-    </p>
+  <p>
+    It selects which tags apply, which directives run,
+    and how the outcome of execution is handled.
+  </p>
+</section>
 
-    <p>
-      This allows the same tags and directives to be reused
-      while expressing different outcomes and side effects.
-    </p>
+<section class="divider">
+  <h2>Execution model</h2>
 
-    <figure class="diagram">
-      <img
-        src="/static/images/tagex-lifecycle.png"
-        alt="Tagex execution model showing struct-owned lifecycle with optional Before and After hooks around ProcessStruct"
-      />
-      <figcaption>
-        Tagex execution model: struct-owned lifecycle hooks surround directive execution
-        performed by <code>ProcessStruct</code>.
-      </figcaption>
-    </figure>
-  </section>
+  <p>
+    Tagex operates as a small, explicit execution engine.
+    Processing always starts by calling <code>ProcessStruct</code>
+    with a pointer to a struct.
+  </p>
 
-  <section class="divider">
-    <h2>Execution, not interpretation</h2>
+  <p>
+    During execution:
+  </p>
 
-    <p>
-      Tagex does not build an abstract rule tree or expression graph.
-      It executes directives directly against struct fields.
-    </p>
+  <ul>
+    <li>Struct fields are inspected for matching tags</li>
+    <li>Directives are selected based on tag contents</li>
+    <li>Each directive executes directly against its field</li>
+  </ul>
 
-    <p>
-      Execution is:
-    </p>
+  <p>
+    There is no intermediate representation, rule tree, or expression graph.
+    Execution happens directly and deterministically.
+  </p>
 
-    <ul>
-      <li>Explicit</li>
-      <li>Deterministic</li>
-      <li>Locally scoped</li>
-    </ul>
+  <figure class="diagram">
+    <img
+      src="/static/images/tagex-lifecycle.png"
+      alt="Tagex execution model showing struct-owned lifecycle with optional Before, Success, and Failure hooks around ProcessStruct"
+    />
+    <figcaption>
+      Tagex execution model: directives run inside <code>ProcessStruct</code>,
+      with optional struct-owned lifecycle hooks.
+    </figcaption>
+  </figure>
+</section>
 
-    <p>
-      There is no global state, no hidden lifecycle,
-      and no implicit ordering beyond what is declared. In a nutshell: Tagex is a small execution model that makes struct-attached behavior explicit, reusable, and predictable.
-    </p>
-  </section>
+<section class="divider">
+  <h2>Optional lifecycle hooks</h2>
+
+  <p>
+    A struct may optionally define lifecycle hooks that are invoked
+    before and after directive execution.
+  </p>
+
+  <p>
+    These hooks are <strong>struct-owned</strong> and entirely optional.
+    Tagex does not interpret their meaning or enforce semantics.
+  </p>
+
+  <ul>
+    <li>
+      <strong>Before()</strong> — runs before directive execution begins
+    </li>
+    <li>
+      <strong>Success()</strong> — runs after all directives complete successfully
+    </li>
+    <li>
+      <strong>Failure(err)</strong> — runs if execution fails at any point
+    </li>
+  </ul>
+
+  <p>
+    This allows the same tags and directives to be reused across structs,
+    while each struct defines its own success and failure boundaries.
+  </p>
+</section>
+
+<section class="divider">
+  <h2>Execution, not interpretation</h2>
+
+  <p>
+    Tagex does not interpret intent or infer meaning.
+    It executes exactly what is declared.
+  </p>
+
+  <p>
+    Execution is:
+  </p>
+
+  <ul>
+    <li>Explicit</li>
+    <li>Deterministic</li>
+    <li>Locally scoped</li>
+  </ul>
+
+  <p>
+    There is no global state, no hidden lifecycle,
+    and no implicit ordering beyond what is declared.
+    Tagex is a small execution model that makes struct-attached behavior
+    explicit, reusable, and predictable.
+  </p>
+</section>
+
 
   <section class="divider">
     <h2>Next steps</h2>
