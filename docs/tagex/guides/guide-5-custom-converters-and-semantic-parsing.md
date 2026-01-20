@@ -105,7 +105,7 @@ func (d *BytesDirective) Mode() tagex.DirectiveMode { return tagex.EvalMode }
 
 func (d *BytesDirective) ConvertParam(
     field reflect.StructField,
-    v reflect.Value,
+    fieldValue reflect.Value,
     raw string,
 ) error {
     if field.Name != "Max" {
@@ -114,10 +114,10 @@ func (d *BytesDirective) ConvertParam(
 
     n, err := parseBytes(raw) // "10MiB", "512KiB"
     if err != nil {
-        return tagex.ConversionError{Msg: err.Error()}
+        return tagex.NewConversionError(field, raw, "int64")
     }
 
-    v.SetInt(n)
+    fieldValue.SetInt(n)
     return nil
 }
 </code></pre>
@@ -141,7 +141,7 @@ func (d *DurationDirective) Mode() tagex.DirectiveMode { return tagex.EvalMode }
 
 func (d *DurationDirective) ConvertParam(
     field reflect.StructField,
-    v reflect.Value,
+    fieldValue reflect.Value,
     raw string,
 ) error {
     if field.Name != "Value" {
@@ -150,10 +150,10 @@ func (d *DurationDirective) ConvertParam(
 
     dur, err := time.ParseDuration(raw)
     if err != nil {
-        return tagex.ConversionError{Msg: err.Error()}
+        return tagex.NewConversionError(field, raw, "int64")
     }
 
-    v.SetInt(int64(dur / time.Millisecond))
+    fieldValue.SetInt(int64(dur / time.Millisecond))
     return nil
 }
 </code></pre>

@@ -132,7 +132,8 @@ ok, err := checkTag.ProcessStruct(&car)
     <ol>
       <li>Optional <code>Before()</code> hook</li>
       <li>Directive execution for each tagged field</li>
-      <li>Optional <code>After()</code> hook</li>
+      <li>Optional <code>Success()</code> hook</li>
+      <li>Optional <code>Failure(err)</code> hook when processing fails</li>
     </ol>
 
     <p>
@@ -167,7 +168,8 @@ ok, err := checkTag.ProcessStruct(&car)
 
     <ul>
       <li><code>Before() error</code></li>
-      <li><code>After() error</code></li>
+      <li><code>Success() error</code></li>
+      <li><code>Failure(err error) error</code></li>
     </ul>
 
     <p>

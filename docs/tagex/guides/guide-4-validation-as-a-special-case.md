@@ -119,13 +119,13 @@ type Registration struct {
     repo *Repository
 }
 
-func (r *Registration) After() error {
+func (r *Registration) Success() error {
     return r.repo.CreateUser(r.Age)
 }
 </code></pre>
 
     <p>
-      If <code>After()</code> runs,
+      If <code>Success()</code> runs,
       validation has already succeeded.
     </p>
 

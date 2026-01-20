@@ -56,7 +56,7 @@ if err := persist(row); err != nil { return err }
     </p>
 
     <blockquote>
-      <strong>If <code>After()</code> runs, all tagged semantics have succeeded.</strong>
+      <strong>If <code>Success()</code> runs, all tagged semantics have succeeded.</strong>
     </blockquote>
 
     <p>
@@ -98,7 +98,7 @@ type ImportRow struct {
     <h2>Attaching the consequence</h2>
 
 <pre><code class="language-go">
-func (r *ImportRow) After() error {
+func (r *ImportRow) Success() error {
     return r.repo.UpsertItem(
         r.SKU,
         r.Price,
@@ -132,7 +132,7 @@ func (r *ImportRow) After() error {
     <ol>
       <li>All tagged directives are executed</li>
       <li>Any error aborts processing</li>
-      <li><code>After()</code> runs only if no errors occurred</li>
+      <li><code>Success()</code> runs only if no errors occurred</li>
     </ol>
 
     <p>
