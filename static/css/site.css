@@ -62,6 +62,27 @@ nav a:hover {
     text-decoration: underline;
 }
 
+nav .nav-icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    line-height: 1;
+}
+
+nav .nav-icon {
+    width: 1.25em;
+    height: 1.25em;
+    flex: 0 0 auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+nav .nav-icon-external {
+    width: 0.9em;
+    height: 0.9em;
+    opacity: 0.7;
+}
+
 /* Navigation visual separation */
 .nav-divider {
     margin-top: 1.5rem;
