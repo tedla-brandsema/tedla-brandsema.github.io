@@ -3,7 +3,7 @@ layout: default
 title: Tagex Guide 3 — PostProcessing as a success boundary
 ---
 
- {% include nav-tagex.html %}
+{% include nav-tagex.html %}
 
 <main>
   <h1>PostProcessing as a success boundary</h1>
@@ -30,7 +30,7 @@ title: Tagex Guide 3 — PostProcessing as a success boundary
       This leads to patterns like:
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 if err := normalize(row); err != nil { return err }
 if err := applyLimits(row); err != nil { return err }
 if err := persist(row); err != nil { return err }
@@ -78,7 +78,7 @@ if err := persist(row); err != nil { return err }
       <li>Only then persisted</li>
     </ul>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type ImportRow struct {
     SKU   string `norm:"upper"`
     Price string `norm:"currency, locale=nl_NL"`
@@ -97,7 +97,7 @@ type ImportRow struct {
   <section class="divider">
     <h2>Attaching the consequence</h2>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 func (r *ImportRow) Success() error {
     return r.repo.UpsertItem(
         r.SKU,

@@ -3,7 +3,7 @@ layout: default
 title: Tagex Guide 2 — Capability selection
 ---
 
- {% include nav-tagex.html %}
+{% include nav-tagex.html %}
 
 <main>
   <h1>Capability selection</h1>
@@ -48,7 +48,7 @@ title: Tagex Guide 2 — Capability selection
       directly on fields.
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type JobConfig struct {
     MaxConcurrency int `cap:"limit, tier=premium"`
 }
@@ -72,7 +72,7 @@ type JobConfig struct {
       environment variables, configuration, licenses, or feature flags.
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type LimitDirective struct {
     Tier string `param:"tier"`
 }
@@ -103,7 +103,7 @@ func (d *LimitDirective) Handle(val int) (int, error) {
   <section class="divider">
     <h2>Registering capability semantics</h2>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 capTag := tagex.NewTag("cap")
 tagex.RegisterDirective(&capTag, &LimitDirective{})
 </code></pre>
@@ -117,7 +117,7 @@ tagex.RegisterDirective(&capTag, &LimitDirective{})
   <section class="divider">
     <h2>Context-sensitive processing</h2>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 cfg := JobConfig{
     MaxConcurrency: 32,
 }

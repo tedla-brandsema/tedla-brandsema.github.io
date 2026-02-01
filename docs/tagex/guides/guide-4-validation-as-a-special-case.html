@@ -3,7 +3,7 @@ layout: default
 title: Tagex Guide 4 — Validation as a special case
 ---
 
- {% include nav-tagex.html %}
+{% include nav-tagex.html %}
 
 <main>
   <h1>Validation as a special case</h1>
@@ -54,7 +54,7 @@ title: Tagex Guide 4 — Validation as a special case
       Let’s define a simple range check.
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type RangeDirective struct {
     Min int `param:"min"`
     Max int `param:"max"`
@@ -88,7 +88,7 @@ func (d *RangeDirective) Handle(val int) (int, error) {
   <section class="divider">
     <h2>Using validation declaratively</h2>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type Registration struct {
     Age int `check:"range, min=18, max=130"`
 }
@@ -112,7 +112,7 @@ type Registration struct {
       when combined with PostProcessing.
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type Registration struct {
     Age int `check:"range, min=18, max=130"`
 

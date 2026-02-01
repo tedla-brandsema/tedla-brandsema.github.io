@@ -3,7 +3,7 @@ layout: default
 title: Tagex Guide 1 — Tag-driven behavior
 ---
 
- {% include nav-tagex.html %}
+{% include nav-tagex.html %}
 
 <main>
   <h1>Tag-driven behavior</h1>
@@ -50,7 +50,7 @@ title: Tagex Guide 1 — Tag-driven behavior
       using struct tags.
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type ImportRow struct {
     SKU   string `norm:"upper"`
     Price string `norm:"currency, locale=nl_NL"`
@@ -76,7 +76,7 @@ type ImportRow struct {
       that implements a specific semantic operation.
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type UpperDirective struct{}
 
 func (d *UpperDirective) Name() string {
@@ -110,7 +110,7 @@ func (d *UpperDirective) Handle(val string) (string, error) {
       Directives can receive parameters via their own struct fields.
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type CurrencyDirective struct {
     Locale string `param:"locale"`
 }
@@ -136,9 +136,9 @@ func (d *CurrencyDirective) Handle(val string) (string, error) {
       Parameters are mapped automatically from the struct tag:
     </p>
 
-<blockquote>
-  <code>`norm:"currency, locale=nl_NL"`</code>
-</blockquote>
+    <blockquote>
+      <code>`norm:"currency, locale=nl_NL"`</code>
+    </blockquote>
   </section>
 
   <section class="divider">
@@ -149,7 +149,7 @@ func (d *CurrencyDirective) Handle(val string) (string, error) {
       for a single struct tag key.
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 normTag := tagex.NewTag("norm")
 
 tagex.RegisterDirective(&normTag, &UpperDirective{})
@@ -165,7 +165,7 @@ tagex.RegisterDirective(&normTag, &CurrencyDirective{})
   <section class="divider">
     <h2>Processing a struct</h2>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 row := ImportRow{
     SKU:   "ab-123",
     Price: "€ 1.234,50",
@@ -178,7 +178,7 @@ _, err := normTag.ProcessStruct(&row)
       After processing:
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 row.SKU   == "AB-123"
 row.Price == "123450"
 </code></pre>

@@ -3,7 +3,7 @@ layout: default
 title: Tagex Guide 5 — Custom converters and semantic parsing
 ---
 
- {% include nav-tagex.html %}
+{% include nav-tagex.html %}
 
 <main>
   <h1>Custom converters and semantic parsing</h1>
@@ -30,7 +30,7 @@ title: Tagex Guide 5 — Custom converters and semantic parsing
       Consider the following struct:
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type Limits struct {
     MaxSize   int64 `units:"bytes, max=10MiB"`
     TimeoutMs int64 `units:"duration, value=250ms"`
@@ -95,7 +95,7 @@ type Limits struct {
   <section class="divider">
     <h2>Example: parsing byte sizes</h2>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type BytesDirective struct {
     Max int64 `param:"max"`
 }
@@ -131,7 +131,7 @@ func (d *BytesDirective) ConvertParam(
   <section class="divider">
     <h2>Example: parsing durations</h2>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type DurationDirective struct {
     Value int64 `param:"value"`
 }

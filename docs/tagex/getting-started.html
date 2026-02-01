@@ -3,7 +3,7 @@ layout: default
 title: Tagex — Getting started
 ---
 
- {% include nav-tagex.html %}
+{% include nav-tagex.html %}
 
 <main>
   <h1>Getting started</h1>
@@ -47,7 +47,7 @@ title: Tagex — Getting started
       where <code>T</code> is the field type it operates on.
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type RangeDirective struct {
     Min int `param:"min"`
     Max int `param:"max"`
@@ -83,7 +83,7 @@ func (d *RangeDirective) Handle(val int) (int, error) {
       struct tag key.
     </p>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 checkTag := tagex.NewTag("check")
 tagex.RegisterDirective(&checkTag, &RangeDirective{})
 </code></pre>
@@ -97,7 +97,7 @@ tagex.RegisterDirective(&checkTag, &RangeDirective{})
   <section class="divider">
     <h2>3. Annotate a struct</h2>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type Car struct {
     Doors int `check:"range, min=2, max=4"`
 }
@@ -107,9 +107,9 @@ type Car struct {
       The tag format is:
     </p>
 
-<blockquote>
-  <code>key:"directive, param=value, ..."</code>
-</blockquote>
+    <blockquote>
+      <code>key:"directive, param=value, ..."</code>
+    </blockquote>
 
     <ul>
       <li>The first element selects the directive</li>
@@ -120,7 +120,7 @@ type Car struct {
   <section class="divider">
     <h2>4. Process the struct</h2>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 car := Car{Doors: 5}
 ok, err := checkTag.ProcessStruct(&car)
 </code></pre>

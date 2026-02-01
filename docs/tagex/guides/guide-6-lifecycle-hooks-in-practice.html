@@ -48,7 +48,7 @@ title: Tagex Guide 6 — Lifecycle hooks in practice
   <section class="divider">
     <h2>Example: importing a row with a commit on success</h2>
 
-<pre><code class="language-go">
+    <pre><code class="language-go">
 type ImportRow struct {
     SKU   string `norm:"upper"`
     Price string `norm:"currency, locale=nl_NL"`
@@ -102,10 +102,8 @@ func (j *ImportJob) Failure(err error) {
     </p>
 
     <figure class="diagram">
-      <img
-        src="/static/images/tagex-lifecycle.png"
-        alt="Lifecycle flow with Before running first, directives executed inside ProcessStruct, then Success or Failure based on error"
-      />
+      <img src="/static/images/tagex-lifecycle.png"
+        alt="Lifecycle flow with Before running first, directives executed inside ProcessStruct, then Success or Failure based on error" />
       <figcaption>
         Lifecycle sequence: <code>Before()</code> gates execution, directives run inside
         <code>ProcessStruct</code>, resulting in either <code>Success()</code> or <code>Failure(err)</code>.
