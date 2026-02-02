@@ -20,6 +20,10 @@ code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
+.toolbar {
+    opacity: 1 !important; 
+}
+
 a {
     text-decoration: none;
     color: #111;
