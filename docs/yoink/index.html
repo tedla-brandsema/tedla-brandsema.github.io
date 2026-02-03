@@ -1,0 +1,47 @@
+---
+layout: default
+title: Yoink — Overview
+---
+
+{% include nav-yoink.html %}
+
+<main>
+    <h1>Yoink</h1>
+
+    <p>Yoink is a stripped-down version of the <a target="_blank"
+            href="https://pkg.go.dev/golang.org/x/tools/present">GO present tool</a>. Yoink is built to include
+        (partial) files into other
+        files, from local or remote sources, over HTTP(S).</p>
+
+    <p>You can extend Yoink by creating your own commands.</p>
+
+    <p>Yoink is available as a library or as a commandline tool. For instructions on how to build and use Yoink via the
+        commandline, see the <a target="_blank" href="/docs/yoink/guides/yoink-on-the-commandline.html">Yoink On The
+            Commandline</a> guide.</p>
+
+    <div class="alert-note" role="note" aria-live="polite">
+        <strong>Note:</strong> Yoink is a line-based, flat-include library. It has no contextual awareness of any
+        hierarchical/nested structures. You can use Yoink in such structures (e.g. HTML, JSON, etc.), but know that
+        you can end up with invalid output.
+    </div>
+
+
+    <section class="divider">
+        <h2>Why Yoink?</h2>
+        <p>The GO present tool:
+        <ol>
+            <li>produces either Markdown or HTML;</li>
+            <li>parses commands sequentially and not concurrently;</li>
+            <li>does not possess the ability to include remote files over HTTP(S).</li>
+        </ol>
+        </p>
+        <p>The existing API of the GO present tool does offer the ability to expand it to include remote files over
+            HTTP(S), but it is not exposed in a way that makes it easy to use. As for points one (output format) and
+            two (sequential parsing), those are tightly integrated into the parser and not achievable within the bounds
+            of the API.</p>
+
+        <p>This, by no means, is meant as criticism. The GO present tool was made with a very specific task in mind,
+            and it executes that task splendidly. Yoink was made for another use case and the GO present
+            tool is an ideal springboard to achieve that purpose.</p>
+    </section>
+</main>

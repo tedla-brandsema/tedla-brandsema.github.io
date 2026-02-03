@@ -1,0 +1,75 @@
+---
+layout: default
+title: Yoink — The Address Argument
+---
+
+{% include nav-yoink.html %}
+
+<main>
+    <h1>The Address Argument</h1>
+    <p>Yoinks most useful and powerful feature is the ability to target a specific region by adding an address at the
+        end of a <code class="language-none">.yoink</code> command.</p>
+
+    <p>The address syntax is similar in its simplest form to that of ed, but comes from sam and is more general. See
+        Table II of <a target="_blank" href="https://plan9.io/sys/doc/sam/sam.html">The Text Editor sam</a> manual for
+        full details. The displayed block is always rounded out to a full line at both ends.</p>
+
+    <p>In our previous examples, we only included entire files into our base file. With the help of the address
+        argument, however, we can target a specific region or excerpt from a file.</p>
+
+    <p>Consider the following base file:</p>
+
+    <pre><code class="language-none">
+Sonnet 18: Shall I compare thee to a summer’s day?
+By William Shakespeare
+
+.yoink sonnet-18-quatrains.txt /START stanza-2/,/END stanza-2/
+
+.yoink sonnet-18-rhyming-couplet.txt
+
+.yoink sonnet-18-quatrains.txt /START stanza-3/,/END stanza-3/
+
+.yoink sonnet-18-quatrains.txt /START stanza-1/,/END stanza-1/
+        </code></pre>
+
+    <p>Here you can see that all .yoink commands that point to sonnet-18-quatrains.txt have a second argument. This
+        argument is an <em>address</em>.</p>
+
+    <p>The address of the first <code class="language-none">.yoink</code> command reads as follows:</p>
+
+    <pre><code class="language-none">
+/START stanza-2/,/END stanza-2/
+        </code></pre>
+
+    <p>If you take a look at Table II of <a target="_blank" href="https://plan9.io/sys/doc/sam/sam.html">The Text Editor
+            sam</a> manual, we see that we have a regular expression <code class="language-none">/START stanza-2/</code>
+        followed by the address mark <code class="language-none">,</code>, and finally we have a second regular
+        expression <code class="language-none">/END stanza-2/</code>. The
+        regular expressions here are just literal matches, but note that you can use more involved regular expression
+        pattern matching syntax.</p>
+
+        <p>The addresses in our base file correspond to demarcations in our target file sonnet-18-quatrains.txt. See below:</p>
+
+            <pre><code class="language-none">
+#START stanza-1
+Shall I compare thee to a summer’s day?
+Thou art more lovely and more temperate:
+Rough winds do shake the darling buds of May,
+And summer’s lease hath all too short a date;
+#END stanza-1
+
+#START stanza-2
+Sometime too hot the eye of heaven shines,
+And often is his gold complexion dimm'd;
+And every fair from fair sometime declines,
+By chance or nature’s changing course untrimm'd;
+#END stanza-2
+
+#START stanza-3
+But thy eternal summer shall not fade,
+Nor lose possession of that fair thou ow’st;
+Nor shall death brag thou wander’st in his shade,
+When in eternal lines to time thou grow’st:
+#END stanza-3               
+            </code>
+</main>

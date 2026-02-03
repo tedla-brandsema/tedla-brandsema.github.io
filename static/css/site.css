@@ -60,10 +60,16 @@ a:hover {
     line-height: 1.25;
 }
 
-.side-nav ul {
+.side-nav ul, 
+.side-nav ol {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.side-nav ol.list {
+    list-style: decimal;
+    list-style-position: inside;
 }
 
 .side-nav ul.list {
@@ -212,6 +218,20 @@ h3 {
   margin-bottom: 0;
   list-style: square;
   list-style-position: inside;
+}
+
+/* Alert note */
+.alert-note {
+    background: #fff7cc;
+    border: 1px solid #e1b900;
+    color: #5a4a00;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+}
+
+.alert-note strong {
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 /* Responsive */
