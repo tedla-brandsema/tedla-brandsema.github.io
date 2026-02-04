@@ -22,6 +22,18 @@ code {
 
 .toolbar {
     opacity: 1 !important; 
+    
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button {
+    padding : 0.2rem 0.5rem;
+    cursor: pointer;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > button:focus {
+    color: #fff;
+
 }
 
 a {
@@ -32,6 +44,10 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+main a {
+    font-weight: bold;
 }
 
 .no-wrap {
