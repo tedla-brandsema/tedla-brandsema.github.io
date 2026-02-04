@@ -6,7 +6,7 @@ title: Tagex Guide 2 — Capability selection
 {% include nav-tagex.html %}
 
 <main>
-  <h1>Capability selection</h1>
+  <h1>Capability Selection</h1>
 
   <p>
     In the first guide, we used tags to <em>apply behavior</em> to data.
@@ -20,7 +20,7 @@ title: Tagex Guide 2 — Capability selection
   </p>
 
   <section class="divider">
-    <h2>The problem: the same data, different meaning</h2>
+    <h2>The Problem: the Same Data, Different Meaning</h2>
 
     <p>
       In real systems, the same struct often needs to behave differently
@@ -41,7 +41,7 @@ title: Tagex Guide 2 — Capability selection
   </section>
 
   <section class="divider">
-    <h2>Declaring capabilities with tags</h2>
+    <h2>Declaring Capabilities with Tags</h2>
 
     <p>
       With Tagex, you can encode <em>capability-dependent semantics</em>
@@ -65,7 +65,7 @@ type JobConfig struct {
   </section>
 
   <section class="divider">
-    <h2>Implementing a capability-aware directive</h2>
+    <h2>Implementing a Capability-Aware Directive</h2>
 
     <p>
       A directive is free to consult external context:
@@ -101,7 +101,7 @@ func (d *LimitDirective) Handle(val int) (int, error) {
   </section>
 
   <section class="divider">
-    <h2>Registering capability semantics</h2>
+    <h2>Registering Capability Semantics</h2>
 
     <pre><code class="language-go">
 capTag := tagex.NewTag("cap")
@@ -115,7 +115,7 @@ tagex.RegisterDirective(&capTag, &LimitDirective{})
   </section>
 
   <section class="divider">
-    <h2>Context-sensitive processing</h2>
+    <h2>Context-Sensitive Processing</h2>
 
     <pre><code class="language-go">
 cfg := JobConfig{
@@ -141,7 +141,7 @@ _, _ = capTag.ProcessStruct(&cfg)
   </section>
 
   <section class="divider">
-    <h2>Why this is not validation</h2>
+    <h2>Why This Is Not Validation</h2>
 
     <p>
       At no point did we ask:
@@ -163,7 +163,7 @@ _, _ = capTag.ProcessStruct(&cfg)
   </section>
 
   <section class="divider">
-    <h2>What capability selection buys you</h2>
+    <h2>What Capability Selection Buys You</h2>
 
     <ul>
       <li>No scattered <code>if tier == ...</code> logic</li>
@@ -178,7 +178,7 @@ _, _ = capTag.ProcessStruct(&cfg)
   </section>
 
   <section class="divider">
-    <h2>Looking ahead</h2>
+    <h2>Looking Ahead</h2>
 
     <p>
       So far, directives have:

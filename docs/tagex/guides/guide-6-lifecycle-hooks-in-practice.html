@@ -6,7 +6,7 @@ title: Tagex Guide 6 — Lifecycle hooks in practice
 {% include nav-tagex.html %}
 
 <main>
-  <h1>Lifecycle hooks in practice</h1>
+  <h1>Lifecycle Hooks in Practice</h1>
 
   <p>
     Tagex lets a struct define optional lifecycle hooks that run
@@ -16,7 +16,7 @@ title: Tagex Guide 6 — Lifecycle hooks in practice
   </p>
 
   <section class="divider">
-    <h2>The problem: success is implicit</h2>
+    <h2>The Problem: Success Is Implicit</h2>
 
     <p>
       In most Go code, success is inferred by the absence of errors.
@@ -30,7 +30,7 @@ title: Tagex Guide 6 — Lifecycle hooks in practice
   </section>
 
   <section class="divider">
-    <h2>The hooks</h2>
+    <h2>The Hooks</h2>
 
     <ul>
       <li><strong>Before() error</strong> runs before any directives execute</li>
@@ -46,7 +46,7 @@ title: Tagex Guide 6 — Lifecycle hooks in practice
   </section>
 
   <section class="divider">
-    <h2>Example: importing a row with a commit on success</h2>
+    <h2>Example: Importing a Row with a Commit on Success</h2>
 
     <pre><code class="language-go">
 type ImportRow struct {
@@ -87,7 +87,7 @@ func (j *ImportJob) Failure(err error) {
   </section>
 
   <section class="divider">
-    <h2>Execution flow</h2>
+    <h2>Execution Flow</h2>
 
     <ol>
       <li><code>Before()</code> runs</li>
@@ -112,7 +112,7 @@ func (j *ImportJob) Failure(err error) {
   </section>
 
   <section class="divider">
-    <h2>When to use each hook</h2>
+    <h2>When to Use Each Hook</h2>
 
     <ul>
       <li><strong>Before()</strong>: allocate resources, start timers, load context</li>
@@ -127,7 +127,7 @@ func (j *ImportJob) Failure(err error) {
   </section>
 
   <section class="divider">
-    <h2>Common pitfalls</h2>
+    <h2>Common Pitfalls</h2>
 
     <ul>
       <li>Doing heavy work in directives that belongs in <code>Success()</code></li>

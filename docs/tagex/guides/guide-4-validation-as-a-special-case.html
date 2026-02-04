@@ -6,7 +6,7 @@ title: Tagex Guide 4 — Validation as a special case
 {% include nav-tagex.html %}
 
 <main>
-  <h1>Validation as a special case</h1>
+  <h1>Validation as a Special Case</h1>
 
   <p>
     By now, we have used Tagex to normalize data,
@@ -21,7 +21,7 @@ title: Tagex Guide 4 — Validation as a special case
   </p>
 
   <section class="divider">
-    <h2>What validation really is</h2>
+    <h2>What Validation Really Is</h2>
 
     <p>
       Validation answers a narrow question:
@@ -48,7 +48,7 @@ title: Tagex Guide 4 — Validation as a special case
   </section>
 
   <section class="divider">
-    <h2>A validation directive</h2>
+    <h2>A Validation Directive</h2>
 
     <p>
       Let’s define a simple range check.
@@ -86,7 +86,7 @@ func (d *RangeDirective) Handle(val int) (int, error) {
   </section>
 
   <section class="divider">
-    <h2>Using validation declaratively</h2>
+    <h2>Using Validation Declaratively</h2>
 
     <pre><code class="language-go">
 type Registration struct {
@@ -105,7 +105,7 @@ type Registration struct {
   </section>
 
   <section class="divider">
-    <h2>Validation inside a success boundary</h2>
+    <h2>Validation Inside a Success Boundary</h2>
 
     <p>
       Validation becomes significantly more powerful
@@ -141,7 +141,7 @@ func (r *Registration) Success() error {
   </section>
 
   <section class="divider">
-    <h2>Why validation does not define Tagex</h2>
+    <h2>Why Validation Does Not Define Tagex</h2>
 
     <p>
       Validation libraries typically:
@@ -170,7 +170,7 @@ func (r *Registration) Success() error {
   </section>
 
   <section class="divider">
-    <h2>When validation is the right tool</h2>
+    <h2>When Validation Is the Right Tool</h2>
 
     <p>
       Validation works well when:
@@ -189,7 +189,7 @@ func (r *Registration) Success() error {
   </section>
 
   <section class="divider">
-    <h2>The unifying idea</h2>
+    <h2>The Unifying Idea</h2>
 
     <p>
       Normalization, capability selection, validation,
@@ -208,7 +208,7 @@ func (r *Registration) Success() error {
   </section>
 
   <section class="divider">
-    <h2>Next guide</h2>
+    <h2>Next Guide</h2>
 
     <p>
       In the next guide, we will look at

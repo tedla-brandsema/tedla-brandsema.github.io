@@ -6,7 +6,7 @@ title: Tagex Guide 3 — PostProcessing as a success boundary
 {% include nav-tagex.html %}
 
 <main>
-  <h1>PostProcessing as a success boundary</h1>
+  <h1>PostProcessing as a Success Boundary</h1>
 
   <p>
     In the previous guides, we used tags to apply behavior
@@ -19,7 +19,7 @@ title: Tagex Guide 3 — PostProcessing as a success boundary
   </p>
 
   <section class="divider">
-    <h2>The missing abstraction in most code</h2>
+    <h2>The Missing Abstraction in Most Code</h2>
 
     <p>
       In typical Go code, success is implicit.
@@ -49,7 +49,7 @@ if err := persist(row); err != nil { return err }
   </section>
 
   <section class="divider">
-    <h2>Tagex’s guarantee</h2>
+    <h2>Tagex’s Guarantee</h2>
 
     <p>
       Tagex introduces a strong invariant:
@@ -66,7 +66,7 @@ if err := persist(row); err != nil { return err }
   </section>
 
   <section class="divider">
-    <h2>Declaring the success path</h2>
+    <h2>Declaring the Success Path</h2>
 
     <p>
       Consider an import pipeline where data must be:
@@ -95,7 +95,7 @@ type ImportRow struct {
   </section>
 
   <section class="divider">
-    <h2>Attaching the consequence</h2>
+    <h2>Attaching the Consequence</h2>
 
     <pre><code class="language-go">
 func (r *ImportRow) Success() error {
@@ -123,7 +123,7 @@ func (r *ImportRow) Success() error {
   </section>
 
   <section class="divider">
-    <h2>Execution flow</h2>
+    <h2>Execution Flow</h2>
 
     <p>
       When <code>ProcessStruct</code> is called:
@@ -141,7 +141,7 @@ func (r *ImportRow) Success() error {
   </section>
 
   <section class="divider">
-    <h2>Why this is powerful</h2>
+    <h2>Why This Is Powerful</h2>
 
     <ul>
       <li>The struct owns its success path</li>
@@ -157,7 +157,7 @@ func (r *ImportRow) Success() error {
   </section>
 
   <section class="divider">
-    <h2>Reusability and composition</h2>
+    <h2>Reusability and Composition</h2>
 
     <p>
       Because semantics and consequences are attached to the struct:
@@ -177,7 +177,7 @@ func (r *ImportRow) Success() error {
   </section>
 
   <section class="divider">
-    <h2>PreProcessing (briefly)</h2>
+    <h2>PreProcessing (Briefly)</h2>
 
     <p>
       While this guide focuses on PostProcessing,
@@ -201,7 +201,7 @@ func (r *ImportRow) Success() error {
   </section>
 
   <section class="divider">
-    <h2>What this is (and is not)</h2>
+    <h2>What This Is (and Is Not)</h2>
 
     <p>
       PostProcessing is not a callback.
@@ -216,7 +216,7 @@ func (r *ImportRow) Success() error {
   </section>
 
   <section class="divider">
-    <h2>Looking ahead</h2>
+    <h2>Looking Ahead</h2>
 
     <p>
       In the next guide, we will step back and look at

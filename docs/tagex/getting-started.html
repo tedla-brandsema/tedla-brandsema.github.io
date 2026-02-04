@@ -6,7 +6,7 @@ title: Tagex — Getting started
 {% include nav-tagex.html %}
 
 <main>
-  <h1>Getting started</h1>
+  <h1>Getting Started</h1>
 
   <p>
     Tagex is a Go library for executing <strong>typed logic</strong> based on
@@ -20,7 +20,7 @@ title: Tagex — Getting started
   </p>
 
   <section class="divider">
-    <h2>The mental model</h2>
+    <h2>The Mental Model</h2>
 
     <p>
       Tagex has four core concepts:
@@ -40,7 +40,7 @@ title: Tagex — Getting started
   </section>
 
   <section class="divider">
-    <h2>1. Define a directive</h2>
+    <h2>1. Define a Directive</h2>
 
     <p>
       A directive is a struct that implements <code>tagex.Directive[T]</code>,
@@ -76,7 +76,7 @@ func (d *RangeDirective) Handle(val int) (int, error) {
   </section>
 
   <section class="divider">
-    <h2>2. Create a tag context</h2>
+    <h2>2. Create a Tag Context</h2>
 
     <p>
       A <code>Tag</code> represents a processing environment for a single
@@ -95,7 +95,7 @@ tagex.RegisterDirective(&checkTag, &RangeDirective{})
   </section>
 
   <section class="divider">
-    <h2>3. Annotate a struct</h2>
+    <h2>3. Annotate a Struct</h2>
 
     <pre><code class="language-go">
 type Car struct {
@@ -118,7 +118,7 @@ type Car struct {
   </section>
 
   <section class="divider">
-    <h2>4. Process the struct</h2>
+    <h2>4. Process the Struct</h2>
 
     <pre><code class="language-go">
 car := Car{Doors: 5}
@@ -142,7 +142,7 @@ ok, err := checkTag.ProcessStruct(&car)
   </section>
 
   <section class="divider">
-    <h2>Evaluation vs mutation</h2>
+    <h2>Evaluation vs Mutation</h2>
 
     <p>
       Directives can either:
@@ -160,7 +160,7 @@ ok, err := checkTag.ProcessStruct(&car)
   </section>
 
   <section class="divider">
-    <h2>Pre and post processing</h2>
+    <h2>Pre and Post Processing</h2>
 
     <p>
       If the target struct implements:
@@ -178,7 +178,7 @@ ok, err := checkTag.ProcessStruct(&car)
   </section>
 
   <section class="divider">
-    <h2>Next steps</h2>
+    <h2>Next Steps</h2>
 
     <ul>
       <li>Writing mutating directives</li>

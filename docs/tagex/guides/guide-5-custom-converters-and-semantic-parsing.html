@@ -6,7 +6,7 @@ title: Tagex Guide 5 — Custom converters and semantic parsing
 {% include nav-tagex.html %}
 
 <main>
-  <h1>Custom converters and semantic parsing</h1>
+  <h1>Custom Converters and Semantic Parsing</h1>
 
   <p>
     So far, we have treated directive parameters as simple values:
@@ -24,7 +24,7 @@ title: Tagex Guide 5 — Custom converters and semantic parsing
   </p>
 
   <section class="divider">
-    <h2>The problem: one type, many meanings</h2>
+    <h2>The Problem: One Type, Many Meanings</h2>
 
     <p>
       Consider the following struct:
@@ -68,7 +68,7 @@ type Limits struct {
   </section>
 
   <section class="divider">
-    <h2>Directive-owned parameter parsing</h2>
+    <h2>Directive-Owned Parameter Parsing</h2>
 
     <p>
       A directive may implement custom parameter parsing
@@ -93,7 +93,7 @@ type Limits struct {
   </section>
 
   <section class="divider">
-    <h2>Example: parsing byte sizes</h2>
+    <h2>Example: Parsing Byte Sizes</h2>
 
     <pre><code class="language-go">
 type BytesDirective struct {
@@ -129,7 +129,7 @@ func (d *BytesDirective) ConvertParam(
   </section>
 
   <section class="divider">
-    <h2>Example: parsing durations</h2>
+    <h2>Example: Parsing Durations</h2>
 
     <pre><code class="language-go">
 type DurationDirective struct {
@@ -165,7 +165,7 @@ func (d *DurationDirective) ConvertParam(
   </section>
 
   <section class="divider">
-    <h2>Why this design matters</h2>
+    <h2>Why This Design Matters</h2>
 
     <p>
       By making directives responsible for parsing:
@@ -185,7 +185,7 @@ func (d *DurationDirective) ConvertParam(
   </section>
 
   <section class="divider">
-    <h2>Default behavior still exists</h2>
+    <h2>Default Behavior Still Exists</h2>
 
     <p>
       Directives that do not implement custom parsing
@@ -199,7 +199,7 @@ func (d *DurationDirective) ConvertParam(
   </section>
 
   <section class="divider">
-    <h2>The bigger picture</h2>
+    <h2>The Bigger Picture</h2>
 
     <p>
       With directive-owned conversion, Tagex now supports:
@@ -224,7 +224,7 @@ func (d *DurationDirective) ConvertParam(
   </section>
 
   <section class="divider">
-    <h2>Where to go next</h2>
+    <h2>Where to Go Next</h2>
 
     <p>
       At this point, you have seen the full expressive range of Tagex:

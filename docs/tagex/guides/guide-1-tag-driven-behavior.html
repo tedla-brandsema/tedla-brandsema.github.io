@@ -6,7 +6,7 @@ title: Tagex Guide 1 — Tag-driven behavior
 {% include nav-tagex.html %}
 
 <main>
-  <h1>Tag-driven behavior</h1>
+  <h1>Tag-Driven Behavior</h1>
 
   <p>
     This guide introduces the core idea behind Tagex:
@@ -21,7 +21,7 @@ title: Tagex Guide 1 — Tag-driven behavior
   </p>
 
   <section class="divider">
-    <h2>The problem: inconsistent external input</h2>
+    <h2>The Problem: Inconsistent External Input</h2>
 
     <p>
       Many systems ingest data that is <em>structurally correct</em>
@@ -43,7 +43,7 @@ title: Tagex Guide 1 — Tag-driven behavior
   </section>
 
   <section class="divider">
-    <h2>Declaring semantics with tags</h2>
+    <h2>Declaring Semantics with Tags</h2>
 
     <p>
       With Tagex, you declare <em>what a field means</em>
@@ -69,7 +69,7 @@ type ImportRow struct {
   </section>
 
   <section class="divider">
-    <h2>Implementing a directive</h2>
+    <h2>Implementing a Directive</h2>
 
     <p>
       A directive is a small, typed piece of Go code
@@ -104,7 +104,7 @@ func (d *UpperDirective) Handle(val string) (string, error) {
   </section>
 
   <section class="divider">
-    <h2>Directives with parameters</h2>
+    <h2>Directives with Parameters</h2>
 
     <p>
       Directives can receive parameters via their own struct fields.
@@ -142,7 +142,7 @@ func (d *CurrencyDirective) Handle(val string) (string, error) {
   </section>
 
   <section class="divider">
-    <h2>Creating a tag context</h2>
+    <h2>Creating a Tag Context</h2>
 
     <p>
       A <code>Tag</code> represents a processing context
@@ -163,7 +163,7 @@ tagex.RegisterDirective(&normTag, &CurrencyDirective{})
   </section>
 
   <section class="divider">
-    <h2>Processing a struct</h2>
+    <h2>Processing a Struct</h2>
 
     <pre><code class="language-go">
 row := ImportRow{
@@ -190,7 +190,7 @@ row.Price == "123450"
   </section>
 
   <section class="divider">
-    <h2>What this is (and is not)</h2>
+    <h2>What This Is (and Is Not)</h2>
 
     <p>
       In this guide, Tagex:
@@ -209,7 +209,7 @@ row.Price == "123450"
   </section>
 
   <section class="divider">
-    <h2>Why this matters</h2>
+    <h2>Why This Matters</h2>
 
     <p>
       By attaching semantics directly to struct fields:
@@ -228,7 +228,7 @@ row.Price == "123450"
   </section>
 
   <section class="divider">
-    <h2>Next guide</h2>
+    <h2>Next Guide</h2>
 
     <p>
       In the next guide, we will look at how tags can be used
