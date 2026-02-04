@@ -245,13 +245,13 @@ Command ".count" has been invoked 18 times
 
         <h3>State</h3>
         <ul>
-            <li>Managing state is your responsibility when implementing <code class="language-go">yoink.Parser</code>.
-            </li>
+            <li>If you modify state from inside your parser, race conditions might occur. You need to manage this
+                yourself.</li>
             <li>The order in which the goroutines are started does not guarantee the order in which they are returned.
             </li>
         </ul>
 
-        <h3>Local Files</h3>
+        <h3>Files</h3>
         <ul>
             <li>Accessing the same file concurrently is generally considered safe as long as you're only
                 <em>reading</em>. This
@@ -265,9 +265,7 @@ Command ".count" has been invoked 18 times
                 thousands of goroutines. </li>
             <li>Hammering the I/O subsystem is a possibility when reading repeatedly from disk, but unlikely to happen.
             </li>
-            <li>Using <code class="language-go">bufio.Reader</code> or similar on top of a shared <code
-                    class="language-go">*os.File</code> between multiple goroutines is NOT safe.</li>
-            <li>If you do decide to modify data on disk from inside your parser, race conditions might occur. You need
-                to manage this yourself.</li>
+            <li>Using <code class="language-go">bufio.Reader</code> or similar on top of an <code
+                    class="language-go">*os.File</code> that is shared between multiple goroutines is NOT safe.</li>
         </ul>
     </section>
