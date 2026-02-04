@@ -260,7 +260,7 @@ Command ".count" has been invoked 18 times
                     class="language-go">os.OpenFile(name, O_RDONLY, 0)</code> are safe to use in your parser.
             </li>
 
-            <li>Since each call to the functions mentioned above returns its own file descriptor, there is a change that
+            <li>Since each call to the functions mentioned above returns its own file descriptor, there is a chance that
                 you might hit the file descriptor limit (ulimit -n). This is unlikely to happen unless scaled up to
                 thousands of goroutines. </li>
             <li>Hammering the I/O subsystem is a possibility when reading repeatedly from disk, but unlikely to happen.
