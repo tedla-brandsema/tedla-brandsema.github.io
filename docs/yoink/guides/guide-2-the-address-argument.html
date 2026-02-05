@@ -100,7 +100,7 @@ By William Shakespeare
         <ol>
             <li>The address argument is line based, just like everything else in Yoink. Partiallly matching a line (as
                 long as it is unique) is sufficient to target the entire line.</li>
-            <li>You can prepend your region demarcanstions with a comment identifier of the original format of the file.
+            <li>You can prepend your region demarcanstions with a comment identifier of the original file format.
                 For example, you can use <code class="language-none">//</code> in a lot of programming languages to mark
                 comments.</li>
         </ol>
@@ -111,7 +111,7 @@ By William Shakespeare
 
 
 
-    </section>   
+    </section>
     <section class="divider">
         <h2>A Jumbled Result</h2>
 
@@ -149,18 +149,18 @@ And summer’s lease hath all too short a date;
         <p>We succeeded in jumbling the output using addresses, but we now have the undesirable effect that the address
             demarcations ended up in the resulting output.</p>
     </section>
-<section class="divider">
+    <section class="divider">
         <h2>Omitting the address demarcations</h2>
 
-        <p>In some cases, you might want to omit the address demarcations from the resulting output. For example, in our
+        <p>In most cases, you want to omit the address demarcations from the resulting output. For example, in our
             case, we just want the text of the sonnet without the <code class="language-none">#START</code> and <code
                 class="language-none">#END</code> lines.</p>
-    <p>Luckily we have a way to circumvent this: all lines that ends with the four characters <code
-            class="language-none">OMIT</code> are not included in the final output.</p>
+        <p>Luckily we have a way to circumvent this: all lines that ends with the four characters <code
+                class="language-none">OMIT</code> are not included in the final output.</p>
 
-    <p>So if we were to append the demarcations with <code class="language-none">OMIT</code> as shown below:</p>
+        <p>So if we were to append the demarcations with <code class="language-none">OMIT</code> as shown below:</p>
 
-    <pre><code class="language-none">
+        <pre><code class="language-none">
 #START stanza-1 OMIT
 Shall I compare thee to a summer’s day?
 Thou art more lovely and more temperate:
@@ -183,9 +183,9 @@ When in eternal lines to time thou grow’st:
 #END stanza-3 OMIT
 </code></pre>
 
-    <p>And update the regular expressions in the root file to match the new demarcations:</p>
+        <p>And update the regular expressions in the root file to match the new demarcations:</p>
 
-    <pre><code class="language-none">
+        <pre><code class="language-none">
 Sonnet 18: Shall I compare thee to a summer’s day?
 By William Shakespeare
 
@@ -198,9 +198,9 @@ By William Shakespeare
 .yoink sonnet-18-quatrains.txt /START stanza-1 OMIT/,/END stanza-1 OMIT/
         </code></pre>
 
-    <p>We get the desired jumbled output, but without the demarcation lines:</p>
+        <p>We get the desired jumbled output, but without the demarcation lines:</p>
 
-    <pre><code class="language-none">
+        <pre><code class="language-none">
 Sonnet 18: Shall I compare thee to a summer’s day?
 By William Shakespeare
 
