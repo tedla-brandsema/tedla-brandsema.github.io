@@ -1,9 +1,10 @@
 ---
 layout: article
-title:  When First-Mover Advantage Becomes a Liability - Article
+title:  The Inhibiting Lead - Article
 ---
 
-<h1 itemprop="headline">When First-Mover Advantage Becomes a Liability</h1>
+<h1 itemprop="headline">The Inhibiting Lead</h1>
+<h2><em>When First-Mover Advantage Becomes a Liability</em></h2>
 
 <div class="published">
   Published: <time itemprop="datePublished" datetime="2026-02-12">February 12th, 2026</time> by 
@@ -28,7 +29,7 @@ But that assumption quietly relies on conditions that do not always hold.
 
 It is true that early leadership can confer real benefits. The first company to scale infrastructure can build recognition, attract talent, secure partnerships, and define standards. Under stable technological conditions, those advantages compound. This is the familiar logic behind network effects and platform dominance, and it explains many historical winners.
 
-Yet some industries operate under a fundamentally different set of dynamics. In these environments, efficiency improves rapidly, methods spread quickly, and the cost of achieving a given level of performance falls over time. When that decline accelerates, industries can enter what can be called a <em>cost-collapse</em> phase: a period in which each successive generation becomes dramatically cheaper to produce than the last.
+Yet some industries operate under a fundamentally different set of dynamics. In these environments, efficiency improves rapidly, methods spread quickly, and the cost of achieving a given level of performance falls over time. When that decline accelerates, industries can enter what can be called a *cost-collapse* phase: a period in which each successive generation becomes dramatically cheaper to produce than the last.
 
 The distinction between variable and fixed cost becomes decisive here. Training a system may be expensive, but it is episodic. Infrastructure is continuous. Data centers, hardware procurement agreements, power contracts, and specialized networking architectures represent long-lived financial obligations. They are not easily unwound or replaced. They must be amortized across years of operation.
 
@@ -46,7 +47,7 @@ In industries shaped by rapid optimization and knowledge diffusion, this inversi
 
 This is the dynamic that conventional “race” narratives overlook. They assume progress is linear and advantages persist. But in certain technological regimes, the decisive factor is not how far ahead a company is today. It is how expensive it was to get there.
 
-We can give this pattern a name: **the inhibiting lead**. It describes the condition in which the very investments that created early leadership later restrict a firm’s ability to adapt. The lead still exists, but it inhibits flexibility rather than securing dominance.
+We can give this pattern a name: **the inhibiting lead**. It describes the condition in which the very investments that created early leadership later restrict a firm’s ability to adapt. The lead still exists, but it inhibits flexibility rather than securing dominance. This dynamic is not new. In 1937, Dutch historian Jan Romein identified the same pattern as the “law of the handicap of a head start” (*remmende voorsprong*): the tendency for early leaders to become constrained by the structures that once gave them advantage.
 
 Recognizing this possibility changes how an industry must be analyzed. Instead of asking which firm is winning, the more relevant question becomes which firms are positioned to remain competitive if the underlying economics shift. That requires looking not only at capability and market share, but at cost structures, capital exposure, and technological trajectories.
 
