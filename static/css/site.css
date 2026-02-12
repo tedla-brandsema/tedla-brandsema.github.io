@@ -197,6 +197,37 @@ h3 {
     line-height: 1.25;
 }
 
+/* Article metadata */
+.published {
+    margin: -0.35rem 0 1.25rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.published time,
+.published [itemprop="name"] {
+    color: #222;
+    font-weight: 600;
+}
+
+/* Article series context */
+.dossier {
+    margin: 0 0 1.6rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid #dadce0;
+    border-left: 4px solid #b8bec7;
+    border-radius: 8px;
+    background: #f8f9fb;
+    color: #2f2f2f;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.dossier a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 /* Content separation (hr replacement) */
 .divider {
     margin-top: 2.5rem;
