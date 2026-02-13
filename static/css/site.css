@@ -267,6 +267,35 @@ h3 {
   list-style-position: inside;
 }
 
+/* Search result style lists for writing indexes */
+.search-results {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.search-result-item {
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    background: #fff;
+    padding: 1rem 1.1rem;
+}
+
+.search-result-item h2,
+.search-result-item h3 {
+    margin: 0;
+}
+
+.search-result-meta {
+    margin: 0.25rem 0 0.45rem;
+    color: #555;
+    font-size: 0.92rem;
+}
+
+.search-result-intro {
+    margin: 0;
+}
+
 /* Alert note */
 .alert-note {
     background: #fff7cc;

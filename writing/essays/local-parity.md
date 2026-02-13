@@ -1,6 +1,11 @@
 ---
 layout: article
 title:  Local Parity - Article
+heading: Local Parity
+date: 2026-02-12
+author: Tedla Brandsema
+intro: Local models become competitively viable when remaining performance gaps fall below practical perception.
+dossier: economics-of-the-llm-industry
 ---
 
 <h1 itemprop="headline">Local Parity</h1>
@@ -13,7 +18,7 @@ title:  Local Parity - Article
 </div>
 
 <div class="dossier">
-    This article is part of a Dossier on <a href="">The Economics of the LLM Industry</a>.
+    This article is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
 
     This dossier examines the economic and structural forces shaping the large-language-model sector in particular, not artificial intelligence as a whole.
 </div>

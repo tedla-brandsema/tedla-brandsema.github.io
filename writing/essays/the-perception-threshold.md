@@ -1,6 +1,11 @@
 ---
 layout: article
 title:  The Perception Threshold - Article
+heading: The Perception Threshold
+date: 2026-02-12
+author: Tedla Brandsema
+intro: Technical improvements stop producing advantage once users can no longer perceive the difference.
+dossier: economics-of-the-llm-industry
 ---
 
 <h1 itemprop="headline">The Perception Threshold</h1>
@@ -15,7 +20,7 @@ title:  The Perception Threshold - Article
 </div>
 
 <div class="dossier">
-    This article is part of a Dossier on <a href="">The Economics of the LLM Industry</a>.
+    This article is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
 
     This dossier examines the economic and structural forces shaping the large-language-model sector in particular, not artificial intelligence as a whole.
 </div>

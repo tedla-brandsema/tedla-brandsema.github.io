@@ -1,6 +1,11 @@
 ---
 layout: article
 title:  The AI Race Is a Category Error - Article
+heading: The AI Race Is a Category Error
+date: 2026-02-12
+author: Tedla Brandsema
+intro: AI competition is not one race but many layered domains with different constraints and timelines.
+dossier: economics-of-the-llm-industry
 ---
 
 <h1 itemprop="headline">The AI Race Is a Category Error</h1>
@@ -13,12 +18,10 @@ title:  The AI Race Is a Category Error - Article
 </div>
 
 <div class="dossier">
-    This article is part of a Dossier on <a href="">The Economics of the LLM Industry</a>.
+    This article is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
 
     This dossier examines the economic and structural forces shaping the large-language-model sector in particular, not artificial intelligence as a whole.
 </div>
-
-
 
 Public discussion of artificial intelligence almost always begins in the wrong place. It begins with competition: who is ahead, who is behind, and who is winning. But before asking who is winning, it is necessary to understand what game is actually being played. That requires a map.
 

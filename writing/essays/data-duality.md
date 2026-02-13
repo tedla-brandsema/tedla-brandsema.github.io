@@ -1,6 +1,11 @@
 ---
 layout: article
 title:  Data Duality - Article
+heading: Data Duality
+date: 2026-02-12
+author: Tedla Brandsema
+intro: Skill-forming and fact-forming data drive different kinds of model progress and are often mistaken for one another.
+dossier: economics-of-the-llm-industry
 ---
 
 <h1 itemprop="headline">Data Duality</h1>
@@ -14,7 +19,7 @@ title:  Data Duality - Article
 </div>
 
 <div class="dossier">
-    This article is part of a Dossier on <a href="">The Economics of the LLM Industry</a>.
+    This article is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
 
     This dossier examines the economic and structural forces shaping the large-language-model sector in particular, not artificial intelligence as a whole.
 </div>

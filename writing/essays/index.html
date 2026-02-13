@@ -1,0 +1,37 @@
+---
+layout: default
+title: Essays
+---
+
+{% include nav-writing.html %}
+
+<main>
+  <h1>Essays</h1>
+
+  {% assign items = site.pages | sort: "date" | reverse %}
+
+  <section class="search-results" aria-label="Essay overview">
+    {% for p in items %}
+      {% if p.url contains '/writing/essays/' and p.url != '/writing/essays/' and p.url != '/writing/essays/index.html' %}
+      <article class="search-result-item">
+        <h2>
+          <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name | replace: ' - Article', '' }}</a>
+        </h2>
+        <p class="search-result-meta">
+          {% if p.date %}
+            <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%B %-d, %Y" }}</time>
+          {% else %}
+            <span>Undated</span>
+          {% endif %}
+          {% if p.author %}
+            <span> by {{ p.author }}</span>
+          {% endif %}
+        </p>
+        <p class="search-result-intro">
+          {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 240 }}
+        </p>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </section>
+</main>

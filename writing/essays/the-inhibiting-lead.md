@@ -1,6 +1,11 @@
 ---
 layout: article
 title:  The Inhibiting Lead - Article
+heading: The Inhibiting Lead
+date: 2026-02-12
+author: Tedla Brandsema
+intro: Early infrastructure advantage can flip into a liability when cost curves collapse faster than capital amortization.
+dossier: economics-of-the-llm-industry
 ---
 
 <h1 itemprop="headline">The Inhibiting Lead</h1>
@@ -14,12 +19,10 @@ title:  The Inhibiting Lead - Article
 </div>
 
 <div class="dossier">
-    This article is part of a Dossier on <a href="">The Economics of the LLM Industry</a>.
+    This article is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
 
     This dossier examines the economic and structural forces shaping the large-language-model sector in particular, not artificial intelligence as a whole.
 </div>
-
-
 
 In technology markets, one belief is repeated so often that it has acquired the status of a law: being first is an advantage. Investors look for first movers. Headlines celebrate early leaders. Analysts construct charts ranking companies by how far ahead they appear to be.
 
