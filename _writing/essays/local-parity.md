@@ -9,7 +9,7 @@ intro: Local models become competitively viable when remaining performance gaps 
 dossier: economics-of-the-llm-industry
 ---
 
-<h1 itemprop="headline">{{ page.heading }}</h1>
+<h1>{{ page.heading }}</h1>
 
 {% include published.html %}
 

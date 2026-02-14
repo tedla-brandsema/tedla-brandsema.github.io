@@ -5,12 +5,12 @@
 {% if published_at %}
   <div class="published">
     Published:
-    <time itemprop="datePublished" datetime="{{ published_at | date: "%Y-%m-%dT%H:%M:%S%:z" }}">
+    <time datetime="{{ published_at | date: "%Y-%m-%dT%H:%M:%S%:z" }}">
       {{ published_at | date: "%B %-d, %Y" }}
     </time>
     by
-    <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-      <span itemprop="name">{{ author_name }}</span>
+    <span>
+      <span>{{ author_name }}</span>
     </span>
   </div>
 {% endif %}

@@ -9,7 +9,7 @@ intro: Early infrastructure advantage can flip into a liability when cost curves
 dossier: economics-of-the-llm-industry
 ---
 
-<h1 itemprop="headline">{{ page.heading }}</h1>
+<h1>{{ page.heading }}</h1>
 <h2><em>When First-Mover Advantage Becomes a Liability</em></h2>
 
 {% include published.html %}

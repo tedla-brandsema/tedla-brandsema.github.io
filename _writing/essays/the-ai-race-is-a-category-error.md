@@ -9,7 +9,7 @@ intro: AI competition is not one race but many layered domains with different co
 dossier: economics-of-the-llm-industry
 ---
 
-<h1 itemprop="headline">{{ page.heading }}</h1>
+<h1>{{ page.heading }}</h1>
 
 {% include published.html %}
 
