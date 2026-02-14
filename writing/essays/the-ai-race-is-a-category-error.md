@@ -2,7 +2,7 @@
 layout: article
 title:  The AI Race Is a Category Error - Article
 heading: The AI Race Is a Category Error
-date: 2026-02-12
+published: 2026-02-12T00:00:00+02:00
 author: Tedla Brandsema
 intro: AI competition is not one race but many layered domains with different constraints and timelines.
 dossier: economics-of-the-llm-industry
@@ -10,12 +10,7 @@ dossier: economics-of-the-llm-industry
 
 <h1 itemprop="headline">The AI Race Is a Category Error</h1>
 
-<div class="published">
-  Published: <time itemprop="datePublished" datetime="2026-02-12">February 12th, 2026</time> by 
-  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-     <span itemprop="name">Tedla Brandsema</span>
-  </span>
-</div>
+{% include published.html %}
 
 <div class="dossier">
     This article is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.

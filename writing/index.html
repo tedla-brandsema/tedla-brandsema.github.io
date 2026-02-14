@@ -8,7 +8,7 @@ title: Writing
 <main>
   <h1>Writing</h1>
 
-  {% assign items = site.pages | sort: "date" | reverse %}
+  {% assign items = site.pages | sort: "published" | reverse %}
 
   <section class="search-results" aria-label="Writing overview">
     {% for p in items %}
@@ -18,8 +18,9 @@ title: Writing
           <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name | replace: ' - Article', '' | replace: ' - Dossier', '' }}</a>
         </h2>
         <p class="search-result-meta">
-          {% if p.date %}
-            <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%B %-d, %Y" }}</time>
+          {% assign published_at = p.published | default: p.date %}
+          {% if published_at %}
+            <time datetime="{{ published_at | date_to_xmlschema }}">{{ published_at | date: "%B %-d, %Y" }}</time>
           {% else %}
             <span>Undated</span>
           {% endif %}

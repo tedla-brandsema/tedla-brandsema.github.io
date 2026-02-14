@@ -2,7 +2,7 @@
 layout: article
 title:  The Inhibiting Lead - Article
 heading: The Inhibiting Lead
-date: 2026-02-12
+published: 2026-02-12T00:00:00+02:00
 author: Tedla Brandsema
 intro: Early infrastructure advantage can flip into a liability when cost curves collapse faster than capital amortization.
 dossier: economics-of-the-llm-industry
@@ -11,12 +11,7 @@ dossier: economics-of-the-llm-industry
 <h1 itemprop="headline">The Inhibiting Lead</h1>
 <h2><em>When First-Mover Advantage Becomes a Liability</em></h2>
 
-<div class="published">
-  Published: <time itemprop="datePublished" datetime="2026-02-12">February 12th, 2026</time> by 
-  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-     <span itemprop="name">Tedla Brandsema</span>
-  </span>
-</div>
+{% include published.html %}
 
 <div class="dossier">
     This article is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
