@@ -8,7 +8,7 @@ author: Tedla Brandsema
 intro: A dossier on the structural and economic forces shaping competition in large language models.
 ---
 
-<h1 itemprop="headline">The Economics of the LLM Industry</h1>
+<h1 itemprop="headline">{{ page.heading }}</h1>
 
 {% include published.html %}
 
@@ -23,7 +23,7 @@ intro: A dossier on the structural and economic forces shaping competition in la
       <article class="search-result-item">
         <h3><a href="{{ p.url }}">{{ p.heading | default: p.title }}</a></h3>
         <p class="search-result-meta">
-          {% include published.html item=p inline=true %}
+          {% include published.html item=p %}
         </p>
         <p class="search-result-intro">{{ p.intro | default: p.excerpt | strip_html | strip_newlines | truncate: 220 }}</p>
       </article>

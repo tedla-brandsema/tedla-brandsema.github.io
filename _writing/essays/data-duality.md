@@ -9,7 +9,7 @@ intro: Skill-forming and fact-forming data drive different kinds of model progre
 dossier: economics-of-the-llm-industry
 ---
 
-<h1 itemprop="headline">Data Duality</h1>
+<h1 itemprop="headline">{{ page.heading }}</h1>
 <h2><em>Why Newer Models Are Not Always Smarter</em></h2>
 
 {% include published.html %}

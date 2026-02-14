@@ -9,7 +9,7 @@ intro: Technical improvements stop producing advantage once users can no longer 
 dossier: economics-of-the-llm-industry
 ---
 
-<h1 itemprop="headline">The Perception Threshold</h1>
+<h1 itemprop="headline">{{ page.heading }}</h1>
 
 <h2><em>When Improvement Stops Translating Into Advantage</em></h2>
 

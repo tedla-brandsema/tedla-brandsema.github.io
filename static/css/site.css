@@ -282,11 +282,15 @@ h3 {
     margin: 0;
 }
 
-.search-result-meta {
+.search-result-item h2 {
+    padding-bottom: 16px;
+}
+
+/* .search-result-meta {
     margin: 0.25rem 0 0.45rem;
     color: #555;
     font-size: 0.92rem;
-}
+} */
 
 .search-result-intro {
     margin: 0;

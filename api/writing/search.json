@@ -1,0 +1,21 @@
+---
+layout: null
+---
+{%- assign writing_collection = site.collections | where: "label", "writing" | first -%}
+[{%- assign docs = "" | split: "" -%}
+{%- if writing_collection and writing_collection.docs -%}
+  {%- assign docs = writing_collection.docs | sort: "published" | reverse -%}
+{%- endif -%}
+{%- assign first_item = true -%}
+{%- for doc in docs -%}
+  {%- unless first_item -%},{%- endunless -%}
+  {%- assign first_item = false -%}
+  {
+    "title": {{ doc.title | jsonify }},
+    "heading": {{ doc.heading | jsonify }},
+    "intro": {{ doc.intro | jsonify }},
+    "href": {{ doc.url | jsonify }},
+    "type": {{ doc.type | jsonify }},
+    "published": {{ doc.published | date: "%Y-%m-%dT%H:%M:%S%:z" | jsonify }}
+  }
+{%- endfor -%}]

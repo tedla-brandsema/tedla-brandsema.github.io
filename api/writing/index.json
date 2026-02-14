@@ -2,7 +2,10 @@
 layout: null
 ---
 {%- assign writing_collection = site.collections | where: "label", "writing" | first -%}
-[{%- assign docs = writing_collection.docs | sort: "path" -%}
+[{%- assign docs = "" | split: "" -%}
+{%- if writing_collection and writing_collection.docs -%}
+  {%- assign docs = writing_collection.docs | sort: "path" -%}
+{%- endif -%}
 {%- assign fields = "layout,type,title,heading,published,author,intro,dossier" | split: "," -%}
 {%- assign first_item = true -%}
 {%- for doc in docs -%}
