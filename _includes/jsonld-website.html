@@ -1,0 +1,15 @@
+{% assign has_site_url = site.url | default: "" | strip %}
+{% if has_site_url != "" %}
+  {% assign website_url = "/" | absolute_url %}
+{% else %}
+  {% assign website_url = "/" | relative_url %}
+{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.title | default: "Site" | jsonify }},
+  "url": {{ website_url | jsonify }}
+}
+</script>

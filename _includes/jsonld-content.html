@@ -1,0 +1,36 @@
+{% assign schema_type = "WebPage" %}
+{% if page.layout == "article" %}
+  {% assign schema_type = "Article" %}
+{% endif %}
+{% if page.type == "guide" or page.type == "tutorial" %}
+  {% assign schema_type = "TechArticle" %}
+{% endif %}
+{% if page.type == "overview" %}
+  {% assign schema_type = "CollectionPage" %}
+{% endif %}
+
+{% if include.title and include.url and include.description %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": {{ schema_type | jsonify }},
+  "headline": {{ include.title | jsonify }},
+  "name": {{ include.title | jsonify }},
+  "description": {{ include.description | jsonify }},
+  "url": {{ include.url | jsonify }},
+  "mainEntityOfPage": {{ include.url | jsonify }},
+  "inLanguage": {{ site.lang | default: "en" | jsonify }}{% if page.author %},
+  "author": {
+    "@type": "Person",
+    "name": {{ page.author | jsonify }}
+  }{% endif %}{% if page.published %},
+  "datePublished": {{ page.published | date: "%Y-%m-%dT%H:%M:%S%:z" | jsonify }}
+  {% if page.last_modified_at %},
+  "dateModified": {{ page.last_modified_at | date: "%Y-%m-%dT%H:%M:%S%:z" | jsonify }}
+  {% endif %}
+{% endif %}{% if include.image_url and include.image_url != "" %},
+  "image": {{ include.image_url | jsonify }}
+{% endif %}
+}
+</script>
+{% endif %}
