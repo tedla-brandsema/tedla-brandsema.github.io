@@ -1,16 +1,59 @@
+/* Theme tokens */
+:root {
+    color-scheme: light;
+    --bg: #f9f7f2;
+    --text: #111;
+    --muted: #444;
+    --muted-2: #555;
+    --text-strong: #222;
+    --border: #dadce0;
+    --border-soft: #d0d7de;
+    --surface: #fafaf8;
+    --surface-alt: #f8f9fb;
+    --surface-code: #f6f8fa;
+    --top-nav-bg: #f9f7f2;
+    --btn-hover-text: #fff;
+    --alert-bg: #fff7cc;
+    --alert-border: #e1b900;
+    --alert-text: #5a4a00;
+    --shadow: rgba(0, 0, 0, 0.04);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --bg: #14130f;
+        --text: #ece9df;
+        --muted: #c8c2b6;
+        --muted-2: #b9b3a8;
+        --text-strong: #f4f1e9;
+        --border: #3b3832;
+        --border-soft: #45413a;
+        --surface: #1f1e1a;
+        --surface-alt: #23201a;
+        --surface-code: #1f1c17;
+        --top-nav-bg: #14130f;
+        --btn-hover-text: #fff;
+        --alert-bg: #3f3006;
+        --alert-border: #9a7c1f;
+        --alert-text: #f3e2a9;
+        --shadow: rgba(0, 0, 0, 0.35);
+    }
+}
+
 /* Base document styling */
 body {
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                  Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: #f9f7f2;
-    color: #111;
+    background-color: var(--bg);
+    color: var(--text);
     line-height: 1.6;
 }
 
 /* Code blocks */
 pre {
-  background: #f6f8fa;
+  background: var(--surface-code);
   padding: 1rem;
   overflow-x: auto;
   font-size: 0.9rem;
@@ -32,13 +75,13 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 
 div.code-toolbar > .toolbar > .toolbar-item > button:hover,
 div.code-toolbar > .toolbar > .toolbar-item > button:focus {
-    color: #fff;
+    color: var(--btn-hover-text);
 
 }
 
 a {
     text-decoration: none;
-    color: #111;
+    color: var(--text);
     /* font-size: 0.95rem; */
 }
 
@@ -112,6 +155,12 @@ main a {
     vertical-align: middle;
 }
 
+.nav-icon-github {
+    background-color: var(--text);
+    -webkit-mask: url("/static/icons/github-brands-solid-full.svg") no-repeat center / contain;
+    mask: url("/static/icons/github-brands-solid-full.svg") no-repeat center / contain;
+}
+
 .nav-icon-external {
     width: 1em;
     height: 1em;
@@ -126,17 +175,17 @@ main a {
 
 .nav-home p {
     margin: 0.75rem 0 0;
-    color: #444;
+    color: var(--muted);
 }
 
 .nav-avatar {
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    border: 1px solid #d0d7de;
+    border: 1px solid var(--border-soft);
     display: block;
     object-fit: cover;
-    background: #fff;
+    background: var(--surface);
 }
 
 /* Navigation visual separation */
@@ -144,8 +193,8 @@ main a {
     margin-top: 1.5rem;
     padding-top: 1rem;
     font-size: 0.9rem;
-    color: #444;
-    border-top: 1px solid #dadce0;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
 }
 
 /* .nav-divider a {
@@ -154,8 +203,8 @@ main a {
 
 /* Top navigation */
 .top-nav {
-    border-bottom: 1px solid #dadce0;
-    background: #f9f7f2;
+    border-bottom: 1px solid var(--border);
+    background: var(--top-nav-bg);
 }
 
 .top-nav-inner {
@@ -172,7 +221,7 @@ main a {
     font-weight: 600;
     letter-spacing: 0.2px;
     text-decoration: none;
-    color: #111;
+    color: var(--text);
 }
 
 .top-nav-links {
@@ -201,12 +250,12 @@ h3 {
 .published {
     margin: -0.35rem 0 1.25rem;
     font-size: 0.9rem;
-    color: #555;
+    color: var(--muted-2);
 }
 
 .published time,
 .published [itemprop="name"] {
-    color: #222;
+    color: var(--text-strong);
     font-weight: 600;
 }
 
@@ -214,10 +263,10 @@ h3 {
 .dossier {
     margin: 0 0 1.6rem;
     padding: 0.9rem 1rem;
-    border: 1px solid #dadce0;
-    border-left: 4px solid #b8bec7;
-    background: #f8f9fb;
-    color: #2f2f2f;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--border-soft);
+    background: var(--surface-alt);
+    color: var(--text);
     font-size: 0.95rem;
     line-height: 1.55;
 }
@@ -231,7 +280,7 @@ h3 {
 .divider {
     margin-top: 2.5rem;
     padding-top: 1.5rem;
-    border-top: 1px solid #dadce0;
+    border-top: 1px solid var(--border);
 }
 
 /* Home cards */
@@ -248,10 +297,10 @@ h3 {
 }
 
 .card {
-    border: 1px solid #dadce0;
+    border: 1px solid var(--border);
     padding: 1.25rem 1.5rem;
-    background: #fdfbf7;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    background: var(--surface);
+    box-shadow: 0 1px 2px var(--shadow);
 }
 
 .card h2 {
@@ -273,8 +322,8 @@ h3 {
 }
 
 .search-result-item {
-    border: 1px solid #dadce0;
-    background: #fdfbf7;
+    border: 1px solid var(--border);
+    background: var(--surface);
     padding: 1rem 1.1rem;
 }
 
@@ -299,9 +348,9 @@ h3 {
 
 /* Alert note */
 .alert-note {
-    background: #fff7cc;
-    border: 1px solid #e1b900;
-    color: #5a4a00;
+    background: var(--alert-bg);
+    border: 1px solid var(--alert-border);
+    color: var(--alert-text);
     padding: 0.9rem 1rem;
 }
 
