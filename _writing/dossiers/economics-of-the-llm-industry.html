@@ -16,20 +16,14 @@ intro: A dossier on the structural and economic forces shaping competition in la
 
 <section class="divider">
   <h2>Essays in This Dossier</h2>
-  {% assign essays = site.pages | sort: "published" | reverse %}
+  {% assign essays = site.writing | where: "type", "essay" | sort: "published" | reverse %}
   <section class="search-results" aria-label="Dossier essays">
     {% for p in essays %}
-      {% if p.url contains '/writing/essays/' and p.dossier == 'economics-of-the-llm-industry' %}
+      {% if p.dossier == 'economics-of-the-llm-industry' %}
       <article class="search-result-item">
-        <h3><a href="{{ p.url }}">{{ p.heading | default: p.title | replace: ' - Article', '' }}</a></h3>
+        <h3><a href="{{ p.url }}">{{ p.heading | default: p.title }}</a></h3>
         <p class="search-result-meta">
-          {% assign published_at = p.published | default: p.date %}
-          {% if published_at %}
-            <time datetime="{{ published_at | date_to_xmlschema }}">{{ published_at | date: "%B %-d, %Y" }}</time>
-          {% endif %}
-          {% if p.author %}
-            <span> by {{ p.author }}</span>
-          {% endif %}
+          {% include published.html item=p inline=true %}
         </p>
         <p class="search-result-intro">{{ p.intro | default: p.excerpt | strip_html | strip_newlines | truncate: 220 }}</p>
       </article>

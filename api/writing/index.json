@@ -1,0 +1,27 @@
+---
+layout: null
+---
+{%- assign writing_collection = site.collections | where: "label", "writing" | first -%}
+[{%- assign docs = writing_collection.docs | sort: "path" -%}
+{%- assign fields = "layout,type,title,heading,published,author,intro,dossier" | split: "," -%}
+{%- assign first_item = true -%}
+{%- for doc in docs -%}
+    {%- unless first_item -%},{%- endunless -%}
+    {%- assign first_item = false -%}
+    {
+      {%- assign first_field = true -%}
+      {%- for field in fields -%}
+        {%- assign value = doc[field] -%}
+        {%- if value -%}
+          {%- unless first_field -%},{%- endunless -%}
+          {%- assign first_field = false -%}
+          {%- if field == "published" -%}
+            {{ field | jsonify }}: {{ value | date: "%Y-%m-%dT%H:%M:%S%:z" | jsonify }}
+          {%- else -%}
+            {{ field | jsonify }}: {{ value | jsonify }}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- unless first_field -%},{%- endunless -%}"href": {{ doc.url | jsonify }}
+    }
+{%- endfor -%}]

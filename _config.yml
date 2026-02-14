@@ -1,5 +1,9 @@
 title: tedla.dev
 markdown: kramdown
+collections:
+  writing:
+    output: true
+    permalink: /writing/:path.html
 kramdown:
   input: GFM
   syntax_highlighter: none

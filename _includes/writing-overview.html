@@ -1,5 +1,5 @@
 {% assign selected_types = include.types | default: "" | replace: " ", "" | split: "," %}
-{% assign items = site.pages | sort: "published" | reverse %}
+{% assign items = site.writing | sort: "published" | reverse %}
 
 <main>
   <h1>{{ page.title }}</h1>
