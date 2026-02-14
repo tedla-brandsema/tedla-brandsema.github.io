@@ -6,6 +6,7 @@ author: Tedla Brandsema
 heading: The AI Race Is a Category Error
 intro: AI competition is not one race but many layered domains with different constraints and timelines.
 dossier: economics-of-the-llm-industry
+dossier_order: 1
 ---
 
 <h1>{{ page.heading }}</h1>

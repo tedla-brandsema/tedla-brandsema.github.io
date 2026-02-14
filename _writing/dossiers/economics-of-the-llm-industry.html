@@ -15,12 +15,12 @@ intro: A dossier on the structural and economic forces shaping competition in la
 
 <section class="divider">
   <h2>Essays in This Dossier</h2>
-  {% assign essays = site.writing | where: "type", "essay" | sort: "published" | reverse %}
+  {% assign essays = site.writing | where: "type", "essay" | sort: "dossier_order" %}
   <section class="search-results" aria-label="Dossier essays">
     {% for p in essays %}
       {% if p.dossier == 'economics-of-the-llm-industry' %}
       <article class="search-result-item">
-        <h3><a href="{{ p.url }}">{{ p.heading | default: p.title }}</a></h3>
+        <h3><a href="{{ p.url }}">{{ p.dossier_order }}. {{ p.heading | default: p.title }}</a></h3>
         <p class="search-result-meta">
           {% include published.html item=p %}
         </p>
