@@ -1,5 +1,6 @@
 ---
 layout: article
+type: essay
 title:  The Inhibiting Lead - Article
 heading: The Inhibiting Lead
 published: 2026-02-12T00:00:00+02:00

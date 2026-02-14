@@ -1,5 +1,6 @@
 ---
 layout: article
+type: essay
 title:  The AI Race Is a Category Error - Article
 heading: The AI Race Is a Category Error
 published: 2026-02-12T00:00:00+02:00

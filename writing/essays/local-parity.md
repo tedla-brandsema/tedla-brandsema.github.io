@@ -1,5 +1,6 @@
 ---
 layout: article
+type: essay
 title:  Local Parity - Article
 heading: Local Parity
 published: 2026-02-12T00:00:00+02:00

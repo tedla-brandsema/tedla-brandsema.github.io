@@ -1,5 +1,6 @@
 ---
 layout: article
+type: essay
 title:  The Perception Threshold - Article
 heading: The Perception Threshold
 published: 2026-02-12T00:00:00+02:00
