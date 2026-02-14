@@ -1,10 +1,9 @@
 ---
 layout: article
 type: essay
-
-heading: Local Parity
 published: 2026-02-05T11:36:00+02:00
 author: Tedla Brandsema
+heading: Local Parity
 intro: Local models become competitively viable when remaining performance gaps fall below practical perception.
 dossier: economics-of-the-llm-industry
 ---

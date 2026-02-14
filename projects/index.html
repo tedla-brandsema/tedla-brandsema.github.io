@@ -1,27 +1,12 @@
 ---
 layout: default
-
+type: overview
+published: 2026-02-13T05:41:28+01:00
+author: Tedla Brandsema
+heading: Projects
+intro: Overview of software projects and documentation.
 ---
 
 {% include nav-blank.html %}
 
-<main>
-  <h1>{{ page.heading }}</h1>
-
-  {% assign items = site.pages | where: "type", "overview" | sort: "title" %}
-
-  <section class="search-results" aria-label="{{ page.heading }} overview">
-    {% for p in items %}
-      {% if p.url contains '/projects/' and p.url != '/projects/' and p.url != '/projects/index.html' %}
-      <article class="search-result-item">
-        <h2>
-          <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
-        </h2>
-        <p class="search-result-intro">
-          {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 240 }}
-        </p>
-      </article>
-      {% endif %}
-    {% endfor %}
-  </section>
-</main>
+{% include projects-overview.html types="overview" %}

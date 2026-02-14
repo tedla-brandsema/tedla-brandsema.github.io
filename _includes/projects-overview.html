@@ -1,0 +1,26 @@
+{% assign selected_types = include.types | default: "" | replace: " ", "" | split: "," %}
+{% assign items = "" | split: "" %}
+{% assign projects_collection = site.collections | where: "label", "projects" | first %}
+{% if projects_collection and projects_collection.docs %}
+{% assign items = projects_collection.docs | sort: "published" | reverse %}
+{% endif %}
+
+<main>
+  <h1>{{ page.heading | default: page.title }}</h1>
+
+  <section class="search-results" aria-label="{{ page.heading | default: page.title }} overview">
+    {% for p in items %}
+    {% if selected_types contains p.type %}
+    <article class="search-result-item">
+      <h2>
+        <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
+      </h2>
+      {% include published.html item=p %}
+      <p class="search-result-intro">
+        {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 240 }}
+      </p>
+    </article>
+    {% endif %}
+    {% endfor %}
+  </section>
+</main>

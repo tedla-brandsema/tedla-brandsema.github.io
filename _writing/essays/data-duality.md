@@ -1,10 +1,9 @@
 ---
 layout: article
 type: essay
-
-heading: Data Duality
 published: 2026-01-29T16:05:00+02:00
 author: Tedla Brandsema
+heading: Data Duality
 intro: Skill-forming and fact-forming data drive different kinds of model progress and are often mistaken for one another.
 dossier: economics-of-the-llm-industry
 ---

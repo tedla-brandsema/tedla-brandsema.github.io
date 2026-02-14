@@ -4,6 +4,9 @@ collections:
   writing:
     output: true
     permalink: /writing/:path.html
+  projects:
+    output: true
+    permalink: /projects/:path.html
 kramdown:
   input: GFM
   syntax_highlighter: none
