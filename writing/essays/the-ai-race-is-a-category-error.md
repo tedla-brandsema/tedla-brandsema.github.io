@@ -3,7 +3,7 @@ layout: article
 type: essay
 title:  The AI Race Is a Category Error - Article
 heading: The AI Race Is a Category Error
-published: 2026-02-12T00:00:00+02:00
+published: 2026-01-08T10:23:00+02:00
 author: Tedla Brandsema
 intro: AI competition is not one race but many layered domains with different constraints and timelines.
 dossier: economics-of-the-llm-industry

@@ -3,7 +3,7 @@ layout: article
 type: essay
 title:  The Perception Threshold - Article
 heading: The Perception Threshold
-published: 2026-02-12T00:00:00+02:00
+published: 2026-01-22T09:47:00+02:00
 author: Tedla Brandsema
 intro: Technical improvements stop producing advantage once users can no longer perceive the difference.
 dossier: economics-of-the-llm-industry
