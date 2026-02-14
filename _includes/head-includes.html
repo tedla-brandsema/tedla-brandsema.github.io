@@ -40,6 +40,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ title_text | escape }}</title>
 <meta name="description" content="{{ description_text | escape }}">
+{% if page.sitemap == false %}
+<meta name="robots" content="noindex,follow">
+{% endif %}
 <link rel="canonical" href="{{ canonical_url | escape }}">
 <meta name="theme-color" content="{{ page.theme_color | default: '#111111' }}">
 
