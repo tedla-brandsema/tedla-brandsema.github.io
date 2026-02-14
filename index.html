@@ -9,7 +9,7 @@ layout: default
   <div class="cards">
 
     <section class="card">
-      <h2>Documentation</h2>
+      <h2>Projects</h2>
       <p>Guided tours for the software listed below.</p>
 
       <ul>
@@ -19,16 +19,34 @@ layout: default
         </li>
         <li>
           <a href="/projects/yoink/">Yoink</a><br>
-           Include (partial) files into other files, from local or remote sources, over HTTP(S).<br>
+          Include (partial) files into other files, from local or remote sources, over HTTP(S).<br>
         </li>
       </ul>
     </section>
 
     <section class="card">
-      <h2>Examples</h2>
-      <p>For a code-first introduction to the software, see the examples below.</p>
+      <h2>Writing</h2>
+      {% assign writing_items = "" | split: "" %}
+      {% assign writing_collection = site.collections | where: "label", "writing" | first %}
+      {% if writing_collection and writing_collection.docs %}
+      {% assign writing_items = writing_collection.docs | sort: "published" | reverse %}
+      {% endif %}
 
       <ul>
+        {% for p in writing_items limit:4 %}
+        <li>
+          <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a><br>
+          {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 120 }}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Examples</h2>
+      <p>For a code-first introduction, browse individual examples from the examples repository.</p>
+
+      <ul id="examples-list">
         <li>
           <a target="_blank" href="https://github.com/tedla-brandsema/examples/tree/main/tagex">
             Tagex
@@ -43,11 +61,6 @@ layout: default
     </section>
 
     <section class="card">
-      <h2>Articles</h2>
-      <p>Technical notes and articles on software engineering topics.</p>
-    </section>
-
-    <section class="card">
       <h2>Research</h2>
       <p>Research on representation, structure, and invariance in learning systems.</p>
 
@@ -58,8 +71,6 @@ layout: default
         </li>
       </ul>
     </section>
-
-
 
   </div>
 </main>
