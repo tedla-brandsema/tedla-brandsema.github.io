@@ -1,7 +1,7 @@
 ---
 layout: article
 type: essay
-title:  The Inhibiting Lead - Article
+
 heading: The Inhibiting Lead
 published: 2026-01-15T14:11:00+02:00
 author: Tedla Brandsema

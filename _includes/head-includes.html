@@ -1,5 +1,5 @@
 {% assign site_title = site.title | default: "Site" %}
-{% assign page_title = page.heading | default: page.title | default: site_title %}
+{% assign page_title = page.heading | default: site_title %}
 {% if page_title == site_title %}
   {% assign title_text = site_title %}
 {% else %}

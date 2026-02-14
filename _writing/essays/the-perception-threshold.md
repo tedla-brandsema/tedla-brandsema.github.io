@@ -1,7 +1,7 @@
 ---
 layout: article
 type: essay
-title:  The Perception Threshold - Article
+
 heading: The Perception Threshold
 published: 2026-01-22T09:47:00+02:00
 author: Tedla Brandsema

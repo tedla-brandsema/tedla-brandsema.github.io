@@ -1,7 +1,7 @@
 ---
 layout: article
 type: essay
-title:  Data Duality - Article
+
 heading: Data Duality
 published: 2026-01-29T16:05:00+02:00
 author: Tedla Brandsema
