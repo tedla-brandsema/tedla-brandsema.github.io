@@ -6,11 +6,11 @@ title: Dossiers
 {% include nav-writing.html %}
 
 <main>
-  <h1>Dossiers</h1>
+  <h1>{{ page.title }}</h1>
 
   {% assign items = site.pages | sort: "published" | reverse %}
 
-  <section class="search-results" aria-label="Dossier overview">
+  <section class="search-results" aria-label="{{ page.title }} overview">
     {% for p in items %}
       {% if p.url contains '/writing/dossiers/' and p.url != '/writing/dossiers/' and p.url != '/writing/dossiers/index.html' %}
       <article class="search-result-item">
@@ -18,15 +18,7 @@ title: Dossiers
           <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name | replace: ' - Dossier', '' }}</a>
         </h2>
         <p class="search-result-meta">
-          {% assign published_at = p.published | default: p.date %}
-          {% if published_at %}
-            <time datetime="{{ published_at | date_to_xmlschema }}">{{ published_at | date: "%B %-d, %Y" }}</time>
-          {% else %}
-            <span>Undated</span>
-          {% endif %}
-          {% if p.author %}
-            <span> by {{ p.author }}</span>
-          {% endif %}
+          {% include published.html item=p %}
         </p>
         <p class="search-result-intro">
           {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 240 }}
