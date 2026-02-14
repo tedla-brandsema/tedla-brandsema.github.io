@@ -1,8 +1,68 @@
+{% assign site_title = site.title | default: "Site" %}
+{% assign page_title = page.heading | default: page.title | default: site_title %}
+{% if page_title == site_title %}
+  {% assign title_text = site_title %}
+{% else %}
+  {% assign title_text = page_title | append: " | " | append: site_title %}
+{% endif %}
+
+{% assign raw_description = page.intro | default: page.description | default: page.excerpt %}
+{% assign description_text = raw_description | strip_html | strip_newlines | truncate: 160 %}
+{% if description_text == "" %}
+  {% assign description_text = site_title %}
+{% endif %}
+
+{% assign has_site_url = site.url | default: "" | strip %}
+{% if has_site_url != "" %}
+  {% assign canonical_url = page.url | absolute_url %}
+{% else %}
+  {% assign canonical_url = page.url | relative_url %}
+{% endif %}
+
+{% assign og_type = "website" %}
+{% if page.layout == "article" %}
+  {% assign og_type = "article" %}
+{% endif %}
+
+{% assign image_path = page.image | default: site.social_image %}
+{% assign image_url = "" %}
+{% if image_path %}
+  {% if image_path contains "://" %}
+    {% assign image_url = image_path %}
+  {% elsif has_site_url != "" %}
+    {% assign image_url = image_path | absolute_url %}
+  {% else %}
+    {% assign image_url = image_path | relative_url %}
+  {% endif %}
+{% endif %}
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title_text | escape }}</title>
+<meta name="description" content="{{ description_text | escape }}">
+<link rel="canonical" href="{{ canonical_url | escape }}">
+<meta name="theme-color" content="{{ page.theme_color | default: '#111111' }}">
 
+<meta property="og:title" content="{{ title_text | escape }}">
+<meta property="og:description" content="{{ description_text | escape }}">
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:url" content="{{ canonical_url | escape }}">
+{% if image_url != "" %}
+<meta property="og:image" content="{{ image_url | escape }}">
+{% endif %}
+{% if page.layout == "article" and page.published %}
+<meta property="article:published_time" content="{{ page.published | date: '%Y-%m-%dT%H:%M:%S%:z' }}">
+{% endif %}
+
+<meta name="twitter:card" content="{% if image_url != '' %}summary_large_image{% else %}summary{% endif %}">
+<meta name="twitter:title" content="{{ title_text | escape }}">
+<meta name="twitter:description" content="{{ description_text | escape }}">
+{% if image_url != "" %}
+<meta name="twitter:image" content="{{ image_url | escape }}">
+{% endif %}
+
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-tomorrow.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/toolbar/prism-toolbar.min.css">
-
 <link rel="stylesheet" href="/static/css/github-button.css">
 <link rel="stylesheet" href="/static/css/site.css">
