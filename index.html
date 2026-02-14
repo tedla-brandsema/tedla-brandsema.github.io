@@ -9,22 +9,6 @@ layout: default
   <div class="cards">
 
     <section class="card">
-      <h2>Projects</h2>
-      <p>Guided tours for the software listed below.</p>
-
-      <ul>
-        <li>
-          <a href="/projects/tagex/">Tagex</a><br>
-          Build custom tags for evaluation and mutation of struct fields in Go.<br>
-        </li>
-        <li>
-          <a href="/projects/yoink/">Yoink</a><br>
-          Include (partial) files into other files, from local or remote sources, over HTTP(S).<br>
-        </li>
-      </ul>
-    </section>
-
-    <section class="card">
       <h2>Writing</h2>
       {% assign writing_items = "" | split: "" %}
       {% assign writing_collection = site.collections | where: "label", "writing" | first %}
@@ -43,6 +27,34 @@ layout: default
     </section>
 
     <section class="card">
+      <h2>Projects</h2>
+      <p>Guided tours for the software listed below.</p>
+
+      <ul>
+        <li>
+          <a href="/projects/tagex/">Tagex</a><br>
+          Build custom tags for evaluation and mutation of struct fields in Go.<br>
+        </li>
+        <li>
+          <a href="/projects/yoink/">Yoink</a><br>
+          Include (partial) files into other files, from local or remote sources, over HTTP(S).<br>
+        </li>
+      </ul>
+    </section>
+
+   <section class="card">
+      <h2>Research</h2>
+      <p>Research on representation, structure, and invariance in learning systems.</p>
+
+      <ul>
+        <li>
+          <strong>Explicit Quotients Reveal the Gap Between Invariance and Sufficiency</strong><br>
+          Under review at <em>Transactions on Machine Learning Research (TMLR)</em>.
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
       <h2>Examples</h2>
       <p>For a code-first introduction, browse individual examples from the examples repository.</p>
 
@@ -56,18 +68,6 @@ layout: default
           <a target="_blank" href="https://github.com/tedla-brandsema/examples/tree/main/yoink">
             Yoink
           </a>
-        </li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Research</h2>
-      <p>Research on representation, structure, and invariance in learning systems.</p>
-
-      <ul>
-        <li>
-          <strong>Explicit Quotients Reveal the Gap Between Invariance and Sufficiency</strong><br>
-          Under review at <em>Transactions on Machine Learning Research (TMLR)</em>.
         </li>
       </ul>
     </section>

@@ -16,9 +16,9 @@ dossier_order: 3
 {% include published.html %}
 
 <div class="dossier">
-    This article is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
+    This essay is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
 
-    This dossier examines the economic and structural forces shaping the large-language-model sector in particular, not artificial intelligence as a whole.
+    This dossier examines the economic and structural forces shaping the large-language-model sector.
 </div>
 
 Progress is often treated as self-evidently valuable. In technology markets, the assumption is rarely questioned: if a system becomes better, it becomes more competitive. Improvements in capability are expected to translate directly into improvements in adoption, pricing power, and market position.

@@ -14,9 +14,9 @@ dossier_order: 1
 {% include published.html %}
 
 <div class="dossier">
-    This article is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
+    This essay is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
 
-    This dossier examines the economic and structural forces shaping the large-language-model sector in particular, not artificial intelligence as a whole.
+    This dossier examines the economic and structural forces shaping the large-language-model sector.
 </div>
 
 Public discussion of artificial intelligence almost always begins in the wrong place. It begins with competition: who is ahead, who is behind, and who is winning. But before asking who is winning, it is necessary to understand what game is actually being played. That requires a map.

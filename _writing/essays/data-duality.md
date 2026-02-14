@@ -15,9 +15,9 @@ dossier_order: 4
 {% include published.html %}
 
 <div class="dossier">
-    This article is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
+    This essay is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
 
-    This dossier examines the economic and structural forces shaping the large-language-model sector in particular, not artificial intelligence as a whole.
+    This dossier examines the economic and structural forces shaping the large-language-model sector.
 </div>
 
 In contemporary machine learning, data is treated as the primary driver of improvement. Larger datasets are assumed to produce better models, and newer datasets are assumed to produce more capable ones. The prevailing intuition is simple: more data yields more intelligence.

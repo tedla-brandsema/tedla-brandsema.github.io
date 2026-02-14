@@ -15,9 +15,9 @@ dossier_order: 2
 {% include published.html %}
 
 <div class="dossier">
-    This article is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
+    This essay is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
 
-    This dossier examines the economic and structural forces shaping the large-language-model sector in particular, not artificial intelligence as a whole.
+    This dossier examines the economic and structural forces shaping the large-language-model sector.
 </div>
 
 In technology markets, one belief is repeated so often that it has acquired the status of a law: being first is an advantage. Investors look for first movers. Headlines celebrate early leaders. Analysts construct charts ranking companies by how far ahead they appear to be.

@@ -14,9 +14,9 @@ dossier_order: 5
 {% include published.html %}
 
 <div class="dossier">
-    This article is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
+    This essay is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
 
-    This dossier examines the economic and structural forces shaping the large-language-model sector in particular, not artificial intelligence as a whole.
+    This dossier examines the economic and structural forces shaping the large-language-model sector.
 </div>
 
 In discussions about large language models, one assumption is rarely questioned: meaningful capability requires centralized infrastructure. Frontier systems are associated with vast data centers, specialized hardware, and continuous access to large-scale compute. From this, it is often inferred that locally deployed models must remain fundamentally inferior to centrally hosted ones.
