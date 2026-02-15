@@ -6,7 +6,7 @@ layout: null
 {%- if writing_collection and writing_collection.docs -%}
   {%- assign docs = writing_collection.docs | sort: "path" -%}
 {%- endif -%}
-{%- assign fields = "layout,type,title,heading,published,author,intro,dossier" | split: "," -%}
+{%- assign fields = "layout,type,title,heading,published,author,intro,dossier_url,dossier_headding,dossier_order" | split: "," -%}
 {%- assign first_item = true -%}
 {%- for doc in docs -%}
     {%- unless first_item -%},{%- endunless -%}

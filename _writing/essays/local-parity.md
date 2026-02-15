@@ -5,7 +5,8 @@ published: 2026-02-05T11:36:00+02:00
 author: Tedla Brandsema
 heading: Local Parity
 intro: Local models become competitively viable when remaining performance gaps fall below practical perception.
-dossier: economics-of-the-llm-industry
+dossier_url: /writing/dossiers/economics-of-the-llm-industry.html
+dossier_headding: The Economics of the LLM Industry
 dossier_order: 5
 ---
 
@@ -13,11 +14,7 @@ dossier_order: 5
 
 {% include published.html %}
 
-<div class="dossier">
-    This essay is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
-
-    This dossier examines the economic and structural forces shaping the large-language-model sector.
-</div>
+{% include dossier-ref.html %}
 
 In discussions about large language models, one assumption is rarely questioned: meaningful capability requires centralized infrastructure. Frontier systems are associated with vast data centers, specialized hardware, and continuous access to large-scale compute. From this, it is often inferred that locally deployed models must remain fundamentally inferior to centrally hosted ones.
 

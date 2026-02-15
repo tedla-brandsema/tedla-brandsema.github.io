@@ -5,7 +5,8 @@ published: 2026-01-29T16:05:00+02:00
 author: Tedla Brandsema
 heading: Data Duality
 intro: Skill-forming and fact-forming data drive different kinds of model progress and are often mistaken for one another.
-dossier: economics-of-the-llm-industry
+dossier_url: /writing/dossiers/economics-of-the-llm-industry.html
+dossier_headding: The Economics of the LLM Industry
 dossier_order: 4
 ---
 
@@ -14,11 +15,7 @@ dossier_order: 4
 
 {% include published.html %}
 
-<div class="dossier">
-    This essay is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
-
-    This dossier examines the economic and structural forces shaping the large-language-model sector.
-</div>
+{% include dossier-ref.html %}
 
 In contemporary machine learning, data is treated as the primary driver of improvement. Larger datasets are assumed to produce better models, and newer datasets are assumed to produce more capable ones. The prevailing intuition is simple: more data yields more intelligence.
 

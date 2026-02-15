@@ -5,7 +5,8 @@ published: 2026-01-22T09:47:00+02:00
 author: Tedla Brandsema
 heading: The Perception Threshold
 intro: Technical improvements stop producing advantage once users can no longer perceive the difference.
-dossier: economics-of-the-llm-industry
+dossier_url: /writing/dossiers/economics-of-the-llm-industry.html
+dossier_headding: The Economics of the LLM Industry
 dossier_order: 3
 ---
 
@@ -15,11 +16,7 @@ dossier_order: 3
 
 {% include published.html %}
 
-<div class="dossier">
-    This essay is part of a Dossier on <a href="/writing/dossiers/economics-of-the-llm-industry.html">The Economics of the LLM Industry</a>.
-
-    This dossier examines the economic and structural forces shaping the large-language-model sector.
-</div>
+{% include dossier-ref.html %}
 
 Progress is often treated as self-evidently valuable. In technology markets, the assumption is rarely questioned: if a system becomes better, it becomes more competitive. Improvements in capability are expected to translate directly into improvements in adoption, pricing power, and market position.
 
