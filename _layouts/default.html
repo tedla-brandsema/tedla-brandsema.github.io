@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  {% include head-includes.html %}
+  {% include head-meta.html %}
+
+  {% include head-styles.html %}
 </head>
+
 <body>
 
-{% include top-nav.html %}
+  {% include top-nav.html %}
 
-<div class="page">
+  <div class="page">
 
-  {{ content }}
+    {{ content }}
 
-</div>
+  </div>
 
-{% include bottom-scripts.html %}
+  {% include bottom-scripts.html %}
 
 </body>
+
 </html>
