@@ -276,6 +276,10 @@ h3 {
     text-underline-offset: 2px;
 }
 
+figure.diagram img {
+    background: #fff;
+}
+
 /* Content separation (hr replacement) */
 .divider {
     margin-top: 2.5rem;
