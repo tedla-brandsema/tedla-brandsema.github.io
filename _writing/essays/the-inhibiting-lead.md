@@ -47,6 +47,8 @@ This is the dynamic that conventional “race” narratives overlook. They assum
 
 We can give this pattern a name: **the inhibiting lead**. It describes the condition in which the very investments that created early leadership later restrict a firm’s ability to adapt. The lead still exists, but it inhibits flexibility rather than securing dominance. This dynamic is not new. In 1937, Dutch historian Jan Romein identified the same pattern as the “law of the handicap of a head start” (*remmende voorsprong*): the tendency for early leaders to become constrained by the structures that once gave them advantage.
 
+This dynamic should not be reduced to a generalized claim of first-mover disadvantage. The inhibiting lead describes a conditional inversion: early advantage, under specific cost-collapse conditions, later becomes structurally constraining. The disadvantage does not precede the lead; it emerges from it.
+
 Recognizing this possibility changes how an industry must be analyzed. Instead of asking which firm is winning, the more relevant question becomes which firms are positioned to remain competitive if the underlying economics shift. That requires looking not only at capability and market share, but at cost structures, capital exposure, and technological trajectories.
 
 First-mover advantage is real. But it is not universal, and it is not permanent. In sectors defined by rapid efficiency gains, the most dangerous position may not be behind the leaders.
