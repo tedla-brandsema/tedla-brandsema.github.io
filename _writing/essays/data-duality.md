@@ -41,7 +41,7 @@ Fact-forming data behaves differently. Knowledge does not saturate because reali
 
 This asymmetry has direct competitive consequences. Structural capability may approach perceptual limits as returns diminish, while temporal relevance remains perpetually renewable. One axis bends toward saturation. The other resets continuously.
 
-This divergence defines data duality.
+This divergence defines **data duality**.
 
 Data duality changes how model updates must be interpreted.
 
