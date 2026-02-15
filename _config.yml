@@ -1,4 +1,6 @@
 title: tedla.dev
+url: "https://tedla.dev"
+baseurl: ""
 markdown: kramdown
 plugins:
   - jekyll-sitemap
