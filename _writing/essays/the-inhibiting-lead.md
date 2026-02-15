@@ -25,6 +25,8 @@ But that assumption quietly relies on conditions that do not always hold.
 
 It is true that early leadership can confer real benefits. The first company to scale infrastructure can build recognition, attract talent, secure partnerships, and define standards. Under stable technological conditions, those advantages compound. This is the familiar logic behind network effects and platform dominance, and it explains many historical winners.
 
+## When Cost Curves Collapse
+
 Yet some industries operate under a fundamentally different set of dynamics. In these environments, efficiency improves rapidly, methods spread quickly, and the cost of achieving a given level of performance falls over time. When that decline accelerates, industries can enter what can be called a *cost-collapse* phase: a period in which each successive generation becomes dramatically cheaper to produce than the last.
 
 The distinction between variable and fixed cost becomes decisive here. Training a system may be expensive, but it is episodic. Infrastructure is continuous. Data centers, hardware procurement agreements, power contracts, and specialized networking architectures represent long-lived financial obligations. They are not easily unwound or replaced. They must be amortized across years of operation.

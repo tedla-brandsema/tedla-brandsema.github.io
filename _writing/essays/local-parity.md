@@ -20,6 +20,8 @@ In discussions about large language models, one assumption is rarely questioned:
 
 That assumption rests on an implicit premise.
 
+## From Absolute Superiority to Practical Equivalence
+
 It assumes that superiority must be absolute in order to matter.
 
 In practice, technological competition rarely operates on absolute differences. It operates on differences that users can perceive and act upon. A system may be measurably stronger in controlled evaluations while remaining indistinguishable in practical use. When this occurs, technical inferiority does not translate into economic disadvantage.
@@ -34,7 +36,11 @@ Parity does not require equality. Centralized systems may continue to exhibit hi
 
 Local parity emerges not from a single breakthrough, but from the accumulation of incremental improvements that collectively reduce the cost of achieving advanced capability. Hardware efficiency rises, software optimization deepens, and architectural knowledge diffuses. Each development may appear modest in isolation; together they compress the distance between centralized and local deployment.
 
+## The Economics of Cost Convergence
+
 This process reflects a broader economic pattern: cost collapse. As methods mature and knowledge spreads, the cost of reproducing a given capability tends to fall faster than capital structures can adjust. What once required specialized infrastructure gradually becomes achievable with more accessible resources. The narrowing gap is driven not by stagnation at the frontier, but by rapid improvement relative to the baseline.
+
+## Autonomy as a Strategic Variable
 
 Technological convergence alone, however, does not determine adoption. Strategic incentives play an equally important role. When critical capabilities are delivered exclusively through centralized infrastructure, they create a condition of structural dependence. Such dependence introduces risks related to cost, access, continuity, and jurisdiction—risks that can outweigh moderate performance differences.
 
@@ -47,6 +53,8 @@ Adoption accelerates further when feasibility becomes demonstrable. Proof of via
 Local parity does not eliminate centralized systems. It changes the basis of their advantage.
 
 When advanced capability can be reproduced locally at acceptable cost and with perceptually comparable performance, exclusive access to intelligence ceases to function as a durable moat. Competitive differentiation shifts away from the production of capability itself and toward the operational systems that sustain and deliver it.
+
+## A Structural Inflection Point
 
 This pattern is familiar across technological domains. As core capabilities mature and become reproducible, competition migrates from invention to operation. Reliability, responsiveness, ecosystem integration, and the ability to maintain ongoing value become more decisive than exclusive control over the underlying technology.
 

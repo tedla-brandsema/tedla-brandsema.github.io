@@ -20,6 +20,8 @@ Public discussion of artificial intelligence almost always begins in the wrong p
 
 Artificial intelligence is not a single field. It is a layered system of nested domains, each contained within the other, each governed by different constraints, and each advancing on different timescales. Confusion arises when these layers are treated as if they were interchangeable.
 
+## Nested Domains, Distinct Dynamics
+
 At the broadest level sits artificial intelligence itself: the general pursuit of machines capable of performing tasks that would require intelligence if performed by humans. This outer circle includes fields as diverse as robotics, planning systems, perception models, symbolic reasoning, control theory, and autonomous agents. Most of what falls under the label “AI” is not language modeling at all.
 
 Inside that outer circle lies machine learning. Machine learning is not synonymous with AI; it is a subset of it. It refers specifically to systems that improve performance through exposure to data rather than explicit programming. Many AI systems are not machine learning systems, and many machine learning systems are not concerned with general intelligence. The distinction matters because progress in one layer does not automatically translate into progress in another.
@@ -34,6 +36,8 @@ Inside deep learning sits an even more specific category: large language models.
 This nesting matters because each layer operates under different competitive dynamics. Advances at one level do not automatically propagate outward, and leadership in one layer does not imply leadership in another. A company can lead in language modeling while lagging in robotics. It can dominate research while struggling in deployment. It can control infrastructure while relying on someone else’s models.
 
 The structure becomes clearer if we also include the lateral domains that intersect with these circles rather than sitting inside them. Hardware engineering, distributed systems, data infrastructure, human–computer interaction, and product design all interact with artificial intelligence but are not themselves subfields of it. They are orthogonal disciplines that shape what is possible, what is practical, and what is profitable.
+
+## Why the “Race” Narrative Fails
 
 Once this layered and intersecting structure is recognized, the common narrative of a single “AI race” becomes difficult to sustain. There is no single track, no unified leaderboard, and no universal metric of victory. There are multiple races occurring simultaneously, on different tracks, at different speeds, governed by different rules.
 

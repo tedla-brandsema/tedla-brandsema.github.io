@@ -27,6 +27,8 @@ In practice, training data operates along two distinct dimensions. Some data is 
 
 Other data is *fact-forming*. It updates what the system knows about the world. Recent events, evolving terminology, and newly available information increase temporal relevance—the model’s alignment with the present state of reality. This kind of data refreshes situational awareness rather than structural ability. It can be incorporated quickly, but it also ages quickly. What is current today becomes outdated tomorrow.
 
+## Two Forms of Model Growth
+
 Skill-forming data and fact-forming data obey different scaling laws. Skill formation is gradual and compounding. Fact formation is immediate and perishable. One builds durable capability. The other maintains temporal relevance.
 
 These differences are not merely conceptual. They imply distinct mathematical behaviors.
@@ -35,6 +37,8 @@ Skill-forming data appears to follow a pattern of diminishing returns. Early exp
 
 Fact-forming data behaves differently. Knowledge does not saturate because reality does not stop changing. New information continuously enters the system: events occur, terminology evolves, institutions shift, discoveries are made. The value of fact-forming data therefore scales not with total size but with recency. Its contribution is tied to temporal alignment rather than cumulative depth.
 
+## Divergent Scaling Behaviors
+
 This asymmetry has direct competitive consequences. Structural capability may approach perceptual limits as returns diminish, while temporal relevance remains perpetually renewable. One axis bends toward saturation. The other resets continuously.
 
 This divergence defines data duality.
@@ -42,6 +46,8 @@ This divergence defines data duality.
 Data duality changes how model updates must be interpreted.
 
 When a new system is released, it may reflect an increase in skill-forming data, an increase in fact-forming data, or both. Yet external observers rarely distinguish between these contributions. Improvements in temporal relevance are often perceived as improvements in intelligence. A model that answers more recent questions correctly may appear “smarter,” even if its underlying reasoning capacity has not materially changed.
+
+## When Recency Is Mistaken for Intelligence
 
 This creates a persistent misreading in competitive markets. Capability growth and knowledge refresh are conflated, even though they arise from different inputs and follow different trajectories. Skill-forming improvements tend to be slow, structural, and compounding. Fact-forming improvements tend to be rapid, visible, and perishable. The latter often generates more immediate recognition.
 

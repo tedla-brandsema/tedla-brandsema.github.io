@@ -36,6 +36,8 @@ Human perception does not operate on a continuous scale. Differences must exceed
 
 In technological markets, this creates a structural asymmetry between engineering progress and user response. Engineers observe incremental gains in metrics, benchmarks, and internal evaluations. Users, by contrast, observe only what crosses their perceptual threshold. As improvements become smaller relative to that threshold, progress continues but recognition stops.
 
+## The Boundary Between Improvement and Advantage
+
 The economic implications are immediate. Competitive advantage depends not on absolute performance, but on performance differences that users can detect. Once improvements fall below that level, additional capability ceases to translate into switching behavior, pricing power, or market share. A system may be objectively superior while remaining competitively indistinguishable.
 
 At that point, technical progress decouples from economic return. Engineering effort continues to yield measurable gains, yet those gains no longer produce proportional market advantage. The limiting factor is no longer what the technology can do, but what users can perceive.
