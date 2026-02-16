@@ -385,6 +385,11 @@ figure.diagram img {
         margin-bottom: 2rem;
     }
 
+    .nav-avatar {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .top-nav-inner {
         flex-direction: column;
         align-items: flex-start;
