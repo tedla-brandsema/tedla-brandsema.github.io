@@ -19,7 +19,8 @@ dossier_order: 6
 
 Large language models are often discussed as if they were progressing along a single axis: larger, faster, more intelligent. Yet as their deployment expands, a structural divergence is becoming visible.
 
-The divergence is not about scale.  
+The divergence is not about scale.
+
 It is about function.
 
 LLMs are beginning to evolve in two different economic directions:
@@ -71,7 +72,7 @@ That compression changes the basis of competition.
 
 At the same time, LLMs increasingly power systems optimized for engagement.
 
-Platforms such as :contentReference[oaicite:5]{index=5} and :contentReference[oaicite:6]{index=6} are explicitly designed to maximize time spent. Even productive systems such as :contentReference[oaicite:7]{index=7}, :contentReference[oaicite:8]{index=8}, and :contentReference[oaicite:9]{index=9} operate within an attention market in which session length, interaction frequency, and cognitive immersion carry economic weight.
+Platforms such as TikTok and YouTube are explicitly designed to maximize time spent. Even productive systems such as Google, ChatGPT, and Claude operate within an attention market in which session length, interaction frequency, and cognitive immersion carry economic weight.
 
 In this configuration, the LLM is not a control plane.
 
@@ -103,7 +104,7 @@ The other minimizes it.
 
 This distinction matters because inference cost remains structurally significant. Attention-heavy systems burn tokens continuously. Intent compilers, once stable, reduce token consumption by narrowing scope and delegating execution to tools.
 
-As discussed in the context of local parity :contentReference[oaicite:10]{index=10}, once performance differences fall below practical perception, deployment flexibility becomes decisive. Narrow, tool-bound models that can operate locally become economically viable. When local execution achieves parity within a defined workflow, centralized control weakens.
+As performance differences fall below practical perception, deployment flexibility becomes decisive. Narrow, tool-bound models that can operate locally become economically viable. When local execution achieves parity within a defined workflow, centralized control weakens.
 
 The result is a tension between engagement-driven scale and execution-driven efficiency.
 
@@ -113,7 +114,7 @@ At present, both trajectories are served by the same frontier models. The same p
 
 Historically, such convergence rarely persists.
 
-As described in the inhibiting lead :contentReference[oaicite:11]{index=11}, infrastructure built for one cost regime can become constraining when efficiency improves rapidly. If smaller models achieve workflow reliability within bounded domains, the compiler layer diffuses. Once diffused, it behaves more like infrastructure than like product.
+Infrastructure built for one cost regime can become constraining when efficiency improves rapidly. If smaller models achieve workflow reliability within bounded domains, the compiler layer diffuses. Once diffused, it behaves more like infrastructure than like product.
 
 Infrastructure resists monopolization.
 
@@ -139,7 +140,9 @@ Cloud infrastructure reorganized deployment.
 
 LLM-mediated control reorganizes execution.
 
-The core economic variable is not model size. It is human attention time.
+The core economic variable is not model size.
+
+It is human attention time.
 
 Attention systems monetize it.  
 Intent compilers compress it.
