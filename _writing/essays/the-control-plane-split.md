@@ -144,8 +144,8 @@ The core economic variable is not model size.
 
 It is human attention time.
 
-Attention systems monetize it.  
-Intent compilers compress it.
+Attention systems monetize it by extending interaction.  
+Intent compilers create value by compressing it.
 
 As these trajectories mature, they will no longer appear as variations of the same product category. They will represent different positions in the value chain.
 
