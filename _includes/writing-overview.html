@@ -16,6 +16,11 @@
         <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
       </h2>
       {% include published.html item=p %}
+      <p class="search-result-type">
+        <span class="writing-type-badge writing-type-badge--{{ p.type | default: 'unknown' | slugify }}">
+          {{ p.type | default: "Unknown" | capitalize }}
+        </span>
+      </p>
       <p class="search-result-intro">
         {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 240 }}
       </p>
