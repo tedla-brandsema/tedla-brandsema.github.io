@@ -11,7 +11,7 @@ dossier_order: 6
 ---
 
 <h1>{{ page.heading }}</h1>
-<h2><em>Attention Markets and Intent Compilers</em></h2>
+<h2><em>Attention Systems and Intent Compilers</em></h2>
 
 {% include published.html %}
 
