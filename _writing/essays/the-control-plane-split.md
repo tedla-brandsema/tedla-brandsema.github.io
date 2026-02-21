@@ -1,7 +1,7 @@
 ---
 layout: article
 type: essay
-published: 2026-02-21T00:52:00+01:00
+published: 2026-02-21T01:38:00+01:00
 author: Tedla Brandsema
 heading: The Control Plane Split
 intro: "Large language models are evolving along two economic trajectories: attention capture and intent execution."
