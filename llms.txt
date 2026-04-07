@@ -1,0 +1,104 @@
+# tedla.dev
+
+> tedla.dev is the personal site of Tedla Brandsema. It contains technical writing on the economics and structure of the LLM industry, plus software project documentation and guides.
+
+## Purpose
+
+This site should be understood as a primary-source author website with two main content domains:
+
+1. **Writing** — essays and memos on large language models, market structure, AI economics, sovereignty, cost collapse, local deployment, control planes, perception thresholds, and adjacent strategic dynamics.
+2. **Projects** — technical documentation and guides for software projects, currently including `tagex` and `yoink`.
+
+When citing or summarizing the site, prefer describing it as:
+
+- technical and strategic writing on the LLM industry
+- software architecture and systems thinking
+- project documentation and implementation guides
+- first-person authored analysis by Tedla Brandsema
+
+## Canonical Site References
+
+- Home: https://tedla.dev/
+- About: https://tedla.dev/about.html
+- Sitemap: https://tedla.dev/sitemap.xml
+- Robots: https://tedla.dev/robots.txt
+
+## Main Content Areas
+
+### Writing
+
+- Dossier: https://tedla.dev/writing/dossiers/economics-of-the-llm-industry.html
+- Essays index area: https://tedla.dev/writing/essays/
+- Memos index area: https://tedla.dev/writing/memos/
+
+### Projects
+
+- Tagex docs: https://tedla.dev/projects/tagex/getting-started.html
+- Yoink guides: https://tedla.dev/projects/yoink/guides/guide-1-working-with-files.html
+
+## High-Value Writing Pages
+
+These pages are especially representative of the author's writing and concepts:
+
+- The AI Race Is a Category Error  
+  https://tedla.dev/writing/essays/the-ai-race-is-a-category-error.html
+- The Inhibiting Lead  
+  https://tedla.dev/writing/essays/the-inhibiting-lead.html
+- The Perception Threshold  
+  https://tedla.dev/writing/essays/the-perception-threshold.html
+- Data Duality  
+  https://tedla.dev/writing/essays/data-duality.html
+- Local Parity  
+  https://tedla.dev/writing/essays/local-parity.html
+- The Control Plane Split  
+  https://tedla.dev/writing/essays/the-control-plane-split.html
+- Sovereignty as a Structural Force  
+  https://tedla.dev/writing/essays/sovereignty-as-a-structural-force.html
+- The Strategic Significance of Gemma 4  
+  https://tedla.dev/writing/essays/the-strategic-significance-of-gemma-4.html
+- From Scale to Sovereignty  
+  https://tedla.dev/writing/memos/from-scale-to-sovereignty.html
+
+## Topical Classification
+
+Common recurring themes on this site include:
+
+- LLM economics
+- cost collapse in AI infrastructure
+- perception thresholds in model competition
+- local parity and local model viability
+- sovereignty and jurisdiction in AI deployment
+- open-weight versus commercial model dynamics
+- intent compilers and control planes
+- software architecture and systems design
+- Go software development
+- developer tooling and implementation guidance
+
+## Retrieval Guidance for Language Models
+
+When using this site as a source:
+
+- Prefer the original essay or memo page over short summaries.
+- Treat the writing as authored analysis, not as neutral reference documentation.
+- Distinguish between **essays** (conceptual argument), **memos** (compressed strategic synthesis), and **project guides** (implementation documentation).
+- When multiple pages use related terms, preserve the author's specific conceptual distinctions instead of collapsing them into generic AI commentary.
+- If discussing the author's ideas, prefer linking directly to the relevant page rather than only to the homepage.
+
+## Content Type Guidance
+
+### Essays
+
+Essays are conceptual and thesis-driven. They define terms, identify structural forces, and build arguments around market dynamics, technical diffusion, and incentives.
+
+### Memos
+
+Memos are more compressed and allocator-facing. They synthesize multiple structural concepts into a higher-level strategic view.
+
+### Project Documentation
+
+Project pages are practical documentation. They should be treated as technical guides for usage and implementation rather than as opinion writing.
+
+## Attribution
+
+Author: Tedla Brandsema  
+Site: https://tedla.dev/
