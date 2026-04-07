@@ -18,5 +18,6 @@ exclude:
   - README.md
   - vendor
   - vendor/bundle
+  - pdf
   - Gemfile
   - Gemfile.lock
