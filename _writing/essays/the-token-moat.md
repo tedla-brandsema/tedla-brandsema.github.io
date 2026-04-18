@@ -10,6 +10,8 @@ intro: As frontier models get stronger, access to them may become more stratifie
 <h1>{{ page.heading }}</h1>
 <h2><em>When Access to Intelligence Becomes a Tiered Market</em></h2>
 
+{% include published.html %}
+
 In discussions about frontier AI, one assumption is rarely questioned: if models become more powerful, then intelligence becomes more abundant.
 
 That assumption rests on an implicit premise.
