@@ -1,6 +1,14 @@
-# The Token Moat
+---
+layout: article
+type: essay
+published: 2026-04-19T00:00:00+02:00
+author: Tedla Brandsema
+heading: The Token Moat
+intro: As frontier models get stronger, access to them may become more stratified. The token moat is the emerging market structure in which the best intelligence, highest limits, and most productive agentic workflows are increasingly divided by price.
+---
 
-## When Access to Intelligence Becomes a Tiered Market
+<h1>{{ page.heading }}</h1>
+<h2><em>When Access to Intelligence Becomes a Tiered Market</em></h2>
 
 In discussions about frontier AI, one assumption is rarely questioned: if models become more powerful, then intelligence becomes more abundant.
 
@@ -14,7 +22,7 @@ A model can become more capable while access to that capability becomes more str
 
 This is the beginning of what can be called the **token moat**.
 
-The token moat does not describe tokens merely as a technical accounting unit. It describes a market structure in which access to the strongest models, the highest limits, the longest-running workflows, and the most productive agentic loops is progressively segmented by price. OpenAI’s current pricing already reflects a ladder from Free to Plus to Pro to Business and Enterprise, with Plus at $20 per month and Pro at $200 per month, while Anthropic prices API access directly in token usage and states that Claude Opus 4.6 remains priced at $5 per million input tokens and $25 per million output tokens. ([OpenAI][1])
+The token moat does not describe tokens merely as a technical accounting unit. It describes a market structure in which access to the strongest models, the highest limits, the longest-running workflows, and the most productive agentic loops is progressively segmented by price. OpenAI’s current pricing already reflects a ladder from Free to Plus to Pro to Business and Enterprise, with Plus at $20 per month and Pro at $200 per month, while Anthropic prices API access directly in token usage and states that Claude Opus 4.6 remains priced at $5 per million input tokens and $25 per million output tokens.
 
 This is not a minor commercial detail.
 
@@ -28,7 +36,7 @@ The priority is adoption, habit formation, and integration into everyday workflo
 
 That phase appears to be ending.
 
-OpenAI said in February 2026 that ChatGPT had reached 900 million weekly active users and 50 million paying subscribers. At that scale, the company is no longer merely proving demand. It is managing a market large enough for segmentation itself to become a core strategic lever. ([TechCrunch][2])
+OpenAI said in February 2026 that ChatGPT had reached 900 million weekly active users and 50 million paying subscribers. At that scale, the company is no longer merely proving demand. It is managing a market large enough for segmentation itself to become a core strategic lever.
 
 Once a user base reaches that scale, the logic changes.
 
@@ -38,13 +46,13 @@ The question becomes how access is divided.
 
 The pricing shift is visible in two different forms.
 
-Anthropic’s approach is the more direct one. Usage is increasingly tied to token consumption. Revenue rises with actual compute demand. Heavy use is not hidden behind a flat monthly abstraction. It is exposed and billed. OpenAI’s approach is more layered. It combines broad subscriptions with progressively higher access tiers and, in some products, movement toward token-based accounting as well. OpenAI’s help documentation says Codex pricing was updated in April 2026 to align with API token usage rather than per-message pricing for Plus, Pro, Business, and new Enterprise customers. ([OpenAI Help Center][3])
+Anthropic’s approach is the more direct one. Usage is increasingly tied to token consumption. Revenue rises with actual compute demand. Heavy use is not hidden behind a flat monthly abstraction. It is exposed and billed. OpenAI’s approach is more layered. It combines broad subscriptions with progressively higher access tiers and, in some products, movement toward token-based accounting as well. OpenAI’s help documentation says Codex pricing was updated in April 2026 to align with API token usage rather than per-message pricing for Plus, Pro, Business, and new Enterprise customers.
 
 These are different tactical responses.
 
 They point toward the same structural condition.
 
-Agentic usage is expensive. Long-running workflows, parallel tasks, and deep reasoning loops consume far more compute than casual chat. A pricing model built for light conversational use becomes difficult to sustain once users begin treating frontier models as working systems rather than novelty interfaces. Anthropic’s public pricing for Claude Opus 4.6 and OpenAI’s tiered ChatGPT plans both make that pressure visible. ([Anthropic][4])
+Agentic usage is expensive. Long-running workflows, parallel tasks, and deep reasoning loops consume far more compute than casual chat. A pricing model built for light conversational use becomes difficult to sustain once users begin treating frontier models as working systems rather than novelty interfaces. Anthropic’s public pricing for Claude Opus 4.6 and OpenAI’s tiered ChatGPT plans both make that pressure visible.
 
 The token moat begins there.
 
@@ -71,7 +79,7 @@ In an agentic environment, these differences stack.
 
 The result is that pricing no longer governs only quantity of use. It governs developmental velocity.
 
-This is what makes the token moat more serious than an ordinary premium upgrade path. It is not just a matter of convenience. It is a matter of how much productive cognition can be purchased and sustained over time. OpenAI’s public plan structure already reflects large jumps in access between Free, Plus, and Pro, while Anthropic’s API pricing makes the cost of sustained advanced usage explicit. ([OpenAI][1])
+This is what makes the token moat more serious than an ordinary premium upgrade path. It is not just a matter of convenience. It is a matter of how much productive cognition can be purchased and sustained over time. OpenAI’s public plan structure already reflects large jumps in access between Free, Plus, and Pro, while Anthropic’s API pricing makes the cost of sustained advanced usage explicit.
 
 ## The Small-Team Advantage
 
@@ -85,7 +93,7 @@ This is not a trivial shift.
 
 It is liberating.
 
-A $200 monthly budget for a frontier plan, or a few hundred dollars in carefully managed token spend, can now give a small operator access to an amount of synthetic labor that would once have been inaccessible. The human governance layer becomes more important precisely because the execution layer has become more fluid. OpenAI’s Pro tier is explicitly positioned around heavier use and substantially higher limits than Plus, while Anthropic’s pricing makes clear that the more capable agentic workflows remain available to those willing and able to pay for them. ([OpenAI Help Center][5])
+A $200 monthly budget for a frontier plan, or a few hundred dollars in carefully managed token spend, can now give a small operator access to an amount of synthetic labor that would once have been inaccessible. The human governance layer becomes more important precisely because the execution layer has become more fluid. OpenAI’s Pro tier is explicitly positioned around heavier use and substantially higher limits than Plus, while Anthropic’s pricing makes clear that the more capable agentic workflows remain available to those willing and able to pay for them.
 
 That means the token moat has a dual effect.
 
@@ -124,7 +132,7 @@ If they do, the token moat hardens. The strongest closed systems remain the best
 
 If they do not, the moat weakens.
 
-Google’s Gemma 4 release matters in this context because it shows that strong open models continue to improve, and Google said in April 2026 that Gemma downloads had passed 400 million. That is evidence of real diffusion. It is not yet proof of frontier equivalence. Gemma 4 may be highly capable while still remaining below the practical ceiling of the strongest closed offerings. ([OpenAI][6])
+Google’s Gemma 4 release matters in this context because it shows that strong open models continue to improve, and Google said in April 2026 that Gemma downloads had passed 400 million. That is evidence of real diffusion. It is not yet proof of frontier equivalence. Gemma 4 may be highly capable while still remaining below the practical ceiling of the strongest closed offerings.
 
 That distinction matters.
 
@@ -171,10 +179,3 @@ If they can, access becomes harder to monopolize.
 If they cannot, then frontier AI will not simply be a story of intelligence becoming cheaper.
 
 It will also be a story of intelligence becoming tiered.
-
-[1]: https://openai.com/chatgpt/pricing/?utm_source=chatgpt.com "ChatGPT Pricing | OpenAI"
-[2]: https://techcrunch.com/2026/02/27/chatgpt-reaches-900m-weekly-active-users/?utm_source=chatgpt.com "ChatGPT reaches 900M weekly active users | TechCrunch"
-[3]: https://help.openai.com/en/articles/20001106?utm_source=chatgpt.com "Codex rate card | OpenAI Help Center"
-[4]: https://www.anthropic.com/news/claude-opus-4-6?id=ClaudeOpus4.6&utm_source=chatgpt.com "Claude Opus 4.6"
-[5]: https://help.openai.com/en/articles/9793128-what?utm_source=chatgpt.com "About ChatGPT Pro tiers | OpenAI Help Center"
-[6]: https://openai.com/pricing?utm_source=chatgpt.com "ChatGPT Pricing | OpenAI"

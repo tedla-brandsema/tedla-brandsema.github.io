@@ -4,7 +4,7 @@ type: essay
 published: 2026-04-18T00:00:00+02:00
 author: Tedla Brandsema
 heading: Mythos
-intro: Google’s Gemma 4 release does more than expand an ecosystem. It alters the exposure profile of firms competing to monetize model access.
+intro: Anthropic’s Mythos is not just a dangerous model. Its selective release through Project Glasswing turns model access into a strategic perimeter, raising harder questions about who gets defensive advantage first and why.
 ---
 
 <h1>{{ page.heading }}</h1>
