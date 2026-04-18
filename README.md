@@ -17,8 +17,14 @@ bundler --version
 
 If Ruby headers/build tools are missing on Ubuntu/Debian (skip if already installed):
 
+apt:
 ```bash
 sudo apt install ruby3.2-dev build-essential
+```
+
+dnf:
+```bash
+sudo dnf install ruby-devel gcc gcc-c++ make
 ```
 
 ## Gems / Dependencies
