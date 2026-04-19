@@ -4,6 +4,7 @@ baseurl: ""
 markdown: kramdown
 plugins:
   - jekyll-sitemap
+  - jekyll-redirect-from
 collections:
   writing:
     output: true

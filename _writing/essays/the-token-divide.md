@@ -132,13 +132,13 @@ It depends on whether local and open systems remain materially behind the closed
 
 If they do, the token divide hardens. The strongest closed systems remain the best way to purchase high-end machine cognition, and those who can afford more of that cognition continue to move faster.
 
-If they do not, the divide weakens.
+If they do not, the divide persists.
 
 Google’s Gemma 4 release matters in this context because it shows that strong open models continue to improve, and Google said in April 2026 that Gemma downloads had passed 400 million. That is evidence of real diffusion. It is not yet proof of frontier equivalence. Gemma 4 may be highly capable while still remaining below the practical ceiling of the strongest closed offerings.
 
 That distinction matters.
 
-The token divide is not inevitable in the strongest sense. It is conditional on the persistence of closed-model superiority at the top end. If open or local stacks cross the threshold of practical equivalence for the most valuable workflows, then access-based stratification becomes harder to sustain. If they do not, then the divide remains economically meaningful.
+The token divide is not inevitable in the strongest sense. It is conditional on the persistence of closed-model superiority at the top end. If open or local stacks cross the threshold of practical equivalence for the most valuable workflows, then access-based stratification becomes harder to sustain. If they do not, then the divide remains structurally significant.
 
 ## The Structural Tension
 
