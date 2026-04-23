@@ -6,7 +6,7 @@ layout: null
 {%- if writing_collection and writing_collection.docs -%}
   {%- assign docs = writing_collection.docs | sort: "path" -%}
 {%- endif -%}
-{%- assign fields = "layout,type,title,heading,published,author,intro,dossier_url,dossier_headding,dossier_order" | split: "," -%}
+{%- assign fields = "layout,type,title,heading,date,author,intro,dossier_url,dossier_headding,dossier_order" | split: "," -%}
 {%- assign first_item = true -%}
 {%- for doc in docs -%}
     {%- unless first_item -%},{%- endunless -%}
@@ -18,7 +18,7 @@ layout: null
         {%- if value -%}
           {%- unless first_field -%},{%- endunless -%}
           {%- assign first_field = false -%}
-          {%- if field == "published" -%}
+          {%- if field == "date" -%}
             {{ field | jsonify }}: {{ value | date: "%Y-%m-%dT%H:%M:%S%:z" | jsonify }}
           {%- else -%}
             {{ field | jsonify }}: {{ value | jsonify }}

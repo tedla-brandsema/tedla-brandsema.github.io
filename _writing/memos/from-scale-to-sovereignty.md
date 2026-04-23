@@ -1,15 +1,15 @@
 ---
 layout: article
 type: memo
-published: 2026-02-21T05:53:00+01:00
+date: 2026-02-21T05:53:00+01:00
 author: Tedla Brandsema
-heading: From Scale to Sovereignty
+title: From Scale to Sovereignty
 intro: A capital-structural synthesis of cost collapse, perceptual convergence, local parity, and sovereignty dynamics in the LLM industry.
 dossier_url: /writing/dossiers/economics-of-the-llm-industry.html
 dossier_headding: The Economics of the LLM Industry
 ---
 
-<h1>{{ page.heading }}</h1>
+<h1>{{ page.title }}</h1>
 <h2><em>The Structural Reallocation of Value in the LLM Industry</em></h2>
 
 {% include published.html %}

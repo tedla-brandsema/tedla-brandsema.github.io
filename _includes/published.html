@@ -4,7 +4,7 @@
 
 {% if published_at %}
   <div class="published">
-    Published:
+    date:
     <time datetime="{{ published_at | date: "%Y-%m-%dT%H:%M:%S%:z" }}">
       {{ published_at | date: "%B %-d, %Y" }}
     </time>

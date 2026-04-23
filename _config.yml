@@ -1,17 +1,26 @@
-title: tedla.dev
+title: "Tedla Brandsema"
+description: "Software Engineer & Independent Researcher"
 url: "https://tedla.dev"
 baseurl: ""
 markdown: kramdown
 plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
+  - jekyll-feed
 collections:
   writing:
     output: true
     permalink: /writing/:path.html
+    sort_by: date
   projects:
     output: true
     permalink: /projects/:path.html
+feed:
+  collections:
+    writing:
+      path: "/writing-feed.xml"
+    projects:
+      path: "/projects-feed.xml"
 kramdown:
   input: GFM
   syntax_highlighter: none

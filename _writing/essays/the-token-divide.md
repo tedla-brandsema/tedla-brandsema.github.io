@@ -1,13 +1,13 @@
 ---
 layout: article
 type: essay
-published: 2026-04-19T00:00:00+02:00
+date: 2026-04-19T00:00:00+02:00
 author: Tedla Brandsema
-heading: The Token Divide
+title: The Token Divide
 intro: As frontier models get stronger, access to them may become more stratified. The token divide is the emerging market structure in which the best intelligence, highest limits, and most productive agentic workflows are increasingly divided by price.
 ---
 
-<h1>{{ page.heading }}</h1>
+<h1>{{ page.title }}</h1>
 <h2><em>When Access to Intelligence Becomes a Tiered Market</em></h2>
 
 {% include published.html %}

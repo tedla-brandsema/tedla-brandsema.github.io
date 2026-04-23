@@ -22,7 +22,11 @@
   "inLanguage": {{ site.lang | default: "en" | jsonify }}{% if page.author %},
   "author": {
     "@type": "Person",
-    "name": {{ page.author | jsonify }}
+    "name": {{ page.author | jsonify }},
+    "url": "https://tedla.dev/",
+    "sameAs": [
+      "https://github.com/tedla-brandsema"
+    ]
   }{% endif %}{% if page.published %},
   "datePublished": {{ page.published | date: "%Y-%m-%dT%H:%M:%S%:z" | jsonify }}
   {% if page.last_modified_at %},

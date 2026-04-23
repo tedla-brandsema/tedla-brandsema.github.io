@@ -1,16 +1,16 @@
 ---
 layout: article
 type: essay
-published: 2026-02-21T04:16:00+01:00
+date: 2026-02-21T04:16:00+01:00
 author: Tedla Brandsema
-heading: Sovereignty as a Structural Force
+title: Sovereignty as a Structural Force
 intro: 
 dossier_url: /writing/dossiers/economics-of-the-llm-industry.html
 dossier_headding: The Economics of the LLM Industry
 dossier_order: 7
 ---
 
-<h1>{{ page.heading }}</h1>
+<h1>{{ page.title }}</h1>
 <h2><em>When Diffusion Becomes Strategically Incentivized</em></h2>
 
 {% include published.html %}

@@ -4,7 +4,7 @@ layout: null
 {%- assign writing_collection = site.collections | where: "label", "writing" | first -%}
 [{%- assign docs = "" | split: "" -%}
 {%- if writing_collection and writing_collection.docs -%}
-  {%- assign docs = writing_collection.docs | sort: "published" | reverse -%}
+  {%- assign docs = writing_collection.docs | sort: "date" | reverse -%}
 {%- endif -%}
 {%- assign first_item = true -%}
 {%- for doc in docs -%}
@@ -16,6 +16,6 @@ layout: null
     "intro": {{ doc.intro | jsonify }},
     "href": {{ doc.url | jsonify }},
     "type": {{ doc.type | jsonify }},
-    "published": {{ doc.published | date: "%Y-%m-%dT%H:%M:%S%:z" | jsonify }}
+    "date": {{ doc.date | date: "%Y-%m-%dT%H:%M:%S%:z" | jsonify }}
   }
 {%- endfor -%}]

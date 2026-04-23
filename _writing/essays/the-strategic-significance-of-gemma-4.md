@@ -1,13 +1,13 @@
 ---
 layout: article
 type: essay
-published: 2026-04-07T00:00:00+02:00
+date: 2026-04-07T00:00:00+02:00
 author: Tedla Brandsema
-heading: The Strategic Significance of Gemma 4
+title: The Strategic Significance of Gemma 4
 intro: Google’s Gemma 4 release does more than expand an ecosystem. It alters the exposure profile of firms competing to monetize model access.
 ---
 
-<h1>{{ page.heading }}</h1>
+<h1>{{ page.title }}</h1>
 <h2><em>When Openness Becomes Structurally Destabilizing</em></h2>
 
 {% include published.html %}

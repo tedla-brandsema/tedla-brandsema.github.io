@@ -1,16 +1,16 @@
 ---
 layout: article
 type: essay
-published: 2026-01-08T10:23:00+02:00
+date: 2026-01-08T10:23:00+02:00
 author: Tedla Brandsema
-heading: The AI Race Is a Category Error
+title: The AI Race Is a Category Error
 intro: AI competition is not one race but many layered domains with different constraints and timelines.
 dossier_url: /writing/dossiers/economics-of-the-llm-industry.html
 dossier_headding: The Economics of the LLM Industry
 dossier_order: 1
 ---
 
-<h1>{{ page.heading }}</h1>
+<h1>{{ page.title }}</h1>
 
 {% include published.html %}
 
