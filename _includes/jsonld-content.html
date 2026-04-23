@@ -27,8 +27,8 @@
     "sameAs": [
       "https://github.com/tedla-brandsema"
     ]
-  }{% endif %}{% if page.published %},
-  "datePublished": {{ page.published | date: "%Y-%m-%dT%H:%M:%S%:z" | jsonify }}
+  }{% endif %}{% if page.date %},
+  "datePublished": {{ page.date | date: "%Y-%m-%dT%H:%M:%S%:z" | jsonify }}
   {% if page.last_modified_at %},
   "dateModified": {{ page.last_modified_at | date: "%Y-%m-%dT%H:%M:%S%:z" | jsonify }}
   {% endif %}

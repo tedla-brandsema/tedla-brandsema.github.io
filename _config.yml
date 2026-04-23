@@ -11,7 +11,6 @@ collections:
   writing:
     output: true
     permalink: /writing/:path.html
-    sort_by: date
   projects:
     output: true
     permalink: /projects/:path.html

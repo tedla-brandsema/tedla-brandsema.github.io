@@ -2,7 +2,7 @@
 {% assign items = "" | split: "" %}
 {% assign projects_collection = site.collections | where: "label", "projects" | first %}
 {% if projects_collection and projects_collection.docs %}
-{% assign items = projects_collection.docs | sort: "published" | reverse %}
+{% assign items = projects_collection.docs | sort: "date" | reverse %}
 {% endif %}
 
 <main>

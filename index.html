@@ -13,7 +13,7 @@ layout: default
       {% assign writing_items = "" | split: "" %}
       {% assign writing_collection = site.collections | where: "label", "writing" | first %}
       {% if writing_collection and writing_collection.docs %}
-      {% assign writing_items = writing_collection.docs | sort: "published" | reverse %}
+      {% assign writing_items = writing_collection.docs | where_exp: "item", "item.hide != true" | sort: "date" | reverse %}
       {% endif %}
 
       <ul>
