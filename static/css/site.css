@@ -366,6 +366,12 @@ figure.diagram img {
     text-transform: none;
 }
 
+.writing-type-badge--article {
+    background: #f3eaff;
+    color: #5a2a83;
+    border-color: #d5b8ef;
+}
+
 .writing-type-badge--essay {
     background: #e6f0ff;
     color: #114085;
@@ -391,6 +397,12 @@ figure.diagram img {
 }
 
 @media (prefers-color-scheme: dark) {
+    .writing-type-badge--article {
+        background: #34214d;
+        color: #f0e0ff;
+        border-color: #7b58a6;
+    }
+
     .writing-type-badge--essay {
         background: #1f3354;
         color: #d9e8ff;
