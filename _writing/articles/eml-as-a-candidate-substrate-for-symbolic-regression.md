@@ -12,7 +12,7 @@ intro: An empirical toolchain for evaluating whether the Exp-Minus-Log represent
 
 {% include published.html %}
 
-When I first read *All elementary functions from a single operator* by Andrzej Odrzywołek, I had the reaction that elegant technical ideas sometimes provoke: I wanted to play with it immediately.
+When I first read *[All elementary functions from a single operator](https://arxiv.org/html/2603.21852v2)* by Andrzej Odrzywołek, I had the reaction that elegant technical ideas sometimes provoke: I wanted to play with it immediately.
 
 The paper proposes an unusual claim. A single binary operator,
 
@@ -20,7 +20,7 @@ $$
 \operatorname{eml}(x,y)=\exp(x)-\ln(y)
 $$
 
-together with the constant `1`, is sufficient to generate the ordinary repertoire of elementary mathematics. Arithmetic operations, exponentials, logarithms, trigonometric functions, algebraic functions, and constants such as (e), (\pi), and (i) are all claimed to be reachable through repeated composition of the same node type.
+together with the constant `1`, is sufficient to generate the ordinary repertoire of elementary mathematics. Arithmetic operations, exponentials, logarithms, trigonometric functions, algebraic functions, and constants such as $e$, $\pi$, and $i$ are all claimed to be reachable through repeated composition of the same node type.
 
 That is a remarkable result.
 
@@ -32,7 +32,7 @@ Whether EML ultimately becomes important is for time to decide. What is already 
 
 I opened a new repository and started writing a `goyacc` parser.
 
-That parser became `eml-parser`.
+That parser became [eml-parser](https://github.com/tedla-brandsema/eml-parser).
 
 What began as curiosity quickly turned into a larger question: if EML is structurally this simple, can it also be computationally useful?
 
@@ -83,13 +83,13 @@ The raw language remains intentionally small. It accepts only:
 
 That is enough. Every larger expression in the paper still reduces to repeated compositions of those atomic forms.
 
-Named mathematical concepts such as `sin`, `cos`, `tan`, `sqrt`, or `pow` do not belong in the grammar itself. They live in a separate concept dictionary.
+Named mathematical concepts such as $\sin$, $\cos$, $\tan$, $\sqrt{x}$, or $\operatorname{pow}$ do not belong in the grammar itself. They live in a separate concept dictionary.
 
 This split matters.
 
 The parser owns the atomic language. The dictionary owns named mathematics. Concepts can expand recursively until only raw EML remains. That keeps the language small while allowing richer constructions above it.
 
-In practice, `exp(x)` may reduce directly to a raw EML tree. `tan(x)` may reduce first to lower-level concepts such as `sin(x)` and `cos(x)`. Those lower-level concepts may reduce further through additional definitions until only raw EML remains. The result of full expansion is always a raw EML tree.
+In practice, $\exp(x)$ may reduce directly to a raw EML tree. $\tan(x)$ may reduce first to lower-level concepts such as $\sin(x)$ and $\cos(x)$. Those lower-level concepts may reduce further through additional definitions until only raw EML remains. The result of full expansion is always a raw EML tree.
 
 That architectural boundary has proven valuable.
 
@@ -152,9 +152,9 @@ That discipline is more valuable than inflated early wins.
 
 So far, the evidence is modest but useful.
 
-Under the present bounded enumerative search regime, small targets such as `exp` and `log` can be recovered exactly. At least one small nested composite target is also recoverable.
+Under the present bounded enumerative search regime, small targets such as $\exp$ and $\log$ can be recovered exactly. At least one small nested composite target is also recoverable.
 
-Larger-library targets such as `sin`, `sigmoid`, and broader additive composites currently fail honestly under present limits.
+Larger-library targets such as $\sin$, sigmoid, and broader additive composites currently fail honestly under present limits.
 
 That should not be read as a verdict on EML itself, nor as a verdict on Odrzywołek’s paper.
 
