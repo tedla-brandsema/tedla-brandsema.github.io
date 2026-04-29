@@ -330,6 +330,15 @@ figure.diagram img {
   list-style-position: inside;
 }
 
+.home-overview + .home-overview {
+    margin-top: 2.5rem;
+}
+
+.overview-note {
+    margin-top: -0.35rem;
+    color: var(--muted);
+}
+
 /* Search result style lists for writing indexes */
 .search-results {
     display: grid;

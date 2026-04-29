@@ -6,63 +6,58 @@ layout: default
 {% include nav-home.html %}
 
 <main>
-  <div class="cards">
+  {% assign writing_items = "" | split: "" %}
+  {% assign writing_collection = site.collections | where: "label", "writing" | first %}
+  {% if writing_collection and writing_collection.docs %}
+  {% assign writing_items = writing_collection.docs | where_exp: "item", "item.hide != true" | sort: "date" | reverse %}
+  {% endif %}
 
-    <section class="card">
-      <h2>Writing</h2>
-      {% assign writing_items = "" | split: "" %}
-      {% assign writing_collection = site.collections | where: "label", "writing" | first %}
-      {% if writing_collection and writing_collection.docs %}
-      {% assign writing_items = writing_collection.docs | where_exp: "item", "item.hide != true" | sort: "date" | reverse %}
-      {% endif %}
+  <section class="home-overview" aria-labelledby="recent-writing">
+    <h1 id="recent-writing">Recent Writing</h1>
+    <p class="overview-note">The five most recent essays, dossiers, and memos.</p>
 
-      <ul>
-        {% for p in writing_items limit:4 %}
-        <li>
-          <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a><br>
-          {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 120 }}
-        </li>
-        {% endfor %}
-      </ul>
-    </section>
+    <div class="search-results" aria-label="Recent writing overview">
+      {% for p in writing_items limit:5 %}
+      <article class="search-result-item">
+        <h2>
+          <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
+        </h2>
+        {% include published.html item=p %}
+        <p class="search-result-type">
+          <span class="writing-type-badge writing-type-badge--{{ p.type | default: 'unknown' | slugify }}">
+            {{ p.type | default: "Unknown" | capitalize }}
+          </span>
+        </p>
+        <p class="search-result-intro">
+          {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 240 }}
+        </p>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
 
-    <section class="card">
-      <h2>Projects</h2>
-      <p>Guided tours for the software listed below.</p>
+  {% assign project_items = "" | split: "" %}
+  {% assign projects_collection = site.collections | where: "label", "projects" | first %}
+  {% if projects_collection and projects_collection.docs %}
+  {% assign project_items = projects_collection.docs | where_exp: "item", "item.hide != true" | sort: "date" | reverse %}
+  {% endif %}
 
-      <ul>
-        <li>
-          <a href="/projects/tagex/">Tagex</a><br>
-          Build custom tags for evaluation and mutation of struct fields in Go.<br>
-        </li>
-        <li>
-          <a href="/projects/yoink/">Yoink</a><br>
-          Include (partial) files into other files, from local or remote sources, over HTTP(S).<br>
-        </li>
-      </ul>
-    </section>
+  <section class="home-overview" aria-labelledby="recent-projects">
+    <h1 id="recent-projects">Recent Projects</h1>
+    <p class="overview-note">The five most recent project pages and guides.</p>
 
-    <section class="card">
-      <h2>Examples</h2>
-      <p>For a code-first introduction, browse individual examples from the examples repository.</p>
-
-      <ul id="examples-list">
-        <li>
-          <a target="_blank" rel="noopener noreferrer"
-            aria-label="Tagex examples on GitHub (opens in a new tab)"
-            href="https://github.com/tedla-brandsema/examples/tree/main/tagex">
-            Tagex
-          </a>
-        </li>
-        <li>
-          <a target="_blank" rel="noopener noreferrer"
-            aria-label="Yoink examples on GitHub (opens in a new tab)"
-            href="https://github.com/tedla-brandsema/examples/tree/main/yoink">
-            Yoink
-          </a>
-        </li>
-      </ul>
-    </section>
-
-  </div>
+    <div class="search-results" aria-label="Recent projects overview">
+      {% for p in project_items limit:5 %}
+      <article class="search-result-item">
+        <h2>
+          <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
+        </h2>
+        {% include published.html item=p %}
+        <p class="search-result-intro">
+          {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 240 }}
+        </p>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
 </main>
