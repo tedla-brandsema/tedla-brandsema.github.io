@@ -28,7 +28,7 @@ It is also, in my view, easy to underestimate.
 
 Single-author papers that present elegant unifications are often dismissed as clever curiosities: mathematically neat, conceptually amusing, but ultimately peripheral. That may yet prove to be the consensus here. But I suspect the underlying idea deserves more serious attention than that reflex allows.
 
-Whether EML ultimately becomes important is for time to decide. What is already clear is that Andrzej Odrzywołek has identified something conceptually striking: a surprising compression of a function family many people implicitly assume must remain structurally plural.
+Whether Exp-Minus-Log (<abbr title="Exp-Minus-Log">EML</abbr>) ultimately becomes important is for time to decide. What is already clear is that Andrzej Odrzywołek has identified something conceptually striking: a surprising compression of a function family many people implicitly assume must remain structurally plural.
 
 I opened a new repository and started writing a `goyacc` parser.
 
@@ -42,7 +42,7 @@ The immediate temptation is to treat EML as a mathematical curiosity. A neat red
 
 What interested me more was the computational shape of it.
 
-Symbolic regression (SR) attempts to recover interpretable mathematical formulas directly from data. Instead of fitting parameters to a predefined model family, it searches for formulas themselves. In practical terms, symbolic regression systems try to answer questions such as:
+Symbolic regression (<abbr title="Symbolic Regression">SR</abbr>) attempts to recover interpretable mathematical formulas directly from data. Instead of fitting parameters to a predefined model family, it searches for formulas themselves. In practical terms, symbolic regression systems try to answer questions such as:
 
 * what equation generated this dataset,
 * which expression best balances simplicity and fit,
