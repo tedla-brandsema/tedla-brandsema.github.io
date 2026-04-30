@@ -1,11 +1,18 @@
 ---
 layout: default
+intro: Writing, research, and open-source software by Tedla Brandsema, an independent researcher and software architect working on AI systems, system architecture, and Go tooling.
 
 ---
 
 {% include nav-home.html %}
 
 <main>
+  <header class="home-hero">
+    <h1>Tedla Brandsema</h1>
+    <p class="home-subtitle">Independent Researcher &amp; Software Architect</p>
+    <p>{{ page.intro }}</p>
+  </header>
+
   {% assign writing_items = "" | split: "" %}
   {% assign writing_collection = site.collections | where: "label", "writing" | first %}
   {% if writing_collection and writing_collection.docs %}
@@ -13,15 +20,15 @@ layout: default
   {% endif %}
 
   <section class="home-overview" aria-labelledby="recent-writing">
-    <h1 id="recent-writing">Recent Writing</h1>
+    <h2 id="recent-writing">Recent Writing</h2>
     <p class="overview-note">The five most recent essays, dossiers, and memos.</p>
 
     <div class="search-results" aria-label="Recent writing overview">
       {% for p in writing_items limit:5 %}
       <article class="search-result-item">
-        <h2>
+        <h3>
           <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
-        </h2>
+        </h3>
         {% include published.html item=p %}
         <p class="search-result-type">
           <span class="writing-type-badge writing-type-badge--{{ p.type | default: 'unknown' | slugify }}">
@@ -43,15 +50,15 @@ layout: default
   {% endif %}
 
   <section class="home-overview" aria-labelledby="recent-projects">
-    <h1 id="recent-projects">Recent Projects</h1>
+    <h2 id="recent-projects">Recent Projects</h2>
     <p class="overview-note">The five most recent project pages and guides.</p>
 
     <div class="search-results" aria-label="Recent projects overview">
       {% for p in project_items limit:5 %}
       <article class="search-result-item">
-        <h2>
+        <h3>
           <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
-        </h2>
+        </h3>
         {% include published.html item=p %}
         {% assign project_type = p.type | default: "unknown" %}
         {% assign project_type_class = project_type | slugify %}

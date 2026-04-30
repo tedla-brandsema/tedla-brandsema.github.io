@@ -330,6 +330,16 @@ figure.diagram img {
   list-style-position: inside;
 }
 
+.home-hero {
+    margin-bottom: 2.5rem;
+}
+
+.home-subtitle {
+    margin-top: -0.45rem;
+    color: var(--muted);
+    font-weight: 700;
+}
+
 .home-overview + .home-overview {
     margin-top: 2.5rem;
 }
@@ -357,7 +367,8 @@ figure.diagram img {
     margin: 0;
 }
 
-.search-result-item h2 {
+.search-result-item h2,
+.search-result-item h3 {
     padding-bottom: 16px;
 }
 

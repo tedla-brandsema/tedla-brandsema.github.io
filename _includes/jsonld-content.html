@@ -38,3 +38,22 @@
 }
 </script>
 {% endif %}
+
+{% if page.software_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": {{ page.software_name | default: page.title | jsonify }},
+  "description": {{ include.description | jsonify }},
+  "url": {{ include.url | jsonify }},
+  "codeRepository": {{ page.software_code_repository | jsonify }},
+  "programmingLanguage": {{ page.software_programming_language | default: "Go" | jsonify }},
+  "runtimePlatform": {{ page.software_runtime_platform | default: "Go" | jsonify }}{% if page.software_package_url %},
+  "sameAs": [
+    {{ page.software_code_repository | jsonify }},
+    {{ page.software_package_url | jsonify }}
+  ]{% endif %}
+}
+</script>
+{% endif %}

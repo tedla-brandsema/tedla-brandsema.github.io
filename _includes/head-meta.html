@@ -18,9 +18,14 @@
 {%- else -%}
   {%- assign canonical_url = page.url | relative_url -%}
 {%- endif -%}
+{%- if canonical_url contains "/index.html" -%}
+  {%- assign canonical_url = canonical_url | replace: "/index.html", "/" -%}
+{%- endif -%}
 
 {%- assign og_type = "website" -%}
-{%- if page.layout == "article" -%}
+{%- assign article_like = false -%}
+{%- if page.layout == "article" or page.type == "guide" or page.type == "tutorial" -%}
+  {%- assign article_like = true -%}
   {%- assign og_type = "article" -%}
 {%- endif -%}
 
@@ -40,8 +45,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ title_text | escape }}</title>
 <meta name="description" content="{{ description_text | escape }}">
-{% if page.sitemap == false %}
-<meta name="robots" content="noindex,follow">
+{% if page.robots %}
+<meta name="robots" content="{{ page.robots | escape }}">
 {% endif %}
 <link rel="canonical" href="{{ canonical_url | escape }}">
 <meta name="theme-color" content="{{ page.theme_color | default: '#111111' }}">
@@ -54,10 +59,12 @@
 <meta property="og:description" content="{{ description_text | escape }}">
 <meta property="og:type" content="{{ og_type }}">
 <meta property="og:url" content="{{ canonical_url | escape }}">
+<meta property="og:site_name" content="{{ site_title | escape }}">
+<meta property="og:locale" content="{{ site.og_locale | default: 'en_US' }}">
 {% if image_url != "" %}
 <meta property="og:image" content="{{ image_url | escape }}">
 {% endif %}
-{% if page.layout == "article" and page.date %}
+{% if article_like and page.date %}
 <meta property="article:published_time" content="{{ page.date | date: '%Y-%m-%dT%H:%M:%S%:z' }}">
 {% endif %}
 
