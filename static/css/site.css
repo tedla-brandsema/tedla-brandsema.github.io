@@ -169,13 +169,23 @@ main a {
 }
 
 /* Home side nav */
-.nav-home {
+.nav-fig {
     font-size: 0.95rem;
 }
 
-.nav-home p {
+.nav-fig p {
     margin: 0.75rem 0 0;
     color: var(--muted);
+}
+
+.avatar-block {
+    margin: 0;
+}
+
+.avatar-block figcaption ul.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .nav-avatar {
