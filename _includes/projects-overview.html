@@ -16,6 +16,18 @@
         <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
       </h2>
       {% include published.html item=p %}
+      {% assign project_type = p.type | default: "unknown" %}
+      {% assign project_type_class = project_type | slugify %}
+      {% assign project_type_label = project_type | capitalize %}
+      {% if project_type == "overview" %}
+      {% assign project_type_class = "project" %}
+      {% assign project_type_label = "Project" %}
+      {% endif %}
+      <p class="search-result-type">
+        <span class="project-type-badge project-type-badge--{{ project_type_class }}">
+          {{ project_type_label }}
+        </span>
+      </p>
       <p class="search-result-intro">
         {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 240 }}
       </p>

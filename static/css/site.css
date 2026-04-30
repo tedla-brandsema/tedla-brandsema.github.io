@@ -365,7 +365,8 @@ figure.diagram img {
     margin: -0.2rem 0 0.35rem;
 }
 
-.writing-type-badge {
+.writing-type-badge,
+.project-type-badge {
     display: inline-block;
     border: 1px solid transparent;
     padding: 0.12rem 0.58rem;
@@ -373,6 +374,30 @@ figure.diagram img {
     font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: none;
+}
+
+.project-type-badge--project {
+    background: #e4f7f5;
+    color: #0f5f59;
+    border-color: #acd9d4;
+}
+
+.project-type-badge--guide {
+    background: #ffe9ef;
+    color: #8a2443;
+    border-color: #efb6c6;
+}
+
+.project-type-badge--tutorial {
+    background: #f7f1d6;
+    color: #67530d;
+    border-color: #d9ca8a;
+}
+
+.project-type-badge--unknown {
+    background: var(--surface-alt);
+    color: var(--text);
+    border-color: var(--border);
 }
 
 .writing-type-badge--article {
@@ -406,6 +431,24 @@ figure.diagram img {
 }
 
 @media (prefers-color-scheme: dark) {
+    .project-type-badge--project {
+        background: #163b38;
+        color: #c9f3ee;
+        border-color: #4e8f88;
+    }
+
+    .project-type-badge--guide {
+        background: #4a1e2d;
+        color: #ffdce6;
+        border-color: #a1536c;
+    }
+
+    .project-type-badge--tutorial {
+        background: #3d3515;
+        color: #f3e8b2;
+        border-color: #8c7a35;
+    }
+
     .writing-type-badge--article {
         background: #34214d;
         color: #f0e0ff;
