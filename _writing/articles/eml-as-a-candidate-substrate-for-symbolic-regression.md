@@ -22,25 +22,21 @@ $$
 
 together with the constant `1`, is sufficient to generate the ordinary repertoire of elementary mathematics. Arithmetic operations, exponentials, logarithms, trigonometric functions, algebraic functions, and constants such as $e$, $\pi$, and $i$ are all claimed to be reachable through repeated composition of the same node type.
 
-That is a remarkable result.
-
-It is also, in my view, easy to underestimate.
+That is a remarkable result, and in my view it is easy to underestimate.
 
 Single-author papers that present elegant unifications are often dismissed as clever curiosities: mathematically neat, conceptually amusing, but ultimately peripheral. That may yet prove to be the consensus here. But I suspect the underlying idea deserves more serious attention than that reflex allows.
 
 Whether Exp-Minus-Log (<abbr title="Exp-Minus-Log">EML</abbr>) ultimately becomes important is for time to decide. What is already clear is that Andrzej Odrzywołek has identified something conceptually striking: a surprising compression of a function family many people implicitly assume must remain structurally plural.
 
-I opened a new repository and started writing a `goyacc` parser.
-
-That parser became [eml-parser](https://github.com/tedla-brandsema/eml-parser).
+I opened a new repository and started writing a `goyacc` parser. That parser became [eml-parser](https://github.com/tedla-brandsema/eml-parser).
 
 What began as curiosity quickly turned into a larger question: if EML is structurally this simple, can it also be computationally useful?
 
 ## Why This Matters Beyond Novelty
 
-The immediate temptation is to treat EML as a mathematical curiosity. A neat reduction. A surprising universality result. Something to admire and move on from.
+The immediate temptation is to treat EML as a mathematical curiosity: a neat reduction, a surprising universality result, something to admire and move on from.
 
-What interested me more was the computational shape of it.
+What interested me more was its computational shape.
 
 Symbolic regression (<abbr title="Symbolic Regression">SR</abbr>) attempts to recover interpretable mathematical formulas directly from data. Instead of fitting parameters to a predefined model family, it searches for formulas themselves. In practical terms, symbolic regression systems try to answer questions such as:
 
@@ -58,9 +54,7 @@ If many familiar functions can be represented inside a uniform binary grammar, t
 
 That does **not** automatically make the problem easier. Uniformity can conceal depth, redundancy, and severe combinatorial growth. But it transforms the question from speculation into something testable.
 
-Can EML function as a useful substrate for symbolic regression?
-
-That is the purpose of this repository.
+The repository exists to make that question testable: can EML function as a useful substrate for symbolic regression?
 
 ## From Paper to Toolchain
 
@@ -85,9 +79,7 @@ That is enough. Every larger expression in the paper still reduces to repeated c
 
 Named mathematical concepts such as $\sin$, $\cos$, $\tan$, $\sqrt{x}$, or $\operatorname{pow}$ do not belong in the grammar itself. They live in a separate concept dictionary.
 
-This split matters.
-
-The parser owns the atomic language. The dictionary owns named mathematics. Concepts can expand recursively until only raw EML remains. That keeps the language small while allowing richer constructions above it.
+This split matters. The parser owns the atomic language; the dictionary owns named mathematics. Concepts can expand recursively until only raw EML remains. That keeps the language small while allowing richer constructions above it.
 
 In practice, $\exp(x)$ may reduce directly to a raw EML tree. $\tan(x)$ may reduce first to lower-level concepts such as $\sin(x)$ and $\cos(x)$. Those lower-level concepts may reduce further through additional definitions until only raw EML remains. The result of full expansion is always a raw EML tree.
 
@@ -122,11 +114,7 @@ The likely pressure points are already visible:
 
 That would not imply that Go was the wrong starting point. It would simply reflect a change in constraints.
 
-Right now, velocity matters most.
-
-Later, numeric control and systems-level efficiency may matter more.
-
-If that moment comes, Zig is a serious candidate.
+Right now, velocity matters most. Later, numeric control and systems-level efficiency may matter more. If that moment comes, Zig is a serious candidate.
 
 ## Current Experimental Direction
 
@@ -142,9 +130,7 @@ That is controlled recovery, not open-ended discovery.
 
 This distinction matters because symbolic regression is full of exaggerated claims. Numeric approximation is often presented as formula recovery. Selective successes are shown without negative controls. Search limits are hidden. Failure is reframed as progress.
 
-I wanted the opposite posture.
-
-Experiments are reproducible. Targets are explicit. Search bounds are named. Outcomes are classified. Approximate fits are separated from structural recovery.
+I wanted the opposite posture: reproducible experiments, explicit targets, named search bounds, classified outcomes, and a clear separation between approximate fits and structural recovery.
 
 That discipline is more valuable than inflated early wins.
 
@@ -219,9 +205,7 @@ Andrzej Odrzywołek’s paper presents an idea serious enough to test rather tha
 
 A minimal one-operator language, paired with concept expansion and reproducible experiments, is already sufficient to ask meaningful questions about symbolic regression. Whether it becomes a practically strong route is still unresolved.
 
-That uncertainty is not a weakness.
-
-It is the reason the project exists.
+That uncertainty is not a weakness. It is the reason the project exists.
 
 And for the moment, it remains interesting enough to keep distracting me from other work.
 
