@@ -14,13 +14,11 @@ dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 
 {% include dossier-ref.html %}
 
-In discussions about large language models, one assumption is rarely questioned: meaningful capability requires centralized infrastructure. Frontier systems are associated with vast data centers, specialized hardware, and continuous access to large-scale compute. From this, it is often inferred that locally deployed models must remain fundamentally inferior to centrally hosted ones.
-
-That assumption rests on an implicit premise.
+In discussions about large language models, meaningful capability is often treated as inseparable from centralized infrastructure. Frontier systems are associated with vast data centers, specialized hardware, and continuous access to large-scale compute. From this, it is easy to infer that locally deployed models must remain fundamentally inferior to centrally hosted ones.
 
 ## From Absolute Superiority to Practical Equivalence
 
-It assumes that superiority must be absolute in order to matter.
+The inference only works if superiority has to be absolute in order to matter.
 
 In practice, technological competition rarely operates on absolute differences. It operates on differences that users can perceive and act upon. A system may be measurably stronger in controlled evaluations while remaining indistinguishable in practical use. When this occurs, technical inferiority does not translate into economic disadvantage.
 
@@ -36,7 +34,7 @@ Local parity emerges not from a single breakthrough, but from the accumulation o
 
 ## The Economics of Cost Convergence
 
-This process reflects a broader economic pattern: cost collapse. As methods mature and knowledge spreads, the cost of reproducing a given capability tends to fall faster than capital structures can adjust. What once required specialized infrastructure gradually becomes achievable with more accessible resources. The narrowing gap is driven not by stagnation at the frontier, but by rapid improvement relative to the baseline.
+The same process also reflects the broader pattern of cost collapse. As methods mature and knowledge spreads, the cost of reproducing a given capability tends to fall faster than capital structures can adjust. What once required specialized infrastructure gradually becomes achievable with more accessible resources. The narrowing gap is driven not by stagnation at the frontier, but by rapid improvement relative to the baseline.
 
 ## Autonomy as a Strategic Variable
 
@@ -44,7 +42,7 @@ Technological convergence alone, however, does not determine adoption. Strategic
 
 In these contexts, the threshold for “good enough” is shaped not only by capability, but by autonomy. Closed deployment models reinforce dependence by concentrating control over access and update cycles. Open deployment models, by contrast, enable local adaptation, independent optimization, and infrastructure flexibility. As locally deployable systems become more viable, incentives to pursue autonomy intensify.
 
-These incentives generate a feedback loop. Demand for local deployment stimulates investment in tooling, integration, and optimization, which further reduces practical barriers. Each improvement narrows the remaining performance margins, bringing more use cases within reach of parity.
+The incentives then reinforce themselves. Demand for local deployment stimulates investment in tooling, integration, and optimization, which reduces the practical barriers further. Each improvement narrows the remaining performance margins and brings more use cases within reach of parity.
 
 Adoption accelerates further when feasibility becomes demonstrable. Proof of viable local deployment reduces perceived risk, transforming local alternatives from experimental possibilities into credible operational options. Once confidence shifts, investment and adoption can expand rapidly, compressing timelines even when underlying technological progress remains incremental.
 
@@ -56,4 +54,4 @@ When advanced capability can be reproduced locally at acceptable cost and with p
 
 This pattern is familiar across technological domains. As core capabilities mature and become reproducible, competition migrates from invention to operation. Reliability, responsiveness, ecosystem integration, and the ability to maintain ongoing value become more decisive than exclusive control over the underlying technology.
 
-Local parity therefore represents a structural inflection in competitive dynamics. It does not end the competition in large language models. It changes where that competition is fought.
+Local parity therefore represents a structural inflection in competitive dynamics. It does not end competition in large language models. It changes where that competition is fought.

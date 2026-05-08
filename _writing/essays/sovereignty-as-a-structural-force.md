@@ -15,11 +15,11 @@ dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 
 {% include dossier-ref.html %}
 
-Public analysis of artificial intelligence competition often assumes a commercial framework. Firms invest. Firms compete. Firms win or lose. Market share shifts accordingly.
+Public analysis of artificial intelligence competition often assumes a commercial framework: firms invest, firms compete, firms win or lose, and market share shifts accordingly.
 
-That framework is incomplete.
+That framework is useful, but incomplete.
 
-Large language models are increasingly perceived not merely as products, but as infrastructure. Infrastructure operates under a different logic. It does not exist only within markets. It exists within jurisdictions.
+Large language models are increasingly perceived not merely as products, but as infrastructure. Infrastructure operates under a different logic because it does not exist only within markets. It also exists within jurisdictions.
 
 Once a technology becomes strategically significant, sovereignty enters the equation.
 
@@ -31,9 +31,7 @@ But when a technology is treated as strategic infrastructure, dominance itself c
 
 States and institutions do not evaluate risk solely in terms of price and performance. They evaluate it in terms of dependency. Reliance on an external provider—especially one governed by a foreign jurisdiction—introduces exposure that cannot be measured only in economic terms.
 
-In such contexts, the objective is not necessarily to win.
-
-It may be to prevent unilateral control.
+In such contexts, the objective is not necessarily to win. It may be to prevent unilateral control.
 
 This shift in objective alters the competitive equilibrium.
 
@@ -48,11 +46,7 @@ Under whose jurisdiction does the system operate?
 
 When advanced capability is delivered exclusively through centralized infrastructure, dependence deepens. Even moderate performance advantages may be outweighed by concerns about jurisdictional exposure, regulatory asymmetry, or strategic vulnerability.
 
-The threshold for “good enough” therefore shifts.
-
-It is no longer determined solely by technical superiority.
-
-It is shaped by autonomy.
+The threshold for “good enough” therefore shifts. It is no longer determined solely by technical superiority; it is shaped by autonomy.
 
 ## Diffusion Under Strategic Pressure
 
@@ -60,14 +54,11 @@ In a purely commercial environment, diffusion follows economic incentives. Knowl
 
 In a sovereignty-sensitive environment, diffusion is also strategically incentivized.
 
-Parallel ecosystems are funded not only to compete, but to ensure redundancy.
-Replication is pursued not only for market share, but for autonomy.
-Open deployment models gain appeal not only for flexibility, but for control.
+Parallel ecosystems may be funded for redundancy as much as competition. Replication may be pursued for autonomy as much as market share. Open deployment models gain appeal not just because they are flexible, but because they preserve control.
 
 This does not eliminate competition. It changes its structure.
 
-Global monopoly becomes more difficult to sustain.
-Multipolar capability becomes more stable.
+Global monopoly becomes harder to sustain, while multipolar capability becomes more stable.
 
 Even if one ecosystem achieves temporary leadership, the existence of viable alternatives reduces the likelihood of durable global dominance.
 
@@ -87,9 +78,7 @@ The presence of capable alternatives—even if marginally inferior—constrains 
 
 When sovereignty becomes a decision variable, the industry no longer operates under a single competitive logic.
 
-Commercial scale continues to matter.
-Technical leadership continues to matter.
-But autonomy and jurisdictional control become parallel forces.
+Commercial scale and technical leadership continue to matter, but autonomy and jurisdictional control become parallel forces.
 
 This alters the expected trajectory of consolidation.
 

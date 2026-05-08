@@ -4,7 +4,7 @@ type: essay
 date: 2026-02-21T01:38:00+01:00
 author: Tedla Brandsema
 title: The Control Plane Split
-intro: Large language models are evolving along two economic trajectories: attention capture and intent execution.
+intro: "Large language models are evolving along two economic trajectories: attention capture and intent execution."
 dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 ---
 
@@ -17,14 +17,9 @@ dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 
 Large language models are often discussed as if they were progressing along a single axis: larger, faster, more intelligent. Yet as their deployment expands, a structural divergence is becoming visible.
 
-The divergence is not about scale.
+The divergence is not primarily about scale. It is about function.
 
-It is about function.
-
-LLMs are beginning to evolve in two different economic directions:
-
-1. As systems that capture and retain human attention.  
-2. As systems that execute human intent.
+LLMs are beginning to evolve in two economic directions: as systems that capture and retain human attention, and as systems that execute human intent.
 
 These roles are not identical. They do not optimize for the same variables. Over time, they are likely to separate.
 
@@ -82,23 +77,9 @@ The incentive is to keep the human in the loop.
 
 ## Opposing Optimization Targets
 
-These two trajectories optimize for different outcomes.
+These two trajectories optimize for different outcomes. An attention-optimized system benefits from extended sessions, broad exploratory interaction, and high token throughput. An intent-optimized system benefits from short execution loops, fewer clarification cycles, deterministic tool routing, and reduced interaction time.
 
-An attention-optimized system benefits from:
-
-- Extended sessions  
-- Broad, exploratory interaction  
-- High token throughput  
-
-An intent-optimized system benefits from:
-
-- Short execution loops  
-- Minimal clarification cycles  
-- Deterministic tool routing  
-- Reduced interaction time  
-
-One maximizes human presence.  
-The other minimizes it.
+One maximizes human presence. The other minimizes it.
 
 This distinction matters because inference cost remains structurally significant. Attention-heavy systems burn tokens continuously. Intent compilers, once stable, reduce token consumption by narrowing scope and delegating execution to tools.
 
@@ -124,17 +105,11 @@ The attention layer may remain centralized, driven by scale economics and contin
 
 The intent compiler layer, by contrast, trends toward embedding: inside enterprises, inside operating systems, inside workflow engines. Its economic value derives from integration, reliability, and autonomy rather than from breadth of knowledge.
 
-Both begin from the same technological base.
-
-They do not share the same incentive structure.
+Both begin from the same technological base, but they do not share the same incentive structure.
 
 ## The Reallocation of the Human Hour
 
-Every technological shift reallocates time.
-
-Search reorganized discovery.  
-Social platforms reorganized consumption.  
-Cloud infrastructure reorganized deployment.
+Every technological shift reallocates time: search reorganized discovery, social platforms reorganized consumption, and cloud infrastructure reorganized deployment.
 
 LLM-mediated control reorganizes execution.
 
@@ -142,8 +117,7 @@ The core economic variable is not model size.
 
 It is human attention time.
 
-Attention systems monetize it by extending interaction.  
-Intent compilers create value by compressing it.
+Attention systems monetize it by extending interaction. Intent compilers create value by compressing it.
 
 As these trajectories mature, they will no longer appear as variations of the same product category. They will represent different positions in the value chain.
 

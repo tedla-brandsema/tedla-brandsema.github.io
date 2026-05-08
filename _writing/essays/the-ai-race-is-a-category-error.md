@@ -41,4 +41,4 @@ Once this layered and intersecting structure is recognized, the common narrative
 
 This dossier begins from that premise. It does not attempt to rank competitors. It attempts to identify the structural forces that determine what competition even means within each layer of the system.
 
-Because in a field as complex as artificial intelligence, the most consequential mistake is not underestimating any particular player. It is misunderstanding the shape of the arena in which they operate.
+In a field as complex as artificial intelligence, the most consequential mistake is not underestimating any particular player. It is misunderstanding the arena itself.

@@ -15,11 +15,7 @@ dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 
 {% include dossier-ref.html %}
 
-In contemporary machine learning, data is treated as the primary driver of improvement. Larger datasets are assumed to produce better models, and newer datasets are assumed to produce more capable ones. The prevailing intuition is simple: more data yields more intelligence.
-
-But that intuition rests on a hidden assumption.
-
-It assumes that all data contributes in the same way.
+In contemporary machine learning, data is treated as the primary driver of improvement. Larger datasets are assumed to produce better models, and newer datasets are assumed to produce more capable ones. The prevailing intuition is simple: more data yields more intelligence. But that intuition quietly treats data as a single substance, as if all additions improved a model in the same way.
 
 In practice, training data operates along two distinct dimensions. Some data is *skill-forming*. It shapes how a system reasons, generalizes, and composes responses. Exposure to diverse structures, patterns, and problem types strengthens abstraction and inference. This kind of data expands what the system can do. Its effects accumulate slowly, are costly to obtain, and tend to persist once integrated.
 
@@ -27,9 +23,9 @@ Other data is *fact-forming*. It updates what the system knows about the world. 
 
 ## Two Forms of Model Growth
 
-Skill-forming data and fact-forming data obey different scaling laws. Skill formation is gradual and compounding. Fact formation is immediate and perishable. One builds durable capability. The other maintains temporal relevance.
+Skill-forming data and fact-forming data obey different scaling laws. Skill formation is gradual and compounding. Fact formation is immediate and perishable. Skill-forming data builds durable capability; fact-forming data maintains temporal relevance.
 
-These differences are not merely conceptual. They imply distinct mathematical behaviors.
+The distinction is not merely conceptual. The two forms of data behave differently over time.
 
 Skill-forming data appears to follow a pattern of diminishing returns. Early exposure to large and diverse corpora produces substantial gains in abstraction and generalization. Later additions tend to refine rather than transform. Improvements become incremental rather than structural. In simplified terms, capability growth resembles a logarithmic curve: large early gains followed by progressively smaller marginal improvements.
 
@@ -37,17 +33,17 @@ Fact-forming data behaves differently. Knowledge does not saturate because reali
 
 ## Divergent Scaling Behaviors
 
-This asymmetry has direct competitive consequences. Structural capability may approach perceptual limits as returns diminish, while temporal relevance remains perpetually renewable. One axis bends toward saturation. The other resets continuously.
+This asymmetry has direct competitive consequences. Structural capability may approach perceptual limits as returns diminish, while temporal relevance remains perpetually renewable. Structural capability bends toward saturation, while temporal relevance keeps resetting.
 
 This divergence defines **data duality**.
 
-Data duality changes how model updates must be interpreted.
+This changes how model updates should be read.
 
 When a new system is released, it may reflect an increase in skill-forming data, an increase in fact-forming data, or both. Yet external observers rarely distinguish between these contributions. Improvements in temporal relevance are often perceived as improvements in intelligence. A model that answers more recent questions correctly may appear “smarter,” even if its underlying reasoning capacity has not materially changed.
 
 ## When Recency Is Mistaken for Intelligence
 
-This creates a persistent misreading in competitive markets. Capability growth and knowledge refresh are conflated, even though they arise from different inputs and follow different trajectories. Skill-forming improvements tend to be slow, structural, and compounding. Fact-forming improvements tend to be rapid, visible, and perishable. The latter often generates more immediate recognition.
+The result is a persistent misreading in competitive markets. Capability growth and knowledge refresh are conflated, even though they arise from different inputs and follow different trajectories. Skill-forming improvements tend to be slow, structural, and compounding. Fact-forming improvements tend to be rapid, visible, and perishable. The latter often generates more immediate recognition.
 
 The interaction with the perception threshold is direct. Once structural capability improvements approach perceptual limits, further skill-forming gains may become difficult to detect. Fact-forming updates, however, remain visible because they affect concrete answers and current events. As a result, market attention can shift toward recency rather than depth.
 
