@@ -6,12 +6,17 @@ author: Tedla Brandsema
 title: The Inhibiting Lead
 intro: Early infrastructure advantage can flip into a liability when cost curves collapse faster than capital amortization.
 dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
+hero: /static/images/hero/generated/the-inhibiting-lead
+hero_alt: Two AI companies racing while dragging dollar-weighted balls and chains.
+hero_caption: Early advantage can become a burden when infrastructure costs collapse faster than capital can adjust.
 ---
 
 <h1>{{ page.title }}</h1>
 <h2><em>When First-Mover Advantage Becomes a Liability</em></h2>
 
 {% include published.html %}
+
+{% include hero.html %}
 
 {% include dossier-ref.html %}
 

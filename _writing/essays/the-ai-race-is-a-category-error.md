@@ -6,11 +6,16 @@ author: Tedla Brandsema
 title: The AI Race Is a Category Error
 intro: AI competition is not one race but many layered domains with different constraints and timelines.
 dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
+hero: /static/images/hero/generated/the-ai-race-is-a-category-error
+hero_alt: Structural layers of artificial intelligence with orthogonal domains surrounding them.
+hero_caption: Artificial intelligence is not one race, but a layered system shaped by adjacent domains.
 ---
 
 <h1>{{ page.title }}</h1>
 
 {% include published.html %}
+
+{% include hero.html %}
 
 {% include dossier-ref.html %}
 
@@ -27,10 +32,7 @@ Inside that outer circle lies machine learning. Machine learning is not synonymo
 Within machine learning sits a narrower domain: deep learning. These systems rely on layered neural networks capable of learning complex representations. Deep learning is responsible for many of the recent advances that brought artificial intelligence into public awareness, but it remains only one methodological approach among several.
 
 Inside deep learning sits an even more specific category: large language models. These systems specialize in predicting and generating sequences of tokens—most often words—based on patterns learned from data. They are powerful tools for language, reasoning, summarization, coding, and synthesis. But they remain a specialized subset of a specialized subset of a specialized subset.
-<figure>
-    <img alt="Structural Layers of the AI Field" src="/static/images/ai-concentric-circles.png" width="700">
-    <caption>Figure 1 — Structural Layers of the AI Field</caption>
-</figure>
+
 This nesting matters because each layer operates under different competitive dynamics. Advances at one level do not automatically propagate outward, and leadership in one layer does not imply leadership in another. A company can lead in language modeling while lagging in robotics. It can dominate research while struggling in deployment. It can control infrastructure while relying on someone else’s models.
 
 The structure becomes clearer if we also include the lateral domains that intersect with these circles rather than sitting inside them. Hardware engineering, distributed systems, data infrastructure, human–computer interaction, and product design all interact with artificial intelligence but are not themselves subfields of it. They are orthogonal disciplines that shape what is possible, what is practical, and what is profitable.

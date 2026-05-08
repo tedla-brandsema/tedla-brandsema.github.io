@@ -6,12 +6,17 @@ author: Tedla Brandsema
 title: Sovereignty as a Structural Force
 intro: As large language models become strategic infrastructure, sovereignty turns dependency, jurisdiction, and control into forces that shape competition.
 dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
+hero: /static/images/hero/generated/sovereignty-as-a-structural-force
+hero_alt: A global AI capability stream splitting into separate sovereign infrastructure systems.
+hero_caption: Strategic infrastructure does not simply centralize; it fragments under sovereignty pressure.
 ---
 
 <h1>{{ page.title }}</h1>
 <h2><em>When Diffusion Becomes Strategically Incentivized</em></h2>
 
 {% include published.html %}
+
+{% include hero.html %}
 
 {% include dossier-ref.html %}
 

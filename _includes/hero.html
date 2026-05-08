@@ -1,0 +1,51 @@
+{% if page.hero %}
+  {%- assign hero_base = page.hero -%}
+  {%- assign hero_alt = page.hero_alt | default: page.heading | default: page.title | default: "" -%}
+  {%- assign hero_caption = page.hero_caption | default: "" -%}
+  {%- assign hero_png = hero_base | append: "-1200.png" -%}
+  {%- assign hero_url = hero_png | absolute_url -%}
+
+<figure class="hero">
+  <picture>
+    <source
+      type="image/webp"
+      srcset="
+        {{ hero_base }}-480.webp 480w,
+        {{ hero_base }}-768.webp 768w,
+        {{ hero_base }}-1200.webp 1200w,
+        {{ hero_base }}-1600.webp 1600w
+      "
+      sizes="(max-width: 768px) 100vw, 900px">
+
+    <img
+      src="{{ hero_base }}-1200.png"
+      srcset="
+        {{ hero_base }}-480.png 480w,
+        {{ hero_base }}-768.png 768w,
+        {{ hero_base }}-1200.png 1200w,
+        {{ hero_base }}-1600.png 1600w
+      "
+      sizes="(max-width: 768px) 100vw, 900px"
+      width="1200"
+      loading="eager"
+      decoding="async"
+      alt="{{ hero_alt | escape }}">
+  </picture>
+
+  {% if hero_caption != "" %}
+    <figcaption>{{ hero_caption }}</figcaption>
+  {% endif %}
+</figure>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "url": {{ hero_url | jsonify }},
+  "contentUrl": {{ hero_url | jsonify }},
+  "caption": {{ hero_caption | default: hero_alt | jsonify }},
+  "description": {{ hero_alt | jsonify }},
+  "representativeOfPage": true
+}
+</script>
+{% endif %}

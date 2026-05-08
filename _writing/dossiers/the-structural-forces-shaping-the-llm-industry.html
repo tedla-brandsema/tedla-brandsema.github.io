@@ -6,15 +6,15 @@ author: Tedla Brandsema
 title: The Structural Forces Shaping the LLM Industry
 intro: An introduction to the forces that drive competition, cost, and control in the large language model industry.
 redirect_from:
-  - /writing/dossiers/economics-of-the-llm-industry.html
+- /writing/dossiers/economics-of-the-llm-industry.html
 dossier_items:
-  - /writing/essays/the-ai-race-is-a-category-error.html
-  - /writing/essays/the-inhibiting-lead.html
-  - /writing/essays/the-perception-threshold.html
-  - /writing/essays/data-duality.html
-  - /writing/essays/local-parity.html
-  - /writing/essays/the-control-plane-split.html
-  - /writing/essays/sovereignty-as-a-structural-force.html
+- /writing/essays/the-ai-race-is-a-category-error.html
+- /writing/essays/the-inhibiting-lead.html
+- /writing/essays/the-perception-threshold.html
+- /writing/essays/data-duality.html
+- /writing/essays/local-parity.html
+- /writing/essays/the-control-plane-split.html
+- /writing/essays/sovereignty-as-a-structural-force.html
 ---
 
 <h1>{{ page.title }}</h1>
@@ -28,23 +28,27 @@ dossier_items:
 
   <section class="search-results" aria-label="dossier essays">
     {% for item_url in page.dossier_items %}
-      {% assign p = site.writing | where: "url", item_url | first %}
+    {% assign p = site.writing | where: "url", item_url | first %}
 
-      {% if p %}
-        <article class="search-result-item">
-          <h3>
-            <a href="{{ p.url }}">{{ forloop.index }}. {{ p.title | default: p.heading }}</a>
-          </h3>
+    {% if p %}
+    <article class="search-result-item search-result-item--with-media">
+      <div class="search-result-body">
+        <h3>
+          <a href="{{ p.url }}">{{ forloop.index }}. {{ p.title | default: p.heading }}</a>
+        </h3>
 
-          <p class="search-result-meta">
-            {% include published.html item=p %}
-          </p>
+        <p class="search-result-meta">
+          {% include published.html item=p %}
+        </p>
 
-          <p class="search-result-intro">
-            {{ p.intro | default: p.excerpt | strip_html | strip_newlines | truncate: 220 }}
-          </p>
-        </article>
-      {% endif %}
+        <p class="search-result-intro">
+          {{ p.intro | default: p.excerpt | strip_html | strip_newlines | truncate: 220 }}
+        </p>
+      </div>
+
+      {% include overview-image.html item=p %}
+    </article>
+    {% endif %}
     {% endfor %}
   </section>
 </section>

@@ -1,0 +1,18 @@
+{% assign item = include.item %}
+
+{% if item.hero %}
+{% assign hero_base = item.hero %}
+{% assign hero_alt = item.hero_alt | default: item.title | default: item.heading | default: "" %}
+
+<a class="search-result-image" href="{{ item.url }}" aria-hidden="true" tabindex="-1">
+    <picture>
+        <source type="image/webp" srcset="
+          {{ hero_base }}-480.webp 480w,
+          {{ hero_base }}-768.webp 768w
+        " sizes="180px">
+
+        <img src="{{ hero_base }}-480.png" width="180" height="101" loading="lazy" decoding="async"
+            alt="{{ hero_alt | escape }}">
+    </picture>
+</a>
+{% endif %}

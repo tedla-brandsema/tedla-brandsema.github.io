@@ -29,7 +29,14 @@
   {%- assign og_type = "article" -%}
 {%- endif -%}
 
-{%- assign image_path = page.image | default: site.social_image -%}
+{%- assign image_path = page.image -%}
+{%- if image_path == nil or image_path == "" -%}
+  {%- if page.hero -%}
+    {%- assign image_path = page.hero | append: "-1200.png" -%}
+  {%- else -%}
+    {%- assign image_path = site.social_image -%}
+  {%- endif -%}
+{%- endif -%}
 {%- assign image_url = "" -%}
 {%- if image_path -%}
   {%- if image_path contains "://" -%}

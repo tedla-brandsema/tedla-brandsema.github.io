@@ -6,11 +6,16 @@ author: Tedla Brandsema
 title: Local Parity
 intro: Local models become competitively viable when remaining performance gaps fall below practical perception.
 dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
+hero: /static/images/hero/generated/local-parity
+hero_alt: Local and centralized model systems producing practically equivalent outputs.
+hero_caption: Local parity begins when remaining differences stop mattering in practical use.
 ---
 
 <h1>{{ page.title }}</h1>
 
 {% include published.html %}
+
+{% include hero.html %}
 
 {% include dossier-ref.html %}
 

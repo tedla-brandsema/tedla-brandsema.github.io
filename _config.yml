@@ -30,3 +30,4 @@ exclude:
   - pdf
   - Gemfile
   - Gemfile.lock
+  - generate-responsive-heroes.sh

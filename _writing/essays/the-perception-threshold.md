@@ -6,6 +6,9 @@ author: Tedla Brandsema
 title: The Perception Threshold
 intro: Technical improvements stop producing advantage once users can no longer perceive the difference.
 dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
+hero: /static/images/hero/generated/the-perception-threshold
+hero_alt: Two different model capabilities casting similar shadows before a human observer.
+hero_caption: Below the perception threshold, different capabilities can produce the same practical effect.
 ---
 
 <h1>{{ page.title }}</h1>
@@ -13,6 +16,8 @@ dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 <h2><em>When Improvement Stops Translating Into Advantage</em></h2>
 
 {% include published.html %}
+
+{% include hero.html %}
 
 {% include dossier-ref.html %}
 

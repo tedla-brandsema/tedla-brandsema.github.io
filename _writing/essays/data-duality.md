@@ -6,12 +6,17 @@ author: Tedla Brandsema
 title: Data Duality
 intro: Skill-forming and fact-forming data drive different kinds of model progress and are often mistaken for one another.
 dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
+hero: /static/images/hero/generated/data-duality
+hero_alt: Two different streams of data flowing into a central model core.
+hero_caption: Skill-forming data and fact-forming data improve models in different ways.
 ---
 
 <h1>{{ page.title }}</h1>
 <h2><em>Why Newer Models Are Not Always Smarter</em></h2>
 
 {% include published.html %}
+
+{% include hero.html %}
 
 {% include dossier-ref.html %}
 

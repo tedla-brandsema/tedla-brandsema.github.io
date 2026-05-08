@@ -11,19 +11,23 @@
   <section class="search-results" aria-label="{{ page.title }} overview">
     {% for p in items %}
     {% if selected_types contains p.type %}
-    <article class="search-result-item">
-      <h2>
-        <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
-      </h2>
-      {% include published.html item=p %}
-      <p class="search-result-type">
-        <span class="writing-type-badge writing-type-badge--{{ p.type | default: 'unknown' | slugify }}">
-          {{ p.type | default: "Unknown" | capitalize }}
-        </span>
-      </p>
-      <p class="search-result-intro">
-        {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 240 }}
-      </p>
+    <article class="search-result-item search-result-item--with-media">
+      <div class="search-result-body">
+        <h2>
+          <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
+        </h2>
+        {% include published.html item=p %}
+        <p class="search-result-type">
+          <span class="writing-type-badge writing-type-badge--{{ p.type | default: 'unknown' | slugify }}">
+            {{ p.type | default: "Unknown" | capitalize }}
+          </span>
+        </p>
+        <p class="search-result-intro">
+          {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 240 }}
+        </p>
+      </div>
+
+      {% include overview-image.html item=p %}
     </article>
     {% endif %}
     {% endfor %}
