@@ -5,6 +5,9 @@ date: 2026-04-18T00:00:00+02:00
 author: Tedla Brandsema
 title: Mythos
 intro: Anthropic’s Mythos is not just a dangerous model. Its selective release through Project Glasswing turns model access into a strategic perimeter, raising harder questions about who gets defensive advantage first and why.
+hero: /static/images/hero/generated/mythos
+hero_alt: A cracked glass security perimeter protecting privileged institutions while a darker shared software landscape remains outside.
+hero_caption: Selective defense creates a perimeter, and the perimeter determines who receives strategic capability first.
 redirect_from:
   - /writing/essays/mythos.html
 ---
@@ -13,6 +16,8 @@ redirect_from:
 <h2><em>When Defensive Scarcity Creates a Strategic Perimeter</em></h2>
 
 {% include published.html %}
+
+{% include hero.html %}
 
 The significance of Mythos does not lie primarily in Anthropic’s claim that the model is dangerous. It lies in what Anthropic is doing because of that claim.
 

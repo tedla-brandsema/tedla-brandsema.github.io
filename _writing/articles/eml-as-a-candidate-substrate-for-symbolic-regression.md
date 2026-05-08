@@ -5,12 +5,17 @@ published: 2026-04-27T22:00:00+02:00
 author: Tedla Brandsema
 title: EML as a Candidate Substrate for Symbolic Regression
 intro: An empirical toolchain for evaluating whether the Exp-Minus-Log representation offers a useful search space for symbolic regression.
+hero: /static/images/hero/generated/eml-as-a-candidate-substrate-for-symbolic-regression
+hero_alt: A glowing mathematical expression lattice transforming data into symbolic expression trees.
+hero_caption: EML turns symbolic regression into a search over a compact, composable expression space.
 ---
 
 <h1>{{ page.title }}</h1>
 <h2><em>An empirical toolchain for evaluating the Exp-Minus-Log representation</em></h2>
 
 {% include published.html %}
+
+{% include hero.html %}
 
 When I first read *[All elementary functions from a single operator](https://arxiv.org/html/2603.21852v2)* by Andrzej Odrzywołek, I had the reaction that elegant technical ideas sometimes provoke: I wanted to play with it immediately.
 

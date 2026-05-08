@@ -5,6 +5,9 @@ date: 2026-04-07T00:00:00+02:00
 author: Tedla Brandsema
 title: The Strategic Significance of Gemma 4
 intro: Google’s Gemma 4 release does more than expand an ecosystem. It alters the exposure profile of firms competing to monetize model access.
+hero: /static/images/hero/generated/the-strategic-significance-of-gemma-4
+hero_alt: A glowing open-weight model piece on a strategic board applying pressure between diversified ecosystems and access-dependent model businesses.
+hero_caption: Openness from the center changes the market more than openness from the edge.
 redirect_from:
   - /writing/essays/the-strategic-significance-of-gemma-4.html
 ---
@@ -13,6 +16,8 @@ redirect_from:
 <h2><em>When Openness Becomes Structurally Destabilizing</em></h2>
 
 {% include published.html %}
+
+{% include hero.html %}
 
 The significance of Gemma 4 does not lie primarily in its benchmark position, its parameter counts, or its deployment targets. It lies in where the release lands within the structure of the market.
 

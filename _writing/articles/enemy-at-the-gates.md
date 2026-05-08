@@ -5,6 +5,9 @@ date: 2026-04-20T00:00:00+02:00
 author: Tedla Brandsema
 title: Enemy at the Gates
 intro: Alphabet’s AI challenge is not primarily competitive, it is structural. The erosion of intent capture threatens the advertising engine at the core of the company, even as the window for decisive response narrows.
+hero: /static/images/hero/generated/enemy-at-the-gates
+hero_alt: A monumental digital citadel with an illuminated but empty gate while streams of intent route around it.
+hero_caption: The threat is not an army at the wall, but the erosion of the route the empire controls.
 redirect_from:
   - /writing/essays/enemy-at-the-gates.html
 ---
@@ -13,6 +16,8 @@ redirect_from:
 <h2><em>When an Advertising Empire Faces an Existential Threat</em></h2>
 
 {% include published.html %}
+
+{% include hero.html %}
 
 In discussions about Alphabet and artificial intelligence, the situation is often framed as a familiar technology contest: can Google remain competitive in models, can Gemini keep pace, can DeepMind continue to produce frontier research, and can Alphabet retain leadership in a market that now includes OpenAI, Anthropic, and other challengers?
 

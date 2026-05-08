@@ -87,3 +87,9 @@ bundle exec jekyll clean
 
 - If you change `_config.yml` (for example collections), restart `jekyll serve`.
 - If gem install fails on native extensions, install your OS build tools and rerun `bundle install`.
+
+## Image Generation
+
+```bash
+./generate-responsive-heroes.sh static/images/hero
+```
