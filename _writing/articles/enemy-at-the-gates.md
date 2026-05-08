@@ -1,6 +1,6 @@
 ---
 layout: article
-type: essay
+type: article 
 date: 2026-04-20T00:00:00+02:00
 author: Tedla Brandsema
 title: Enemy at the Gates
