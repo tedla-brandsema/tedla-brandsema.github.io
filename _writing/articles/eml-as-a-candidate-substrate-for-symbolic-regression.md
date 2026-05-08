@@ -3,11 +3,11 @@ layout: article
 type: article
 published: 2026-04-27T22:00:00+02:00
 author: Tedla Brandsema
-heading: EML as a Candidate Substrate for Symbolic Regression
+title: EML as a Candidate Substrate for Symbolic Regression
 intro: An empirical toolchain for evaluating whether the Exp-Minus-Log representation offers a useful search space for symbolic regression.
 ---
 
-<h1>{{ page.heading }}</h1>
+<h1>{{ page.title }}</h1>
 <h2><em>An empirical toolchain for evaluating the Exp-Minus-Log representation</em></h2>
 
 {% include published.html %}
