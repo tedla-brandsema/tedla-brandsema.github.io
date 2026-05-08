@@ -1,10 +1,12 @@
 ---
 layout: article
-type: article 
+type: article
 date: 2026-04-20T00:00:00+02:00
 author: Tedla Brandsema
 title: Enemy at the Gates
 intro: Alphabet’s AI challenge is not primarily competitive, it is structural. The erosion of intent capture threatens the advertising engine at the core of the company, even as the window for decisive response narrows. 
+redirect_from:
+  - /writing/essays/enemy-at-the-gates.html
 ---
 
 <h1>{{ page.title }}</h1>

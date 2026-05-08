@@ -5,9 +5,7 @@ date: 2026-01-15T14:11:00+02:00
 author: Tedla Brandsema
 title: The Inhibiting Lead
 intro: Early infrastructure advantage can flip into a liability when cost curves collapse faster than capital amortization.
-dossier_url: /writing/dossiers/economics-of-the-llm-industry.html
-dossier_headding: The Economics of the LLM Industry
-dossier_order: 2
+dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 ---
 
 <h1>{{ page.title }}</h1>

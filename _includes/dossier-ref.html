@@ -1,4 +1,11 @@
+{%- if page.dossier -%}
+{%- assign dossier_page = site.writing | where: "url", page.dossier | first -%}
 <div class="dossier">
-  This essay is part{% if page.dossier_order %} {{ page.dossier_order }}{% endif %} of the dossier:
-  <a href="{{ page.dossier_url }}">{{ page.dossier_headding }}</a>.
+  This essay is part of the dossier: &nbsp;
+  {%- if dossier_page -%}
+  <a href="{{ dossier_page.url }}">{{ dossier_page.title }}</a>.
+  {%- else -%}
+  <a href="{{ page.dossier }}">{{ page.dossier }}</a>.
+  {%- endif -%}
 </div>
+{%- endif -%}

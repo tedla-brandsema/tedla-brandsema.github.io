@@ -4,10 +4,8 @@ type: essay
 date: 2026-02-21T04:16:00+01:00
 author: Tedla Brandsema
 title: Sovereignty as a Structural Force
-intro: 
-dossier_url: /writing/dossiers/economics-of-the-llm-industry.html
-dossier_headding: The Economics of the LLM Industry
-dossier_order: 7
+intro: As large language models become strategic infrastructure, sovereignty turns dependency, jurisdiction, and control into forces that shape competition.
+dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 ---
 
 <h1>{{ page.title }}</h1>

@@ -4,10 +4,8 @@ type: essay
 date: 2026-02-21T01:38:00+01:00
 author: Tedla Brandsema
 title: The Control Plane Split
-intro: "Large language models are evolving along two economic trajectories: attention capture and intent execution."
-dossier_url: /writing/dossiers/economics-of-the-llm-industry.html
-dossier_headding: The Economics of the LLM Industry
-dossier_order: 6
+intro: Large language models are evolving along two economic trajectories: attention capture and intent execution.
+dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 ---
 
 <h1>{{ page.title }}</h1>

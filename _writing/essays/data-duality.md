@@ -5,9 +5,7 @@ date: 2026-01-29T16:05:00+02:00
 author: Tedla Brandsema
 title: Data Duality
 intro: Skill-forming and fact-forming data drive different kinds of model progress and are often mistaken for one another.
-dossier_url: /writing/dossiers/economics-of-the-llm-industry.html
-dossier_headding: The Economics of the LLM Industry
-dossier_order: 4
+dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 ---
 
 <h1>{{ page.title }}</h1>

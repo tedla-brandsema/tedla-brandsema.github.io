@@ -1,10 +1,12 @@
 ---
 layout: article
-type: article 
+type: article
 date: 2026-04-07T00:00:00+02:00
 author: Tedla Brandsema
 title: The Strategic Significance of Gemma 4
 intro: Google’s Gemma 4 release does more than expand an ecosystem. It alters the exposure profile of firms competing to monetize model access.
+redirect_from:
+  - /writing/essays/the-strategic-significance-of-gemma-4.html
 ---
 
 <h1>{{ page.title }}</h1>

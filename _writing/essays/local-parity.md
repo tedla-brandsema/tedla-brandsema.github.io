@@ -5,9 +5,7 @@ date: 2026-02-05T11:36:00+02:00
 author: Tedla Brandsema
 title: Local Parity
 intro: Local models become competitively viable when remaining performance gaps fall below practical perception.
-dossier_url: /writing/dossiers/economics-of-the-llm-industry.html
-dossier_headding: The Economics of the LLM Industry
-dossier_order: 5
+dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 ---
 
 <h1>{{ page.title }}</h1>

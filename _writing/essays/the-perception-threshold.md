@@ -5,9 +5,7 @@ date: 2026-01-22T09:47:00+02:00
 author: Tedla Brandsema
 title: The Perception Threshold
 intro: Technical improvements stop producing advantage once users can no longer perceive the difference.
-dossier_url: /writing/dossiers/economics-of-the-llm-industry.html
-dossier_headding: The Economics of the LLM Industry
-dossier_order: 3
+dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 ---
 
 <h1>{{ page.title }}</h1>

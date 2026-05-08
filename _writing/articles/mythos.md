@@ -1,10 +1,12 @@
 ---
 layout: article
-type: article 
+type: article
 date: 2026-04-18T00:00:00+02:00
 author: Tedla Brandsema
 title: Mythos
 intro: Anthropic’s Mythos is not just a dangerous model. Its selective release through Project Glasswing turns model access into a strategic perimeter, raising harder questions about who gets defensive advantage first and why.
+redirect_from:
+  - /writing/essays/mythos.html
 ---
 
 <h1>{{ page.title }}</h1>
