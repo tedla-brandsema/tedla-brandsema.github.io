@@ -42,7 +42,9 @@ The other points AI compute at software to break it.
 
 The distinction is not technical. It is intentional.
 
-A request to “find vulnerabilities in this code” is structurally ambiguous. It can be defensive research, exploit preparation, internal audit, bug bounty work, or prelude to intrusion. OpenAI has acknowledged this ambiguity directly in its trusted-access cyber work, noting that vulnerability-finding tasks can be either legitimate defensive work or misuse depending on context. OpenAI has also described GPT-5.5 and GPT-5.5-Cyber as part of a trusted-access system for cybersecurity capability rather than a uniformly available product surface. ([OpenAI][1])
+This is the shift Thomas Ptacek described in “Vulnerability research is cooked”: the collapse of scarce expert attention as the limiting factor in vulnerability discovery. If the old constraint was finding enough capable people with enough time to inspect enough code, the new constraint is increasingly how much capable model attention can be aimed at the target. ([Sockpuppet][1])
+
+A request to “find vulnerabilities in this code” is structurally ambiguous. It can be defensive research, exploit preparation, internal audit, bug bounty work, or prelude to intrusion. OpenAI has acknowledged this ambiguity directly in its trusted-access cyber work, noting that vulnerability-finding tasks can be either legitimate defensive work or misuse depending on context. OpenAI has also described GPT-5.5 and GPT-5.5-Cyber as part of a trusted-access system for cybersecurity capability rather than a uniformly available product surface. ([OpenAI][2])
 
 That matters because the relevant unit of security competition is no longer just the researcher, the audit firm, or the internal red team.
 
@@ -76,7 +78,7 @@ Attackers need one useful vulnerability.
 
 Defenders must process all of them.
 
-Mozilla’s recent work with Anthropic illustrates the scale shift. In March, Mozilla described an Anthropic-assisted effort that produced 14 high-severity bugs, 22 CVEs, and 90 additional bugs in Firefox. ([Mozilla Blog][2]) A few weeks later, Mozilla reported that Firefox 150 included fixes for 271 vulnerabilities identified during an initial evaluation with Claude Mythos Preview. Mozilla later clarified that it fixed 423 security bugs in April releases, with the 271 Mythos-attributed bugs forming only part of a broader AI-assisted and traditional security pipeline. ([Mozilla Blog][3])
+Mozilla’s recent work with Anthropic illustrates the scale shift. In March, Mozilla described an Anthropic-assisted effort that produced 14 high-severity bugs, 22 CVEs, and 90 additional bugs in Firefox. ([Mozilla Blog][3]) A few weeks later, Mozilla reported that Firefox 150 included fixes for 271 vulnerabilities identified during an initial evaluation with Claude Mythos Preview. Mozilla later clarified that it fixed 423 security bugs in April releases, with the 271 Mythos-attributed bugs forming only part of a broader AI-assisted and traditional security pipeline. ([Mozilla Blog][4])
 
 Those numbers are not merely impressive.
 
@@ -164,9 +166,9 @@ Token spend is only one side of the arms race.
 
 The other side is permission.
 
-The most capable cyber models are not simply sitting behind an ordinary price page. They are increasingly governed through access programs, trust tiers, evaluations, and selection processes. Anthropic launched Project Glasswing around Claude Mythos Preview, explicitly framing the model as unusually capable at computer security tasks and describing controlled efforts to use it to secure critical software. Anthropic also reported that Mythos Preview was dramatically more capable than Opus 4.6 at turning vulnerabilities into working exploits in their Firefox benchmark. ([Red Anthropic][4])
+The most capable cyber models are not simply sitting behind an ordinary price page. They are increasingly governed through access programs, trust tiers, evaluations, and selection processes. Anthropic launched Project Glasswing around Claude Mythos Preview, explicitly framing the model as unusually capable at computer security tasks and describing controlled efforts to use it to secure critical software. Anthropic also reported that Mythos Preview was dramatically more capable than Opus 4.6 at turning vulnerabilities into working exploits in their Firefox benchmark. ([Red Anthropic][5])
 
-OpenAI is moving in the same structural direction. Its trusted-access cyber program describes cybersecurity capability as something to be scaled across vetted defenders, not simply exposed uniformly to all users. ([OpenAI][1]) Public reporting on GPT-5.5-Cyber similarly describes access expanding to vetted cyber defenders, especially those protecting critical infrastructure. ([Axios][5])
+OpenAI is moving in the same structural direction. Its trusted-access cyber program describes cybersecurity capability as something to be scaled across vetted defenders, not simply exposed uniformly to all users. ([OpenAI][2]) Public reporting on GPT-5.5-Cyber similarly describes access expanding to vetted cyber defenders, especially those protecting critical infrastructure. ([Axios][6])
 
 This creates a two-gate system.
 
@@ -280,8 +282,9 @@ It asks how much capable model attention has been directed at it.
 
 And how much more is being directed against it.
 
-[1]: https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/ "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber | OpenAI"
-[2]: https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/ "Hardening Firefox with Anthropic’s Red Team"
-[3]: https://blog.mozilla.org/en/firefox/ai-security-zero-day-vulnerabilities/ "The zero-days are numbered"
-[4]: https://red.anthropic.com/2026/mythos-preview/ "Claude Mythos Preview"
-[5]: https://www.axios.com/2026/05/07/openai-gpt-55-cybersecurity-model "OpenAI makes its Mythos rival more widely available to cyber defenders"
+[1]: https://sockpuppet.org/blog/2026/03/30/vulnerability-research-is-cooked/ "Vulnerability research is cooked"
+[2]: https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/ "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber | OpenAI"
+[3]: https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/ "Hardening Firefox with Anthropic’s Red Team"
+[4]: https://blog.mozilla.org/en/firefox/ai-security-zero-day-vulnerabilities/ "The zero-days are numbered"
+[5]: https://red.anthropic.com/2026/mythos-preview/ "Claude Mythos Preview"
+[6]: https://www.axios.com/2026/05/07/openai-gpt-55-cybersecurity-model "OpenAI makes its Mythos rival more widely available to cyber defenders"
