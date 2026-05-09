@@ -8,6 +8,7 @@ intro: Anthropic’s Mythos is not just a dangerous model. Its selective release
 hero: /static/images/hero/generated/mythos
 hero_alt: A cracked glass security perimeter protecting privileged institutions while a darker shared software landscape remains outside.
 hero_caption: Selective defense creates a perimeter, and the perimeter determines who receives strategic capability first.
+hero_ai: true
 redirect_from:
   - /writing/essays/mythos.html
 ---

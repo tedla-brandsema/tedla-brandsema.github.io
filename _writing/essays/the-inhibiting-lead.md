@@ -9,6 +9,7 @@ dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 hero: /static/images/hero/generated/the-inhibiting-lead
 hero_alt: Two AI companies racing while dragging dollar-weighted balls and chains.
 hero_caption: Early advantage can become a burden when infrastructure costs collapse faster than capital can adjust.
+hero_ai: true
 ---
 
 <h1>{{ page.title }}</h1>

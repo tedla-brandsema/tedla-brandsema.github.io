@@ -32,9 +32,16 @@
       alt="{{ hero_alt | escape }}">
   </picture>
 
-  {% if hero_caption != "" %}
-    <figcaption>{{ hero_caption }}</figcaption>
-  {% endif %}
+{% if hero_caption != "" or page.hero_ai %}
+  <figcaption>
+    {% if hero_caption != "" %}
+      {{ hero_caption }}
+    {% endif %}
+    {% if page.hero_ai %}
+      <span class="hero-disclosure">AI-generated illustration.</span>
+    {% endif %}
+  </figcaption>
+{% endif %}
 </figure>
 
 <script type="application/ld+json">

@@ -8,6 +8,7 @@ intro: Alphabet’s AI challenge is not primarily competitive, it is structural.
 hero: /static/images/hero/generated/enemy-at-the-gates
 hero_alt: A monumental digital citadel with an illuminated but empty gate while streams of intent route around it.
 hero_caption: The threat is not an army at the wall, but the erosion of the route the empire controls.
+hero_ai: true
 redirect_from:
   - /writing/essays/enemy-at-the-gates.html
 ---

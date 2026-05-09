@@ -8,6 +8,7 @@ intro: As frontier models get stronger, access to them may become more stratifie
 hero: /static/images/hero/generated/the-token-divide
 hero_alt: Two separated digital landscapes divided by a deep chasm, with abundant golden token flows on one side and thinner blue streams on the other.
 hero_caption: The token divide emerges when access to productive machine cognition becomes tiered by price and throughput.
+hero_ai: true
 redirect_from:
   - /writing/essays/the-token-divide.html
 ---

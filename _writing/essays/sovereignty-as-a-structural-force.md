@@ -9,6 +9,7 @@ dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 hero: /static/images/hero/generated/sovereignty-as-a-structural-force
 hero_alt: A global AI capability stream splitting into separate sovereign infrastructure systems.
 hero_caption: Strategic infrastructure does not simply centralize; it fragments under sovereignty pressure.
+hero_ai: true
 ---
 
 <h1>{{ page.title }}</h1>

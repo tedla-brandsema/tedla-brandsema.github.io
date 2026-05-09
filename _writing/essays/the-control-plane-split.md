@@ -9,6 +9,7 @@ dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 hero: /static/images/hero/generated/the-control-plane-split
 hero_alt: A visual split between attention systems and intent execution systems.
 hero_caption: Attention systems extend interaction. Intent compilers compress it.
+hero_ai: true
 ---
 
 <h1>{{ page.title }}</h1>

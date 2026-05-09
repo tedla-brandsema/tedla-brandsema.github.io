@@ -9,6 +9,7 @@ dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 hero: /static/images/hero/generated/data-duality
 hero_alt: Two different streams of data flowing into a central model core.
 hero_caption: Skill-forming data and fact-forming data improve models in different ways.
+hero_ai: true
 ---
 
 <h1>{{ page.title }}</h1>

@@ -8,6 +8,7 @@ intro: An empirical toolchain for evaluating whether the Exp-Minus-Log represent
 hero: /static/images/hero/generated/eml-as-a-candidate-substrate-for-symbolic-regression
 hero_alt: A glowing mathematical expression lattice transforming data into symbolic expression trees.
 hero_caption: EML turns symbolic regression into a search over a compact, composable expression space.
+hero_ai: true
 ---
 
 <h1>{{ page.title }}</h1>

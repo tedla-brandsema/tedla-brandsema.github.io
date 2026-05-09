@@ -9,6 +9,7 @@ dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 hero: /static/images/hero/generated/local-parity
 hero_alt: Local and centralized model systems producing practically equivalent outputs.
 hero_caption: Local parity begins when remaining differences stop mattering in practical use.
+hero_ai: true
 ---
 
 <h1>{{ page.title }}</h1>

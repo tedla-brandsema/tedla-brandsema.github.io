@@ -9,6 +9,7 @@ dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 hero: /static/images/hero/generated/the-ai-race-is-a-category-error
 hero_alt: Structural layers of artificial intelligence with orthogonal domains surrounding them.
 hero_caption: Artificial intelligence is not one race, but a layered system shaped by adjacent domains.
+hero_ai: true
 ---
 
 <h1>{{ page.title }}</h1>

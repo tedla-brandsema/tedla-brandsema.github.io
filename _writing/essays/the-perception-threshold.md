@@ -9,6 +9,7 @@ dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 hero: /static/images/hero/generated/the-perception-threshold
 hero_alt: Two different model capabilities casting similar shadows before a human observer.
 hero_caption: Below the perception threshold, different capabilities can produce the same practical effect.
+hero_ai: true
 ---
 
 <h1>{{ page.title }}</h1>

@@ -285,6 +285,13 @@ main figure img {
     color: var(--muted, #666);
 }
 
+.hero-disclosure {
+    display: block;
+    margin-top: 0.15rem;
+    font-style: italic;
+    color: var(--muted);
+}
+
 /* Article metadata */
 .published {
     margin: -0.35rem 0 1.25rem;

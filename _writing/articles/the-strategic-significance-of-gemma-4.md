@@ -8,6 +8,7 @@ intro: Google’s Gemma 4 release does more than expand an ecosystem. It alters 
 hero: /static/images/hero/generated/the-strategic-significance-of-gemma-4
 hero_alt: A glowing open-weight model piece on a strategic board applying pressure between diversified ecosystems and access-dependent model businesses.
 hero_caption: Openness from the center changes the market more than openness from the edge.
+hero_ai: true
 redirect_from:
   - /writing/essays/the-strategic-significance-of-gemma-4.html
 ---
