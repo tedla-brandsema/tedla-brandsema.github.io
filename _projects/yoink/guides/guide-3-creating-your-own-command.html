@@ -5,31 +5,29 @@ date: 2026-02-04T10:39:46+01:00
 author: Tedla Brandsema
 title: Creating Your Own Command
 intro: Extend Yoink by implementing and registering custom parsers for new command behavior.
+project_nav: nav-yoink.html
 ---
 
-{% include nav-yoink.html %}
+<h1>{{ page.title }}</h1>
 
-<main>
-    <h1>{{ page.title }}</h1>
+<p>You create your own command by first creating a parser and then registering the parser with its accompanying
+    command string.</p>
 
-    <p>You create your own command by first creating a parser and then registering the parser with its accompanying
-        command string.</p>
+<p>There are two ways of creating your own parser:
+<ol>
+    <li>Implement <code class="language-go">yoink.ParseFunc</code>.</li>
+    <li>Implement <code class="language-go">yoink.Parser</code>.</li>
+</ol>
 
-    <p>There are two ways of creating your own parser:
-    <ol>
-        <li>Implement <code class="language-go">yoink.ParseFunc</code>.</li>
-        <li>Implement <code class="language-go">yoink.Parser</code>.</li>
-    </ol>
+<p>The former is stateless and therefore the preferred method for creating your own command. The latter provides a
+    manner to introduce state.</p>
 
-    <p>The former is stateless and therefore the preferred method for creating your own command. The latter provides a
-        manner to introduce state.</p>
+<section class="divider">
+    <h2>Stateless</h2>
+    <p>Let's start out by creating a stateless parser by implementing the <code
+            class="language-go">yoink.ParseFunc</code>:</p>
 
-    <section class="divider">
-        <h2>Stateless</h2>
-        <p>Let's start out by creating a stateless parser by implementing the <code
-                class="language-go">yoink.ParseFunc</code>:</p>
-
-        <pre><code class="language-go">
+    <pre><code class="language-go">
 func HelloParser(sourceFile string, sourceLine int, cmd string) (string, error) {
 	// Default subject of the greeting
 	subject := fmt.Sprintf("from %s", sourceFile)
@@ -48,25 +46,25 @@ func HelloParser(sourceFile string, sourceLine int, cmd string) (string, error) 
 }
         </code></pre>
 
-        <p>We also need to register our <code class="language-go">HelloParser</code> with Yoink:</p>
+    <p>We also need to register our <code class="language-go">HelloParser</code> with Yoink:</p>
 
-        <pre><code class="language-go">
+    <pre><code class="language-go">
 yoink.RegisterParserFunc("hello", HelloParser)
         </code></pre>
 
-        <p>After that we can parse files containing <code class="language-plaintext">.hello</code> commands like the one
-            below:</p>
+    <p>After that we can parse files containing <code class="language-plaintext">.hello</code> commands like the one
+        below:</p>
 
-        <pre><code class="language-plaintext">
+    <pre><code class="language-plaintext">
 1. Line one.
 .hello
 3. Line three.
 .hello Tedla Brandsema
         </code></pre>
 
-        <p>The full stateless example looks like this:</p>
+    <p>The full stateless example looks like this:</p>
 
-        <pre><code class="language-go">
+    <pre><code class="language-go">
 package main
 
 import (
@@ -117,26 +115,26 @@ func main() {
 }    
         </code></pre>
 
-        <p>Running the program yields the following result:</p>
+    <p>Running the program yields the following result:</p>
 
-        <pre><code class="language-plaintext">
+    <pre><code class="language-plaintext">
 1. Line one.
 2. Hello, from ./data/hello.txt!
 3. Line three.
 4. Hello, Tedla Brandsema!            
         </code></pre>
-    </section>
+</section>
 
-    <section class="divider">
-        <h2>Stateful</h2>
+<section class="divider">
+    <h2>Stateful</h2>
 
-        <p>If you need shared state between invocations of your parser, you need to implement yoink.Parser.</p>
+    <p>If you need shared state between invocations of your parser, you need to implement yoink.Parser.</p>
 
-        <p>Let's create a parser that counts how many times it has been invoked.</p>
+    <p>Let's create a parser that counts how many times it has been invoked.</p>
 
-        <p>First, we need to create our parser:</p>
+    <p>First, we need to create our parser:</p>
 
-        <pre><code class="language-go">
+    <pre><code class="language-go">
 type CountParser struct {
     mut   sync.Mutex
     count int
@@ -157,16 +155,16 @@ func (p *CountParser) Parse(fileName string, lineNumber int, inputLine string) (
 }
         </code></pre>
 
-        <p>Next, we need to register an instance of the <code class="language-go">CountParser</code> with Yoink:</p>
+    <p>Next, we need to register an instance of the <code class="language-go">CountParser</code> with Yoink:</p>
 
-        <pre><code class="language-go">
+    <pre><code class="language-go">
 yoink.RegisterParser("count", &CountParser{})
         </code></pre>
 
-        <p>Then we can parse a file containing <code class="language-plaintext">.count</code> commands, with the full
-            example below:</p>
+    <p>Then we can parse a file containing <code class="language-plaintext">.count</code> commands, with the full
+        example below:</p>
 
-        <pre><code class="language-go">
+    <pre><code class="language-go">
 package main
 
 import (
@@ -217,11 +215,11 @@ func main() {
 }    
         </code></pre>
 
-        <p>A possible result from running this example is shown below. It should immediately become clear that sharing
-            state might not yield the desired results. Here we see that evidence that the order in which the goroutines
-            are started does not guarantee the order in which they are returned</p>
+    <p>A possible result from running this example is shown below. It should immediately become clear that sharing
+        state might not yield the desired results. Here we see that evidence that the order in which the goroutines
+        are started does not guarantee the order in which they are returned</p>
 
-        <pre><code class="language-plaintext">
+    <pre><code class="language-plaintext">
 Command ".count" has been invoked 3 times
 Command ".count" has been invoked 4 times
 Command ".count" has been invoked 1 times
@@ -242,34 +240,34 @@ Command ".count" has been invoked 15 times
 Command ".count" has been invoked 16 times
 Command ".count" has been invoked 18 times            
         </code></pre>
-    </section>
+</section>
 
-    <section class="divider alert-note">
-        <h2>Considerations</h2>
+<section class="divider alert-note">
+    <h2>Considerations</h2>
 
-        <h3>State</h3>
-        <ul>
-            <li>If you modify state from inside your parser, race conditions might occur. You need to manage this
-                yourself.</li>
-            <li>The order in which the goroutines are started does not guarantee the order in which they are returned.
-            </li>
-        </ul>
+    <h3>State</h3>
+    <ul>
+        <li>If you modify state from inside your parser, race conditions might occur. You need to manage this
+            yourself.</li>
+        <li>The order in which the goroutines are started does not guarantee the order in which they are returned.
+        </li>
+    </ul>
 
-        <h3>Files</h3>
-        <ul>
-            <li>Accessing the same file concurrently is generally considered safe as long as you're only
-                <em>reading</em>. This
-                means that functions like: <code class="language-go">os.ReadFile</code>, <code
-                    class="language-go">os.Open</code> and <code
-                    class="language-go">os.OpenFile(name, O_RDONLY, 0)</code> are safe to use in your parser.
-            </li>
+    <h3>Files</h3>
+    <ul>
+        <li>Accessing the same file concurrently is generally considered safe as long as you're only
+            <em>reading</em>. This
+            means that functions like: <code class="language-go">os.ReadFile</code>, <code
+                class="language-go">os.Open</code> and <code class="language-go">os.OpenFile(name, O_RDONLY, 0)</code>
+            are safe to use in your parser.
+        </li>
 
-            <li>Since each call to the functions mentioned above returns its own file descriptor, there is a chance that
-                you might hit the file descriptor limit (ulimit -n). This is unlikely to happen unless scaled up to
-                thousands of goroutines. </li>
-            <li>Hammering the I/O subsystem is a possibility when reading repeatedly from disk, but unlikely to happen.
-            </li>
-            <li>Using <code class="language-go">bufio.Reader</code> or similar on top of an <code
-                    class="language-go">*os.File</code> that is shared between multiple goroutines is NOT safe.</li>
-        </ul>
-    </section>
+        <li>Since each call to the functions mentioned above returns its own file descriptor, there is a chance that
+            you might hit the file descriptor limit (ulimit -n). This is unlikely to happen unless scaled up to
+            thousands of goroutines. </li>
+        <li>Hammering the I/O subsystem is a possibility when reading repeatedly from disk, but unlikely to happen.
+        </li>
+        <li>Using <code class="language-go">bufio.Reader</code> or similar on top of an <code
+                class="language-go">*os.File</code> that is shared between multiple goroutines is NOT safe.</li>
+    </ul>
+</section>

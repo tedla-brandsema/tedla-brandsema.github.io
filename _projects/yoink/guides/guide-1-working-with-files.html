@@ -5,49 +5,47 @@ date: 2026-02-03T14:08:35+01:00
 author: Tedla Brandsema
 title: Working with Files
 intro: Build a root document with .yoink include commands and expand it into one resolved output.
+project_nav: nav-yoink.html
 ---
 
-{% include nav-yoink.html %}
+<h1>{{ page.title }}</h1>
+<p>Yoink is an include engine for text based files. You point it at a root file, mark inclusion points with
+    <code class="language-none">.yoink</code> commands, and it returns a single expanded document.
+</p>
+<section class="divider">
+    <h2>TL;DR</h2>
+    <p>Yoink lets you stitch files together by declaring <code class="language-none">.yoink</code> commands in your
+        source text. The parser reads the root file, resolves each include, and returns a single, expanded
+        document.</p>
 
-<main>
-    <h1>{{ page.title }}</h1>
-    <p>Yoink is an include engine for text based files. You point it at a root file, mark inclusion points with
-        <code class="language-none">.yoink</code> commands, and it returns a single expanded document.
-    </p>
-    <section class="divider">
-        <h2>TL;DR</h2>
-        <p>Yoink lets you stitch files together by declaring <code class="language-none">.yoink</code> commands in your
-            source text. The parser reads the root file, resolves each include, and returns a single, expanded
-            document.</p>
+    <ul>
+        <li>Add <code class="language-none">.yoink &lt;path&gt;</code> lines where you want content to be inserted.
+        </li>
+        <li>Open the root file and pass it to <code class="language-none">yoink.Parse</code> with the file name.
+        </li>
+        <li>Use the returned string as the fully resolved document.</li>
+    </ul>
+</section>
+<section class="divider">
+    <h2>Installing the Library</h2>
 
-        <ul>
-            <li>Add <code class="language-none">.yoink &lt;path&gt;</code> lines where you want content to be inserted.
-            </li>
-            <li>Open the root file and pass it to <code class="language-none">yoink.Parse</code> with the file name.
-            </li>
-            <li>Use the returned string as the fully resolved document.</li>
-        </ul>
-    </section>
-    <section class="divider">
-        <h2>Installing the Library</h2>
+    <p>Use <code class="language-none">go get</code> to install the latest version of the library.</p>
 
-        <p>Use <code class="language-none">go get</code> to install the latest version of the library.</p>
+    <pre><code class="language-none">go get -u github.com/tedla-brandsema/yoink@latest</code></pre>
 
-        <pre><code class="language-none">go get -u github.com/tedla-brandsema/yoink@latest</code></pre>
+    <p>Then, import Yoink in your application:</p>
 
-        <p>Then, import Yoink in your application:</p>
+    <pre><code class="language-go">import "github.com/tedla-brandsema/yoink"</code></pre>
+</section>
 
-        <pre><code class="language-go">import "github.com/tedla-brandsema/yoink"</code></pre>
-    </section>
+<section class="divider">
+    <h2>Local Files</h2>
 
-    <section class="divider">
-        <h2>Local Files</h2>
+    <p>You can include local files by adding the <code class="language-none">.yoink</code> command at the start of a
+        line, followed by the
+        name of the file to include. Below is an example file that contains two such commands.</p>
 
-        <p>You can include local files by adding the <code class="language-none">.yoink</code> command at the start of a
-            line, followed by the
-            name of the file to include. Below is an example file that contains two such commands.</p>
-
-        <pre>
+    <pre>
             <code class="language-none">
 Sonnet 18: Shall I compare thee to a summer’s day?
 By William Shakespeare
@@ -58,16 +56,16 @@ By William Shakespeare
             </code>
         </pre>
 
-        <p>Above we see two <code class="language-none">.yoink</code> commands: one command pointing to <code
-                class="language-none">sonnet-18-quatrains.txt</code> and the other to <code
-                class="language-none">sonnet-18-rhyming-couplet.txt</code>.</p>
+    <p>Above we see two <code class="language-none">.yoink</code> commands: one command pointing to <code
+            class="language-none">sonnet-18-quatrains.txt</code> and the other to <code
+            class="language-none">sonnet-18-rhyming-couplet.txt</code>.</p>
 
-        <p>To let Yoink resolve those commands, we first need to
-            open our root file and then pass it to <code class="language-none">yoink.Parse</code> in the form of an
-            <code class="language-none">io.Reader</code>.
-        </p>
+    <p>To let Yoink resolve those commands, we first need to
+        open our root file and then pass it to <code class="language-none">yoink.Parse</code> in the form of an
+        <code class="language-none">io.Reader</code>.
+    </p>
 
-        <pre>
+    <pre>
             <code class="language-go">
 package main
 
@@ -98,8 +96,8 @@ func main() {
          </pre>
 
 
-        <p>Running the program yields the following result:</p>
-        <pre>
+    <p>Running the program yields the following result:</p>
+    <pre>
             <code class="language-none">
 Sonnet 18: Shall I compare thee to a summer’s day?
 By William Shakespeare
@@ -124,21 +122,21 @@ So long lives this, and this gives life to thee.
             </code>
         </pre>
 
-    </section>
+</section>
 
-    <section class="divider">
-        <h2>Remote Files</h2>
+<section class="divider">
+    <h2>Remote Files</h2>
 
-        <p>Including remote files works much the same as working with local files; you add the <code
-                class="language-none">.yoink</code> command to the start of a line, but instead of adding the name of
-            the
-            file to include, you add the URL of the file to include.</p>
+    <p>Including remote files works much the same as working with local files; you add the <code
+            class="language-none">.yoink</code> command to the start of a line, but instead of adding the name of
+        the
+        file to include, you add the URL of the file to include.</p>
 
-        <p>In the example below, there are two <code class="language-none">.yoink</code> commands pointing to URLs with
-            raw
-            text data.</p>
+    <p>In the example below, there are two <code class="language-none">.yoink</code> commands pointing to URLs with
+        raw
+        text data.</p>
 
-        <pre>
+    <pre>
         <code class="language-none">
 Sonnet 18: Shall I compare thee to a summer’s day?
 By William Shakespeare
@@ -149,12 +147,12 @@ By William Shakespeare
         </code>
     </pre>
 
-        <p>Parsing of a file that contains a <code class="language-none">.yoink</code> command that points to a URL is
-            exactly the same as parsing a file with <code class="language-none">.yoink</code> commands that point to
-            local
-            files.</p>
+    <p>Parsing of a file that contains a <code class="language-none">.yoink</code> command that points to a URL is
+        exactly the same as parsing a file with <code class="language-none">.yoink</code> commands that point to
+        local
+        files.</p>
 
-        <pre>
+    <pre>
         <code class="language-go">
 package main
 
@@ -184,10 +182,10 @@ func main() {
         </code>
     </pre>
 
-        <p>Running the program yields the exact same result as the previous example, only now over HTTPS instead of
-            locally.</p>
+    <p>Running the program yields the exact same result as the previous example, only now over HTTPS instead of
+        locally.</p>
 
-        <pre>
+    <pre>
         <code class="language-none">
 Sonnet 18: Shall I compare thee to a summer’s day?
 By William Shakespeare
@@ -211,6 +209,4 @@ So long as men can breathe or eyes can see,
 So long lives this, and this gives life to thee.                    
         </code>
     </pre>
-    </section>
-
-</main>
+</section>

@@ -11,193 +11,190 @@ software_programming_language: Go
 software_runtime_platform: Go
 software_code_repository: https://github.com/tedla-brandsema/tagex
 software_package_url: https://pkg.go.dev/github.com/tedla-brandsema/tagex
+project_nav: nav-tagex.html
 ---
 
-{% include nav-tagex.html %}
+<h1>{{ page.title }}</h1>
 
-<main>
-  <h1>{{ page.title }}</h1>
+<p>
+  Tagex is a Go library for executing behavior defined by struct tags.
+  It lets you attach <strong>evaluation</strong>, <strong>mutation</strong>,
+  and side effects directly to data structures in a controlled and reusable way.
+</p>
+
+<p>
+  Instead of treating struct tags as passive metadata,
+  Tagex treats them as instructions:
+  tags select <em>what should run</em>,
+  directives define <em>what it does</em>,
+  and the struct defines <em>what success means</em>.
+</p>
+
+<section class="divider">
+  <h2>What Problem Does Tagex Solve?</h2>
 
   <p>
-    Tagex is a Go library for executing behavior defined by struct tags.
-    It lets you attach <strong>evaluation</strong>, <strong>mutation</strong>,
-    and side effects directly to data structures in a controlled and reusable way.
+    In many Go codebases, structs represent more than just data.
+    They describe inputs, configuration, requests, and operational boundaries.
   </p>
 
   <p>
-    Instead of treating struct tags as passive metadata,
-    Tagex treats them as instructions:
-    tags select <em>what should run</em>,
-    directives define <em>what it does</em>,
-    and the struct defines <em>what success means</em>.
+    The logic associated with those structs is often scattered:
   </p>
 
-  <section class="divider">
-    <h2>What Problem Does Tagex Solve?</h2>
+  <ul>
+    <li>Fields are checked in one place</li>
+    <li>Values are modified in another</li>
+    <li>Side effects are triggered manually</li>
+    <li>Control flow is enforced with ad-hoc conditionals</li>
+  </ul>
 
-    <p>
-      In many Go codebases, structs represent more than just data.
-      They describe inputs, configuration, requests, and operational boundaries.
-    </p>
+  <p>
+    Tagex provides a way to bring this logic back to where it belongs:
+    <strong>next to the data it applies to</strong>,
+    without turning structs into active objects or introducing a framework.
+  </p>
+</section>
 
-    <p>
-      The logic associated with those structs is often scattered:
-    </p>
+<section class="divider">
+  <h2>Core Concepts</h2>
 
-    <ul>
-      <li>Fields are checked in one place</li>
-      <li>Values are modified in another</li>
-      <li>Side effects are triggered manually</li>
-      <li>Control flow is enforced with ad-hoc conditionals</li>
-    </ul>
+  <h3>Tags</h3>
+  <p>
+    A <strong>tag</strong> defines an execution context.
+    It groups related directives and determines when they apply.
+  </p>
 
-    <p>
-      Tagex provides a way to bring this logic back to where it belongs:
-      <strong>next to the data it applies to</strong>,
-      without turning structs into active objects or introducing a framework.
-    </p>
-  </section>
+  <p>
+    Tags are reusable across structs and intentionally lightweight.
+    They do not define behavior on their own.
+  </p>
 
-  <section class="divider">
-    <h2>Core Concepts</h2>
+  <h3>Directives</h3>
+  <p>
+    A <strong>directive</strong> is a unit of behavior.
+    It may evaluate a field, mutate it, or interpret parameters attached to it.
+  </p>
 
-    <h3>Tags</h3>
-    <p>
-      A <strong>tag</strong> defines an execution context.
-      It groups related directives and determines when they apply.
-    </p>
+  <p>
+    Directives are reusable, composable, and explicitly scoped.
+    They define their own semantics, including how their parameters are parsed.
+  </p>
 
-    <p>
-      Tags are reusable across structs and intentionally lightweight.
-      They do not define behavior on their own.
-    </p>
+  <h3>Structs</h3>
+  <p>
+    The struct being processed defines intent.
+  </p>
 
-    <h3>Directives</h3>
-    <p>
-      A <strong>directive</strong> is a unit of behavior.
-      It may evaluate a field, mutate it, or interpret parameters attached to it.
-    </p>
+  <p>
+    It selects which tags apply, which directives run,
+    and how the outcome of execution is handled.
+  </p>
+</section>
 
-    <p>
-      Directives are reusable, composable, and explicitly scoped.
-      They define their own semantics, including how their parameters are parsed.
-    </p>
+<section class="divider">
+  <h2>Execution Model</h2>
 
-    <h3>Structs</h3>
-    <p>
-      The struct being processed defines intent.
-    </p>
+  <p>
+    Tagex operates as a small, explicit execution engine.
+    Processing always starts by calling <code>ProcessStruct</code>
+    with a pointer to a struct.
+  </p>
 
-    <p>
-      It selects which tags apply, which directives run,
-      and how the outcome of execution is handled.
-    </p>
-  </section>
+  <p>
+    During execution:
+  </p>
 
-  <section class="divider">
-    <h2>Execution Model</h2>
+  <ul>
+    <li>Struct fields are inspected for matching tags</li>
+    <li>Directives are selected based on tag contents</li>
+    <li>Each directive executes directly against its field</li>
+  </ul>
 
-    <p>
-      Tagex operates as a small, explicit execution engine.
-      Processing always starts by calling <code>ProcessStruct</code>
-      with a pointer to a struct.
-    </p>
+  <p>
+    There is no intermediate representation, rule tree, or expression graph.
+    Execution happens directly and deterministically.
+  </p>
 
-    <p>
-      During execution:
-    </p>
+  <figure class="diagram">
+    <img src="/static/images/tagex-lifecycle.png"
+      alt="Tagex execution model showing struct-owned lifecycle with optional Before, Success, and Failure hooks around ProcessStruct" />
+    <figcaption>
+      Tagex execution model: directives run inside <code>ProcessStruct</code>,
+      with optional struct-owned lifecycle hooks.
+    </figcaption>
+  </figure>
+</section>
 
-    <ul>
-      <li>Struct fields are inspected for matching tags</li>
-      <li>Directives are selected based on tag contents</li>
-      <li>Each directive executes directly against its field</li>
-    </ul>
+<section class="divider">
+  <h2>Optional Lifecycle Hooks</h2>
 
-    <p>
-      There is no intermediate representation, rule tree, or expression graph.
-      Execution happens directly and deterministically.
-    </p>
+  <p>
+    A struct may optionally define lifecycle hooks that are invoked
+    before and after directive execution.
+  </p>
 
-    <figure class="diagram">
-      <img src="/static/images/tagex-lifecycle.png"
-        alt="Tagex execution model showing struct-owned lifecycle with optional Before, Success, and Failure hooks around ProcessStruct" />
-      <figcaption>
-        Tagex execution model: directives run inside <code>ProcessStruct</code>,
-        with optional struct-owned lifecycle hooks.
-      </figcaption>
-    </figure>
-  </section>
+  <p>
+    These hooks are <strong>struct-owned</strong> and entirely optional.
+    Tagex does not interpret their meaning or enforce semantics.
+  </p>
 
-  <section class="divider">
-    <h2>Optional Lifecycle Hooks</h2>
+  <ul>
+    <li>
+      <strong>Before()</strong> — runs before directive execution begins
+    </li>
+    <li>
+      <strong>Success()</strong> — runs after all directives complete successfully
+    </li>
+    <li>
+      <strong>Failure(err)</strong> — runs if execution fails at any point
+    </li>
+  </ul>
 
-    <p>
-      A struct may optionally define lifecycle hooks that are invoked
-      before and after directive execution.
-    </p>
+  <p>
+    This allows the same tags and directives to be reused across structs,
+    while each struct defines its own success and failure boundaries.
+  </p>
+</section>
 
-    <p>
-      These hooks are <strong>struct-owned</strong> and entirely optional.
-      Tagex does not interpret their meaning or enforce semantics.
-    </p>
+<section class="divider">
+  <h2>Execution, Not Interpretation</h2>
 
-    <ul>
-      <li>
-        <strong>Before()</strong> — runs before directive execution begins
-      </li>
-      <li>
-        <strong>Success()</strong> — runs after all directives complete successfully
-      </li>
-      <li>
-        <strong>Failure(err)</strong> — runs if execution fails at any point
-      </li>
-    </ul>
+  <p>
+    Tagex does not interpret intent or infer meaning.
+    It executes exactly what is declared.
+  </p>
 
-    <p>
-      This allows the same tags and directives to be reused across structs,
-      while each struct defines its own success and failure boundaries.
-    </p>
-  </section>
+  <p>
+    Execution is:
+  </p>
 
-  <section class="divider">
-    <h2>Execution, Not Interpretation</h2>
+  <ul>
+    <li>Explicit</li>
+    <li>Deterministic</li>
+    <li>Locally scoped</li>
+  </ul>
 
-    <p>
-      Tagex does not interpret intent or infer meaning.
-      It executes exactly what is declared.
-    </p>
-
-    <p>
-      Execution is:
-    </p>
-
-    <ul>
-      <li>Explicit</li>
-      <li>Deterministic</li>
-      <li>Locally scoped</li>
-    </ul>
-
-    <p>
-      There is no global state, no hidden lifecycle,
-      and no implicit ordering beyond what is declared.
-      Tagex is a small execution model that makes struct-attached behavior
-      explicit, reusable, and predictable.
-    </p>
-  </section>
+  <p>
+    There is no global state, no hidden lifecycle,
+    and no implicit ordering beyond what is declared.
+    Tagex is a small execution model that makes struct-attached behavior
+    explicit, reusable, and predictable.
+  </p>
+</section>
 
 
-  <section class="divider">
-    <h2>Next Steps</h2>
+<section class="divider">
+  <h2>Next Steps</h2>
 
-    <p>
-      To see Tagex in action, start with the
-      <a href="getting-started.html">Getting started</a> guide.
-    </p>
+  <p>
+    To see Tagex in action, start with the
+    <a href="getting-started.html">Getting started</a> guide.
+  </p>
 
-    <p>
-      The <a href="guides/">Guides</a> section explores the model in depth,
-      including evaluation, mutation,
-      pre- and post-processing, and directive-owned parsing.
-    </p>
-  </section>
-</main>
+  <p>
+    The <a href="guides/">Guides</a> section explores the model in depth,
+    including evaluation, mutation,
+    pre- and post-processing, and directive-owned parsing.
+  </p>
+</section>

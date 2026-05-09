@@ -5,53 +5,51 @@ date: 2026-01-17T13:09:54+01:00
 author: Tedla Brandsema
 title: Getting Started
 intro: Learn the Tagex mental model and build your first tag-driven struct processing flow.
+project_nav: nav-tagex.html
 ---
 
-{% include nav-tagex.html %}
+<h1>{{ page.title }}</h1>
 
-<main>
-  <h1>{{ page.title }}</h1>
+<p>
+  Tagex is a Go library for executing <strong>typed logic</strong> based on
+  <strong>struct tags</strong>.
+</p>
+
+<p>
+  You define <em>directives</em> — small, focused pieces of Go code —
+  register them under a tag key, and then apply them to struct fields
+  using standard Go struct tags.
+</p>
+
+<section class="divider">
+  <h2>The Mental Model</h2>
 
   <p>
-    Tagex is a Go library for executing <strong>typed logic</strong> based on
-    <strong>struct tags</strong>.
+    Tagex has four core concepts:
   </p>
+
+  <ul>
+    <li><strong>Tag</strong> — a processing context, identified by a struct tag key</li>
+    <li><strong>Directive</strong> — typed logic applied to a field</li>
+    <li><strong>Parameters</strong> — values mapped into the directive</li>
+    <li><strong>Processing</strong> — walking a struct and executing directives</li>
+  </ul>
 
   <p>
-    You define <em>directives</em> — small, focused pieces of Go code —
-    register them under a tag key, and then apply them to struct fields
-    using standard Go struct tags.
+    Nothing is implicit: every directive is registered explicitly,
+    parameters are mapped explicitly, and execution order is deterministic.
+  </p>
+</section>
+
+<section class="divider">
+  <h2>1. Define a Directive</h2>
+
+  <p>
+    A directive is a struct that implements <code>tagex.Directive[T]</code>,
+    where <code>T</code> is the field type it operates on.
   </p>
 
-  <section class="divider">
-    <h2>The Mental Model</h2>
-
-    <p>
-      Tagex has four core concepts:
-    </p>
-
-    <ul>
-      <li><strong>Tag</strong> — a processing context, identified by a struct tag key</li>
-      <li><strong>Directive</strong> — typed logic applied to a field</li>
-      <li><strong>Parameters</strong> — values mapped into the directive</li>
-      <li><strong>Processing</strong> — walking a struct and executing directives</li>
-    </ul>
-
-    <p>
-      Nothing is implicit: every directive is registered explicitly,
-      parameters are mapped explicitly, and execution order is deterministic.
-    </p>
-  </section>
-
-  <section class="divider">
-    <h2>1. Define a Directive</h2>
-
-    <p>
-      A directive is a struct that implements <code>tagex.Directive[T]</code>,
-      where <code>T</code> is the field type it operates on.
-    </p>
-
-    <pre><code class="language-go">
+  <pre><code class="language-go">
 type RangeDirective struct {
     Min int `param:"min"`
     Max int `param:"max"`
@@ -73,126 +71,125 @@ func (d *RangeDirective) Handle(val int) (int, error) {
 }
 </code></pre>
 
-    <p>
-      The <code>param</code> tags tell Tagex which directive fields should
-      receive values from the struct tag.
-    </p>
-  </section>
+  <p>
+    The <code>param</code> tags tell Tagex which directive fields should
+    receive values from the struct tag.
+  </p>
+</section>
 
-  <section class="divider">
-    <h2>2. Create a Tag Context</h2>
+<section class="divider">
+  <h2>2. Create a Tag Context</h2>
 
-    <p>
-      A <code>Tag</code> represents a processing environment for a single
-      struct tag key.
-    </p>
+  <p>
+    A <code>Tag</code> represents a processing environment for a single
+    struct tag key.
+  </p>
 
-    <pre><code class="language-go">
+  <pre><code class="language-go">
 checkTag := tagex.NewTag("check")
 tagex.RegisterDirective(&checkTag, &RangeDirective{})
 </code></pre>
 
-    <p>
-      Directives are registered by name and are looked up when processing
-      struct fields.
-    </p>
-  </section>
+  <p>
+    Directives are registered by name and are looked up when processing
+    struct fields.
+  </p>
+</section>
 
-  <section class="divider">
-    <h2>3. Annotate a Struct</h2>
+<section class="divider">
+  <h2>3. Annotate a Struct</h2>
 
-    <pre><code class="language-go">
+  <pre><code class="language-go">
 type Car struct {
     Doors int `check:"range, min=2, max=4"`
 }
 </code></pre>
 
-    <p>
-      The tag format is:
-    </p>
+  <p>
+    The tag format is:
+  </p>
 
-    <blockquote>
-      <code>key:"directive, param=value, ..."</code>
-    </blockquote>
+  <blockquote>
+    <code>key:"directive, param=value, ..."</code>
+  </blockquote>
 
-    <ul>
-      <li>The first element selects the directive</li>
-      <li>Remaining elements are <code>key=value</code> parameters</li>
-    </ul>
-  </section>
+  <ul>
+    <li>The first element selects the directive</li>
+    <li>Remaining elements are <code>key=value</code> parameters</li>
+  </ul>
+</section>
 
-  <section class="divider">
-    <h2>4. Process the Struct</h2>
+<section class="divider">
+  <h2>4. Process the Struct</h2>
 
-    <pre><code class="language-go">
+  <pre><code class="language-go">
 car := Car{Doors: 5}
 ok, err := checkTag.ProcessStruct(&car)
 </code></pre>
 
-    <p>
-      Processing performs the following steps:
-    </p>
+  <p>
+    Processing performs the following steps:
+  </p>
 
-    <ol>
-      <li>Optional <code>Before()</code> hook</li>
-      <li>Directive execution for each tagged field</li>
-      <li>Optional <code>Success()</code> hook</li>
-      <li>Optional <code>Failure(err)</code> hook when processing fails</li>
-    </ol>
+  <ol>
+    <li>Optional <code>Before()</code> hook</li>
+    <li>Directive execution for each tagged field</li>
+    <li>Optional <code>Success()</code> hook</li>
+    <li>Optional <code>Failure(err)</code> hook when processing fails</li>
+  </ol>
 
-    <p>
-      Evaluation is short-circuiting: the first error stops processing.
-    </p>
-  </section>
+  <p>
+    Evaluation is short-circuiting: the first error stops processing.
+  </p>
+</section>
 
-  <section class="divider">
-    <h2>Evaluation vs Mutation</h2>
+<section class="divider">
+  <h2>Evaluation vs Mutation</h2>
 
-    <p>
-      Directives can either:
-    </p>
+  <p>
+    Directives can either:
+  </p>
 
-    <ul>
-      <li><strong>Evaluate</strong> a field (<code>EvalMode</code>)</li>
-      <li><strong>Mutate</strong> a field (<code>MutMode</code>)</li>
-    </ul>
+  <ul>
+    <li><strong>Evaluate</strong> a field (<code>EvalMode</code>)</li>
+    <li><strong>Mutate</strong> a field (<code>MutMode</code>)</li>
+  </ul>
 
-    <p>
-      In mutation mode, the value returned from <code>Handle</code> is written
-      back to the struct field.
-    </p>
-  </section>
+  <p>
+    In mutation mode, the value returned from <code>Handle</code> is written
+    back to the struct field.
+  </p>
+</section>
 
-  <section class="divider">
-    <h2>Pre and Post Processing</h2>
+<section class="divider">
+  <h2>Pre and Post Processing</h2>
 
-    <p>
-      If the target struct implements:
-    </p>
+  <p>
+    If the target struct implements:
+  </p>
 
-    <ul>
-      <li><code>Before() error</code></li>
-      <li><code>Success() error</code></li>
-      <li><code>Failure(err error) error</code></li>
-    </ul>
+  <ul>
+    <li><code>Before() error</code></li>
+    <li><code>Success() error</code></li>
+    <li><code>Failure(err error) error</code></li>
+  </ul>
 
-    <p>
-      These hooks are invoked automatically around directive execution.
-    </p>
-  </section>
+  <p>
+    These hooks are invoked automatically around directive execution.
+  </p>
+</section>
 
-  <section class="divider">
-    <h2>Next Steps</h2>
+<section class="divider">
+  <h2>Next Steps</h2>
 
-    <ul>
-      <li>Writing mutating directives</li>
-      <li>Custom parameter converters</li>
-      <li>Error handling and composition</li>
-      <li>Designing reusable directive libraries</li>
-    </ul>
+  <ul>
+    <li>Writing mutating directives</li>
+    <li>Custom parameter converters</li>
+    <li>Error handling and composition</li>
+    <li>Designing reusable directive libraries</li>
+  </ul>
 
-    <p>
-      These topics are covered in the <a href="guides/">Guides</a> section.
-    </p>
-  </section>
-</main>
+  <p>
+    These topics are covered in the <a href="guides/">Guides</a> section.
+  </p>
+</section>

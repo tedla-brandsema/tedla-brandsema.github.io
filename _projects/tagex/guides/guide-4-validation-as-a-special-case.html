@@ -5,60 +5,58 @@ date: 2026-01-18T04:23:49+01:00
 author: Tedla Brandsema
 title: Validation as a Special Case
 intro: Treat validation as one configuration of the Tagex execution model rather than the primary goal.
+project_nav: nav-tagex.html
 ---
 
-{% include nav-tagex.html %}
+<h1>{{ page.title }}</h1>
 
-<main>
-  <h1>{{ page.title }}</h1>
+<p>
+  By now, we have used Tagex to normalize data,
+  select behavior based on capability,
+  and define explicit success boundaries.
+</p>
+
+<p>
+  In this guide, we look at validation —
+  not as the primary goal of Tagex,
+  but as a <em>specific configuration</em> of its execution model.
+</p>
+
+<section class="divider">
+  <h2>What Validation Really Is</h2>
 
   <p>
-    By now, we have used Tagex to normalize data,
-    select behavior based on capability,
-    and define explicit success boundaries.
+    Validation answers a narrow question:
   </p>
+
+  <blockquote>
+    Can this value be accepted as-is?
+  </blockquote>
 
   <p>
-    In this guide, we look at validation —
-    not as the primary goal of Tagex,
-    but as a <em>specific configuration</em> of its execution model.
+    In Tagex terms, validation means:
   </p>
 
-  <section class="divider">
-    <h2>What Validation Really Is</h2>
+  <ul>
+    <li>The directive evaluates a value</li>
+    <li>The value is not mutated</li>
+    <li>Failure is expressed as an error</li>
+    <li>No side effects occur</li>
+  </ul>
 
-    <p>
-      Validation answers a narrow question:
-    </p>
+  <p>
+    This maps directly to <code>EvalMode</code>.
+  </p>
+</section>
 
-    <blockquote>
-      Can this value be accepted as-is?
-    </blockquote>
+<section class="divider">
+  <h2>A Validation Directive</h2>
 
-    <p>
-      In Tagex terms, validation means:
-    </p>
+  <p>
+    Let’s define a simple range check.
+  </p>
 
-    <ul>
-      <li>The directive evaluates a value</li>
-      <li>The value is not mutated</li>
-      <li>Failure is expressed as an error</li>
-      <li>No side effects occur</li>
-    </ul>
-
-    <p>
-      This maps directly to <code>EvalMode</code>.
-    </p>
-  </section>
-
-  <section class="divider">
-    <h2>A Validation Directive</h2>
-
-    <p>
-      Let’s define a simple range check.
-    </p>
-
-    <pre><code class="language-go">
+  <pre><code class="language-go">
 type RangeDirective struct {
     Min int `param:"min"`
     Max int `param:"max"`
@@ -83,40 +81,40 @@ func (d *RangeDirective) Handle(val int) (int, error) {
 }
 </code></pre>
 
-    <p>
-      This directive evaluates the field and leaves it unchanged.
-      Its only observable effect is success or failure.
-    </p>
-  </section>
+  <p>
+    This directive evaluates the field and leaves it unchanged.
+    Its only observable effect is success or failure.
+  </p>
+</section>
 
-  <section class="divider">
-    <h2>Using Validation Declaratively</h2>
+<section class="divider">
+  <h2>Using Validation Declaratively</h2>
 
-    <pre><code class="language-go">
+  <pre><code class="language-go">
 type Registration struct {
     Age int `check:"range, min=18, max=130"`
 }
 </code></pre>
 
-    <p>
-      This looks like a traditional validation use case —
-      and it is.
-    </p>
+  <p>
+    This looks like a traditional validation use case —
+    and it is.
+  </p>
 
-    <p>
-      The difference lies in what happens next.
-    </p>
-  </section>
+  <p>
+    The difference lies in what happens next.
+  </p>
+</section>
 
-  <section class="divider">
-    <h2>Validation Inside a Success Boundary</h2>
+<section class="divider">
+  <h2>Validation Inside a Success Boundary</h2>
 
-    <p>
-      Validation becomes significantly more powerful
-      when combined with PostProcessing.
-    </p>
+  <p>
+    Validation becomes significantly more powerful
+    when combined with PostProcessing.
+  </p>
 
-    <pre><code class="language-go">
+  <pre><code class="language-go">
 type Registration struct {
     Age int `check:"range, min=18, max=130"`
 
@@ -128,97 +126,96 @@ func (r *Registration) Success() error {
 }
 </code></pre>
 
-    <p>
-      If <code>Success()</code> runs,
-      validation has already succeeded.
-    </p>
+  <p>
+    If <code>Success()</code> runs,
+    validation has already succeeded.
+  </p>
 
-    <p>
-      There is no need to:
-    </p>
+  <p>
+    There is no need to:
+  </p>
 
-    <ul>
-      <li>Check return values</li>
-      <li>Track validation state</li>
-      <li>Duplicate error handling</li>
-    </ul>
-  </section>
+  <ul>
+    <li>Check return values</li>
+    <li>Track validation state</li>
+    <li>Duplicate error handling</li>
+  </ul>
+</section>
 
-  <section class="divider">
-    <h2>Why Validation Does Not Define Tagex</h2>
+<section class="divider">
+  <h2>Why Validation Does Not Define Tagex</h2>
 
-    <p>
-      Validation libraries typically:
-    </p>
+  <p>
+    Validation libraries typically:
+  </p>
 
-    <ul>
-      <li>Focus exclusively on rejecting input</li>
-      <li>Accumulate error messages</li>
-      <li>Have no notion of success beyond “no errors”</li>
-    </ul>
+  <ul>
+    <li>Focus exclusively on rejecting input</li>
+    <li>Accumulate error messages</li>
+    <li>Have no notion of success beyond “no errors”</li>
+  </ul>
 
-    <p>
-      Tagex, by contrast:
-    </p>
+  <p>
+    Tagex, by contrast:
+  </p>
 
-    <ul>
-      <li>Executes arbitrary semantics</li>
-      <li>Supports mutation and adaptation</li>
-      <li>Defines an explicit success path</li>
-    </ul>
+  <ul>
+    <li>Executes arbitrary semantics</li>
+    <li>Supports mutation and adaptation</li>
+    <li>Defines an explicit success path</li>
+  </ul>
 
-    <p>
-      Validation fits naturally into this model,
-      but it does not drive it.
-    </p>
-  </section>
+  <p>
+    Validation fits naturally into this model,
+    but it does not drive it.
+  </p>
+</section>
 
-  <section class="divider">
-    <h2>When Validation Is the Right Tool</h2>
+<section class="divider">
+  <h2>When Validation Is the Right Tool</h2>
 
-    <p>
-      Validation works well when:
-    </p>
+  <p>
+    Validation works well when:
+  </p>
 
-    <ul>
-      <li>You want to reject invalid input early</li>
-      <li>Fields must remain unchanged</li>
-      <li>Failure has no side effects</li>
-    </ul>
+  <ul>
+    <li>You want to reject invalid input early</li>
+    <li>Fields must remain unchanged</li>
+    <li>Failure has no side effects</li>
+  </ul>
 
-    <p>
-      Tagex supports this cleanly —
-      without committing you to validation-only thinking.
-    </p>
-  </section>
+  <p>
+    Tagex supports this cleanly —
+    without committing you to validation-only thinking.
+  </p>
+</section>
 
-  <section class="divider">
-    <h2>The Unifying Idea</h2>
+<section class="divider">
+  <h2>The Unifying Idea</h2>
 
-    <p>
-      Normalization, capability selection, validation,
-      and post-processing all use the same mechanism:
-    </p>
+  <p>
+    Normalization, capability selection, validation,
+    and post-processing all use the same mechanism:
+  </p>
 
-    <ul>
-      <li>Tags select directives</li>
-      <li>Directives define semantics</li>
-      <li>The execution model enforces guarantees</li>
-    </ul>
+  <ul>
+    <li>Tags select directives</li>
+    <li>Directives define semantics</li>
+    <li>The execution model enforces guarantees</li>
+  </ul>
 
-    <p>
-      Validation is simply one point in this design space.
-    </p>
-  </section>
+  <p>
+    Validation is simply one point in this design space.
+  </p>
+</section>
 
-  <section class="divider">
-    <h2>Next Guide</h2>
+<section class="divider">
+  <h2>Next Guide</h2>
 
-    <p>
-      In the next guide, we will look at
-      <em>custom converters</em> and semantic parsing,
-      and how overriding defaults lets you adapt Tagex
-      to domain-specific meaning.
-    </p>
-  </section>
-</main>
+  <p>
+    In the next guide, we will look at
+    <em>custom converters</em> and semantic parsing,
+    and how overriding defaults lets you adapt Tagex
+    to domain-specific meaning.
+  </p>
+</section>
