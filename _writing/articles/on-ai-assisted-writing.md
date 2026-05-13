@@ -49,9 +49,7 @@ That is backwards.
 
 The publisher knows how the piece was produced. The reader usually does not. Disclosure does not solve every problem, but it gives the reader enough information to make their own decision.
 
-My own position is straightforward. I view AI as a tool in the writing process. I use it to save time, improve clarity, help with structure, catch grammar and spelling issues, and support research. I may use it to test the flow of an argument or identify gaps in a draft. But the reasoning has to remain mine. The point of the piece has to remain mine. The final responsibility is mine.
-
-That distinction matters to me.
+My own position is straightforward. I view AI as a tool in the writing process. I use it to save time, improve clarity, help with structure, catch grammar and spelling issues, and support research. I may use it to test the flow of an argument or identify gaps in a draft.
 
 I do not want AI to decide what I think. I do not want it to replace the act of forming a view. I want it to help me express the view more clearly, check whether the structure holds, and reduce the mechanical drag around writing. That is a different use case from asking a model to generate a finished opinion and publishing it under my name.
 
