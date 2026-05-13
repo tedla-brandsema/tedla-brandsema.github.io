@@ -19,6 +19,8 @@ hero_ai: true
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 {% include dossier-ref.html %}
 
 Large language models are often discussed as if they were progressing along a single axis: larger, faster, more intelligent. Yet as their deployment expands, a structural divergence is becoming visible.

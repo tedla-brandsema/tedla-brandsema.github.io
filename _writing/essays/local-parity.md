@@ -18,6 +18,8 @@ hero_ai: true
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 {% include dossier-ref.html %}
 
 In discussions about large language models, meaningful capability is often treated as inseparable from centralized infrastructure. Frontier systems are associated with vast data centers, specialized hardware, and continuous access to large-scale compute. From this, it is easy to infer that locally deployed models must remain fundamentally inferior to centrally hosted ones.

@@ -19,6 +19,8 @@ hero_ai: true
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 {% include dossier-ref.html %}
 
 Public analysis of artificial intelligence competition often assumes a commercial framework: firms invest, firms compete, firms win or lose, and market share shifts accordingly.

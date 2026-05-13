@@ -20,6 +20,8 @@ redirect_from:
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 The significance of Mythos does not lie primarily in Anthropic’s claim that the model is dangerous. It lies in what Anthropic is doing because of that claim.
 
 Anthropic is not treating Mythos as an ordinary frontier release. It is treating access to Mythos as something that must itself be selectively governed. The company says Claude Mythos Preview is a general-purpose unreleased frontier model that can surpass all but the most skilled humans at finding and exploiting software vulnerabilities, that it has already found thousands of high-severity vulnerabilities across major operating systems and browsers, and that it does not plan to make Mythos Preview generally available.

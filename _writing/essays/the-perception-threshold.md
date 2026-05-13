@@ -20,6 +20,8 @@ hero_ai: true
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 {% include dossier-ref.html %}
 
 Progress is often treated as self-evidently valuable. In technology markets, the link between improvement and advantage is rarely questioned: if a system becomes better, it should become more competitive. Better capability is expected to produce better adoption, stronger pricing power, and a more durable market position.

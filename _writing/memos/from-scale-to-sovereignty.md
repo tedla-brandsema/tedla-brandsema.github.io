@@ -12,6 +12,8 @@ intro: A capital-structural synthesis of cost collapse, perceptual convergence, 
 
 {% include published.html %}
 
+{% include ai-disclosure.html %}
+
 <div class="dossier">
 This memo synthesizes the structural forces described in the <a href="/writing/dossiers/the-structural-forces-shaping-the-llm-industry.html">The Structural Forces Shaping the LLM Industry</a> dossier. It is written for investors and allocators seeking a capital-structural perspective on cost collapse, performance convergence, local parity, and sovereignty dynamics in the LLM industry.
 </div>

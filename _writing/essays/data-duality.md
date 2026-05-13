@@ -19,6 +19,8 @@ hero_ai: true
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 {% include dossier-ref.html %}
 
 In contemporary machine learning, data is treated as the primary driver of improvement. Larger datasets are assumed to produce better models, and newer datasets are assumed to produce more capable ones. The prevailing intuition is simple: more data yields more intelligence. But that intuition quietly treats data as a single substance, as if all additions improved a model in the same way.

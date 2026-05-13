@@ -18,6 +18,8 @@ hero_ai: true
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 When I first read *[All elementary functions from a single operator](https://arxiv.org/html/2603.21852v2)* by Andrzej Odrzywołek, I had the reaction that elegant technical ideas sometimes provoke: I wanted to play with it immediately.
 
 The paper proposes an unusual claim. A single binary operator,

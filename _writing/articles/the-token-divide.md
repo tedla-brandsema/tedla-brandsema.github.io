@@ -20,6 +20,8 @@ redirect_from:
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 In discussions about frontier AI, it is often assumed that more powerful models will make intelligence more abundant. But abundance and access are not the same thing.
 
 A model can become more capable while access to that capability becomes more stratified. In fact, the two may increasingly move together. The frontier can expand while the perimeter around it hardens.

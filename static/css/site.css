@@ -379,6 +379,32 @@ main figure img {
     text-underline-offset: 2px;
 }
 
+/* Article AI disclosure */
+.disclosure {
+    margin: 0 0 1.6rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--border-soft);
+    background: var(--surface-alt);
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.disclosure strong {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--text-strong);
+}
+
+.disclosure p {
+    margin: 0.55rem 0 0;
+}
+
+.disclosure p:first-of-type {
+    margin-top: 0;
+}
+
 figure.diagram img {
     background: #fff;
 }

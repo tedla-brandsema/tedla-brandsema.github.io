@@ -18,6 +18,8 @@ hero_ai: true
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 {% include dossier-ref.html %}
 
 Public discussion of artificial intelligence almost always begins in the wrong place. It begins with competition: who is ahead, who is behind, and who is winning. But before asking who is winning, it is necessary to understand what game is actually being played. That requires a map.

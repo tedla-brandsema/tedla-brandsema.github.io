@@ -20,6 +20,8 @@ redirect_from:
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 In discussions about Alphabet and artificial intelligence, the situation is often framed as a familiar technology contest: can Google remain competitive in models, can Gemini keep pace, can DeepMind continue to produce frontier research, and can Alphabet retain leadership in a market that now includes OpenAI, Anthropic, and other challengers?
 
 That framing is too narrow. Artificial intelligence is not, for Alphabet, primarily an adjacent contest.

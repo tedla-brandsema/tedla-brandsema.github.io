@@ -20,6 +20,8 @@ redirect_from:
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 The significance of Gemma 4 does not lie primarily in its benchmark position, its parameter counts, or its deployment targets. It lies in where the release lands within the structure of the market.
 
 Google introduced Gemma 4 as an Apache 2.0 open model family built from the same research base as Gemini, with explicit emphasis on advanced reasoning, agentic workflows, multimodality, long context, and deployment across local and larger compute environments. It is not an experimental side branch. It is a serious open-weight release from one of the few firms plausibly competing for commercial dominance at the same time.

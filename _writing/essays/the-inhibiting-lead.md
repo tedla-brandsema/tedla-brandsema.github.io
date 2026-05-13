@@ -19,6 +19,8 @@ hero_ai: true
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 {% include dossier-ref.html %}
 
 In technology markets, one belief is repeated so often that it has acquired the status of a law: being first is an advantage. Investors look for first movers. Headlines celebrate early leaders. Analysts construct charts ranking companies by how far ahead they appear to be.

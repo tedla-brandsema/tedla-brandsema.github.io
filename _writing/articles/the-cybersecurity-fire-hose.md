@@ -18,6 +18,8 @@ hero_ai: true
 
 {% include hero.html %}
 
+{% include ai-disclosure.html %}
+
 Software security is entering a new regime.
 
 The old regime was constrained by scarce human attention. A serious vulnerability researcher needed time, expertise, intuition, tooling, and a reason to inspect a particular target. Many systems were not secure because every defect had been eliminated. They were secure because only a limited number of capable people could afford to look closely enough.
