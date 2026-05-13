@@ -4,11 +4,11 @@ type: article
 date: 2026-05-13T18:02:00+02:00
 author: Tedla Brandsema
 title: On AI-Assisted Writing
-intro:
-hero:
-hero_alt:
-hero_caption:
-hero_ai:
+intro: Thoughts on collaboration, authorship, and the tools that extend our capacity to think and write
+hero: /static/images/hero/generated/on-ai-assisted-writing
+hero_alt: A human hand and a robotic hand type together on a keyboard while an article about AI-assisted writing is displayed on the screen.
+hero_caption: AI can assist, but authorship remains a matter of human judgment and responsibility.
+hero_ai: true
 ---
 
 <h1>{{ page.title }}</h1>
