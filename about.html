@@ -1,9 +1,25 @@
 ---
 layout: default
+title: About
 
 ---
 
-{% include nav-fig.html %}
+<aside class="side-nav about-side">
+    <img class="nav-avatar"
+        src="/static/images/avatar-web-320.png"
+        srcset="/static/images/avatar-web-160.png 160w, /static/images/avatar-web-320.png 320w"
+        sizes="150px" width="150" height="150" alt="Tedla Brandsema" loading="eager" decoding="async">
+
+    <div class="side-label">Currently</div>
+    <div class="side-block">Founder, <strong>Cloudberry IT</strong> &mdash; large-scale systems &amp; distributed infrastructure.</div>
+
+    <div class="side-label">Elsewhere</div>
+    <div class="side-links">
+        <a href="https://github.com/tedla-brandsema" rel="noopener noreferrer">GitHub &rarr;</a>
+        <a href="/writing/">Writing</a>
+        <a href="/writing-feed.xml">RSS feed &rarr;</a>
+    </div>
+</aside>
 
 <main id="main-content">
     <h1>Tedla Brandsema</h1>
@@ -75,4 +91,15 @@ layout: default
         emerging systems easier to reason about, and to provide the primitives that
         allow developers and organizations to build with similar operational discipline.
     </p>
+
+    <!-- Focus areas — edit freely; derived from the bio above. -->
+    <section class="focus-areas">
+        <h2>Focus areas</h2>
+        <div class="focus-grid">
+            <div class="focus-item">Software architecture &amp; system design</div>
+            <div class="focus-item">AI systems, ML &amp; symbolic methods</div>
+            <div class="focus-item">Go tooling &amp; open-source infrastructure</div>
+            <div class="focus-item">Long-horizon &amp; agentic systems</div>
+        </div>
+    </section>
 </main>

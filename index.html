@@ -1,29 +1,19 @@
 ---
-layout: default
+layout: wide
 intro: Tedla Brandsema is a software engineer and independent researcher based in the Netherlands, working across software architecture, AI systems, Go tooling, and long-horizon engineering.
-
 ---
-
-{% include nav-fig.html %}
 
 <main id="main-content">
   <header class="home-hero">
-    <h1>Tedla Brandsema</h1>
-    <p class="home-subtitle">Software Architect &amp; Independent Researcher</p>
-    <p>I am Tedla Brandsema, a software architect and independent researcher based in the Netherlands.</p>
-
-    <p>My work spans software architecture, research and development, and technical consultancy. I am the founder of
-      Cloudberry IT, through which I have worked on large-scale systems, distributed infrastructure, and long-horizon
-      engineering projects.</p>
-
-    <p>In addition to my professional work, I pursue independent research and writing on topics related to artificial
-      intelligence, machine learning, and the economic and structural dynamics of complex technological systems.</p>
-
-    <p>I do not operate within a single fixed discipline. Instead, I tend to follow problems that I find intellectually
-      compelling, which means the subjects I work on can vary over time. What they generally share is a focus on
-      foundational questions, system design, and the long-term implications of technological change.</p>
-
-    <p>This site is a public record of my writing, research publications, and open-source software projects.</p>
+    <img class="home-hero-avatar"
+      src="/static/images/avatar-web-320.png"
+      srcset="/static/images/avatar-web-160.png 160w, /static/images/avatar-web-320.png 320w"
+      sizes="124px" width="124" height="124" alt="Tedla Brandsema" loading="eager" decoding="async">
+    <div class="home-hero-body">
+      <h1>Tedla Brandsema</h1>
+      <p class="home-subtitle">Software Architect &amp; Independent Researcher</p>
+      <p>{{ page.intro }}</p>
+    </div>
   </header>
 
   {% assign writing_items = "" | split: "" %}
@@ -33,7 +23,10 @@ intro: Tedla Brandsema is a software engineer and independent researcher based i
   {% endif %}
 
   <section class="home-overview" aria-labelledby="recent-writing">
-    <h2 id="recent-writing">Recent Writing</h2>
+    <div class="overview-head">
+      <h2 id="recent-writing">Recent Writing</h2>
+      <a class="view-all" href="/writing/">View all &rarr;</a>
+    </div>
     <p class="overview-note">The five most recent articles, essays, dossiers, and memos.</p>
 
     <div class="search-results" aria-label="Recent writing overview">
@@ -67,32 +60,33 @@ intro: Tedla Brandsema is a software engineer and independent researcher based i
   {% endif %}
 
   <section class="home-overview" aria-labelledby="recent-projects">
-    <h2 id="recent-projects">Recent Projects</h2>
-    <p class="overview-note">The five most recent project pages and guides.</p>
+    <div class="overview-head">
+      <h2 id="recent-projects">Recent Projects</h2>
+      <a class="view-all" href="/projects">View all &rarr;</a>
+    </div>
+    <p class="overview-note">Open-source software, guides, and tutorials.</p>
 
-    <div class="search-results" aria-label="Recent projects overview">
-      {% for p in project_items limit:5 %}
+    <div class="search-results is-grid" aria-label="Recent projects overview">
+      {% for p in project_items limit:6 %}
+      {% if p.type == "overview" %}
       <article class="search-result-item">
         <h3>
           <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
         </h3>
-        {% include published.html item=p %}
-        {% assign project_type = p.type | default: "unknown" %}
-        {% assign project_type_class = project_type | slugify %}
-        {% assign project_type_label = project_type | capitalize %}
-        {% if project_type == "overview" %}
-        {% assign project_type_class = "project" %}
-        {% assign project_type_label = "Project" %}
-        {% endif %}
         <p class="search-result-type">
-          <span class="project-type-badge project-type-badge--{{ project_type_class }}">
-            {{ project_type_label }}
-          </span>
+          <span class="project-type-badge project-type-badge--project">Project</span>
         </p>
         <p class="search-result-intro">
-          {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 240 }}
+          {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 160 }}
         </p>
+        {% if p.software_programming_language or p.software_code_repository %}
+        <div class="project-meta">
+          {% if p.software_programming_language %}<span class="tag">{{ p.software_programming_language }}</span>{% endif %}
+          {% if p.software_code_repository %}<a class="repo-link" href="{{ p.software_code_repository }}" rel="noopener noreferrer">GitHub &rarr;</a>{% endif %}
+        </div>
+        {% endif %}
       </article>
+      {% endif %}
       {% endfor %}
     </div>
   </section>

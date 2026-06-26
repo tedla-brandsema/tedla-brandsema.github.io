@@ -7,8 +7,9 @@
 
 <main id="main-content">
   <h1>{{ page.title | default: page.title }}</h1>
+  {% if page.intro %}<p class="page-intro">{{ page.intro }}</p>{% endif %}
 
-  <section class="search-results" aria-label="{{ page.title | default: page.title }} overview">
+  <section class="search-results is-grid-2" aria-label="{{ page.title | default: page.title }} overview">
     {% for p in items %}
     {% if selected_types contains p.type %}
     <article class="search-result-item">
@@ -31,6 +32,14 @@
       <p class="search-result-intro">
         {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 240 }}
       </p>
+
+      {% if p.software_programming_language or p.software_code_repository or p.software_package_url %}
+      <div class="project-meta">
+        {% if p.software_programming_language %}<span class="tag">{{ p.software_programming_language }}</span>{% endif %}
+        {% if p.software_code_repository %}<a class="repo-link" href="{{ p.software_code_repository }}" rel="noopener noreferrer">GitHub &rarr;</a>{% endif %}
+        {% if p.software_package_url %}<a class="repo-link" href="{{ p.software_package_url }}" rel="noopener noreferrer">Docs &rarr;</a>{% endif %}
+      </div>
+      {% endif %}
     </article>
     {% endif %}
     {% endfor %}

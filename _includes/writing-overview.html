@@ -1,16 +1,36 @@
 {% assign selected_types = include.types | default: "" | replace: " ", "" | split: "," %}
-{% assign items = "" | split: "" %}
+{% assign active_filter = "all" %}
+{% if selected_types.size == 1 %}{% assign active_filter = selected_types[0] %}{% endif %}
+
+{% assign all_items = "" | split: "" %}
 {% assign writing_collection = site.collections | where: "label", "writing" | first %}
 {% if writing_collection and writing_collection.docs %}
-{% assign items = writing_collection.docs | sort: "date" | reverse %}
+{% assign all_items = writing_collection.docs | where_exp: "item", "item.hide != true" | sort: "date" | reverse %}
 {% endif %}
+{% assign items = all_items | where_exp: "p", "selected_types contains p.type" %}
 
 <main id="main-content">
   <h1>{{ page.title }}</h1>
+  {% if page.intro %}<p class="page-intro">{{ page.intro }}</p>{% endif %}
 
-  <section class="search-results" aria-label="{{ page.title }} overview">
-    {% for p in items %}
-    {% if selected_types contains p.type %}
+  <nav class="filter-bar" aria-label="Filter writing by type">
+    <a class="filter-chip {% if active_filter == 'all' %}is-active{% endif %}" href="/writing/">All</a>
+    <a class="filter-chip {% if active_filter == 'article' %}is-active{% endif %}" href="/writing/articles/">Articles</a>
+    <a class="filter-chip {% if active_filter == 'essay' %}is-active{% endif %}" href="/writing/essays/">Essays</a>
+    <a class="filter-chip {% if active_filter == 'dossier' %}is-active{% endif %}" href="/writing/dossiers/">Dossiers</a>
+    <a class="filter-chip {% if active_filter == 'memo' %}is-active{% endif %}" href="/writing/memos/">Memos</a>
+  </nav>
+
+  {% assign current_year = "" %}
+  {% for p in items %}
+    {% assign yr = p.date | date: "%Y" %}
+    {% if yr != current_year %}
+      {% unless forloop.first %}</div>{% endunless %}
+      <div class="year-label">{{ yr }}</div>
+      <div class="search-results" aria-label="{{ page.title }} {{ yr }}">
+      {% assign current_year = yr %}
+    {% endif %}
+
     <article class="search-result-item search-result-item--with-media">
       <div class="search-result-body">
         <h2>
@@ -29,7 +49,7 @@
 
       {% include overview-image.html item=p %}
     </article>
-    {% endif %}
-    {% endfor %}
-  </section>
+
+    {% if forloop.last %}</div>{% endif %}
+  {% endfor %}
 </main>

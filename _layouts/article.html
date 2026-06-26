@@ -4,26 +4,85 @@
 <head>
     {% include head-meta.html %}
 
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/toolbar/prism-toolbar.min.css">
+
     {% include head-styles.html %}
 </head>
 
 <body>
 
-  <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-  {% include top-nav.html %}
+    {% include top-nav.html %}
+
+    {% assign words = content | strip_html | number_of_words %}
+    {% assign minutes = words | divided_by: 200 %}
+    {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
 
     <div class="page">
 
-        {% include nav-writing.html %}
+        <aside class="side-nav toc" aria-label="On this page">
+            <div class="toc-inner">
+                <div class="toc-label">On this page</div>
+                <nav id="article-toc"></nav>
+                <div class="toc-meta">
+                    <div>{{ minutes }} min read</div>
+                    <div>{{ words }} words</div>
+                </div>
+            </div>
+        </aside>
 
-        <main id="main-content">
+        <main id="main-content" class="article-main">
             {{ content }}
         </main>
+
     </div>
+
+    {% include site-footer.html %}
 
     {% include bottom-scripts.html %}
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-go.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/show-language/prism-show-language.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+    <script>
+        // Build the "On this page" rail from the article's section headings.
+        (function () {
+            var main = document.getElementById('main-content');
+            var tocNav = document.getElementById('article-toc');
+            var rail = document.querySelector('.toc');
+            if (!main || !tocNav) return;
+            var heads = main.querySelectorAll('h2[id]');
+            if (heads.length < 2) { if (rail) rail.style.visibility = 'hidden'; return; }
+
+            var links = [], map = {};
+            heads.forEach(function (h) {
+                var a = document.createElement('a');
+                a.href = '#' + h.id;
+                a.textContent = h.textContent;
+                tocNav.appendChild(a);
+                links.push(a);
+                map[h.id] = a;
+            });
+
+            if (!('IntersectionObserver' in window)) return;
+            var obs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) {
+                        links.forEach(function (l) { l.classList.remove('is-active'); });
+                        if (map[e.target.id]) map[e.target.id].classList.add('is-active');
+                    }
+                });
+            }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+            heads.forEach(function (h) { obs.observe(h); });
+        })();
+    </script>
 </body>
 
 </html>

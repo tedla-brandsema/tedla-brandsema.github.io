@@ -7,31 +7,13 @@
             <a href="/projects" class="{% if page.url contains '/projects' %}is-active{% endif %}">Projects</a>
             <a href="/about.html" class="{% if page.url contains '/about.html' %}is-active{% endif %}">About</a>
 
-            <a class="nav-icon-link" href="https://github.com/tedla-brandsema" target="_blank"
-                aria-label="Tedla Brandsema on GitHub (opens in a new tab)" rel="noopener noreferrer">
-                <span class="nav-icon nav-icon-github" aria-hidden="true"></span>
-            </a>
+            <a href="https://github.com/tedla-brandsema" target="_blank"
+                rel="noopener noreferrer">GitHub</a>
 
-            <div class="theme-menu" data-theme-menu>
-                <button class="nav-icon-link theme-menu-button" type="button" aria-haspopup="true" aria-expanded="false"
-                    aria-label="Choose color theme" title="Choose color theme" data-theme-menu-button>
-                    <span class="nav-icon nav-icon-theme" aria-hidden="true"></span>
-                </button>
-
-                <div class="theme-menu-list" role="menu" hidden data-theme-menu-list>
-                    <button type="button" role="menuitemradio" data-theme-option="system">
-                        <span class="theme-menu-option-icon theme-menu-option-icon--system" aria-hidden="true"></span>
-                        <span>System</span>
-                    </button>
-                    <button type="button" role="menuitemradio" data-theme-option="light">
-                        <span class="theme-menu-option-icon theme-menu-option-icon--light" aria-hidden="true"></span>
-                        <span>Light</span>
-                    </button>
-                    <button type="button" role="menuitemradio" data-theme-option="dark">
-                        <span class="theme-menu-option-icon theme-menu-option-icon--dark" aria-hidden="true"></span>
-                        <span>Dark</span>
-                    </button>
-                </div>
+            <div class="theme-toggle" data-theme-menu role="radiogroup" aria-label="Color theme">
+                <button class="theme-seg" type="button" role="radio" data-theme-option="system" aria-checked="false">Auto</button>
+                <button class="theme-seg" type="button" role="radio" data-theme-option="light" aria-checked="false">Light</button>
+                <button class="theme-seg" type="button" role="radio" data-theme-option="dark" aria-checked="false">Dark</button>
             </div>
         </div>
 
