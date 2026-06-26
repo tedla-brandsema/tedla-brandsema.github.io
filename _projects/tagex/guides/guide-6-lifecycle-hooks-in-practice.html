@@ -71,14 +71,16 @@ func (j *ImportJob) Before() error {
     return nil
 }
 
-func (j *ImportJob) Success() {
+func (j *ImportJob) Success() error {
     persistRow(j.Row)
     finalizeAuditLog(j.LogID, "success")
+    return nil
 }
 
-func (j *ImportJob) Failure(err error) {
+func (j *ImportJob) Failure(err error) error {
     finalizeAuditLog(j.LogID, "failure")
     recordFailure(err)
+    return nil
 }
 </code></pre>
 

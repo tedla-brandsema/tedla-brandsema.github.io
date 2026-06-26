@@ -107,7 +107,7 @@ func (d *LimitDirective) Handle(val int) (int, error) {
 
   <pre><code class="language-go">
 capTag := tagex.NewTag("cap")
-tagex.RegisterDirective(&capTag, &LimitDirective{})
+tagex.MustRegisterDirective(capTag, &LimitDirective{})
 </code></pre>
 
   <p>
@@ -124,7 +124,7 @@ cfg := JobConfig{
     MaxConcurrency: 32,
 }
 
-_, _ = capTag.ProcessStruct(&cfg)
+_ = capTag.ProcessStruct(&cfg)
 </code></pre>
 
   <p>

@@ -154,8 +154,8 @@ func (d *CurrencyDirective) Handle(val string) (string, error) {
   <pre><code class="language-go">
 normTag := tagex.NewTag("norm")
 
-tagex.RegisterDirective(&normTag, &UpperDirective{})
-tagex.RegisterDirective(&normTag, &CurrencyDirective{})
+tagex.MustRegisterDirective(normTag, &UpperDirective{})
+tagex.MustRegisterDirective(normTag, &CurrencyDirective{})
 </code></pre>
 
   <p>
@@ -173,7 +173,7 @@ row := ImportRow{
     Price: "€ 1.234,50",
 }
 
-_, err := normTag.ProcessStruct(&row)
+err := normTag.ProcessStruct(&row)
 </code></pre>
 
   <p>

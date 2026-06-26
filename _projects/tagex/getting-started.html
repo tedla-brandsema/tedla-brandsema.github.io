@@ -87,7 +87,7 @@ func (d *RangeDirective) Handle(val int) (int, error) {
 
   <pre><code class="language-go">
 checkTag := tagex.NewTag("check")
-tagex.RegisterDirective(&checkTag, &RangeDirective{})
+tagex.MustRegisterDirective(checkTag, &RangeDirective{})
 </code></pre>
 
   <p>
@@ -124,7 +124,7 @@ type Car struct {
 
   <pre><code class="language-go">
 car := Car{Doors: 5}
-ok, err := checkTag.ProcessStruct(&car)
+err := checkTag.ProcessStruct(&car)
 </code></pre>
 
   <p>
