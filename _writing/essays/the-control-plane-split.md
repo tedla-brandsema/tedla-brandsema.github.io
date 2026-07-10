@@ -1,4 +1,4 @@
-﻿---
+---
 layout: article
 type: essay
 date: 2026-02-21T01:38:00+01:00
