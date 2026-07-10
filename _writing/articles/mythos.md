@@ -4,17 +4,17 @@ type: article
 date: 2026-04-18T00:00:00+02:00
 author: Tedla Brandsema
 title: Mythos
-intro: Anthropic’s Mythos is not just a dangerous model. Its selective release through Project Glasswing turns model access into a strategic perimeter, raising harder questions about who gets defensive advantage first and why.
+intro: Anthropic's Mythos may be too dangerous for public release. Project Glasswing raises the harder question: when defensive access is scarce, who gets protected first, and who waits outside the perimeter?
 hero: /static/images/hero/generated/mythos
-hero_alt: A cracked glass security perimeter protecting privileged institutions while a darker shared software landscape remains outside.
-hero_caption: Selective defense creates a perimeter, and the perimeter determines who receives strategic capability first.
+hero_alt: A cracked glass security perimeter protecting privileged institutions while a darker shared software base remains outside.
+hero_caption: Selective defense creates a perimeter. The perimeter decides who receives strategic capability first.
 hero_ai: true
 redirect_from:
   - /writing/essays/mythos.html
 ---
 
 <h1>{{ page.title }}</h1>
-<h2><em>When Defensive Scarcity Creates a Strategic Perimeter</em></h2>
+<h2><em>When Defensive Scarcity Sets the Boundary</em></h2>
 
 {% include published.html %}
 
@@ -22,132 +22,86 @@ redirect_from:
 
 {% include ai-disclosure.html %}
 
-The significance of Mythos does not lie primarily in Anthropic’s claim that the model is dangerous. It lies in what Anthropic is doing because of that claim.
+The important fact about Mythos is not only Anthropic's claim that the model is dangerous. The important fact is what Anthropic is doing because it believes that claim.
 
-Anthropic is not treating Mythos as an ordinary frontier release. It is treating access to Mythos as something that must itself be selectively governed. The company says Claude Mythos Preview is a general-purpose unreleased frontier model that can surpass all but the most skilled humans at finding and exploiting software vulnerabilities, that it has already found thousands of high-severity vulnerabilities across major operating systems and browsers, and that it does not plan to make Mythos Preview generally available.
+Anthropic is treating access to Mythos as something that has to be governed. The company says Claude Mythos Preview is an unreleased general-purpose frontier model that can outperform all but the most skilled humans at finding and exploiting software vulnerabilities. It says Mythos has already found thousands of high-severity vulnerabilities across major operating systems and browsers. It also says Mythos Preview will not be made generally available.
 
-If that characterization is accurate, then caution is understandable. But caution alone does not settle the question; it changes it.
+If that description is accurate, a normal public release would be hard to defend. A model that materially accelerates offensive cyber operations is not just another productivity product with an edgy demo. It changes the release question from product safety to allocation.
 
-## The Safety Argument
+## The Safety Case
 
-Anthropic’s public case is coherent on its own terms.
+Anthropic's public argument is coherent on its own terms. It is not presenting Mythos as a narrow cyber tool. It is presenting it as a general frontier model whose gains in coding, reasoning, and autonomy produce a downstream cyber capability large enough to change the relationship between defenders and attackers.
 
-The company is not describing Mythos as a narrow cyber tool. It is describing it as a general frontier model whose gains in coding, reasoning, and autonomy have produced a downstream cyber capability severe enough to alter the balance between defenders and attackers. In that framing, the danger is not only that the model knows more. It is that it may compress the distance between vulnerability existence, vulnerability discovery, and vulnerability exploitation. Anthropic presents that compression as the reason broad release would be irresponsible.
+The claimed mechanism is compression. Vulnerabilities exist before anyone finds them. Once found, they can be patched, studied, sold, hoarded, or used. A model like Mythos may shorten the distance between existence, discovery, and exploitation. Anthropic treats that compression as the reason broad release would be irresponsible.
 
-That argument deserves to be taken seriously.
-
-A company that genuinely believes it has trained a model capable of materially accelerating offensive cyber operations would be difficult to defend if it released that model as a normal public product.
+That is a serious argument. A company that genuinely believes it has trained such a model would face a worse objection if it simply shipped the model as a normal public product and hoped policy would catch up later.
 
 ## Project Glasswing
 
-Project Glasswing is Anthropic’s answer to the release problem. The initiative brings together Amazon Web Services, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, the Linux Foundation, Microsoft, NVIDIA, and Palo Alto Networks, while Anthropic also says it has extended access to more than 40 additional organizations that build or maintain critical software infrastructure. It has committed up to $100 million in usage credits and direct donations to open-source security organizations. Anthropic presents this as an urgent attempt to put Mythos-class capability to work for defensive purposes before similar capabilities proliferate more broadly.
+Project Glasswing is Anthropic's answer to that release problem. The initiative includes Amazon Web Services, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, the Linux Foundation, Microsoft, NVIDIA, and Palo Alto Networks. Anthropic also says it has extended access to more than 40 additional organizations that build or maintain critical software infrastructure. It has committed up to $100 million in usage credits and direct donations to open-source security organizations.
 
-That rules out the simplest criticism.
+That matters. Anthropic is not merely withholding a powerful model from the public and selling it to the highest bidder under a safety label. There is an actual defensive architecture here, and there is explicit recognition that the open-source layer matters. The Linux Foundation is inside the initiative. Additional maintainers of critical infrastructure are inside it too. Anthropic is trying to frame this as more than an elite enterprise preview.
 
-This is not a case in which Anthropic merely withheld a powerful model from the public and sold it to the highest bidder under a safety slogan. There is an actual defensive architecture here. There is also explicit recognition that the open-source layer matters. The Linux Foundation is included. Additional maintainers of critical infrastructure are included. Anthropic is at least attempting to frame this as more than an elite enterprise preview.
-
-That strengthens Anthropic’s case.
-
-It also makes the deeper problem harder to avoid.
+That strengthens the case for Project Glasswing. It also exposes the harder problem.
 
 ## Selective Defense
 
-The central issue is not whether Anthropic has a public-interest rationale.
+The central issue is whether selective defense remains purely defensive once access itself becomes a source of asymmetry.
 
-It is whether selective defense remains purely defensive once access itself becomes a source of asymmetry.
+If Mythos improves vulnerability discovery and remediation, the institutions that receive it first gain an advantage over the wider digital environment. Their systems can be hardened earlier. Their visibility can improve sooner. Their response cycles can tighten while other maintainers, companies, and users wait for access, approval, partnership, or eventual diffusion. Anthropic may call that responsible prioritization. The effect is still a selective redistribution of security capability.
 
-If Mythos materially improves vulnerability discovery and remediation, then the institutions that receive it first gain a real advantage over the digital environment they inhabit. Their systems can be hardened earlier. Their internal visibility can improve sooner. Their response cycles can compress faster. Others remain outside that perimeter, waiting for access, approval, partnership, or eventual diffusion. Anthropic may describe that as responsible prioritization. It is also a selective redistribution of security capability.
+That redistribution may be justified. It is not neutral.
 
-That may be justified.
+The phrase defense first hides a choice about which defenders count first. Someone decides which systems are critical enough. Someone decides which organizations are trusted enough. Someone decides which institutions sit inside the perimeter and which remain outside it.
 
-It is still asymmetry.
-
-This is where the release logic becomes more complicated than the phrase “defense first” suggests. Defense is not a universal category. Someone decides which defenders count first. Someone decides which systems are critical enough. Someone decides which institutions are inside the perimeter and which remain outside it.
-
-That allocative power is not incidental to the story. It is part of the story.
+That allocative power is part of the story.
 
 ## The Open-Source Layer
 
-The tension becomes clearer once the software ecosystem is viewed from below rather than above.
+The tension is clearer from the bottom of the stack.
 
-Modern digital society is not sustained only by hyperscalers, banks, operating system vendors, and cybersecurity firms. It is also sustained by shared open-source infrastructure, underfunded foundations, and maintainers whose work sits much closer to the base of the stack. Anthropic’s own materials make that impossible to ignore. The company says Mythos has found vulnerabilities in widely shared infrastructure including OpenBSD, FFmpeg, and the Linux kernel. It says those vulnerabilities were reported and patched, and it presents this as evidence of defensive value.
+Modern digital society is not sustained only by hyperscalers, banks, operating system vendors, and cybersecurity firms. It also depends on shared open-source infrastructure, underfunded foundations, and maintainers whose work sits close to the base of the software supply chain. Anthropic's own materials make that point hard to miss. The company says Mythos found vulnerabilities in widely shared infrastructure, including OpenBSD, FFmpeg, and the Linux kernel. It says those vulnerabilities were reported and patched, and it presents those results as evidence of defensive value.
 
-That point cuts both ways.
+That evidence cuts in both directions. It shows why Anthropic is right to treat the capability as serious. If a model can find flaws that survived years of review in software like that, the security problem is real. It also sharpens the allocation problem. If shared infrastructure is the reason selective release is justified, then the maintainers of that infrastructure should sit at the center of the access model, not at its moral edge.
 
-It strengthens Anthropic’s case because it shows that the company is not wrong about the stakes. If a model can uncover flaws that survived decades of review in software like that, then the security problem is real. But it also sharpens the contradiction. If the strongest justification for selective release is that shared infrastructure must be hardened before comparable offensive capability proliferates, then the maintainers of that shared infrastructure should not appear as a secondary moral afterthought. They should be central to the governing logic of access.
+Anthropic has publicly acknowledged that layer. It has not publicly shown that this layer governs allocation. That is a narrower criticism than saying open source has been ignored. It is also the more important one.
 
-Anthropic has publicly acknowledged that layer. It has not publicly shown that this layer governs the allocation. That is a narrower claim than saying open source has been ignored, and it is also the more serious one.
+## Interests Inside the Perimeter
 
-## Divergent Interests Inside the Defensive Perimeter
+Project Glasswing is described as a defensive coalition, but that phrase is too tidy.
 
-Project Glasswing is presented as a defensive coalition, but that description is incomplete.
+Software companies, infrastructure firms, open-source institutions, and governments may all care about cybersecurity. They do not necessarily optimize for the same outcome.
 
-A coalition of software companies, infrastructure firms, open-source institutions, and governments does not automatically imply a unified objective. These actors may all care about cybersecurity, but they do not necessarily optimize for the same outcome.
+For a software vendor, the preferred outcome is usually straightforward: find vulnerabilities, patch them quickly, and reduce exposure across the installed base. For a national security state, a vulnerability can also be a source of access. The United States formally recognizes this tension through the Vulnerabilities Equities Process, which exists because agencies may have to choose between disclosure for remediation and restriction for intelligence or law-enforcement use. The conflict is institutional, not speculative.
 
-For a software vendor, the preferred outcome is usually straightforward: identify vulnerabilities, patch them quickly, and reduce exposure across the installed base.
+So the category Anthropic calls defenders is not internally coherent. Some members of the perimeter may want the world's software hardened as quickly as possible. Others may have reasons to preserve selective asymmetry. These goals can overlap. They do not become the same goal.
 
-For a national security state, the calculus can be different. A vulnerability is not only a flaw to be removed. It can also be a source of strategic access. The United States formally recognizes this tension through the Vulnerabilities Equities Process, which exists because agencies may face a choice between disclosing vulnerabilities so they can be fixed and restricting disclosure for intelligence or law-enforcement purposes. That conflict is therefore not speculative. It is institutionalized.
+This is an old conflict in a new form. Governments have repeatedly pushed technology companies on lawful access and encryption, while those companies have argued that deliberately weakened protections create broader systemic risk. Apple made that case in its public dispute with the FBI, arguing that a mechanism to bypass security protections would not remain safely contained. The Five Eyes governments have also urged technology providers to create lawful access solutions and warned that legislative or other measures could follow if voluntary cooperation failed.
 
-This means the category Anthropic calls defenders is not internally coherent.
+A defensive perimeter can contain conflicting incentives. Naming the coalition defensive does not resolve those incentives.
 
-Some members of the perimeter may want the world’s software hardened as quickly as possible. Others may have reasons to preserve selective asymmetry. These goals can overlap in part. They do not collapse into one another.
+## Government Access
 
-That tension is not new. Governments have repeatedly pushed technology companies on lawful access and encryption, while those companies have argued that deliberately weakened protections create broader systemic risk. Apple made that case explicitly in its public dispute with the FBI, arguing that creating a mechanism to bypass security protections would not remain safely contained. The Five Eyes governments have also openly urged technology providers to create lawful access solutions and warned that legislative or other measures could follow if voluntary cooperation proves insufficient.
+Anthropic places governments and companies inside the same broad defensive narrative. It also already maintains a separate line of Claude Gov models for U.S. national security customers, designed for classified environments and tailored to government use. Differentiated access by customer class already exists.
 
-The outward projection of unity therefore does not resolve the deeper conflict.
+That fact raises questions even where the public evidence is incomplete. Government users might receive the same Mythos as corporate users, or a modified version. State customers might receive deeper capability, different constraints, or more operational latitude. If a government user values retained access in some cases while a software company values immediate remediation, the public record does not tell us whose priority governs the perimeter.
 
-It may conceal it.
+Once a frontier lab grants selective access to a model it says is too dangerous for the public, and once part of that perimeter includes state actors whose interests may diverge from broad software hardening, access control stops being a narrow product decision. It becomes a geopolitical allocation problem.
 
-## Government Access and Commercial Access
+## Frontier Labs as Allocators
 
-This is where the structure becomes especially difficult to read cleanly.
+A frontier model withheld from general release but distributed to chosen institutions places the lab in a different role. The lab is no longer operating only as a product company. It is allocating strategic capability.
 
-Anthropic places governments and companies within the same broad defensive narrative. But Anthropic also already maintains a separate line of **Claude Gov** models for U.S. national security customers, designed for classified environments and tailored to government use. That means differentiated access by customer class is not hypothetical. It already exists.
+That role may be unavoidable. If Anthropic's characterization of Mythos is broadly correct, general release would be difficult to justify. Project Glasswing may be a genuine attempt to give defenders a head start before similar capabilities spread more widely. Anthropic's case should be taken seriously.
 
-That fact raises obvious questions even where public evidence remains incomplete.
+Necessity, though, increases the need for scrutiny. A private company deciding which institutions receive early access to a capability that may affect the security of shared digital infrastructure is making more than a customer-access decision. Public safety and strategic customer formation become hard to separate. Anthropic may be trying to reduce systemic risk while also constructing a privileged perimeter of institutions that can pay, partner, and persist as long-term users of Mythos-class capability. Both can be true.
 
-Will government users receive the same Mythos as corporate users, or a modified version?
-Will state customers gain deeper capability, less constrained tooling, or more sensitive operational latitude?
-If a government user values retained access in some cases while a software company values immediate remediation, whose priority governs the perimeter?
+That is the uncomfortable structure: a safety argument can be real and still produce a new concentration of power.
 
-The public record does not answer those questions.
+## Risk Allocation
 
-But it does make them reasonable questions.
+The question is not whether Anthropic should have released Mythos openly. If Anthropic's own description is accepted, it should not have.
 
-Once a frontier lab grants selective access to a model it says is too dangerous for the public, and once part of that selective perimeter includes state actors whose interests may diverge from broad software hardening, access control ceases to be a narrow product decision. It becomes a geopolitical allocation problem.
+The question is whether Mythos reduces systemic risk by giving defenders a head start, or redistributes that risk by hardening one selected perimeter faster than the shared software base beneath it. Project Glasswing makes Anthropic's case more credible because it is a structured defensive rollout rather than a normal premium release. It also makes the asymmetry visible.
 
-## A New Role for Frontier Labs
-
-Once a frontier model is withheld from general release but distributed selectively to chosen institutions, the lab that controls it is no longer operating only as a product company.
-
-It is operating as an allocator of strategic capability.
-
-That role may be unavoidable. If Anthropic’s characterization of Mythos is broadly correct, then general release would be difficult to justify. Project Glasswing may therefore represent a genuine attempt to create a defensive head start before the wider diffusion of similar capabilities. Anthropic’s case should not be dismissed out of hand.
-
-But necessity does not eliminate the need for scrutiny.
-
-It increases it.
-
-Because once a private company begins deciding which institutions receive early access to capabilities that may materially affect the security of shared digital infrastructure, public safety and strategic customer formation become difficult to separate cleanly. Anthropic may be trying to reduce systemic risk. It may also be constructing a bespoke perimeter of institutions that can pay, partner, and persist as long-term privileged users of Mythos-class capability. Those two things are not mutually exclusive.
-
-That is what makes the situation structurally uncomfortable.
-
-## The Question Mythos Raises
-
-The most important question is therefore not whether Anthropic should have released Mythos openly.
-
-It should not have, if Anthropic’s own characterization is accepted.
-
-The more difficult question is whether Mythos reduces systemic risk by giving defenders a head start, or whether it redistributes that risk by hardening one selected perimeter faster than the shared software substrate beneath it while leaving unresolved conflicts inside that perimeter itself.
-
-Project Glasswing makes Anthropic’s case more credible because it shows that the company is attempting a structured defensive rollout rather than a normal premium release.
-
-Project Glasswing also makes the tension harder to ignore because it reveals who gets first access, and therefore reveals the asymmetry Anthropic is deliberately creating.
-
-That tension should not be flattened.
-
-Anthropic may be acting responsibly.
-
-Anthropic may also be normalizing a regime in which the most strategically significant frontier models are neither public tools nor ordinary enterprise products, but selectively allocated instruments whose first beneficiaries include institutions that do not fully share the same interest in universal hardening.
-
-If so, Mythos matters not only because of what it can do. It matters because of who gets to do it first.
+That tension should stay visible. Mythos matters because of what it can do, but it may matter more because of who gets to use it first.

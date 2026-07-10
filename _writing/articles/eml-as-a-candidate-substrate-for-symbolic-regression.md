@@ -4,10 +4,10 @@ type: article
 date: 2026-04-27T22:00:00+02:00
 author: Tedla Brandsema
 title: EML as a Candidate Substrate for Symbolic Regression
-intro: An empirical toolchain for evaluating whether the Exp-Minus-Log representation offers a useful search space for symbolic regression.
+intro: A toolchain for testing whether the Exp-Minus-Log representation gives symbolic regression a useful search space.
 hero: /static/images/hero/generated/eml-as-a-candidate-substrate-for-symbolic-regression
 hero_alt: A glowing mathematical expression lattice transforming data into symbolic expression trees.
-hero_caption: EML turns symbolic regression into a search over a compact, composable expression space.
+hero_caption: EML turns symbolic regression into a search over a compact expression space.
 hero_ai: true
 ---
 
@@ -20,203 +20,137 @@ hero_ai: true
 
 {% include ai-disclosure.html %}
 
-When I first read *[All elementary functions from a single operator](https://arxiv.org/html/2603.21852v2)* by Andrzej Odrzywołek, I had the reaction that elegant technical ideas sometimes provoke: I wanted to play with it immediately.
+When I first read *[All elementary functions from a single operator](https://arxiv.org/html/2603.21852v2)* by Andrzej Odrzywo&#322;ek, I wanted to play with it immediately.
 
-The paper proposes an unusual claim. A single binary operator,
+The paper makes an unusual claim. A single binary operator,
 
 $$
 \operatorname{eml}(x,y)=\exp(x)-\ln(y)
 $$
 
-together with the constant `1`, is sufficient to generate the ordinary repertoire of elementary mathematics. Arithmetic operations, exponentials, logarithms, trigonometric functions, algebraic functions, and constants such as $e$, $\pi$, and $i$ are all claimed to be reachable through repeated composition of the same node type.
+together with the constant `1`, is enough to generate the ordinary repertoire of elementary mathematics. Arithmetic operations, exponentials, logarithms, trigonometric functions, algebraic functions, and constants such as $e$, $\pi$, and $i$ are all claimed to be reachable by repeated composition of the same node type.
 
-That is a remarkable result, and in my view it is easy to underestimate.
+That is easy to underestimate. A one-operator representation is not merely a cute compression trick if it gives us a different way to search the space of expressions.
 
-Single-author papers that present elegant unifications are often dismissed as clever curiosities: mathematically neat, conceptually amusing, but ultimately peripheral. That may yet prove to be the consensus here. But I suspect the underlying idea deserves more serious attention than that reflex allows.
-
-Whether Exp-Minus-Log (<abbr title="Exp-Minus-Log">EML</abbr>) ultimately becomes important is for time to decide. What is already clear is that Andrzej Odrzywołek has identified something conceptually striking: a surprising compression of a function family many people implicitly assume must remain structurally plural.
+Single-author papers that present elegant unifications often get filed away as curiosities: mathematically neat, probably peripheral. That may still be the right verdict here. But the reflex is too quick. Odrzywo&#322;ek has identified a surprising compression of a function family many people assume has to remain structurally plural.
 
 I opened a new repository and started writing a `goyacc` parser. That parser became [eml-parser](https://github.com/tedla-brandsema/eml-parser).
 
-What began as curiosity quickly turned into a larger question: if EML is structurally this simple, can it also be computationally useful?
+The question changed almost immediately. If Exp-Minus-Log (<abbr title="Exp-Minus-Log">EML</abbr>) is structurally this small, can it also be computationally useful?
 
-## Why This Matters Beyond Novelty
+## Beyond Novelty
 
-The immediate temptation is to treat EML as a mathematical curiosity: a neat reduction, a surprising universality result, something to admire and move on from.
-
-What interested me more was its computational shape.
-
-Symbolic regression (<abbr title="Symbolic Regression">SR</abbr>) attempts to recover interpretable mathematical formulas directly from data. Instead of fitting parameters to a predefined model family, it searches for formulas themselves. In practical terms, symbolic regression systems try to answer questions such as:
-
-* what equation generated this dataset,
-* which expression best balances simplicity and fit,
-* can an underlying law be recovered rather than merely approximated?
+Symbolic regression (<abbr title="Symbolic Regression">SR</abbr>) tries to recover interpretable mathematical formulas directly from data. Instead of fitting parameters inside a predefined model family, it searches for the formula itself. In practical terms, an SR system asks whether a dataset came from a recoverable equation, which expression gives the best tradeoff between simplicity and fit, and whether an underlying law can be found rather than approximated.
 
 That search depends heavily on representation.
 
-Traditional symbolic regression systems often operate over heterogeneous operator sets: addition, subtraction, multiplication, division, powers, exponentials, logarithms, trigonometric functions, and so on. Candidate expressions are built from many unrelated primitives with different arities, identities, and simplification rules.
+Most symbolic regression systems operate over heterogeneous operator sets: addition, subtraction, multiplication, division, powers, exponentials, logarithms, trigonometric functions, and whatever else the system exposes. Candidate expressions are built from primitives with different arities, identities, domains, and simplification rules.
 
-EML suggests a different possibility.
+EML suggests a narrower experiment. If familiar functions can be represented inside a uniform binary grammar, then SR may be able to search a more regular expression family.
 
-If many familiar functions can be represented inside a uniform binary grammar, then symbolic regression may be able to search a more regular expression family.
+That does not make the problem easy. Uniformity can hide depth and redundancy, plus brutal combinatorial growth. But it turns the question into something testable: can EML function as a useful substrate for symbolic regression?
 
-That does **not** automatically make the problem easier. Uniformity can conceal depth, redundancy, and severe combinatorial growth. But it transforms the question from speculation into something testable.
+## From Paper To Toolchain
 
-The repository exists to make that question testable: can EML function as a useful substrate for symbolic regression?
+The project began with a narrow scope. I did not want to build a symbolic regression system on top of untested assumptions. I wanted a controlled foundation: a parser, a typed AST, evaluation backends, normalization, reproducible experiments, and a clean path for later search strategies.
 
-## From Paper to Toolchain
-
-The project began with a deliberately narrow scope.
-
-I did not want to build a grand symbolic-regression system on top of untested assumptions. I wanted a controlled foundation:
-
-* a parser,
-* a typed AST,
-* evaluation backends,
-* normalization,
-* reproducible experiments,
-* and a clean path for future search strategies.
-
-The raw language remains intentionally small. It accepts only:
+The raw language stays intentionally small. It accepts only:
 
 * the constant `1`,
 * variables,
 * `eml(left,right)`.
 
-That is enough. Every larger expression in the paper still reduces to repeated compositions of those atomic forms.
+That is enough for the representation described in the paper. Larger expressions still reduce to repeated compositions of those atomic forms.
 
-Named mathematical concepts such as $\sin$, $\cos$, $\tan$, $\sqrt{x}$, or $\operatorname{pow}$ do not belong in the grammar itself. They live in a separate concept dictionary.
+Named mathematical concepts such as $\sin$, $\cos$, $\tan$, $\sqrt{x}$, or $\operatorname{pow}$ do not belong in the grammar. They live in a separate concept dictionary.
 
-This split matters. The parser owns the atomic language; the dictionary owns named mathematics. Concepts can expand recursively until only raw EML remains. That keeps the language small while allowing richer constructions above it.
+This split is the main architectural boundary in the repository. The parser owns the atomic language. The dictionary owns named mathematics. Concepts can expand recursively until only raw EML remains, so the language stays small while richer constructions sit above it.
 
-In practice, $\exp(x)$ may reduce directly to a raw EML tree. $\tan(x)$ may reduce first to lower-level concepts such as $\sin(x)$ and $\cos(x)$. Those lower-level concepts may reduce further through additional definitions until only raw EML remains. The result of full expansion is always a raw EML tree.
+In practice, $\exp(x)$ may reduce directly to a raw EML tree. $\tan(x)$ may reduce first to lower-level concepts such as $\sin(x)$ and $\cos(x)$. Those concepts may reduce further through additional definitions. Full expansion always ends as a raw EML tree.
 
-That architectural boundary has proven valuable.
+That boundary has held up well.
 
-## Why I Chose Go
+## Why Go
 
 The implementation is currently written in Go for practical reasons.
 
-Go is excellent for building typed internal representations, parser tooling, deterministic experiment harnesses, and CLI-oriented development loops quickly. `goyacc` made it straightforward to own the grammar fully rather than treat parsing as an incidental detail.
+Go is good at typed internal representations, parser tooling, deterministic experiment harnesses, and CLI-oriented development loops. `goyacc` also made it straightforward to own the grammar instead of treating parsing as a side concern.
 
-At the current stage, the dominant unknowns are not systems-level bottlenecks. They are representational and empirical questions:
+At this stage, the main unknowns are not systems bottlenecks. They are representational and empirical questions:
 
 * does the search space behave reasonably,
 * can formulas be recovered reproducibly,
-* where do current methods fail,
+* where do present methods fail,
 * which normalizations help,
 * how much does numeric precision matter?
 
-Go is more than sufficient for answering those questions quickly.
+Go is enough to answer those questions quickly.
 
-## Why Zig Is A Plausible Later Target
+## A Possible Zig Layer
 
-If the repository continues to mature, Zig is a plausible future runtime for some layers of the system.
+If the repository keeps maturing, Zig is a plausible runtime for some layers of the system.
 
-The likely pressure points are already visible:
+The pressure points are already visible:
 
 * high-precision arithmetic,
 * native interop with mature numeric libraries such as GMP, MPFR, or MPC,
 * tighter memory control for search-heavy workloads,
 * lower-overhead runtime behavior for large candidate-generation loops.
 
-That would not imply that Go was the wrong starting point. It would simply reflect a change in constraints.
+That would not mean Go was the wrong starting point. It would mean the constraints changed.
 
-Right now, velocity matters most. Later, numeric control and systems-level efficiency may matter more. If that moment comes, Zig is a serious candidate.
+Right now, velocity matters most. Later, numeric control and systems-level efficiency may matter more. If that point arrives, Zig is a serious candidate.
 
-## Current Experimental Direction
+## Experimental Posture
 
-The repository is presently an empirical research vehicle rather than a polished end-user tool.
+The repository is an empirical research vehicle, not a polished end-user tool.
 
-Its core methodology is intentionally conservative.
-
-Every symbolic-regression experiment starts from a known target law and asks a limited question:
-
-Can the current system recover the intended structure from data under explicit search bounds?
+Every symbolic regression experiment starts from a known target law and asks a limited question: can the present system recover the intended structure from data under explicit search bounds?
 
 That is controlled recovery, not open-ended discovery.
 
-This distinction matters because symbolic regression is full of exaggerated claims. Numeric approximation is often presented as formula recovery. Selective successes are shown without negative controls. Search limits are hidden. Failure is reframed as progress.
+The distinction matters because symbolic regression is full of overclaiming. Numeric approximation is presented as formula recovery. Selective successes are shown without negative controls. Search limits disappear from the story. Failure gets reframed as progress.
 
 I wanted the opposite posture: reproducible experiments, explicit targets, named search bounds, classified outcomes, and a clear separation between approximate fits and structural recovery.
 
-That discipline is more valuable than inflated early wins.
+That discipline is more useful than inflated early wins.
 
-## What The Current Results Actually Show
+## Current Results
 
 So far, the evidence is modest but useful.
 
 Under the present bounded enumerative search regime, small targets such as $\exp$ and $\log$ can be recovered exactly. At least one small nested composite target is also recoverable.
 
-Larger-library targets such as $\sin$, sigmoid, and broader additive composites currently fail honestly under present limits.
+Larger-library targets such as $\sin$, sigmoid, and broader additive composites fail honestly under present limits.
 
-That should not be read as a verdict on EML itself, nor as a verdict on Odrzywołek’s paper.
-
-It is primarily a statement about the current implementation:
+That is not a verdict on EML. It is not a verdict on Odrzywo&#322;ek's paper either. It is a statement about the present implementation:
 
 * present search strategy,
 * present search budget,
 * present normalization strength,
 * present evaluator limits,
-* present absence of constant fitting or optimizer-guided refinement.
+* present lack of constant fitting or optimizer-guided refinement.
 
-Those boundaries are exactly what I wanted to expose.
+Those boundaries are what the repository is meant to expose.
 
 ## Why I Keep Working On It
 
-There are many interesting ideas that remain interesting only at a distance.
+Some interesting ideas remain interesting only at a distance.
 
-EML has not felt like one of them.
+EML has not felt like that. The more I work on it, the more experiments it suggests: symbolic regression over a uniform grammar, compiler-style rewriting and canonicalization, multiple evaluator backends, proof-oriented export, empirical study of representational search spaces, and comparisons against heterogeneous operator vocabularies.
 
-The more I work on it, the more directions it seems to open:
+The appeal is the combination: the project is useful enough to justify the time and fun enough to keep stealing attention. This repository has become distracting because it keeps producing one more reasonable test.
 
-* symbolic regression over a uniform grammar,
-* compiler-style rewriting and canonicalization,
-* multiple evaluator backends,
-* proof-oriented export,
-* empirical study of representational search spaces,
-* comparisons against heterogeneous operator vocabularies.
+## What Would Count As Progress
 
-Some projects are useful.
+The standard for success should stay high.
 
-Some projects are fun.
+Meaningful progress would require repeated evidence that the representation provides practical advantages under controlled conditions. That means broader reproducible recovery suites, honest comparison against other SR representations, normalization that cuts search waste, fitted constants and hybrid search methods, stronger high-precision validation, formal export into proof systems, and evidence that EML is useful for reasons beyond aesthetics.
 
-The dangerous ones are both.
+EML does not meet that bar yet.
 
-This repository has become distracting precisely because it keeps suggesting new experiments.
+I also do not see evidence that rules it out. There is still too much work to do before the answer is decisive in either direction.
 
-## What Would Count As Real Progress
-
-The standard for success should remain high.
-
-Meaningful progress, at least in my view, will come from repeated evidence that the representation provides practical leverage under controlled conditions. That would include developments such as:
-
-* broader reproducible recovery suites,
-* honest comparison against other SR representations,
-* improved normalization reducing search waste,
-* fitted constants and hybrid search methods,
-* stronger high-precision validation,
-* formal export into proof systems,
-* evidence that the EML representation provides measurable advantages rather than aesthetic ones.
-
-The bar is appropriately high, and EML does not yet meet it.
-
-*Yet.*
-
-Just as importantly, I do not currently see evidence that rules it out either. There is still substantial work to be done before a decisive answer can be reached in either direction.
-
-## Closing Thought
-
-The strongest claim I am comfortable making today is a narrow one.
-
-Andrzej Odrzywołek’s paper presents an idea serious enough to test rather than merely admire.
-
-A minimal one-operator language, paired with concept expansion and reproducible experiments, is already sufficient to ask meaningful questions about symbolic regression. Whether it becomes a practically strong route is still unresolved.
-
-That uncertainty is not a weakness. It is the reason the project exists.
-
-And for the moment, it remains interesting enough to keep distracting me from other work.
-
-I will keep you apprised.
+The narrow claim I am comfortable making today is this: Odrzywo&#322;ek's paper presents an idea serious enough to test rather than merely admire. A minimal one-operator language, paired with concept expansion and reproducible experiments, is already enough to ask useful questions about symbolic regression.
 
 {% include math-jax-script.html %}

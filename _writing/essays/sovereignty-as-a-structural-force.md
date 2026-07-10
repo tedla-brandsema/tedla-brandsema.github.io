@@ -23,77 +23,72 @@ hero_ai: true
 
 {% include dossier-ref.html %}
 
-Public analysis of artificial intelligence competition often assumes a commercial framework: firms invest, firms compete, firms win or lose, and market share shifts accordingly.
+Most public analysis of artificial intelligence competition still uses a commercial frame. Firms invest. Firms compete. Some gain share, others lose it, and the market reorganizes around the winners.
 
-That framework is useful, but incomplete.
+That frame is not wrong. It is just too small.
 
-Large language models are increasingly perceived not merely as products, but as infrastructure. Infrastructure operates under a different logic because it does not exist only within markets. It also exists within jurisdictions.
-
-Once a technology becomes strategically significant, sovereignty enters the equation.
+Large language models are starting to look less like ordinary products and more like infrastructure. Infrastructure sits inside markets, but it also sits inside jurisdictions. Once a technology starts to matter at that level, sovereignty is no longer background context. It becomes part of the structure of competition.
 
 ## Beyond Commercial Incentives
 
-In purely commercial competition, firms seek dominance. They pursue scale, efficiency, and distribution in order to secure advantage over rivals. Consolidation is a natural outcome when network effects, capital intensity, or technical superiority allow it.
+In ordinary commercial competition, firms try to dominate. They seek scale, efficiency, distribution, technical advantage, and enough lock-in to make the lead hard to reverse. When network effects and capital intensity are strong, consolidation is a reasonable expectation.
 
-But when a technology is treated as strategic infrastructure, dominance itself can become destabilizing.
+Strategic infrastructure changes the logic. A dominant provider may be efficient, but it can also become a source of exposure.
 
-States and institutions do not evaluate risk solely in terms of price and performance. They evaluate it in terms of dependency. Reliance on an external provider—especially one governed by a foreign jurisdiction—introduces exposure that cannot be measured only in economic terms.
+States and institutions do not measure risk only through price and performance. They also ask what they would depend on, who could interrupt it, what law would govern it, and which decisions would be outside their control. Reliance on an external provider, especially one governed by another jurisdiction, creates a kind of risk that does not fit cleanly into a procurement spreadsheet.
 
-In such contexts, the objective is not necessarily to win. It may be to prevent unilateral control.
+The objective shifts. Winning may matter less than preventing unilateral control.
 
-This shift in objective alters the competitive equilibrium.
+That shift changes the equilibrium.
 
-## Dependency as a Risk Variable
+## Dependency as Risk
 
-As capable models become embedded in workflows, decision systems, and critical processes, the question of control becomes structural.
+As capable models move into workflows, decision systems, administrative processes, security operations, education, research, and critical services, control stops being a secondary question.
 
 Who controls access?
+
 Who controls updates?
+
 Who controls pricing?
-Under whose jurisdiction does the system operate?
 
-When advanced capability is delivered exclusively through centralized infrastructure, dependence deepens. Even moderate performance advantages may be outweighed by concerns about jurisdictional exposure, regulatory asymmetry, or strategic vulnerability.
+Which jurisdiction can compel disclosure, restriction, surveillance, or shutdown?
 
-The threshold for “good enough” therefore shifts. It is no longer determined solely by technical superiority; it is shaped by autonomy.
+Centralized infrastructure deepens dependence. A model can be technically better and still be strategically unattractive if using it means accepting another state's control surface. In that setting, the threshold for "good enough" moves. It is not set by benchmark performance alone. It is set by how much autonomy a buyer, agency, or country is willing to give up.
 
-## Diffusion Under Strategic Pressure
+## Diffusion Under Pressure
 
-In a purely commercial environment, diffusion follows economic incentives. Knowledge spreads because it is profitable to replicate it.
+In a purely commercial setting, capability diffuses when replication is profitable. Firms copy, hire, license, imitate, and rebuild because the economics reward it.
 
-In a sovereignty-sensitive environment, diffusion is also strategically incentivized.
+In a sovereignty-sensitive setting, diffusion has another driver: strategic necessity.
 
-Parallel ecosystems may be funded for redundancy as much as competition. Replication may be pursued for autonomy as much as market share. Open deployment models gain appeal not just because they are flexible, but because they preserve control.
+Parallel ecosystems may be funded for redundancy, not only competition. Replication may be pursued to reduce dependence, not only to win market share. Open deployment models become attractive because they leave more control with the institution running them.
 
-This does not eliminate competition. It changes its structure.
+Competition still exists. Its shape changes.
 
-Global monopoly becomes harder to sustain, while multipolar capability becomes more stable.
+A global monopoly becomes harder to maintain because the buyers with the most to lose have reasons to sponsor alternatives. Those alternatives do not need to be perfect. They need to be credible enough to reduce dependence.
 
-Even if one ecosystem achieves temporary leadership, the existence of viable alternatives reduces the likelihood of durable global dominance.
+Even temporary leadership becomes harder to convert into durable global dominance when other jurisdictions treat dependence itself as a problem to solve.
 
 ## Fragmentation Without Collapse
 
-Sovereignty pressure does not imply technological stagnation. Nor does it imply equal capability across blocs. Performance differences may persist.
+Sovereignty pressure does not mean stagnation. It also does not mean equal capability across regions. Some ecosystems will remain ahead. Others will trail. Performance gaps can persist for a long time.
 
-What changes is the consolidation dynamic.
+The consolidation dynamic is what changes.
 
-Instead of a single global standard, multiple regional or jurisdictional ecosystems can coexist. Standards may converge technically while remaining institutionally distinct. Interoperability may exist alongside political separation.
+Instead of one global standard, the industry can settle into multiple regional or jurisdictional ecosystems. They may share techniques, architectures, safety practices, benchmarks, chips, research papers, and interface conventions while remaining institutionally separate. Technical convergence can coexist with political separation.
 
-In such an environment, diffusion accelerates even when commercial incentives alone might have favored concentration.
+That is an awkward structure, but it is not a failed one. It is how strategic systems often look once states decide that dependence has a cost.
 
-The presence of capable alternatives—even if marginally inferior—constrains the strategic leverage of leaders.
+In that environment, diffusion can accelerate even when ordinary market incentives would have favored concentration. Capable alternatives, even somewhat weaker ones, reduce the strategic power of the leader.
 
-## The Structural Consequence
+## Structural Consequence
 
-When sovereignty becomes a decision variable, the industry no longer operates under a single competitive logic.
+When sovereignty becomes a decision variable, the large language model industry no longer follows one competitive logic.
 
-Commercial scale and technical leadership continue to matter, but autonomy and jurisdictional control become parallel forces.
+Scale and technical leadership still matter. So do autonomy, jurisdiction, procurement rules, national security concerns, institutional trust, and the ability to run capability without asking a foreign provider for permission.
 
-This alters the expected trajectory of consolidation.
+That changes the expected path of consolidation. The central question is no longer only who can dominate globally. It is who can keep an advantage inside fragmented ecosystems where dependence is treated as a risk.
 
-The question shifts from who can dominate globally to who can sustain advantage within fragmented ecosystems.
+In markets governed only by commercial incentives, monopoly is possible.
 
-In markets governed solely by commercial incentives, monopoly is possible.
-
-In markets governed by sovereignty incentives, monopoly becomes structurally unstable.
-
-The large language model industry increasingly resembles the latter.
+In markets governed by sovereignty incentives, monopoly is unstable.

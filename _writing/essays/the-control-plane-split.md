@@ -1,10 +1,10 @@
----
+﻿---
 layout: article
 type: essay
 date: 2026-02-21T01:38:00+01:00
 author: Tedla Brandsema
 title: The Control Plane Split
-intro: "Large language models are evolving along two economic trajectories: attention capture and intent execution."
+intro: "Large language models are splitting into two economic roles: attention capture and intent execution."
 dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 hero: /static/images/hero/generated/the-control-plane-split
 hero_alt: A visual split between attention systems and intent execution systems.
@@ -23,112 +23,100 @@ hero_ai: true
 
 {% include dossier-ref.html %}
 
-Large language models are often discussed as if they were progressing along a single axis: larger, faster, more intelligent. Yet as their deployment expands, a structural divergence is becoming visible.
+Large language models are still described as if they were moving along one clean axis: bigger models, faster inference, better answers. That story is too flat.
 
-The divergence is not primarily about scale. It is about function.
+The split is functional. One class of system captures attention and keeps the user present. Another executes intent and tries to make the user disappear from the process as quickly as the task allows.
 
-LLMs are beginning to evolve in two economic directions: as systems that capture and retain human attention, and as systems that execute human intent.
-
-These roles are not identical. They do not optimize for the same variables. Over time, they are likely to separate.
+Those roles can start from the same model family. They do not share the same economics.
 
 ## From Interface to Control Plane
 
-Traditional computing relies on unidirectional interfaces. A keyboard transmits signals from human to machine. A monitor transmits output from machine to human. The interface itself does not interpret intent; it merely conveys it.
+Traditional computing puts the interface between the person and the machine. A keyboard carries input. A monitor returns output. The interface does not interpret intent; it passes signals along.
 
-An LLM operating as an agent alters that structure.
+An LLM agent changes that arrangement.
 
-On the human side, it is bidirectional. It can clarify ambiguous instructions, ask follow-up questions, negotiate constraints, and confirm irreversible actions. It does not merely receive commands; it refines them.
+On the human side, it can clarify ambiguous instructions, ask for missing constraints, and confirm actions that cannot be easily undone. It is no longer just receiving commands. It is shaping them into something executable.
 
-On the system side, it is multidirectional. A single instruction can trigger multiple tools, services, and workflows. The user does not manually orchestrate the execution graph. The model does.
+On the system side, one instruction can move through tools and services across a workflow. The user does not assemble the execution path by hand. The model does that work.
 
-In this role, the LLM becomes something closer to a compiler for intent.
+That is why the better analogy is a compiler for intent.
 
 Instead of:
 
-Human → Interface → Application → API
+Human -> Interface -> Application -> API
 
-the sequence becomes:
+The sequence becomes:
 
-Human → LLM → Tool Graph → Execution
+Human -> LLM -> Tool Graph -> Execution
 
-The interface thins. The model becomes a control plane.
-
-This transformation carries economic consequences.
+The visible interface gets thinner. The model becomes the control plane.
 
 ## The Compiler Threshold
 
-Early programmers distrusted compilers and inspected assembly output directly. Over time, that practice became rare—not because abstraction eliminated error, but because it reduced friction while maintaining reliability.
+Early programmers distrusted compilers and inspected assembly directly. That habit faded, not because compilers stopped producing errors, but because the abstraction saved enough work while becoming reliable enough to trust.
 
-A similar threshold is emerging with LLM-mediated execution.
+LLM-mediated execution is approaching a similar threshold.
 
-As long as models remain unpredictable, users prefer visible steps and manual control. But if reliability, logging, and auditability improve sufficiently, direct interface management becomes unnecessary ceremony.
+When models are erratic, users want visible steps and manual control. If reliability and audit trails improve far enough, direct interface management starts to look like ceremony. The trust threshold is the point where abstraction stops feeling risky and starts feeling wasteful to avoid.
 
-Once trust crosses a threshold, abstraction accelerates adoption.
+In enterprise settings, the decisive variable is not raw intelligence. It is operational dependability. An intent compiler that is faster, observable, and reliable enough compresses interaction time.
 
-In enterprise contexts especially, the decisive variable is not raw intelligence but operational dependability. When intent compilers become measurably faster and sufficiently reliable, they compress interaction time.
-
-That compression changes the basis of competition.
+That compression changes the competition.
 
 ## The Attention Economy
 
-At the same time, LLMs increasingly power systems optimized for engagement.
+At the same time, LLMs are being folded into systems built around engagement.
 
-Platforms such as TikTok and YouTube are explicitly designed to maximize time spent. Even productive systems such as Google, ChatGPT, and Claude operate within an attention market in which session length, interaction frequency, and cognitive immersion carry economic weight.
+TikTok and YouTube are direct cases: the product improves when the user stays. Google, ChatGPT, and Claude are more complicated, but they still live inside an attention market. Session length has value. Return frequency has value. So does the feeling that the system is worth lingering with.
 
-In this configuration, the LLM is not a control plane.
+In that configuration, the LLM is not a control plane. It is a gravity well.
 
-It is a gravity well.
-
-The system benefits from sustained engagement. Open-ended dialogue increases token usage, strengthens retention, and reinforces subscription value.
-
-The incentive is to keep the human in the loop.
+The system benefits from sustained interaction. Open-ended dialogue increases token use, strengthens retention, and supports subscription value. The incentive is to keep the human in the loop.
 
 ## Opposing Optimization Targets
 
-These two trajectories optimize for different outcomes. An attention-optimized system benefits from extended sessions, broad exploratory interaction, and high token throughput. An intent-optimized system benefits from short execution loops, fewer clarification cycles, deterministic tool routing, and reduced interaction time.
+The two trajectories optimize for opposite outcomes.
+
+An attention system wants longer sessions, broader exploration, and more conversation. An intent system wants short execution loops, fewer clarification cycles, deterministic tool routing, and less time spent talking to the machine.
 
 One maximizes human presence. The other minimizes it.
 
-This distinction matters because inference cost remains structurally significant. Attention-heavy systems burn tokens continuously. Intent compilers, once stable, reduce token consumption by narrowing scope and delegating execution to tools.
+The economic pressure is sharper because inference cost remains material. Attention-heavy systems burn tokens continuously. Intent compilers, once stable, reduce token use by narrowing the task and delegating execution to tools.
 
-As performance differences fall below practical perception, deployment flexibility becomes decisive. Narrow, tool-bound models that can operate locally become economically viable. When local execution achieves parity within a defined workflow, centralized control weakens.
+As model quality differences fall below practical perception, deployment flexibility becomes more important. Narrow, tool-bound models that can run locally become viable. When local execution reaches parity inside a defined workflow, centralized control weakens.
 
-The result is a tension between engagement-driven scale and execution-driven efficiency.
+The tension is between engagement-driven scale and execution-driven efficiency.
 
 ## Transitional Convergence
 
-At present, both trajectories are served by the same frontier models. The same providers offer conversational assistants, coding agents, and tool-using APIs. This convergence resembles early stages in other technological domains, when production, infrastructure, and interface layers remained vertically integrated.
+For now, both trajectories are served by the same frontier models. The same companies sell conversational assistants, coding agents, and tool-using APIs. This is typical early convergence: production, infrastructure, and interface layers remain vertically integrated because the category is still forming.
 
-Historically, such convergence rarely persists.
+That arrangement rarely lasts.
 
-Infrastructure built for one cost regime can become constraining when efficiency improves rapidly. If smaller models achieve workflow reliability within bounded domains, the compiler layer diffuses. Once diffused, it behaves more like infrastructure than like product.
+Infrastructure built for one cost regime becomes a constraint when efficiency improves. If smaller models reach workflow reliability inside bounded domains, the compiler layer diffuses. Once it diffuses, it behaves more like infrastructure than product.
 
-Infrastructure resists monopolization.
+Infrastructure is difficult to monopolize once it can be embedded.
 
 ## The Control Plane Split
 
-The likely outcome is not the disappearance of either trajectory, but their separation.
+The likely outcome is separation, not replacement.
 
-The attention layer may remain centralized, driven by scale economics and continual frontier training. It rewards concentration and capital intensity.
+The attention layer can remain centralized. It rewards scale economics, capital intensity, and continual frontier training.
 
-The intent compiler layer, by contrast, trends toward embedding: inside enterprises, inside operating systems, inside workflow engines. Its economic value derives from integration, reliability, and autonomy rather than from breadth of knowledge.
+The intent compiler layer points in another direction: inside enterprises, operating systems, workflow engines, and local toolchains. Its value comes from integration, reliability, and autonomy more than breadth of knowledge.
 
-Both begin from the same technological base, but they do not share the same incentive structure.
+Both layers begin from the same technological base. Their incentives pull apart.
 
 ## The Reallocation of the Human Hour
 
-Every technological shift reallocates time: search reorganized discovery, social platforms reorganized consumption, and cloud infrastructure reorganized deployment.
+Large platform shifts reallocate time. Search changed discovery. Social platforms changed consumption. Cloud infrastructure changed deployment.
 
-LLM-mediated control reorganizes execution.
+LLM-mediated control changes execution.
 
-The core economic variable is not model size.
+The core economic variable is not model size. It is human attention time.
 
-It is human attention time.
+Attention systems monetize that time by extending interaction. Intent compilers create value by compressing it.
 
-Attention systems monetize it by extending interaction. Intent compilers create value by compressing it.
+As the split matures, these systems will stop looking like variants of one product category. They will occupy different positions in the value chain.
 
-As these trajectories mature, they will no longer appear as variations of the same product category. They will represent different positions in the value chain.
-
-The question for the industry is no longer who trains the largest model.
-
-It is which systems capture human hours, and which systems eliminate them.
+The industry question is no longer only who trains the largest model. It is which systems capture human hours, and which systems eliminate them.
