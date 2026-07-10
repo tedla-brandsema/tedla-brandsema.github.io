@@ -4,7 +4,7 @@ type: article
 date: 2026-04-18T00:00:00+02:00
 author: Tedla Brandsema
 title: Mythos
-intro: Anthropic's Mythos may be too dangerous for public release. Project Glasswing raises the harder question: when defensive access is scarce, who gets protected first, and who waits outside the perimeter?
+intro: "Anthropic's Mythos may be too dangerous for public release. Project Glasswing raises the harder question: when defensive access is scarce, who gets protected first, and who waits outside the perimeter?"
 hero: /static/images/hero/generated/mythos
 hero_alt: A cracked glass security perimeter protecting privileged institutions while a darker shared software base remains outside.
 hero_caption: Selective defense creates a perimeter. The perimeter decides who receives strategic capability first.
