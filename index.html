@@ -16,6 +16,42 @@ intro: Tedla Brandsema is a software engineer and independent researcher based i
     </div>
   </header>
 
+  {% assign project_items = "" | split: "" %}
+  {% assign projects_collection = site.collections | where: "label", "projects" | first %}
+  {% if projects_collection and projects_collection.docs %}
+  {% assign project_items = projects_collection.docs | where_exp: "item", "item.hide != true" | where: "type", "overview" | sort: "date" | reverse %}
+  {% endif %}
+
+  <section class="home-overview" aria-labelledby="recent-projects">
+    <div class="overview-head">
+      <h2 id="recent-projects">Recent Projects</h2>
+      <a class="view-all" href="/projects">View all &rarr;</a>
+    </div>
+    <p class="overview-note">Open-source software, guides, and tutorials.</p>
+
+    <div class="search-results is-grid" aria-label="Recent projects overview">
+      {% for p in project_items limit:6 %}
+      <article class="search-result-item">
+        <h3>
+          <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
+        </h3>
+        <p class="search-result-type">
+          <span class="project-type-badge project-type-badge--project">Project</span>
+        </p>
+        <p class="search-result-intro">
+          {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 160 }}
+        </p>
+        {% if p.software_programming_language or p.software_code_repository %}
+        <div class="project-meta">
+          {% if p.software_programming_language %}<span class="tag">{{ p.software_programming_language }}</span>{% endif %}
+          {% if p.software_code_repository %}<a class="repo-link" href="{{ p.software_code_repository }}" rel="noopener noreferrer">GitHub &rarr;</a>{% endif %}
+        </div>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
   {% assign writing_items = "" | split: "" %}
   {% assign writing_collection = site.collections | where: "label", "writing" | first %}
   {% if writing_collection and writing_collection.docs %}
@@ -53,39 +89,4 @@ intro: Tedla Brandsema is a software engineer and independent researcher based i
     </div>
   </section>
 
-  {% assign project_items = "" | split: "" %}
-  {% assign projects_collection = site.collections | where: "label", "projects" | first %}
-  {% if projects_collection and projects_collection.docs %}
-  {% assign project_items = projects_collection.docs | where_exp: "item", "item.hide != true" | where: "type", "overview" | sort: "date" | reverse %}
-  {% endif %}
-
-  <section class="home-overview" aria-labelledby="recent-projects">
-    <div class="overview-head">
-      <h2 id="recent-projects">Recent Projects</h2>
-      <a class="view-all" href="/projects">View all &rarr;</a>
-    </div>
-    <p class="overview-note">Open-source software, guides, and tutorials.</p>
-
-    <div class="search-results is-grid" aria-label="Recent projects overview">
-      {% for p in project_items limit:6 %}
-      <article class="search-result-item">
-        <h3>
-          <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
-        </h3>
-        <p class="search-result-type">
-          <span class="project-type-badge project-type-badge--project">Project</span>
-        </p>
-        <p class="search-result-intro">
-          {{ p.intro | default: p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 160 }}
-        </p>
-        {% if p.software_programming_language or p.software_code_repository %}
-        <div class="project-meta">
-          {% if p.software_programming_language %}<span class="tag">{{ p.software_programming_language }}</span>{% endif %}
-          {% if p.software_code_repository %}<a class="repo-link" href="{{ p.software_code_repository }}" rel="noopener noreferrer">GitHub &rarr;</a>{% endif %}
-        </div>
-        {% endif %}
-      </article>
-      {% endfor %}
-    </div>
-  </section>
 </main>
