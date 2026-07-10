@@ -24,36 +24,32 @@ hero_ai: true
 
 {% include dossier-ref.html %}
 
-Progress is often treated as self-evidently valuable. In technology markets, the link between improvement and advantage is rarely questioned: if a system becomes better, it should become more competitive. Better capability is expected to produce better adoption, stronger pricing power, and a more durable market position.
+Progress is usually treated as self-evidently valuable. In technology markets, the assumption is simple: if a system gets better, it should become more competitive. Better capability should mean better adoption, stronger pricing power, and a harder position to dislodge.
 
-That link only holds when the improvement is visible to the people making decisions.
+That assumption only holds when the improvement is visible to the people making decisions.
 
-In reality, technical progress and perceived progress are not the same thing. A system can continue to improve in measurable ways while appearing unchanged to the people using it. Accuracy may rise, latency may fall, reasoning may sharpen, and failure modes may diminish. Yet if those changes remain below the threshold of human detection, they do not alter user behavior. The system is objectively better, but economically identical.
+Technical progress and perceived progress are not the same thing. A system can improve in measurable ways while appearing unchanged to the people using it. Accuracy can rise, latency can fall, failure modes can narrow, and internal evaluations can show real gains. But if those changes sit below the threshold of human detection, they do not change user behavior. The system is better, but it is economically the same.
 
-This creates a boundary condition for technological competition. Beyond a certain point, additional capability ceases to generate additional advantage. Performance continues to advance, benchmarks continue to improve, and engineering milestones continue to be reached—but market outcomes remain stable. The limiting factor is no longer what the system can do. It is what users can notice.
+This creates a boundary condition for technological competition. Past a certain point, additional capability stops producing additional advantage. Benchmarks continue to move. Engineering milestones continue to arrive. The limiting factor is no longer what the system can do, but what users can notice.
 
-This boundary has a name: **the perception threshold**.
+This boundary is the perception threshold.
 
-Convergence can bring this boundary closer. As competing systems mature, their capabilities often begin to resemble one another. Architectural innovations diffuse, training techniques spread, and performance gaps narrow. Even when absolute capability continues to improve, relative differences shrink. The result is a market in which systems advance collectively while appearing increasingly similar from the user’s perspective.
+Convergence brings the boundary closer. As competing systems mature, their capabilities start to resemble one another. Architectural ideas diffuse and training techniques spread. The remaining performance gaps get harder to see. Even when absolute capability keeps improving, relative differences shrink. The market advances collectively while users see less and less separation between the systems in front of them.
 
-Human perception does not operate on a continuous scale. Differences must exceed a minimum magnitude before they can be reliably detected. Below that level, variation exists but is functionally invisible. Two systems may differ measurably in performance while appearing identical in practice, because the improvement falls beneath the resolution of human judgment.
+Human perception is not continuous. Differences have to cross a minimum magnitude before they can be reliably detected. Below that point, variation still exists, but it is functionally invisible. Two systems may differ in measured performance and still appear identical in practice because the improvement falls beneath the resolution of human judgment.
 
-In technological markets, this creates a structural asymmetry between engineering progress and user response. Engineers observe incremental gains in metrics, benchmarks, and internal evaluations. Users, by contrast, observe only what crosses their perceptual threshold. As improvements become smaller relative to that threshold, progress continues but recognition stops.
+That creates a structural asymmetry between engineering progress and user response. Engineers see incremental gains in benchmarks and internal evaluations. Users see only the part of that progress that crosses their perceptual threshold. As improvements become smaller relative to that threshold, progress continues while recognition stops.
 
-## The Boundary Between Improvement and Advantage
+## Improvement And Advantage
 
-The economic implications are immediate. Competitive advantage depends not on absolute performance, but on performance differences that users can detect. Once improvements fall below that level, additional capability ceases to translate into switching behavior, pricing power, or market share. A system may be objectively superior while remaining competitively indistinguishable.
+The economic implication is direct. Competitive advantage depends on performance differences users can detect, not on absolute performance alone. Once the difference falls below that level, additional capability stops translating into switching behavior or pricing power. Market share often stays where it is. A system may be objectively superior and still be competitively indistinguishable.
 
-At that point, technical progress decouples from economic return. Engineering effort continues to yield measurable gains, yet those gains no longer produce proportional market advantage. The limiting factor is no longer what the technology can do, but what users can perceive.
+At that point, technical progress decouples from economic return. Engineering effort still produces measurable gains, but those gains no longer produce proportional market advantage. The constraint has moved from the technology to the observer.
 
-When a market crosses this boundary, the nature of competition changes. Performance no longer serves as the primary differentiator. Other variables begin to dominate: cost, distribution, integration, and reliability.
+When a market crosses this boundary, competition changes. Performance no longer acts as the main differentiator. Cost, distribution, integration, reliability, support, procurement friction, compliance posture, and switching cost start to carry more weight.
 
-These factors were always present, but before the threshold they were secondary. After the threshold, they become decisive. Capability still matters, but only up to the point where differences remain visible. Beyond that, improvements accumulate silently, without altering competitive outcomes.
+Those factors were always present. Before the threshold, they were secondary. After the threshold, they become decisive. Capability still matters, but only while differences remain visible. Beyond that, improvements accumulate quietly, without changing the competitive outcome.
 
-Conventional narratives about technological competition assume that better systems will naturally displace worse ones. That assumption holds only when improvements remain perceptible. When they do not, superiority alone is insufficient. A system must be not merely better, but detectably better.
+The usual story about technological competition assumes that better systems will naturally displace worse ones. That story is too clean. Superiority matters only when it can be perceived. A system has to be detectably better.
 
-This is why markets do not always reward the most advanced technology. In mature regimes, the winning system is often not the one that improves the fastest, but the one whose advantages remain visible longest.
-
-Recognizing the perception threshold changes how technological races must be analyzed. The relevant question is no longer simply who is improving fastest. It is who is improving in ways that remain perceptible. Progress and advantage are related, but they are not identical.
-
-Progress does not stop when it becomes imperceptible. Only its competitive impact does.
+This is why markets do not always reward the most advanced technology. In mature regimes, the winning system is often not the one improving fastest, but the one whose advantages remain visible longest.
