@@ -56,7 +56,7 @@ intro: Tedla Brandsema is a software engineer and independent researcher based i
   {% assign project_items = "" | split: "" %}
   {% assign projects_collection = site.collections | where: "label", "projects" | first %}
   {% if projects_collection and projects_collection.docs %}
-  {% assign project_items = projects_collection.docs | where_exp: "item", "item.hide != true" | sort: "date" | reverse %}
+  {% assign project_items = projects_collection.docs | where_exp: "item", "item.hide != true" | where: "type", "overview" | sort: "date" | reverse %}
   {% endif %}
 
   <section class="home-overview" aria-labelledby="recent-projects">
@@ -68,7 +68,6 @@ intro: Tedla Brandsema is a software engineer and independent researcher based i
 
     <div class="search-results is-grid" aria-label="Recent projects overview">
       {% for p in project_items limit:6 %}
-      {% if p.type == "overview" %}
       <article class="search-result-item">
         <h3>
           <a href="{{ p.url }}">{{ p.heading | default: p.title | default: p.name }}</a>
@@ -86,7 +85,6 @@ intro: Tedla Brandsema is a software engineer and independent researcher based i
         </div>
         {% endif %}
       </article>
-      {% endif %}
       {% endfor %}
     </div>
   </section>
