@@ -3,8 +3,8 @@ layout: article
 type: memo
 date: 2026-02-21T05:53:00+01:00
 author: Tedla Brandsema
-title: From Scale to Sovereignty
-intro: A capital-structural synthesis of cost collapse, perceptual convergence, local parity, and sovereignty dynamics in the LLM industry.
+title: "From Scale to Sovereignty"
+intro: "A capital-structural synthesis of cost collapse, perceptual convergence, local parity, and sovereignty dynamics in the LLM industry."
 ---
 
 <h1>{{ page.title }}</h1>

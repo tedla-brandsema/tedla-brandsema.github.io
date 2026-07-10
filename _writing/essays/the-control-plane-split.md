@@ -3,12 +3,12 @@ layout: article
 type: essay
 date: 2026-02-21T01:38:00+01:00
 author: Tedla Brandsema
-title: The Control Plane Split
+title: "The Control Plane Split"
 intro: "Large language models are splitting into two economic roles: attention capture and intent execution."
 dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 hero: /static/images/hero/generated/the-control-plane-split
-hero_alt: A visual split between attention systems and intent execution systems.
-hero_caption: Attention systems extend interaction. Intent compilers compress it.
+hero_alt: "A visual split between attention systems and intent execution systems."
+hero_caption: "Attention systems extend interaction. Intent compilers compress it."
 hero_ai: true
 ---
 

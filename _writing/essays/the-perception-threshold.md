@@ -3,12 +3,12 @@ layout: article
 type: essay
 date: 2026-01-22T09:47:00+02:00
 author: Tedla Brandsema
-title: The Perception Threshold
-intro: Technical improvements stop producing advantage once users can no longer perceive the difference.
+title: "The Perception Threshold"
+intro: "Technical improvements stop producing advantage once users can no longer perceive the difference."
 dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 hero: /static/images/hero/generated/the-perception-threshold
-hero_alt: Two different model capabilities casting similar shadows before a human observer.
-hero_caption: Below the perception threshold, different capabilities can produce the same practical effect.
+hero_alt: "Two different model capabilities casting similar shadows before a human observer."
+hero_caption: "Below the perception threshold, different capabilities can produce the same practical effect."
 hero_ai: true
 ---
 

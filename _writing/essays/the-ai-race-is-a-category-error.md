@@ -3,12 +3,12 @@ layout: article
 type: essay
 date: 2026-01-08T10:23:00+02:00
 author: Tedla Brandsema
-title: The AI Race Is a Category Error
-intro: AI competition is not one race but many layered domains with different constraints and timelines.
+title: "The AI Race Is a Category Error"
+intro: "AI competition is not one race but many layered domains with different constraints and timelines."
 dossier: /writing/dossiers/the-structural-forces-shaping-the-llm-industry.html
 hero: /static/images/hero/generated/the-ai-race-is-a-category-error
-hero_alt: Structural layers of artificial intelligence with orthogonal domains surrounding them.
-hero_caption: Artificial intelligence is not one race, but a layered system shaped by adjacent domains.
+hero_alt: "Structural layers of artificial intelligence with orthogonal domains surrounding them."
+hero_caption: "Artificial intelligence is not one race, but a layered system shaped by adjacent domains."
 hero_ai: true
 ---
 

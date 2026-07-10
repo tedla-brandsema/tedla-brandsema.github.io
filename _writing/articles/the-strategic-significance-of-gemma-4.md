@@ -3,11 +3,11 @@ layout: article
 type: article
 date: 2026-04-07T00:00:00+02:00
 author: Tedla Brandsema
-title: The Strategic Significance of Gemma 4
-intro: Google’s Gemma 4 release does more than expand an ecosystem. It changes which AI companies are exposed when model access becomes less scarce.
+title: "The Strategic Significance of Gemma 4"
+intro: "Google’s Gemma 4 release does more than expand an ecosystem. It changes which AI companies are exposed when model access becomes less scarce."
 hero: /static/images/hero/generated/the-strategic-significance-of-gemma-4
-hero_alt: A glowing open-weight model piece on a strategic board applying pressure between diversified ecosystems and access-dependent model businesses.
-hero_caption: Openness from the center changes the market more than openness from the edge.
+hero_alt: "A glowing open-weight model piece on a strategic board applying pressure between diversified ecosystems and access-dependent model businesses."
+hero_caption: "Openness from the center changes the market more than openness from the edge."
 hero_ai: true
 redirect_from:
   - /writing/essays/the-strategic-significance-of-gemma-4.html

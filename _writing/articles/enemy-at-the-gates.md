@@ -3,11 +3,11 @@ layout: article
 type: article
 date: 2026-04-20T00:00:00+02:00
 author: Tedla Brandsema
-title: Enemy at the Gates
-intro: Alphabet's AI problem is structural, not mainly competitive. If AI systems weaken Google's control over intent capture, they threaten the advertising engine that funds the company while the time left for a serious response keeps shrinking.
+title: "Enemy at the Gates"
+intro: "Alphabet's AI problem is structural, not mainly competitive. If AI systems weaken Google's control over intent capture, they threaten the advertising engine that funds the company while the time left for a serious response keeps shrinking."
 hero: /static/images/hero/generated/enemy-at-the-gates
-hero_alt: A monumental digital citadel with an illuminated empty gate as streams of intent route around it.
-hero_caption: The empire controls the gate. The traffic is starting to route around it.
+hero_alt: "A monumental digital citadel with an illuminated empty gate as streams of intent route around it."
+hero_caption: "The empire controls the gate. The traffic is starting to route around it."
 hero_ai: true
 redirect_from:
   - /writing/essays/enemy-at-the-gates.html

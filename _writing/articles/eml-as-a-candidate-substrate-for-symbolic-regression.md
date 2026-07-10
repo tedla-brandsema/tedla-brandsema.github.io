@@ -3,11 +3,11 @@ layout: article
 type: article
 date: 2026-04-27T22:00:00+02:00
 author: Tedla Brandsema
-title: EML as a Candidate Substrate for Symbolic Regression
-intro: A toolchain for testing whether the Exp-Minus-Log representation gives symbolic regression a useful search space.
+title: "EML as a Candidate Substrate for Symbolic Regression"
+intro: "A toolchain for testing whether the Exp-Minus-Log representation gives symbolic regression a useful search space."
 hero: /static/images/hero/generated/eml-as-a-candidate-substrate-for-symbolic-regression
-hero_alt: A glowing mathematical expression lattice transforming data into symbolic expression trees.
-hero_caption: EML turns symbolic regression into a search over a compact expression space.
+hero_alt: "A glowing mathematical expression lattice transforming data into symbolic expression trees."
+hero_caption: "EML turns symbolic regression into a search over a compact expression space."
 hero_ai: true
 ---
 

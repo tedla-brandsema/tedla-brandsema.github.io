@@ -88,6 +88,16 @@ bundle exec jekyll clean
 - If you change `_config.yml` (for example collections), restart `jekyll serve`.
 - If gem install fails on native extensions, install your OS build tools and rerun `bundle install`.
 
+## Writing / Front Matter
+
+Always **quote** free-text front-matter values (`title`, `intro`, `hero_alt`,
+`hero_caption`) with double quotes. An unquoted value containing a colon-space
+(e.g. `intro: The question: why`) is read by YAML as a nested mapping and the
+whole document fails to parse — Jekyll then drops its front matter, so it loses
+its title/type/date and shows up as an empty "Unknown" entry dated at build time.
+Also ensure files have **no UTF-8 BOM** (the `---` must be the very first bytes),
+which breaks front matter the same way.
+
 ## Image Generation
 
 ```bash

@@ -3,11 +3,11 @@ layout: article
 type: article
 date: 2026-04-19T00:00:00+02:00
 author: Tedla Brandsema
-title: The Token Divide
-intro: As frontier models get stronger, access may become more stratified. The token divide is a market structure in which the best models, highest limits, and most productive agent workflows are divided by price.
+title: "The Token Divide"
+intro: "As frontier models get stronger, access may become more stratified. The token divide is a market structure in which the best models, highest limits, and most productive agent workflows are divided by price."
 hero: /static/images/hero/generated/the-token-divide
-hero_alt: Two separated digital regions divided by a deep chasm, with abundant golden token flows on one side and thinner blue streams on the other.
-hero_caption: The token divide emerges when access to productive machine cognition becomes tiered by price and throughput.
+hero_alt: "Two separated digital regions divided by a deep chasm, with abundant golden token flows on one side and thinner blue streams on the other."
+hero_caption: "The token divide emerges when access to productive machine cognition becomes tiered by price and throughput."
 hero_ai: true
 redirect_from:
   - /writing/essays/the-token-divide.html

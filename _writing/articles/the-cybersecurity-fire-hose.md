@@ -3,11 +3,11 @@ layout: article
 type: article
 date: 2026-05-09T08:58:00+02:00
 author: Tedla Brandsema
-title: The Cybersecurity Fire Hose
-intro: Vulnerability discovery is becoming a function of targeted AI compute, turning software security into a fire hose problem of spend, access, and remediation capacity.
+title: "The Cybersecurity Fire Hose"
+intro: "Vulnerability discovery is becoming a function of targeted AI compute, turning software security into a fire hose problem of spend, access, and remediation capacity."
 hero: /static/images/hero/generated/the-cybersecurity-fire-hose
-hero_alt: A massive fire hose blasting vulnerability reports toward a defensive wall staffed by security responders.
-hero_caption: The bottleneck shifts from finding vulnerabilities to absorbing, validating, and remediating them.
+hero_alt: "A massive fire hose blasting vulnerability reports toward a defensive wall staffed by security responders."
+hero_caption: "The bottleneck shifts from finding vulnerabilities to absorbing, validating, and remediating them."
 hero_ai: true
 ---
 
