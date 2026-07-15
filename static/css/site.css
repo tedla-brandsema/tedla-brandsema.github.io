@@ -799,9 +799,9 @@ main hr,
 
 /* Footnotes (kramdown) */
 .footnotes {
-    margin-top: 2.5rem;
+    /* margin-top: 2.5rem;
     padding-top: 1.4rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--border); */
     font-size: 0.9rem;
     color: var(--muted);
 }
