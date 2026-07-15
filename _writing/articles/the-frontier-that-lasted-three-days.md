@@ -4,10 +4,10 @@ type: article
 date: 2026-06-25T00:00:00+02:00
 author: Tedla Brandsema
 title: "The Frontier That Lasted Three Days"
-intro: "A frontier model's three-day public life turned four earlier AI essays into one system: token divides, sovereignty risk, local parity, and the perception threshold all arriving at once."
+intro: "Claude Fable 5 was public for three days before an export-control letter made it unreachable. That week settled four arguments I'd been having since January — and exposed the borrowed floor holding the price of everything else down."
 hero: /static/images/hero/generated/the-frontier-that-lasted-three-days
-hero_alt: "A benchmark bar chart comparing public AI models clustered near the low forties with a dashed Fable 5 bar at 64.5 marked withdrawn after three days."
-hero_caption: "The frontier advantage was real. Its guarantee was not."
+hero_alt: "Bar chart of scores on Humanity's Last Exam without tools. Gemini 3.1 Pro, GPT-5.5, GLM-5.2 and Gemini 3.5 Flash cluster between 40.2 and 44.4. Fable 5 stands alone at 64.5, drawn as a dashed outline because it was withdrawn."
+hero_caption: "Twenty points clear of everything else you could buy — for three days."
 hero_ai: true
 ---
 
