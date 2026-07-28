@@ -68,8 +68,8 @@ type StructuredError struct {
 	Fields []slog.Attr
 }
 
-func (e *StructuredError) Error() string       { /* ... */ }
-func (e *StructuredError) Unwrap() error       { return e.Err }
+func (e *StructuredError) Error() string        { /* ... */ }
+func (e *StructuredError) Unwrap() error        { return e.Err }
 func (e *StructuredError) LogValue() slog.Value { /* ... */ }
 ```
 
@@ -129,15 +129,11 @@ My whole shim is a single file of a few hundred lines with no dependencies. It i
 
 ## The shape that held
 
-I stopped work on this package in July 2025 and came back to it a year later, almost to the day. What happened next is the reason I am writing this rather than just publishing the code.
+I stopped work on this package in July 2025 and picked it up again a year later, almost to the day. More than a dozen commits in, and almost nothing from the original implementation survived. What is surprising, though, and the reason for me writing this article: the shape of the `StructuredError` type stayed the same across all of them. Four fields, three methods, exactly as I first wrote them down.
 
-The type is unchanged. Four fields, three methods, exactly as I first committed them. Everything behind those methods was wrong. `LogValue` called `Error()` on the wrapped error, which flattened every layer below the outermost back into the string this whole design exists to avoid, so the structure survived one level of wrapping and died at the second. The bounds check on an internal enum was off by one and panicked. The constructor conflated wrapping an error with creating one, so half its parameters were always zero. A cyclic chain exhausted the stack. When I fixed the flattening, it turned out an ordinary `fmt.Errorf` between two layers reintroduced the same collapse, through the single most common idiom in Go error handling.
+Go had handed me the handholds and I recognised the outline they made. Filling it in is a separate job, and Go leaves it to whoever writes the library. That is why there are so many small packages bridging `errors` and `log/slog`, and why no two of them agree on the details. Each author fills the same outline against a different set of constraints. An interface fixes the shape without dictating what goes inside it. That is what lets each of us build the bridge our own system needs, rather than everyone working around a single generic one.
 
-None of that ever produced an error. That is the part worth sitting with. Because the type really did satisfy `error` and `Unwrap` and `LogValuer`, everything compiled and every record came out as well-formed structured JSON. My draft of this article contained a sample record with a `user_id` in it that the code could not have produced, and my test suite passed the entire time, because the one test that touched a real handler built a record, wrote it to a buffer, and called `t.Log` on the result. It printed the evidence for a human to look at. Nobody looked, for a year.
-
-So the intuition was right and nearly every line implementing it was wrong, which is the opposite of how this usually goes. Satisfying an interface tells you the shape is right. It tells you nothing about what is inside.
-
-The type now carries its guarantees explicitly:
+`StructuredError` now carries these contracts explicitly:
 
 ```go
 var (
