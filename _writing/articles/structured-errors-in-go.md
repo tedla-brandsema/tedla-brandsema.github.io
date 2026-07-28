@@ -129,7 +129,9 @@ My whole shim is a single file of a few hundred lines with no dependencies. It i
 
 ## The shape that held
 
-I stopped work on this package in July 2025 and picked it up again a year later, almost to the day. More than a dozen commits in, and almost nothing from the original implementation survived. What is surprising, though, and the reason for me writing this article: the shape of the `StructuredError` type stayed the same across all of them. Four fields, three methods, exactly as I first wrote them down.
+I stopped work on this package in July 2025 and picked it up again a year later, almost to the day. Twenty commits on, almost nothing from the original implementation is left. The fields changed and changed again, the constructors were split and then collapsed back into one, and two dependencies went to none.
+
+What never moved is what the type satisfies. It was an error, it unwrapped, and it implemented slog.LogValuer in the first commit, and it still does nothing more than that. Everything I had to decide for myself churned, and the part Go had already decided is the part that held.
 
 Go had handed me the handholds and I recognised the outline they made. Filling it in is a separate job, and Go leaves it to whoever writes the library. That is why there are so many small packages bridging `errors` and `log/slog`, and why no two of them agree on the details. Each author fills the same outline against a different set of constraints. An interface fixes the shape without dictating what goes inside it. That is what lets each of us build the bridge our own system needs, rather than everyone working around a single generic one.
 
