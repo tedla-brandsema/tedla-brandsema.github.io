@@ -95,13 +95,11 @@ The second thing this buys you is the reason I started building it. A field has 
 
 Same failure, same redactor, one record it can reach and one it cannot. Once a value is inside a message string, nothing downstream finds it again without guessing at its shape, and a redactor that guesses is a redactor that misses.
 
-Both of the drafts I abandoned last year mention this. Both mention it in a single bullet, under a heading about things to consider when taking the pattern into production, sitting between a note on required fields and a note on key naming. I had the argument and filed it as housekeeping.
-
 ## Everyone else's bridge
 
 I built this, wrote most of an article about it, and then found out I was late by about eighteen months.
 
-There is a Medium post from January 2024 presenting an experimental package for structured errors on exactly this premise, that a structured error is an error with attributes which get added to the record when it is logged.[^3] The package is called `serrors`. So is mine. That was a bad morning.
+There is a Medium post from January 2024 presenting an experimental package for structured errors on exactly this premise, that a structured error is an error with attributes which get added to the record when it is logged.[^3] The package is called `serrors`. So is mine.
 
 It is not one prior instance, either. Once I went looking, the field turned out to be busy, and busy in a way I did not expect. One library attaches arguments to an error and then hydrates a logger from that error at the boundary, so the error enriches the logger. Another runs it the other way, deriving an error's context from an `slog.Logger` on the grounds that the logging package is already assembling that context. A third converts an error into an `slog.Record` outright. A fourth folds structured attributes in alongside a single stack trace preserved across wraps. In the standard library's own proposal threads, one commenter pastes the helper he carries into every project, a one-line function returning `slog.Any("error", err)`, and another pastes his, which builds a group in OpenTelemetry's exception semantic conventions with a message and a stack trace.[^4] Mine puts a `LogValuer` on the error and lets the handler pull.
 
