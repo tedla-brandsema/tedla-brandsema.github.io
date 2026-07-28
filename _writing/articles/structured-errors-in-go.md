@@ -6,8 +6,8 @@ author: Tedla Brandsema
 title: "Structured Errors in Go"
 intro: "Go gives you errors as values and, since 1.21, structured logging in the standard library. The two do not meet: context is known deep in the call stack, and the decision to write a log record belongs at the boundary. A small type closes the distance. Enough Go developers have built that type independently that it starts to look like something missing from the standard library, which is what I thought until I read their implementations."
 hero: /static/images/hero/generated/structured-errors-in-go
-hero_alt: "Placeholder."
-hero_caption: "Placeholder."
+hero_alt: "Five footbridges crossing the same narrow ravine at intervals, each built differently: lashed logs in the foreground, then a flat stone slab, a steel span, a rope bridge, and a timber plank walkway fading into mist. Wet grey rock, moss, a shallow stream running along the bottom."
+hero_caption: "The materials were lying there. Nobody agreed on the bridge."
 hero_ai: true
 ---
 
