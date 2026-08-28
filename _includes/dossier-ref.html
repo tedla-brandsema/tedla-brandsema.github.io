@@ -1,6 +1,6 @@
 {%- if page.dossier -%}
 {%- assign dossier_page = site.writing | where: "url", page.dossier | first -%}
-<div class="dossier">
+<div class="dossier dossier-ref">
   This essay is part of the dossier: &nbsp;
   {%- if dossier_page -%}
   <a href="{{ dossier_page.url }}">{{ dossier_page.title }}</a>.
