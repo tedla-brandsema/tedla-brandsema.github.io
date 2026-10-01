@@ -23,9 +23,7 @@ hero_ai: true
 
 {% include dossier-ref.html %}
 
-Model progress is usually narrated as a data story. Larger datasets are expected to produce better systems. Newer datasets are expected to produce more capable ones. The hidden premise is that data is one substance, so any addition improves the model in roughly the same way.
-
-That premise is too clean.
+Model progress is usually narrated as a data story. Larger datasets are expected to produce better systems. Newer datasets are expected to produce more capable ones. That assumes any addition of data improves the model in roughly the same way.
 
 Training data does at least two different jobs. Some data is *skill-forming*. It changes how a system reasons, generalizes, and composes answers. Exposure to different structures, problem shapes, languages, domains, and failure cases can improve abstraction and inference. This kind of data expands what the system can do. Its effects are slow and expensive. Once absorbed, they tend to stick.
 
@@ -35,19 +33,17 @@ Other data is *fact-forming*. It changes what the system knows about the world. 
 
 Skill-forming data and fact-forming data obey different curves. Skill formation is gradual and compounding. Fact formation is immediate and perishable.
 
-The difference matters because the two inputs age differently. Skill-forming data appears to face diminishing returns. Early exposure to broad, varied material can produce large gains in abstraction and generalization. Later additions usually refine the model rather than remake it. In simplified terms, capability growth starts to resemble a logarithmic curve: large early gains followed by smaller marginal gains.
+Skill-forming data appears to face diminishing returns. Early exposure to broad, varied material can produce large gains in abstraction and generalization. Later additions usually refine the model rather than remake it. In simplified terms, capability growth starts to resemble a logarithmic curve: large early gains followed by smaller marginal gains.
 
-Fact-forming data does not behave that way. Knowledge does not saturate, because reality keeps moving. Events happen. Terminology changes. Institutions shift. New discoveries appear. The value of fact-forming data is therefore tied less to total volume than to recency. Its contribution is temporal alignment, not cumulative depth.
+Fact-forming data does not behave that way. Knowledge does not saturate, because reality keeps moving. Events, terminology, institutions, and discoveries keep changing what a model needs to know. The value of fact-forming data is therefore tied less to total volume than to recency. Its contribution is temporal alignment.
 
 ## Divergent Scaling Behaviors
 
 This asymmetry has direct competitive consequences. Structural capability can approach perceptual limits as returns diminish. Temporal relevance keeps resetting.
 
-This divergence defines **data duality**.
+I call this divergence data duality.
 
-It also changes how model releases should be read.
-
-When a new system ships, the improvement may come from skill-forming data, fact-forming data, or some mixture of the two. Outside observers rarely separate those inputs. A model that answers newer questions correctly may look smarter, even if its underlying reasoning capacity has not changed much. The visible gain is real. The interpretation may be wrong.
+When a new system ships, the improvement may come from skill-forming data, fact-forming data, or some mixture of the two. Outside observers rarely separate those inputs. A model that answers newer questions correctly may look smarter, even if its underlying reasoning capacity has not changed much. More current answers can be mistaken for better reasoning.
 
 ## When Recency Is Mistaken for Intelligence
 
@@ -56,5 +52,3 @@ That misreading becomes more likely as models get better. Once structural gains 
 Market attention then drifts toward the signal it can see. Capability growth and knowledge refresh get folded into one story, even though they come from different inputs and follow different trajectories. Skill-forming gains tend to be slow and structural; when they stick, they last. Fact-forming gains are easier to see and easier to lose.
 
 Competition splits along two axes. One race is about durable capability: how well a system reasons and generalizes. The other is about temporal relevance: how well it reflects the present state of knowledge. Leadership in one does not guarantee leadership in the other.
-
-A model's intelligence and its recency are not the same variable.

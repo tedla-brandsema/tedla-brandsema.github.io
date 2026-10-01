@@ -30,13 +30,13 @@ Nearly every Go service resolves this in one of two ways, and both of them cost 
 
 Go's error handling is famously plain. You create an error with `errors.New` or `fmt.Errorf`, or you define a type with an `Error() string` method, and then you return it like any other value. Since Go 1.13 you can wrap: `fmt.Errorf("findUser: %w", err)` keeps the original reachable, and `errors.Is` and `errors.As` walk the chain to find it.[^1]
 
-The value being returned is a string with a type attached. That is the whole payload. So when `findUser` wants the caller to know it was user 42, it writes user 42 into the sentence:
+The value being returned is a string with a type attached. So when `findUser` wants the caller to know it was user 42, it writes user 42 into the sentence:
 
 ```go
 return fmt.Errorf("findUser user_id=%d: %w", userID, err)
 ```
 
-By the time this reaches the handler, four layers up, it reads something like `getUserProfile: profile store: findUser user_id=42: sql: no rows in result set`. The information survived. It just stopped being information and became prose. Nothing downstream can ask that string which user it was about without a regular expression and a guess, and a log pipeline cannot index it at all.
+By the time this reaches the handler, four layers up, it reads something like `getUserProfile: profile store: findUser user_id=42: sql: no rows in result set`. The information survived as prose. Nothing downstream can ask that string which user it was about without a regular expression and a guess, and a log pipeline cannot index it at all.
 
 The alternative is to log where the failure happens, while the context is still structured and still in scope. That works, and it produces a service where one failed request emits four log records at four different levels of the stack, none of which knows the request ID, and an on-call rotation that has learned to ignore all of them.
 
@@ -52,7 +52,7 @@ logger.Error("request failed", slog.Int("user_id", 42), slog.String("op", "findU
 {"level":"ERROR","msg":"request failed","user_id":42,"op":"findUser"}
 ```
 
-Rich, queryable, machine-readable, and emitted from exactly one place in the program: the line where you called `Error`. That is the property that matters here and the one that is easy to miss. A log record is fixed in place. An error is mobile and lossy. Put those two facts next to each other and the problem stops being about formatting.
+The record is queryable and machine-readable, but it is fixed at the line where you called `Error`. The error travels up the stack and loses structure along the way.
 
 The context is known where the record cannot be written, and the record is written where the context is gone.
 
@@ -73,7 +73,7 @@ func (e *StructuredError) Unwrap() error        { return e.Err }
 func (e *StructuredError) LogValue() slog.Value { /* ... */ }
 ```
 
-Three methods. `Error` makes it an error, so it returns and propagates like any other value. `Unwrap` keeps `errors.Is` and `errors.As` working through it, so control flow is untouched: you can still test for `sql.ErrNoRows` at the top of a chain that has been wrapped four times. `LogValue` is the interesting one. When a handler meets a value implementing `slog.LogValuer` it calls that method instead of formatting the value itself, and it only calls it if the record is actually going to be emitted, so accumulating context on a path where the log level drops everything costs nothing at all.
+`Error` makes it an error, so it returns and propagates like any other value. `Unwrap` keeps `errors.Is` and `errors.As` working through it, so control flow is untouched: you can still test for `sql.ErrNoRows` at the top of a chain that has been wrapped four times. `LogValue` connects the error to the logger. When a handler meets a value implementing `slog.LogValuer` it calls that method instead of formatting the value itself, and it only calls it if the record is actually going to be emitted, so accumulating context on a path where the log level drops everything costs nothing at all.
 
 Attach fields at each layer and the handler gets one record with everything the stack knew:
 
@@ -101,7 +101,7 @@ I built this, wrote most of an article about it, and then found out I was late b
 
 There is a Medium post from January 2024 presenting an experimental package for structured errors on exactly this premise, that a structured error is an error with attributes which get added to the record when it is logged.[^3] The package is called `serrors`. So is mine.
 
-It is not one prior instance, either. Once I went looking, the field turned out to be busy, and busy in a way I did not expect. One library attaches arguments to an error and then hydrates a logger from that error at the boundary, so the error enriches the logger. Another runs it the other way, deriving an error's context from an `slog.Logger` on the grounds that the logging package is already assembling that context. A third converts an error into an `slog.Record` outright. A fourth folds structured attributes in alongside a single stack trace preserved across wraps. In the standard library's own proposal threads, one commenter pastes the helper he carries into every project, a one-line function returning `slog.Any("error", err)`, and another pastes his, which builds a group in OpenTelemetry's exception semantic conventions with a message and a stack trace.[^4] Mine puts a `LogValuer` on the error and lets the handler pull.
+Once I went looking, I found more implementations than I expected. One library attaches arguments to an error and then hydrates a logger from that error at the boundary, so the error enriches the logger. Another runs it the other way, deriving an error's context from an `slog.Logger` on the grounds that the logging package is already assembling that context. A third converts an error into an `slog.Record` outright. A fourth folds structured attributes in alongside a single stack trace preserved across wraps. In the standard library's own proposal threads, one commenter pastes the helper he carries into every project, a one-line function returning `slog.Any("error", err)`, and another pastes his, which builds a group in OpenTelemetry's exception semantic conventions with a message and a stack trace.[^4] Mine puts a `LogValuer` on the error and lets the handler pull.
 
 Six or so directions of travel between exactly two objects. Everybody agrees an error and a log record need to exchange context. Nobody agrees which way the arrow points, what the key is called, or whether the thing you hand the logger is a value, a record, or another logger.
 
@@ -119,9 +119,9 @@ Two declined proposals and a three-year-old open bug, against a field full of pe
 
 Then I read the implementations properly, and the shape of the disagreement changed my mind.
 
-If everyone had built the same thing, the case for standardising it would be strong. Everyone has not built the same thing. They have built one thing for each set of constraints they happened to be under, and each one is defensible on its own terms. If you already have a logger in scope at every layer, deriving the error's context from the logger is the smaller change. If you are exporting to OpenTelemetry, the semantic conventions decide your shape and you build to them. If your team's existing schema keys errors under `exception`, a library that hardcodes `error` is worse than no library. If you want a stack trace, none of the proposals would have given you one and you were always going to write your own helper.
+The implementations differ because their authors faced different constraints, and each is defensible on its own terms. If you already have a logger in scope at every layer, deriving the error's context from the logger is the smaller change. If you are exporting to OpenTelemetry, the semantic conventions decide your shape and you build to them. If your team's existing schema keys errors under `exception`, a library that hardcodes `error` is worse than no library. If you want a stack trace, none of the proposals would have given you one and you were always going to write your own helper.
 
-Amsterdam's objection is not an evasion, in other words. It is a correct description of the situation. There are too many ways to log an error for the standard library to take a position, and the reason there are too many is not that Go failed to pick one.
+Amsterdam’s objection describes the situation correctly. There are too many ways to log an error for the standard library to take a position, and the reason there are too many is not that Go failed to pick one.
 
 What Go did instead was define the interfaces and get out of the way. `error` is an interface. `Unwrap` is a method shape that `errors.Is` and `errors.As` know how to walk. `LogValuer` lets any type decide how it appears in a record, lazily. `Handler` and `ReplaceAttr` let the application, which is the only party that knows what its log pipeline wants, impose a vocabulary on libraries that never agreed on one. Every piece of the bridge is already in the standard library. What is missing is the assembly, and the assembly is the part that should be yours, because it is the part that depends on facts about your system that Go cannot know.
 
@@ -133,7 +133,7 @@ I stopped work on this package in July 2025 and picked it up again a year later,
 
 What never moved is what the type satisfies. It was an error, it unwrapped, and it implemented slog.LogValuer in the first commit, and it still does nothing more than that. Everything I had to decide for myself churned, and the part Go had already decided is the part that held.
 
-Go had handed me the handholds and I recognised the outline they made. Filling it in is a separate job, and Go leaves it to whoever writes the library. That is why there are so many small packages bridging `errors` and `log/slog`, and why no two of them agree on the details. Each author fills the same outline against a different set of constraints. An interface fixes the shape without dictating what goes inside it. That is what lets each of us build the bridge our own system needs, rather than everyone working around a single generic one.
+Go defined the interfaces and left the implementation to whoever writes the library. That is why there are so many small packages bridging `errors` and `log/slog`, and why no two of them agree on the details. Each author fills the same outline against a different set of constraints. An interface fixes the shape without dictating what goes inside it. That is what lets each of us build the bridge our own system needs, rather than everyone working around a single generic one.
 
 `StructuredError` now carries these contracts explicitly:
 
@@ -146,8 +146,6 @@ var (
 ```
 
 Two of those three have names. The third does not, and cannot, because there is no `errors.Wrapper` interface anywhere in the standard library and there never was: `errors.Unwrap`, `errors.Is`, and `errors.As` each assert on an anonymous interface literal at their own call site.[^8] The contract this entire package rests on was never given a name to implement, and it still works, in every error package written since 2019, without one.
-
-That is as good a description of the arrangement as I can give. The standard library handed out the pieces, declined to specify the object, and did not even bother to name the most load-bearing piece it handed out. Four hundred lines later, the thing assembles anyway.
 
 ---
 

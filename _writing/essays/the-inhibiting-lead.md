@@ -37,20 +37,18 @@ Training costs matter, but the sharper problem is infrastructure. Data centers, 
 
 If progress is gradual, that is manageable. If efficiency jumps, the math changes. A later entrant can inherit the lessons of the first mover and build with newer hardware, refined methods, or improved architectures, landing near the same performance with less capital trapped in the old buildout. The follower does not need to be smarter. It only needs to arrive after the price of competence has fallen.
 
-That is the asymmetry. Capability can diffuse. Fixed commitments stay attached to the company that signed them.
+Capability can diffuse while fixed commitments stay attached to the company that signed them.
 
 ## The Inhibiting Lead
 
 History keeps producing versions of this pattern. Telecommunications firms that built vast networks before bandwidth prices collapsed found themselves carrying infrastructure sized for an earlier cost regime. Manufacturers that invested heavily in first-generation production lines were undercut by competitors using cheaper processes. In both cases, early leadership did not vanish. It stopped guaranteeing advantage.
 
-The mechanism is simple: when cost curves collapse faster than capital can be amortized, early investment turns from an advantage into a structural liability. The lead remains, but the balance sheet starts dictating the room for maneuver.
+When cost curves collapse faster than capital can be amortized, early investment turns from an advantage into a structural liability. The lead remains, but the balance sheet starts dictating the room for maneuver.
 
 I call this the inhibiting lead: the condition in which the investments that produced early leadership later restrict the leader's ability to adapt. Jan Romein described the same general pattern in 1937 as the "law of the handicap of a head start" (remmende voorsprong). A head start can harden into a constraint because the leader has already built around assumptions that later entrants can avoid.
 
-The point is not that first movers are doomed. That would be too clean. The inhibiting lead appears only under specific conditions: steep cost decline, fast knowledge diffusion, long-lived infrastructure commitments, and enough market tolerance for comparable performance. If those conditions are absent, the old first-mover logic may still hold.
+The inhibiting lead appears only under specific conditions: steep cost decline, fast knowledge diffusion, long-lived infrastructure commitments, and enough market tolerance for comparable performance. If those conditions are absent, the old first-mover logic may still hold.
 
-But when they are present, the usual race narrative gets the story wrong. It asks who is ahead today. The better question is how expensive the lead was to build, and how much of that cost is still locked in.
+When they are present, how expensive the lead was to build, and how much of that cost is still locked in, matter as much as who is ahead today.
 
 For the large-model sector, that means looking past capability and market share. The relevant inventory includes data centers, hardware procurement agreements, power contracts, specialized networking architectures, capital exposure, and the rate at which techniques spread across the field. A firm can be technically ahead while economically pinned down.
-
-First-mover advantage is real. In a cost-collapse market, that is only the first sentence. The dangerous position may be among the leaders, carrying infrastructure priced for an older curve while the next entrant buys the cheaper future.
